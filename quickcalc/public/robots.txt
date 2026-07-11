@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://quickcalc.cloud
+
+# Sitemaps
+Sitemap: https://quickcalc.cloud/sitemap.xml
