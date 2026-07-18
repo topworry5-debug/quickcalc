@@ -86,6 +86,10 @@ export default function JSONCSVConverterPage() {
             <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
               Home
             </Link>
+            <Link href="/blog" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+              Blog
+            </Link>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
             <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700">|</span>
             <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600">JSON & CSV Converter</span>
             <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>

@@ -66,6 +66,10 @@ export default function LoanCalculatorPage() {
             <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               Home
             </Link>
+            <Link href="/blog" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+              Blog
+            </Link>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
             <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700">|</span>
             <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600">Loan Calculator</span>
             <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>

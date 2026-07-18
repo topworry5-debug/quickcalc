@@ -40,6 +40,10 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
             <span>✨ QuickCalc</span>
           </Link>
           <div className="flex items-center gap-4">
+            <Link href="/blog" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              Blog
+            </Link>
+            <div className="text-sm font-medium text-zinc-300 dark:text-zinc-700 hidden sm:block">|</div>
             <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400 hidden sm:block">
               Ultimate Calculator Suite
             </div>
