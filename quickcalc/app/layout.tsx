@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -64,6 +65,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7805149919686594"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         {/* Inline Theme script to prevent flash of unstyled theme on load */}
         <script
           dangerouslySetInnerHTML={{
