@@ -1,3 +1,5 @@
+import ThemeToggle from "@/components/ThemeToggle";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
@@ -19,8 +21,16 @@ export default function AboutPage() {
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-zinc-900 dark:text-white">
             <span>✨ QuickCalc</span>
           </Link>
-          <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-            About Us
+          <div className="flex items-center gap-4">
+            <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+              Home
+            </Link>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
+            <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+              About Us
+            </div>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
+            <ThemeToggle />
           </div>
         </div>
       </header>

@@ -1,3 +1,5 @@
+import ThemeToggle from "@/components/ThemeToggle";
+
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 import type { Metadata } from "next";
@@ -66,6 +68,8 @@ export default function WaterIntakeCalculatorPage() {
             </Link>
             <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700">|</span>
             <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600">Water Intake</span>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
+            <ThemeToggle />
           </nav>
         </div>
       </header>

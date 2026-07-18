@@ -1,5 +1,7 @@
 "use client";
 
+import ThemeToggle from "@/components/ThemeToggle";
+
 import React, { useState } from "react";
 import Link from "next/link";
 import AdSlot from "@/components/AdSlot";
@@ -37,8 +39,11 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-zinc-900 dark:text-white">
             <span>✨ QuickCalc</span>
           </Link>
-          <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-            Ultimate Calculator Suite
+          <div className="flex items-center gap-4">
+            <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400 hidden sm:block">
+              Ultimate Calculator Suite
+            </div>
+            <ThemeToggle />
           </div>
         </div>
       </header>
