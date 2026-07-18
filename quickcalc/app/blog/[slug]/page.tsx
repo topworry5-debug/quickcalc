@@ -199,7 +199,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                   <strong>The Muscular Athlete Phenomenon:</strong> Muscle tissue is substantially denser and occupies less volumetric space than fatty tissue per pound. Consequently, competitive bodybuilders, powerlifters, and explosive athletic sprinters can register a BMI of 28 to 33, placing them in the Overweight or Obese categories, despite maintaining highly athletic cardiovascular baselines and exceptionally low body fat levels.
                 </li>
                 <li>
-                  <strong>Normal-Weight Obesity ("Skinny Fat"):</strong> Conversely, older adults or sedentary individuals who have lost muscle mass due to age or inactivity can display a mathematically "perfect" BMI of 22, yet carry dangerous amounts of hidden visceral fat wrapped around their abdominal organs, experiencing identical metabolic risk factors as clinically obese individuals.
+                  <strong>Normal-Weight Obesity (&quot;Skinny Fat&quot;):</strong> Conversely, older adults or sedentary individuals who have lost muscle mass due to age or inactivity can display a mathematically &quot;perfect&quot; BMI of 22, yet carry dangerous amounts of hidden visceral fat wrapped around their abdominal organs, experiencing identical metabolic risk factors as clinically obese individuals.
                 </li>
                 <li>
                   <strong>Bone Density and Frame Variance:</strong> People with exceptionally wide, dense skeletal structures naturally weigh more than those with highly delicate, narrow skeletal frames of identical height, skewing their results without reflecting their actual health.
@@ -251,7 +251,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 <li><strong>The Southern Hemisphere (e.g. Australia):</strong> Operates on completely inverted seasons. Sydney transitions to DST on the first Sunday of October and returns on the first Sunday of April.</li>
               </ul>
               <p>
-                These staggered schedules create multiple highly disruptive "transition windows" throughout the year. For instance, during the three-week gap in March, the time difference between New York and London shrinks from 5 hours to 4 hours, only to expand back to 5 hours once Europe transitions.
+                These staggered schedules create multiple highly disruptive &quot;transition windows&quot; throughout the year. For instance, during the three-week gap in March, the time difference between New York and London shrinks from 5 hours to 4 hours, only to expand back to 5 hours once Europe transitions.
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
@@ -264,7 +264,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 To manage this shifting landscape, the global computing infrastructure relies on the <strong>IANA Timezone Database</strong> (often called the tz database or zoneinfo). Instead of using numbers, developers reference geographic location keys, such as:
               </p>
               <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold">
-                Reference Keys: "America/New_York", "Europe/London", "Australia/Sydney"
+                Reference Keys: &quot;America/New_York&quot;, &quot;Europe/London&quot;, &quot;Australia/Sydney&quot;
               </p>
               <p>
                 The database registers the entire historical and future projection of offset rules, transition dates, and DST policies for that specific geographic spot. Operating systems and programming libraries routinely download updates to the IANA database to keep local clocks running accurately in the face of sudden government decrees.
@@ -293,7 +293,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
           {article.slug === "what-makes-a-password-actually-strong-understanding-entropy" && (
             <>
               <p>
-                We have all experienced the frustration of creating a new online account, only to be confronted with a strict set of security requirements: "Your password must contain at least 8 characters, one uppercase letter, one number, and one special symbol." To comply, many users take a simple word and make predictable substitutions, yielding combinations like <code>"P@ssw0rd123!"</code> or <code>"Tr41n$"</code>. To a human, these look complex. To a modern cryptographic attack script, they are incredibly easy to crack.
+                We have all experienced the frustration of creating a new online account, only to be confronted with a strict set of security requirements: &quot;Your password must contain at least 8 characters, one uppercase letter, one number, and one special symbol.&quot; To comply, many users take a simple word and make predictable substitutions, yielding combinations like <code>&quot;P@ssw0rd123!&quot;</code> or <code>&quot;Tr41n$&quot;</code>. To a human, these look complex. To a modern cryptographic attack script, they are incredibly easy to crack.
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
@@ -326,19 +326,19 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 Why Length Beats Complexity: The Math of Scale
               </h2>
               <p>
-                The fundamental flaw of "complexity requirements" is that they focus on expanding the character pool size (R) rather than expanding the password length (L). However, because length acts as a <strong>linear multiplier</strong> in the entropy equation, adding more characters increases security exponentially faster than adding more character types.
+                The fundamental flaw of &quot;complexity requirements&quot; is that they focus on expanding the character pool size (R) rather than expanding the password length (L). However, because length acts as a <strong>linear multiplier</strong> in the entropy equation, adding more characters increases security exponentially faster than adding more character types.
               </p>
               <p>
                 Let us compare two distinct approaches:
               </p>
               <ul className="list-disc pl-6 space-y-3">
                 <li>
-                  <strong>The "Complex" Short Password (<code>"J@m3s!8"</code>):</strong> Length = 7 characters. Uses uppercase, lowercase, numbers, and symbols (R = 94).
+                  <strong>The &quot;Complex&quot; Short Password (<code>&quot;J@m3s!8&quot;</code>):</strong> Length = 7 characters. Uses uppercase, lowercase, numbers, and symbols (R = 94).
                   <br />
                   <span className="font-semibold text-rose-500">E = 7 &times; log₂(94) &asymp; 45.8 bits.</span>
                 </li>
                 <li>
-                  <strong>The "Simple" Long Passphrase (<code>"correcthorsebatterystaple"</code>):</strong> Length = 28 characters. Uses only lowercase letters (R = 26).
+                  <strong>The &quot;Simple&quot; Long Passphrase (<code>&quot;correcthorsebatterystaple&quot;</code>):</strong> Length = 28 characters. Uses only lowercase letters (R = 26).
                   <br />
                   <span className="font-semibold text-emerald-500">E = 28 &times; log₂(26) &asymp; 131.6 bits.</span>
                 </li>
@@ -354,7 +354,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 Traditional brute-force attacks test every single possible combination of characters systematically. Modern hacking utilities are much smarter. They perform <strong>dictionary and rule-based attacks</strong>.
               </p>
               <p>
-                Attack programs like Hashcat parse massive leaked databases (such as the famous RockYou.txt collection) containing billions of real-world passwords. They analyze standard human habits: substituting <code>"a"</code> with <code>"@"</code>, capitalizing the first letter, appending <code>"123"</code> or <code>"!"</code> to the end. Because these substitutions are highly predictable, they are pre-programmed into the dictionary attack engine. This means your "complex" password is often cracked almost instantly because it follows highly human, standard patterns.
+                Attack programs like Hashcat parse massive leaked databases (such as the famous RockYou.txt collection) containing billions of real-world passwords. They analyze standard human habits: substituting <code>&quot;a&quot;</code> with <code>&quot;@&quot;</code>, capitalizing the first letter, appending <code>&quot;123&quot;</code> or <code>&quot;!&quot;</code> to the end. Because these substitutions are highly predictable, they are pre-programmed into the dictionary attack engine. This means your &quot;complex&quot; password is often cracked almost instantly because it follows highly human, standard patterns.
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
@@ -365,7 +365,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
               <ol className="list-decimal pl-6 space-y-3">
                 <li>
-                  <strong>Pick Random Words:</strong> Select 4 to 6 random, completely unrelated common words. Do not make them a coherent sentence (e.g. <code>"ocean apple pocket guitar"</code>).
+                  <strong>Pick Random Words:</strong> Select 4 to 6 random, completely unrelated common words. Do not make them a coherent sentence (e.g. <code>&quot;ocean apple pocket guitar&quot;</code>).
                 </li>
                 <li>
                   <strong>Avoid Common Phrases:</strong> Avoid quotes, idioms, song lyrics, or patterns that appear in books, which can be captured by dictionary attacks.
