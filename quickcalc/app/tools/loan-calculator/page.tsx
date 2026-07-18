@@ -1,3 +1,5 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import LoanCalculatorWidget from "./LoanCalculatorWidget";
@@ -70,6 +72,7 @@ export default function LoanCalculatorPage() {
 
       {/* Main Content Area */}
       <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <Breadcrumbs toolName="Loan / EMI Calculator" toolSlug="loan-calculator" />
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Loan / EMI Calculator

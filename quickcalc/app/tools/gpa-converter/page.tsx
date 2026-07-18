@@ -1,3 +1,5 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import GPAConverterWidget from "./GPAConverterWidget";
@@ -70,6 +72,7 @@ export default function GPAConverterPage() {
 
       {/* Main Content Area */}
       <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <Breadcrumbs toolName="GPA Converter" toolSlug="gpa-converter" />
         <div className="text-center max-w-2xl mx-auto mb-8">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             GPA Converter
