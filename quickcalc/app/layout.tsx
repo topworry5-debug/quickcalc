@@ -17,6 +17,9 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://quickcalc.cloud"),
+  other: {
+    "p:domain_verify": "57be082e13457e878c19c2529f56fe64",
+  },
   title: {
     default: "QuickCalc - Elegant Ultimate Calculator Suite",
     template: "%s | QuickCalc",
