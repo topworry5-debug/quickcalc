@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "us-uk-eu-japan-shoe-size-conversion-guide",
+    title: "US vs UK vs EU vs Japan Shoe Sizes: The Complete Conversion Guide",
+    description: "Convert shoe sizes between US, UK, EU, and Japan with our complete international shoe size guide. Learn formulas, sizing histories, and avoid shopping mistakes.",
+    excerpt: "Sizing systems vary wildly across the globe. From historical barleycorns in the US and UK to Paris points in Europe and exact centimeters in Japan, learn how to convert shoe sizes accurately and avoid expensive online shopping mistakes.",
+    date: "July 20, 2026",
+    readTime: "9 min read",
+    category: "Utility & Shopping",
+    icon: "👟",
+    color: "from-amber-500 to-orange-600",
+    textColor: "text-amber-600 dark:text-amber-400",
+  },
+  {
     slug: "how-to-calculate-bmi-accurately-and-its-limitations",
     title: "How to Calculate BMI Accurately (And Its Limitations)",
     description: "Learn how to compute your Body Mass Index (BMI) precisely with standard equations, and understand the biological limits of BMI in clinical and athletic settings.",
