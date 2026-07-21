@@ -130,6 +130,14 @@ export default function Home() {
       href: "/tools/tip-calculator",
       color: "from-teal-500 to-cyan-600",
       textColor: "text-teal-600 dark:text-teal-400"
+    },
+    {
+      title: "Percentage Calculator",
+      description: "Calculate percentage changes, fractions, savings, discount values, and reverse percentages instantly with dynamic formulas.",
+      icon: "📊",
+      href: "/tools/percentage-calculator",
+      color: "from-blue-500 to-indigo-600",
+      textColor: "text-blue-600 dark:text-blue-400"
     }
   ];
 
