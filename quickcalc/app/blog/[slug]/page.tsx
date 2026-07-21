@@ -55,7 +55,11 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     "@type": "BlogPosting",
     "headline": article.title,
     "description": article.description,
-    "datePublished": article.slug === "how-to-calculate-bmi-accurately-and-its-limitations" 
+    "datePublished": article.slug === "how-to-split-a-bill-fairly-when-everyone-orders-different-things"
+      ? "2026-07-22"
+      : article.slug === "how-to-calculate-percentage-increase-decrease-discount"
+      ? "2026-07-21"
+      : article.slug === "how-to-calculate-bmi-accurately-and-its-limitations" 
       ? "2026-07-18" 
       : article.slug === "why-daylight-saving-time-breaks-simple-timezone-math" 
       ? "2026-07-17" 
@@ -144,6 +148,285 @@ export default function BlogPostPage({ params }: BlogPostProps) {
 
         {/* Article Body */}
         <article className="prose prose-zinc dark:prose-invert max-w-none space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+          {article.slug === "how-to-split-a-bill-fairly-when-everyone-orders-different-things" && (
+            <>
+              <p>
+                You know the moment. The bill arrives, someone says "let's just split it evenly," 
+                and everyone nods &mdash; even though you had a water and an appetizer while your 
+                friend ordered a steak and two cocktails. Nobody wants to be <em>that person</em> who 
+                brings up the math, so you just pay more than your share and let it go.
+              </p>
+              <p>
+                There's a better way, and it doesn't require an awkward conversation.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why "Just Split It Evenly" Doesn't Actually Work</h2>
+              <p>
+                Splitting a bill equally only makes sense when everyone ordered roughly the same 
+                amount. The moment portions get uneven &mdash; one person orders drinks, another 
+                doesn't, someone gets dessert and someone skips it &mdash; an equal split quietly 
+                overcharges the people who spent less and undercharges the people who spent more.
+              </p>
+              <p>
+                It's not a huge deal once in a while. But if it's a recurring group (roommates, 
+                a regular dinner crew, a trip with friends), those small overpayments add up fast.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">The Right Way to Split an Uneven Bill</h2>
+              <p>
+                Here's the actual process, step by step:
+              </p>
+              
+              <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">1. List every item and its price.</p>
+              <p>
+                Don't skip this &mdash; even if it feels tedious, itemizing is what makes the split 
+                accurate. Grab the receipt and write out each item.
+              </p>
+
+              <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">2. Assign each item to the person (or people) who ordered it.</p>
+              <p>
+                Shared items &mdash; like a plate of fries three people picked at &mdash; get split between 
+                just those people, not the whole table.
+              </p>
+
+              <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">3. Add up each person's subtotal.</p>
+              <p>
+                This is simply the sum of everything assigned to them.
+              </p>
+
+              <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">4. Distribute tax and tip proportionally.</p>
+              <p>
+                This is the step almost everyone gets wrong. Tax and tip shouldn't be split 
+                equally either &mdash; they should be split based on how much each person's subtotal 
+                contributes to the total bill.
+              </p>
+
+              <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold my-4">
+                Formula: Person's Share of Tax/Tip = (Person's Subtotal &divide; Total Bill Before Tax) &times; Total Tax/Tip
+              </p>
+
+              <p className="font-semibold text-zinc-900 dark:text-white mt-6 mb-2">Example:</p>
+              <p>
+                Ali ordered $30 worth of food. Ahmed ordered $50. Total food bill: $80.
+                <br />
+                Tax + tip comes to $16 total.
+              </p>
+              <p>
+                Ali's share of tax/tip = (30 &divide; 80) &times; 16 = $6 &rarr; Ali pays $36
+                <br />
+                Ahmed's share of tax/tip = (50 &divide; 80) &times; 16 = $10 &rarr; Ahmed pays $60
+              </p>
+              <p>
+                Notice Ahmed doesn't just pay more because he ordered more food &mdash; his share of 
+                the <em>tax and tip</em> scales up too, because he's responsible for a bigger portion 
+                of the bill.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Doing This by Hand Gets Messy Fast</h2>
+              <p>
+                This math is manageable for two people and three items. It falls apart the 
+                moment you're at a table of six, with shared appetizers, someone who only had 
+                a drink, and a tax rate that isn't a round number.
+              </p>
+              <p>
+                That's exactly the problem our free <Link href="/tools/group-expense-splitter" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Group Expense Splitter</Link> solves. 
+                Add everyone's name, add each item and who shared it, enter your tax 
+                and tip percentage, and it instantly works out exactly what each person owes &mdash; 
+                down to the cent &mdash; plus a copyable summary you can drop straight into your 
+                group chat so nobody has to ask "wait, how much do I owe again?"
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Frequently Asked Questions</h2>
+              <div className="space-y-4 mb-6">
+                <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    What if two people split one item, like a shared dessert?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Assign that single item to both people in the splitter, and it'll automatically 
+                    divide that item's cost (and its share of tax/tip) between just the two of them.
+                  </p>
+                </details>
+                <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    Should tip be calculated on the pre-tax or post-tax amount?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Both are common. In most places, tipping on the pre-tax subtotal is traditional, 
+                    but tipping on the total (including tax) is increasingly common too &mdash; it's really 
+                    a matter of local custom or personal preference. Just be consistent with whichever 
+                    you choose.
+                  </p>
+                </details>
+                <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    Is it rude to itemize the bill with friends?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Not at all &mdash; most people actually appreciate it, especially if the group orders 
+                    unevenly often. Using a shared tool to do the math (rather than one person 
+                    manually working it out) also keeps it from feeling personal or awkward.
+                  </p>
+                </details>
+                <details className="pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    What if someone forgets what they ordered?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Itemizing right when the bill arrives, while everyone still remembers, avoids 
+                    this. It only takes a minute and saves the "wait, did I get the calamari or was 
+                    that yours?" conversation later.
+                  </p>
+                </details>
+              </div>
+            </>
+          )}
+
+          {article.slug === "how-to-calculate-percentage-increase-decrease-discount" && (
+            <>
+              <p>
+                Percentages show up everywhere &mdash; a shirt that's "30% off," a salary that went up 
+                by 8%, a phone bill that jumped from last month. And yet, most of us still pause 
+                and think "wait, how do I actually work this out?" before reaching for a calculator.
+              </p>
+              <p>
+                Here's the good news: once you understand the <em>logic</em> behind percentages (not just 
+                the formula), you'll never second-guess yourself again. Let's break it down.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">What Does "Percentage" Actually Mean?</h2>
+              <p>
+                A percentage is just a fraction of 100. When something is "20%," it means 20 out 
+                of every 100. That's it. Once that clicks, every percentage problem becomes a 
+                question of: "20 out of 100 of <em>what</em>?"
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Finding a Percentage of a Number</h2>
+              <p>
+                This is the one you'll use the most &mdash; working out a tip, a discount, a tax amount.
+              </p>
+              <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold">
+                Formula: (Percentage &divide; 100) &times; Number
+              </p>
+              <p>
+                Example: What's 15% of 2,400?
+                <br />
+                (15 &divide; 100) &times; 2,400 = 0.15 &times; 2,400 = 360
+              </p>
+              <p>
+                So 15% of 2,400 is 360. That's the whole trick &mdash; turn the percentage into a 
+                decimal, then multiply.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Percentage Increase and Decrease</h2>
+              <p>
+                This is where people usually get tripped up, because there are two numbers 
+                involved &mdash; an "old" one and a "new" one.
+              </p>
+              <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold">
+                Formula: ((New Value &minus; Old Value) &divide; Old Value) &times; 100
+              </p>
+              <p>
+                Example: Last month you spent $200 on groceries. This month it's $230. What's 
+                the percentage increase?
+              </p>
+              <p>
+                ((230 &minus; 200) &divide; 200) &times; 100 = (30 &divide; 200) &times; 100 = 15%
+              </p>
+              <p>
+                Your grocery spending went up by 15%. If the new number is <em>smaller</em> than the 
+                old one, you'll get a negative result &mdash; that's your percentage decrease.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Calculating a Discount</h2>
+              <p>
+                Discounts combine both ideas above. You're not just finding a percentage &mdash; 
+                you're subtracting it from the original price.
+              </p>
+              <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold">
+                Formula: Original Price &minus; (Original Price &times; Discount% &divide; 100)
+              </p>
+              <p>
+                Example: A jacket costs $80, and it's 25% off.
+              </p>
+              <p>
+                Discount amount = 80 &times; (25 &divide; 100) = 20
+                <br />
+                Final price = 80 &minus; 20 = $60
+              </p>
+              <p>
+                You save $20, and pay $60. Simple once you see it laid out.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Reverse Percentage (Working Backwards)</h2>
+              <p>
+                Sometimes you know the <em>final</em> number and the percentage, but need the original. 
+                Say you paid $60 for something after a 25% discount &mdash; what was the original price?
+              </p>
+              <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold">
+                Formula: Final Value &divide; (1 &minus; Discount% &divide; 100)
+              </p>
+              <p>
+                60 &divide; (1 &minus; 0.25) = 60 &divide; 0.75 = $80
+              </p>
+              <p>
+                This one trips up even people who are otherwise good with numbers, because it's 
+                tempting to just add 25% back to $60 &mdash; but that gives you $75, not $80. The 
+                discount was taken off the <em>original</em> price, not the sale price, so you have to 
+                reverse it correctly.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Skip the Mental Math</h2>
+              <p>
+                Honestly, you don't need to memorize any of this to use it day to day. That's 
+                exactly why we built a <Link href="/tools/percentage-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">free Percentage Calculator</Link> that handles all four of these &mdash; percentage of a number, increase/decrease, 
+                discounts, and reverse percentages &mdash; instantly, without you touching a formula. 
+                Just plug in your numbers and get your answer in one tap.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Frequently Asked Questions</h2>
+              <div className="space-y-4 mb-6">
+                <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    Is percentage increase the same as percentage points?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    No. If interest rates go from 5% to 7%, that's a 2 <em>percentage point</em> increase, 
+                    but a 40% <em>percentage increase</em> relative to the original 5%. They're easy to mix 
+                    up, so pay attention to which one a question is actually asking for.
+                  </p>
+                </details>
+                <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    Why do I get a different answer than my friend for the same discount?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Usually it's because one of you calculated the discount on the pre-tax price and 
+                    the other on the post-tax price. Always check what the original number was.
+                  </p>
+                </details>
+                <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    Can a percentage increase be over 100%?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Yes &mdash; if something doubles, that's a 100% increase. If it triples, that's a 200% 
+                    increase. There's no upper limit.
+                  </p>
+                </details>
+                <details className="pb-4">
+                  <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+                    What's the fastest way to estimate a percentage in my head?
+                  </summary>
+                  <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+                    Find 10% first (just move the decimal point one place left), then scale up or 
+                    down from there. 10% of 240 is 24 &mdash; so 20% is 48, and 5% is 12.
+                  </p>
+                </details>
+              </div>
+            </>
+          )}
+
           {article.slug === "us-uk-eu-japan-shoe-size-conversion-guide" && (
             <>
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why Shoe Sizes Aren't the Same Everywhere</h2>

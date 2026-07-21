@@ -13,6 +13,30 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-to-split-a-bill-fairly-when-everyone-orders-different-things",
+    title: "How to Split a Bill Fairly When Everyone Ordered Something Different",
+    description: "Splitting the bill equally isn't always fair. Here's how to split expenses properly when people order different amounts — plus a free tool that does the math for you.",
+    excerpt: "Splitting the bill equally isn't always fair. Here's how to split expenses properly when people order different amounts — plus a free tool that does the math for you.",
+    date: "July 22, 2026",
+    readTime: "4 min read",
+    category: "Finance & Math",
+    icon: "💵",
+    color: "from-teal-500 to-emerald-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+  },
+  {
+    slug: "how-to-calculate-percentage-increase-decrease-discount",
+    title: "How to Calculate Percentage Increase, Decrease & Discounts (The Easy Way)",
+    description: "Confused by percentage math? Learn how to calculate percentage increase, decrease, and discounts step by step, with real examples you'll actually use — no formulas to memorize.",
+    excerpt: "Confused by percentage math? Learn how to calculate percentage increase, decrease, and discounts step by step, with real examples you'll actually use — no formulas to memorize.",
+    date: "July 21, 2026",
+    readTime: "5 min read",
+    category: "Finance & Math",
+    icon: "📊",
+    color: "from-indigo-500 to-purple-600",
+    textColor: "text-indigo-600 dark:text-indigo-400",
+  },
+  {
     slug: "us-uk-eu-japan-shoe-size-conversion-guide",
     title: "US vs UK vs EU vs Japan Shoe Sizes: The Complete Conversion Guide",
     description: "Convert shoe sizes between US, UK, EU, and Japan with our complete international shoe size guide. Learn formulas, sizing histories, and avoid shopping mistakes.",
