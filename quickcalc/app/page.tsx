@@ -138,6 +138,14 @@ export default function Home() {
       href: "/tools/percentage-calculator",
       color: "from-blue-500 to-indigo-600",
       textColor: "text-blue-600 dark:text-blue-400"
+    },
+    {
+      title: "Group Expense Splitter",
+      description: "Split group bills, meals, and trip expenses unevenly. Allocate specific items and distribute tax/tip proportionally.",
+      icon: "👥",
+      href: "/tools/group-expense-splitter",
+      color: "from-indigo-500 to-purple-600",
+      textColor: "text-indigo-600 dark:text-indigo-400"
     }
   ];
 
