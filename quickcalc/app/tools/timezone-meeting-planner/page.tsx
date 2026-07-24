@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function TimezonePlannerPage() {
             Find the perfect overlap for distributed teams easily. Our local comparison engine maps exact working windows, flags local dates, and compiles instant share links with absolutely no accounts or log-ins required.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/timezone-meeting-planner" title="Timezone Meeting Planner" />
 
         {/* The interactive widget */}
         <section className="my-8">

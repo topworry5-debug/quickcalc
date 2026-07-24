@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -148,6 +150,8 @@ export default function CurrencyConverterPage() {
             Exchanging currencies is highly critical for international travel, sending remittances to family, online shopping at global stores, and managing freelance payments. To protect your hard-earned funds, knowing the real interbank rates is absolutely essential. This interactive currency converter fetches real-time exchange rates to provide instant calculations as you type. Simply pick your currencies, enter an amount, compare common amounts, and copy clean, formatted results to share with friends, clients, or colleagues!
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/currency-converter" title="Currency Converter" />
 
         {/* Interactive Widget */}
         <section className="my-8">

@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -90,6 +92,8 @@ export default function GPAConverterPage() {
             The GPA Converter is a comprehensive, multi-regional grading tool designed to convert international grades and percentages into the standard US 4.0 GPA scale. Whether you are dealing with US percentage values, letter grades, United Kingdom degree classifications, or percentage-based systems from Canada, Pakistan, and India, this free tool calculates your equivalent GPA instantly. Perfect for study-abroad applicants, international transfer students, and academic advisors looking for reliable, standardized conversions.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/gpa-converter" title="GPA Converter" />
 
         {/* Interactive Calculator Widget Component */}
         <section className="my-8">

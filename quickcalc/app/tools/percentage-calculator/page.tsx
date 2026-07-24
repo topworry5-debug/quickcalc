@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -116,6 +118,8 @@ export default function PercentageCalculatorPage() {
             Quickly calculate percentages, percentage increase or decrease, discounts, and reverse percentages. Enter your values below to see instant calculations and formula breakdowns in real time.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/percentage-calculator" title="Percentage Calculator" />
 
         {/* The interactive widget */}
         <section className="my-8">

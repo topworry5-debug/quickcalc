@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function ColorPaletteGeneratorPage() {
             Extract up to 8 beautiful dominant colors from any image instantly. Build accessible color-conscious palettes with built-in, real-time WCAG contrast assessments, and export ready-to-copy code structures — all with complete local privacy.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/color-palette-generator" title="Color Palette Generator" />
 
         {/* The interactive widget */}
         <section className="my-8">

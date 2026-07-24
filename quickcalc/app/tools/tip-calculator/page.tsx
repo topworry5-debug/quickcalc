@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function TipCalculatorPage() {
             Determine standard gratuities, customize tip percentages in real time, and split group checks cleanly. QuickCalc processes input changes on the fly with no bulky calculate button or reloading needed.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/tip-calculator" title="Tip Calculator" />
 
         {/* The interactive widget */}
         <section className="my-8">

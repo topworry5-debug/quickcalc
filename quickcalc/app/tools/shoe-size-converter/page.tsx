@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function ShoeSizeConverterPage() {
             Convert shoe sizes instantly across all 4 major global systems simultaneously. Unlike static HTML table charts or ad-heavy widgets that force single-direction calculations, our interactive utility outputs US, UK, EU, and Japan (cm) sizing synchronously as you type.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/shoe-size-converter" title="Shoe Size Converter" />
 
         {/* The interactive widget */}
         <section className="my-8">

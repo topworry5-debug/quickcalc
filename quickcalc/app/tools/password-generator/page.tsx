@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function PasswordGeneratorPage() {
             Create ultra-secure, cryptographically randomized password structures instantly. Unlike standard tools that rely on vague, non-standard visual bars, QuickCalc computes actual Shannon entropy bits, giving you verified mathematical strength ratings.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/password-generator" title="Secure Password Generator" />
 
         {/* The interactive widget */}
         <section className="my-8">

@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -116,6 +118,8 @@ export default function GroupExpenseSplitterPage() {
             Easily split group bills, restaurant orders, and shared travel costs unevenly based on itemized details. Add members, specify custom shares, and compute proportional tax and tips instantly.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/group-expense-splitter" title="Group Expense Splitter" />
 
         {/* The interactive widget */}
         <section className="my-8">

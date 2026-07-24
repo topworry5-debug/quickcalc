@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function RegexTesterPage() {
             Analyze, test, and debug regular expressions instantly with live, zero-latency colored background highlights. Unlike overwhelming technical portals, QuickCalc translates complex syntaxes into plain-language breakdowns.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/regex-tester" title="Regex Tester" />
 
         {/* The interactive widget */}
         <section className="my-8">

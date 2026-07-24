@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function BMICalculatorPage() {
             The Body Mass Index (BMI) Calculator is a highly interactive clinical screener designed to provide swift body mass classifications. By inputting your height and weight, this science-backed utility maps your parameters against standard World Health Organization bands. It serves as an accessible starting point for evaluating general body composition trends and overall health trajectories.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/bmi-calculator" title="BMI Calculator" />
 
         {/* The interactive widget */}
         <section className="my-8">

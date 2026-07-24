@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function DueDateCalculatorPage() {
             Estimate your {"baby's"} arrival date and track your gestational milestones in real time. Unlike heavy, ad-cluttered platforms that force account registration or app downloads, QuickCalc delivers clear, compassionate, and mathematically precise answers instantly.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/due-date-calculator" title="Due Date Calculator" />
 
         {/* The interactive widget */}
         <section className="my-8">

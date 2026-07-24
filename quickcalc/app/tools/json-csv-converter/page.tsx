@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function JSONCSVConverterPage() {
             A developer-first, distraction-free environment for translating structures. Unlike alternative services that send your proprietary files to external clouds or show cryptic parse warnings, QuickCalc delivers localized compilation with specific error location indicators.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/json-csv-converter" title="JSON & CSV Converter" />
 
         {/* The interactive widget */}
         <section className="my-8">

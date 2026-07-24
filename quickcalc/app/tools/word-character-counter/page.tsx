@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function WordCharacterCounterPage() {
             A fast, robust text analytics tool providing instant word counts, character counts, paragraph metrics, reading time estimations, and social platform limit warnings as you type.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/word-character-counter" title="Word & Character Counter" />
 
         {/* Interactive Widget */}
         <section className="my-8">

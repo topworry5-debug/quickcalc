@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -110,6 +112,8 @@ export default function PaperFabricConverterPage() {
             Quickly convert international print sizes and textile length units in one place. Unlike static lists or separate, ad-heavy chart pages, our utility offers clean modes to convert paper dimensions and textile measurements simultaneously as you interact.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/paper-fabric-size-converter" title="Paper & Fabric Size Converter" />
 
         {/* The interactive widget */}
         <section className="my-8">

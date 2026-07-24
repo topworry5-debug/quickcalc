@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -90,6 +92,8 @@ export default function WaterIntakeCalculatorPage() {
             The Water Intake Calculator is an easy-to-use, science-backed tool designed to help you determine your optimal daily hydration requirements. By analyzing key factors such as your body weight, physical activity level, and local climate conditions, this free tool computes a personalized hydration plan tailored directly to your lifestyle. Staying adequately hydrated is vital for optimizing physical performance, maintaining energy levels, supporting healthy brain function, and facilitating proper digestion.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/water-intake-calculator" title="Water Intake Calculator" />
 
         {/* Interactive Calculator Widget Component */}
         <section className="my-8">

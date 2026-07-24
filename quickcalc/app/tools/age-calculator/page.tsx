@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -148,6 +150,8 @@ export default function AgeCalculatorPage() {
             Knowing your exact age in years, months, and days is highly valuable for a variety of official tasks. Whether you are filling out complex medical forms, verifying official documents, planning upcoming birthdays, or calculating legal age requirements, accuracy is essential. This exact age calculator simplifies the process by performing precise chronological math. Enter your birth date to instantly reveal your personalized life metrics, celestial traits, and a custom shareable age card!
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/age-calculator" title="Age Calculator" />
 
         {/* Interactive Widget */}
         <section className="my-8">

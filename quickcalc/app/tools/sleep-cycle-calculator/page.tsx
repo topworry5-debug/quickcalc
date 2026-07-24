@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -90,6 +92,8 @@ export default function SleepCycleCalculatorPage() {
             The Sleep Cycle Calculator is a science-based tool designed to help you optimize your sleep schedule for maximum daily productivity and alertness. By analyzing standard human sleep cycles, which typically last 90 minutes each, this interactive tool helps you pinpoint either the ideal bedtimes to wake up feeling fully refreshed, or the perfect waking hours if you choose to sleep immediately. Say goodbye to mid-day fatigue and morning grogginess by aligning your sleep with natural biological rhythms.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/sleep-cycle-calculator" title="Sleep Cycle Calculator" />
 
         {/* Interactive Calculator Widget Component */}
         <section className="my-8">

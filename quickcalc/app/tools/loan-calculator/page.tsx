@@ -1,4 +1,6 @@
 import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -90,6 +92,8 @@ export default function LoanCalculatorPage() {
             The Loan / EMI Calculator is a professional financial tool designed to help you accurately compute monthly installment payments, total interest liabilities, and overall repayment schedules. By inputs like your total principal amount, annual interest rate, and preferred loan term (supporting both years and months toggles), this free calculator gives you immediate breakdown clarity. Complete with a year-by-year amortization schedule, this tool is ideal for auto loans, home mortgages, and personal loans.
           </p>
         </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/loan-calculator" title="Loan / EMI Calculator" />
 
         {/* Interactive Calculator Widget Component */}
         <section className="my-8">
