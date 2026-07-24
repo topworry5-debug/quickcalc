@@ -146,6 +146,14 @@ export default function Home() {
       href: "/tools/group-expense-splitter",
       color: "from-indigo-500 to-purple-600",
       textColor: "text-indigo-600 dark:text-indigo-400"
+    },
+    {
+      title: "Age Calculator",
+      description: "Find your exact chronological age in years, months, and days. Uncover your zodiac traits, generational era, countdown to your next birthday, and share your personalized age card!",
+      icon: "🎂",
+      href: "/tools/age-calculator",
+      color: "from-blue-500 via-indigo-500 to-emerald-500",
+      textColor: "text-indigo-600 dark:text-indigo-400"
     }
   ];
 
