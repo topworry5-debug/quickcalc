@@ -1,3 +1,4 @@
+import RelatedTools from "@/components/RelatedTools";
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -203,37 +204,8 @@ export default function ColorPaletteGeneratorPage() {
           </section>
         </article>
 
-        {/* Related Tools */}
-        <section className="max-w-3xl mx-auto border-t border-zinc-200 dark:border-zinc-800 mt-12 pt-8">
-          <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6">
-            Related Design & Development Tools
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/tools/regex-tester" className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">🔍</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Regex Tester</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Test and debug regular expressions instantly with live colored highlighting.
-              </p>
-            </Link>
-
-            <Link href="/tools/word-character-counter" className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">📝</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Word & Character Counter</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Count words, sentences, reading time, and more on your copywriting blocks.
-              </p>
-            </Link>
-
-            <Link href="/tools/json-csv-converter" className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">🛡️</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">JSON & CSV Converter</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Safely transform JSON files directly into clean structural CSV datasets locally.
-              </p>
-            </Link>
-          </div>
-        </section>
+        <RelatedTools currentSlug="color-palette-generator" />
+      <RelatedTools currentSlug="color-palette-generator" />
       </main>
 
       {/* Footer */}

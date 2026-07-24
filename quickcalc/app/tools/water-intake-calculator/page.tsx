@@ -1,3 +1,4 @@
+import RelatedTools from "@/components/RelatedTools";
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -166,46 +167,8 @@ export default function WaterIntakeCalculatorPage() {
           </section>
         </article>
 
-        {/* Related Tools Area */}
-        <section className="max-w-3xl mx-auto border-t border-zinc-200 dark:border-zinc-800 mt-12 pt-8">
-          <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6">
-            Related Health & Lifestyle Tools
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">😴</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Sleep Calculator</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Calculate your optimal sleep cycles and wake up feeling refreshed.
-              </p>
-              <Link href="/tools/sleep-cycle-calculator" className="inline-block text-xs font-semibold text-blue-500 dark:text-blue-400 mt-4 hover:underline">
-                Use Tool &rarr;
-              </Link>
-            </div>
-
-            <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">📅</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Due Date Calculator</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Calculate your estimated due date and pregnancy timeline milestones.
-              </p>
-              <span className="inline-block text-xs font-semibold text-blue-500 dark:text-blue-400 mt-4 hover:underline">
-                Coming soon &rarr;
-              </span>
-            </div>
-
-            <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">⚖️</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">BMI Calculator</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Calculate your Body Mass Index (BMI) to understand your weight status.
-              </p>
-              <span className="inline-block text-xs font-semibold text-blue-500 dark:text-blue-400 mt-4 hover:underline">
-                Coming soon &rarr;
-              </span>
-            </div>
-          </div>
-        </section>
+        <RelatedTools currentSlug="water-intake-calculator" />
+      <RelatedTools currentSlug="water-intake-calculator" />
       </main>
 
       {/* Footer */}

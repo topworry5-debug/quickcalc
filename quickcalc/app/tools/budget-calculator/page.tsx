@@ -1,3 +1,4 @@
+import RelatedTools from "@/components/RelatedTools";
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -269,6 +270,7 @@ export default function BudgetCalculatorPage() {
 
         </article>
 
+      <RelatedTools currentSlug="budget-calculator" />
       </main>
 
       {/* Footer */}

@@ -1,3 +1,4 @@
+import RelatedTools from "@/components/RelatedTools";
 import ThemeToggle from "@/components/ThemeToggle";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -203,37 +204,8 @@ export default function WordCharacterCounterPage() {
           </section>
         </article>
 
-        {/* Related Tools */}
-        <section className="max-w-3xl mx-auto border-t border-zinc-200 dark:border-zinc-800 mt-12 pt-8">
-          <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6">
-            Related Content & Utility Tools
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Link href="/tools/json-csv-converter" className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">🛡️</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">JSON ⇄ CSV Converter</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Convert JSON datasets to CSV arrays and vice versa safely inside browser memory.
-              </p>
-            </Link>
-
-            <Link href="/tools/color-palette-generator" className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">🎨</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Color Palette Generator</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Extract up to 8 dominant colors from any graphic upload with direct code exporting.
-              </p>
-            </Link>
-
-            <Link href="/tools/regex-tester" className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">🔍</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Regex Tester</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Analyze, construct, and validate matching patterns with live highlighting.
-              </p>
-            </Link>
-          </div>
-        </section>
+        <RelatedTools currentSlug="word-character-counter" />
+      <RelatedTools currentSlug="word-character-counter" />
       </main>
 
       {/* Footer */}

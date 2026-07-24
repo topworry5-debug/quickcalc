@@ -1,3 +1,4 @@
+import RelatedTools from "@/components/RelatedTools";
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -214,35 +215,7 @@ export default function GroupExpenseSplitterPage() {
           </section>
         </article>
 
-        {/* Related Tools */}
-        <section className="max-w-3xl mx-auto border-t border-zinc-200 dark:border-zinc-800 mt-12 pt-8">
-          <h3 className="text-xl font-bold text-zinc-900 dark:text-white mb-6">
-            Related Financial & Custom Tools
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">💵</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Tip Calculator</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Need to split a bill perfectly equally? Tip Calculator lets you split total billing and custom tip percentages evenly.
-              </p>
-              <Link href="/tools/tip-calculator" className="inline-block text-xs font-semibold text-blue-500 dark:text-blue-400 mt-4 hover:underline">
-                Use Tool &rarr;
-              </Link>
-            </div>
-
-            <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-xl hover:shadow-md transition duration-200">
-              <span className="text-2xl mb-2 block">📊</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Percentage Calculator</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-2">
-                Quickly compute general percentage equations, discounts, percentage change and reverse percentage ratios.
-              </p>
-              <Link href="/tools/percentage-calculator" className="inline-block text-xs font-semibold text-blue-500 dark:text-blue-400 mt-4 hover:underline">
-                Use Tool &rarr;
-              </Link>
-            </div>
-          </div>
-        </section>
+        <RelatedTools currentSlug="group-expense-splitter" />
 
         {/* Ad Placement Footer */}
         <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
@@ -250,6 +223,7 @@ export default function GroupExpenseSplitterPage() {
             Advertisement
           </div>
         </div>
+      <RelatedTools currentSlug="group-expense-splitter" />
       </main>
 
       {/* Footer */}
