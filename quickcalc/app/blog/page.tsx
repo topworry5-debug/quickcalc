@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "usd-to-pkr-and-understanding-real-exchange-rates",
+    title: "Why Your Bank's Exchange Rate Is Different From Google's (And What the \"Real\" Rate Actually Is)",
+    description: "Confused why your bank gives a worse exchange rate than what you see online? Learn how mid-market rates work, why banks charge more, and how to convert currency accurately with live rates.",
+    excerpt: "Confused why your bank gives a worse exchange rate than what you see online? Learn how mid-market rates work, why banks charge more, and how to convert currency accurately with live rates.",
+    date: "July 24, 2026",
+    readTime: "5 min read",
+    category: "Finance & Math",
+    icon: "💱",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
     slug: "how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date",
     title: "How to Calculate Your Exact Age (And Fun Facts You Didn't Know About Your Birth Date)",
     description: "Learn how to calculate your exact age in years, months, and days, plus discover your zodiac sign, generation, and how many days you've actually been alive — with a free calculator that does it all instantly.",
