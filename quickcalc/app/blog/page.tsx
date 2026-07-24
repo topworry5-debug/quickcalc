@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "50-30-20-budget-rule-explained-does-it-actually-work",
+    title: "The 50/30/20 Budget Rule Explained (And Why It Doesn't Work for Everyone)",
+    description: "Learn how the 50/30/20 budgeting rule works, what actually counts as a \"need\" vs a \"want,\" and what to do if your rent alone eats up half your paycheck. Free calculator included.",
+    excerpt: "Learn how the 50/30/20 budgeting rule works, what actually counts as a \"need\" vs a \"want,\" and what to do if your rent alone eats up half your paycheck. Free calculator included.",
+    date: "July 24, 2026",
+    readTime: "5 min read",
+    category: "Finance & Math",
+    icon: "💰",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
     slug: "usd-to-pkr-and-understanding-real-exchange-rates",
     title: "Why Your Bank's Exchange Rate Is Different From Google's (And What the \"Real\" Rate Actually Is)",
     description: "Confused why your bank gives a worse exchange rate than what you see online? Learn how mid-market rates work, why banks charge more, and how to convert currency accurately with live rates.",
