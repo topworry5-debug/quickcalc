@@ -154,6 +154,14 @@ export default function Home() {
       href: "/tools/age-calculator",
       color: "from-blue-500 via-indigo-500 to-emerald-500",
       textColor: "text-indigo-600 dark:text-indigo-400"
+    },
+    {
+      title: "Currency Converter",
+      description: "Convert 35+ major world currencies instantly with live exchange rates. Compare ranges and copy formatted results with backlinks.",
+      icon: "💱",
+      href: "/tools/currency-converter",
+      color: "from-teal-500 via-emerald-500 to-blue-500",
+      textColor: "text-emerald-600 dark:text-emerald-400"
     }
   ];
 
