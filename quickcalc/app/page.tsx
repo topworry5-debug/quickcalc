@@ -162,6 +162,14 @@ export default function Home() {
       href: "/tools/currency-converter",
       color: "from-teal-500 via-emerald-500 to-blue-500",
       textColor: "text-emerald-600 dark:text-emerald-400"
+    },
+    {
+      title: "Budget Calculator",
+      description: "Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.",
+      icon: "💰",
+      href: "/tools/budget-calculator",
+      color: "from-blue-500 via-indigo-500 to-emerald-500",
+      textColor: "text-indigo-600 dark:text-indigo-400"
     }
   ];
 
