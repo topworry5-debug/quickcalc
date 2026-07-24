@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date",
+    title: "How to Calculate Your Exact Age (And Fun Facts You Didn't Know About Your Birth Date)",
+    description: "Learn how to calculate your exact age in years, months, and days, plus discover your zodiac sign, generation, and how many days you've actually been alive — with a free calculator that does it all instantly.",
+    excerpt: "Learn how to calculate your exact age in years, months, and days, plus discover your zodiac sign, generation, and how many days you've actually been alive — with a free calculator that does it all instantly.",
+    date: "July 23, 2026",
+    readTime: "5 min read",
+    category: "Life & Math",
+    icon: "🎂",
+    color: "from-pink-500 to-rose-600",
+    textColor: "text-rose-600 dark:text-rose-400",
+  },
+  {
     slug: "how-to-split-a-bill-fairly-when-everyone-orders-different-things",
     title: "How to Split a Bill Fairly When Everyone Ordered Something Different",
     description: "Splitting the bill equally isn't always fair. Here's how to split expenses properly when people order different amounts — plus a free tool that does the math for you.",
