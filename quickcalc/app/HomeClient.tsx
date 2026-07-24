@@ -2,8 +2,9 @@
 
 import ThemeToggle from "@/components/ThemeToggle";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import AdSlot from "@/components/AdSlot";
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,10 @@ interface HomeClientProps {
 
 export default function HomeClient({ initialTools }: HomeClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const filteredTools = initialTools.filter((tool) => {
     const query = searchQuery.toLowerCase();
@@ -30,6 +35,58 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
       tool.description.toLowerCase().includes(query)
     );
   });
+
+  const suggestions = searchQuery.trim() !== "" ? filteredTools.slice(0, 6) : [];
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (searchQuery.trim() === "") return;
+
+    if (!isDropdownOpen) {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter") {
+        setIsDropdownOpen(true);
+        setSelectedIndex(0);
+        e.preventDefault();
+      }
+      return;
+    }
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSelectedIndex((prevIndex) =>
+        prevIndex < (suggestions.length > 0 ? suggestions.length - 1 : 0) ? prevIndex + 1 : 0
+      );
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setSelectedIndex((prevIndex) =>
+        prevIndex > 0 ? prevIndex - 1 : (suggestions.length > 0 ? suggestions.length - 1 : 0)
+      );
+    } else if (e.key === "Enter") {
+      if (suggestions.length > 0 && selectedIndex >= 0 && selectedIndex < suggestions.length) {
+        e.preventDefault();
+        const selectedTool = suggestions[selectedIndex];
+        router.push(selectedTool.href);
+        setIsDropdownOpen(false);
+      }
+    } else if (e.key === "Escape") {
+      setIsDropdownOpen(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)]">
@@ -64,7 +121,7 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
         </div>
 
         {/* Dynamic Search Bar Container */}
-        <div className="max-w-md mx-auto mb-12">
+        <div ref={searchContainerRef} className="relative max-w-md mx-auto mb-12">
           <label htmlFor="tool-search" className="sr-only">
             Search tools
           </label>
@@ -77,19 +134,71 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
               type="text"
               aria-label="Search tools"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onFocus={() => {
+                if (searchQuery.trim() !== "") {
+                  setIsDropdownOpen(true);
+                }
+              }}
+              onKeyDown={handleKeyDown}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setIsDropdownOpen(true);
+                setSelectedIndex(-1);
+              }}
               placeholder="Search tools... (e.g. BMI, tax, password)"
               className="w-full pl-10 pr-4 py-3 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-sm text-zinc-800 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent shadow-sm transition"
             />
             {searchQuery && (
               <button
-                onClick={() => setSearchQuery("")}
+                onClick={() => {
+                  setSearchQuery("");
+                  setIsDropdownOpen(false);
+                }}
                 className="absolute inset-y-0 right-0 pr-4 flex items-center text-xs font-semibold text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition"
               >
                 Clear
               </button>
             )}
           </div>
+
+          {/* Suggestions Dropdown */}
+          {isDropdownOpen && searchQuery.trim() !== "" && (
+            <div className="absolute left-0 right-0 top-full mt-2 z-50 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-lg overflow-hidden max-h-[400px] overflow-y-auto">
+              {suggestions.length > 0 ? (
+                <div className="py-1">
+                  {suggestions.map((tool, idx) => (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      onClick={() => setIsDropdownOpen(false)}
+                      onMouseEnter={() => setSelectedIndex(idx)}
+                      className={`flex items-center gap-3 px-4 py-3 border-b last:border-b-0 border-zinc-100 dark:border-zinc-800/50 transition-colors text-left ${
+                        selectedIndex === idx
+                          ? "bg-zinc-50 dark:bg-zinc-800/60"
+                          : "hover:bg-zinc-50 dark:hover:bg-zinc-800/30"
+                      }`}
+                    >
+                      <div className={`flex-shrink-0 w-10 h-10 rounded-xl bg-gradient-to-r ${tool.color} flex items-center justify-center text-xl text-white shadow-inner`}>
+                        {tool.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-semibold text-zinc-900 dark:text-white truncate">
+                          {tool.title}
+                        </h3>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
+                          {tool.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="px-4 py-4 text-center text-sm text-zinc-500 dark:text-zinc-400">
+                  No tools found for &ldquo;{searchQuery}&rdquo;
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* AdSense Placement Ad-Slot-Home-Top */}
