@@ -1,6 +1,10 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
 
 # Host
 Host: https://quickcalc.cloud
