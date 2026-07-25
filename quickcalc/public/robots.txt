@@ -6,6 +6,49 @@ Disallow: /login
 Disallow: /api/*
 Disallow: /_next/*
 
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /api/*
+Disallow: /_next/*
+
 # Host
 Host: https://quickcalc.cloud
 
