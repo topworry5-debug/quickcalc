@@ -52,7 +52,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   // Define structured JSON-LD data for the article
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     "headline": article.title,
     "description": article.description,
     "datePublished": article.slug === "usd-to-pkr-and-understanding-real-exchange-rates"
@@ -70,6 +70,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
       : article.slug === "why-daylight-saving-time-breaks-simple-timezone-math" 
       ? "2026-07-17" 
       : "2026-07-16",
+    "dateModified": "2026-07-24",
     "author": {
       "@type": "Organization",
       "name": "QuickCalc",
@@ -138,7 +139,9 @@ export default function BlogPostPage({ params }: BlogPostProps) {
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-4">
             <span className={`${article.textColor} uppercase tracking-wider`}>{article.category}</span>
             <span className="text-zinc-300 dark:text-zinc-700">•</span>
-            <span>{article.date}</span>
+            <span>Published: {article.date}</span>
+            <span className="text-zinc-300 dark:text-zinc-700">•</span>
+            <span className="font-semibold text-zinc-700 dark:text-zinc-300">Last updated: July 24, 2026</span>
             <span className="text-zinc-300 dark:text-zinc-700">•</span>
             <span>{article.readTime}</span>
           </div>
@@ -156,6 +159,10 @@ export default function BlogPostPage({ params }: BlogPostProps) {
         <article className="prose prose-zinc dark:prose-invert max-w-none space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">
           {article.slug === "50-30-20-budget-rule-explained-does-it-actually-work" && (
             <>
+              <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
+                To use the 50/30/20 budget rule, allocate 50% of your after-tax income to essential needs (housing, groceries, utilities), 30% to optional personal wants (dining, hobbies), and 20% to savings and extra debt payments. If high local housing costs exceed 50%, customize the percentages to 60/20/20 or similar ratios.
+              </p>
+
               <p>
                 Every few months, someone in your life discovers budgeting for the "first time" 
                 and tells you about this rule where you split your paycheck into 50% for needs, 
@@ -166,7 +173,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                Where This Rule Actually Comes From
+                Where Does the 50/30/20 Rule Actually Come From?
               </h2>
               <p>
                 The 50/30/20 rule was popularized by Elizabeth Warren (yes, the senator &mdash; she 
@@ -324,6 +331,10 @@ export default function BlogPostPage({ params }: BlogPostProps) {
 
           {article.slug === "usd-to-pkr-and-understanding-real-exchange-rates" && (
             <>
+              <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
+                The real currency exchange rate is the mid-market rate—the exact midpoint between global buy and sell prices seen on Google. Banks and transfer services offer worse rates by adding a hidden markup or spread margin on top of this rate to generate profit, which quietly increases your transaction costs.
+              </p>
+
               <p>
                 You check Google, it says 1 USD = 278 PKR. You go to send money through your 
                 bank, and suddenly you're only getting 272 PKR per dollar. Nothing was stolen, 
@@ -335,7 +346,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                The Rate You See Online Is the "Mid-Market Rate"
+                Why Is the Rate You See Online Called the "Mid-Market Rate"?
               </h2>
               <p>
                 The number you see on Google, in news headlines, or on most currency websites 
@@ -350,7 +361,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                Why Banks and Money Transfer Services Give You a Worse Rate
+                Why Do Banks and Money Transfer Services Give You a Worse Exchange Rate?
               </h2>
               <p>
                 Banks, currency exchange counters, and remittance services almost never give 
@@ -374,7 +385,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                How to Actually Compare Rates Fairly
+                How Do You Actually Compare Exchange Rates Fairly?
               </h2>
               <ol className="list-decimal pl-6 space-y-3">
                 <li>
@@ -398,7 +409,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </ol>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                A Few Other Things Worth Knowing
+                What Are Some Other Important Currency Conversion Details to Know?
               </h2>
               <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">Rates change constantly.</p>
               <p>
@@ -422,7 +433,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                Check the Real Rate Before You Convert
+                How Can You Check the Real Exchange Rate Before Converting?
               </h2>
               <p>
                 Rather than guessing or relying on outdated numbers, our free{' '}
@@ -482,6 +493,10 @@ export default function BlogPostPage({ params }: BlogPostProps) {
 
           {article.slug === "how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date" && (
             <>
+              <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
+                To calculate exact age, subtract your birth year from the current year, then compare the current month and day to your birth date. If the current date is before your birthday, subtract one year from the total. Adjust remaining months and days, borrowing days dynamically depending on varying month lengths.
+              </p>
+
               <p>
                 "How old are you?" seems like the simplest question in the world &mdash; until someone 
                 asks for your <em>exact</em> age, down to the day. Suddenly you're doing mental math, 
@@ -494,7 +509,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                Why "Just Subtract the Years" Doesn't Always Work
+                Why Doesn't "Just Subtracting the Years" Always Work for Age?
               </h2>
               <p>
                 If you were born in 1998 and it's 2026, you might think you're simply "2026 
@@ -508,7 +523,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                The Correct Way to Calculate Exact Age
+                What Is the Correct Way to Calculate Your Exact Age?
               </h2>
               <p>
                 Here's the actual step-by-step method:
@@ -547,7 +562,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                More Than Just Years, Months, and Days
+                What Else Can You Learn From Your Birth Date Beyond Your Age?
               </h2>
               <p>
                 Once you know your exact age, a few more interesting numbers fall out of the 
@@ -587,7 +602,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               </p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
-                Try It Yourself
+                How Can You Easily Calculate Your Age and Birth Facts Instantly?
               </h2>
               <p>
                 Doing all of this manually means juggling several different calculations at 
@@ -650,6 +665,10 @@ export default function BlogPostPage({ params }: BlogPostProps) {
 
           {article.slug === "how-to-split-a-bill-fairly-when-everyone-orders-different-things" && (
             <>
+              <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
+                To split a bill fairly, list every item's price, assign them to the individuals who ordered or shared them, and calculate individual subtotals. Finally, allocate tax and tip proportionally by multiplying each person's subtotal share ratio by the total tax and tip amount. This prevents lower spenders from overpaying.
+              </p>
+
               <p>
                 You know the moment. The bill arrives, someone says "let's just split it evenly," 
                 and everyone nods &mdash; even though you had a water and an appetizer while your 
@@ -660,7 +679,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 There's a better way, and it doesn't require an awkward conversation.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why "Just Split It Evenly" Doesn't Actually Work</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why Doesn't "Just Splitting the Bill Evenly" Actually Work?</h2>
               <p>
                 Splitting a bill equally only makes sense when everyone ordered roughly the same 
                 amount. The moment portions get uneven &mdash; one person orders drinks, another 
@@ -672,7 +691,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 a regular dinner crew, a trip with friends), those small overpayments add up fast.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">The Right Way to Split an Uneven Bill</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">What Is the Right Way to Split an Uneven Bill?</h2>
               <p>
                 Here's the actual process, step by step:
               </p>
@@ -722,7 +741,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 of the bill.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Doing This by Hand Gets Messy Fast</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why Does Splitting a Bill by Hand Get Messy So Quickly?</h2>
               <p>
                 This math is manageable for two people and three items. It falls apart the 
                 moment you're at a table of six, with shared appetizers, someone who only had 
@@ -784,6 +803,10 @@ export default function BlogPostPage({ params }: BlogPostProps) {
 
           {article.slug === "how-to-calculate-percentage-increase-decrease-discount" && (
             <>
+              <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
+                To calculate percentage change, divide the difference between the new and old values by the original value, then multiply by 100. For discounts, multiply the original price by the discount percentage divided by 100, then subtract that amount from the original price to find the final sale price.
+              </p>
+
               <p>
                 Percentages show up everywhere &mdash; a shirt that's "30% off," a salary that went up 
                 by 8%, a phone bill that jumped from last month. And yet, most of us still pause 
@@ -801,7 +824,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 question of: "20 out of 100 of <em>what</em>?"
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Finding a Percentage of a Number</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">How Do You Find a Percentage of a Number?</h2>
               <p>
                 This is the one you'll use the most &mdash; working out a tip, a discount, a tax amount.
               </p>
@@ -818,7 +841,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 decimal, then multiply.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Percentage Increase and Decrease</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">How Do You Calculate Percentage Increase and Decrease?</h2>
               <p>
                 This is where people usually get tripped up, because there are two numbers 
                 involved &mdash; an "old" one and a "new" one.
@@ -838,7 +861,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 old one, you'll get a negative result &mdash; that's your percentage decrease.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Calculating a Discount</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">How Do You Calculate a Store Discount?</h2>
               <p>
                 Discounts combine both ideas above. You're not just finding a percentage &mdash; 
                 you're subtracting it from the original price.
@@ -858,7 +881,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 You save $20, and pay $60. Simple once you see it laid out.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Reverse Percentage (Working Backwards)</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">How Do You Calculate a Reverse Percentage?</h2>
               <p>
                 Sometimes you know the <em>final</em> number and the percentage, but need the original. 
                 Say you paid $60 for something after a 25% discount &mdash; what was the original price?
@@ -876,7 +899,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                 reverse it correctly.
               </p>
 
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Skip the Mental Math</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">How Can You Calculate Percentages Without Doing Mental Math?</h2>
               <p>
                 Honestly, you don't need to memorize any of this to use it day to day. That's 
                 exactly why we built a <Link href="/tools/percentage-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">free Percentage Calculator</Link> that handles all four of these &mdash; percentage of a number, increase/decrease, 
@@ -929,7 +952,11 @@ export default function BlogPostPage({ params }: BlogPostProps) {
 
           {article.slug === "us-uk-eu-japan-shoe-size-conversion-guide" && (
             <>
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why Shoe Sizes Aren't the Same Everywhere</h2>
+              <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
+                To convert international shoe sizes accurately, map your measurement against regional systems: a US men's size 9 is a UK 8, EU 42, or 27cm in Japan's centimeter-based sizing. Since brands use different foot molds, size conversions can vary, making rounding up the safest practice for online shopping.
+              </p>
+
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why Aren't Shoe Sizes the Same Everywhere?</h2>
               <p className="mb-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">Shoe sizing never got a single global standard, and that's really the root of all the confusion. The US and UK systems both trace back to old English measuring conventions from centuries ago, but they drifted apart over time and now sit about a size and a half off from each other for the same actual foot length. Continental Europe uses something called the Paris point system, where each size step equals two-thirds of a centimeter &mdash; a completely different logic from the inch-based systems. Japan skipped the abstract-number approach entirely and just uses your actual foot length in centimeters, which is arguably the most sensible of the bunch, even if it feels unfamiliar if you've only ever shopped in US or UK sizes.</p>
 
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Men's Shoe Size Conversion Table</h2>

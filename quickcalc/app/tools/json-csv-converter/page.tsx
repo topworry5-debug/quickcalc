@@ -67,8 +67,45 @@ export default function JSONCSVConverterPage() {
           "@type": "Answer",
           "text": "Simply copy the comma-separated data from your CSV file or spreadsheet, paste it into our Input pane, and click 'Convert CSV to JSON'. The tool instantly translates each row into a structured JSON object with correct data types, ready to copy into your API client."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to null or missing values during conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Missing fields in JSON arrays are represented as empty cells in the resulting CSV. Conversely, empty cells in a CSV are skipped or assigned as null values in the parsed JSON array depending on the configuration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this converter support large datasets or file uploads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Because the parsing is computed client-side, your browser is capable of converting files with thousands of records extremely quickly, limited only by your device's memory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between JSON and CSV formats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "JSON (JavaScript Object Notation) is a nested, hierarchical text format optimized for application state and APIs, whereas CSV (Comma-Separated Values) is a flat, tabular format ideal for spreadsheet processors like Excel and relational database views."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "JSON & CSV Converter",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +114,11 @@ export default function JSONCSVConverterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -162,6 +204,26 @@ export default function JSONCSVConverterPage() {
             </p>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Converting hierarchical JSON arrays to CSV matrices, or vice versa, uses iterative tree-traversal and serialization rules:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Flattening Rule:</strong> Sub-objects are parsed recursively to generate dot-separated headers (e.g. `user.address.zip`), while array rows form standard tabular data blocks.
+              </li>
+              <li>
+                <strong>CSV Escape Rule:</strong> Double quotes, commas, and newline characters in cells are automatically escaped with wrapping quotes to keep tabular structures stable.
+              </li>
+              <li>
+                <strong>Reconstruction Rule:</strong> Tabular headers are split by standard periods (`.`) to expand back into nested objects, and cell strings containing valid numbers or booleans are cast to correct primitives.
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -169,66 +231,70 @@ export default function JSONCSVConverterPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Is it safe to paste sensitive data into an online JSON to CSV converter?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Is it safe to paste sensitive data into an online JSON to CSV converter?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   On QuickCalc, absolutely. By using standard browser memory APIs, all text transformations happen in local sandbox runtimes. Absolutely no files, cookies, or text inputs are ever shared, uploaded, or transmitted.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Can this handle nested JSON objects?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Can this handle nested JSON objects?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, it flattens hierarchies completely. The parser scans the array, maps all child keys using a dot notation separator, and establishes columns dynamically. When rebuilding JSON from CSV, these dot notation paths are cleanly unflattened into parent and child attributes.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is the easiest way to convert an Excel/CSV export to JSON for an API?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the easiest way to convert an Excel/CSV export to JSON for an API?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Simply paste your raw spreadsheet comma-separated text in the Input box and click {"'Convert CSV to JSON'"}. The converter automatically extracts column titles as root keys, formats integers and decimals as numbers, translates booleans correctly, and packages each row into a structured output array.
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What happens to null or missing values during conversion?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Missing fields in JSON arrays are represented as empty cells in the resulting CSV. Conversely, empty cells in a CSV are skipped or assigned as null values in the parsed JSON array depending on the configuration.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Does this converter support large datasets or file uploads?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes! Because the parsing is computed client-side, your browser is capable of converting files with thousands of records extremely quickly, limited only by your device's memory.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the difference between JSON and CSV formats?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  JSON (JavaScript Object Notation) is a nested, hierarchical text format optimized for application state and APIs, whereas CSV (Comma-Separated Values) is a flat, tabular format ideal for spreadsheet processors like Excel and relational database views.
+                </p>
+              </div>
             </div>
           </section>
         </article>
 
         <RelatedTools currentSlug="json-csv-converter" />
-
-        {/* Ad Placement Footer */}
-        <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
-          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
-            Advertisement
-          </div>
-        </div>
-      <RelatedTools currentSlug="json-csv-converter" />
       </main>
 
       {/* Footer */}

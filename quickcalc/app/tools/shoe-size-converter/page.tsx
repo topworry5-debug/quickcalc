@@ -67,8 +67,45 @@ export default function ShoeSizeConverterPage() {
           "@type": "Answer",
           "text": "Brands construct shoes around their own 'lasts' (the physical molds used to shape shoes). Additionally, materials, stitching methods, and internal padding heavily affect the real interior volume, frequently causing shoe sizes to shift ±0.5 size from standard tables."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I measure my foot length accurately at home?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Place a piece of paper on a hard floor against a wall. Stand on it with your heel lightly touching the wall, mark the longest part of your foot with a pencil, and measure the distance to the edge of the paper in centimeters or inches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Mondopoint sizing system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mondopoint is an international standard sizing system (ISO 9407) that expresses shoe sizes in millimeters, representing both the foot length and width the shoe is designed to fit. It is commonly used in military gear and ski boots."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does foot width affect my shoe size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you have wider feet, standard medium shoes (D for men, B for women) might feel restrictive. You may need to look for wide (E/EE for men, D for women) fittings or size up by a half-size in standard widths."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Shoe Size Converter",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +114,11 @@ export default function ShoeSizeConverterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -152,6 +194,26 @@ export default function ShoeSizeConverterPage() {
             </p>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Converting between different shoe size systems relies on standard regional lookup tables and sizing curves:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Men{"'"}s Conversions:</strong> Standard US sizes are mapped to UK, EU, and JP scales using international standards (e.g. US Men{"'"}s 9 = UK 8.5 = EU 42 = JP 27 cm).
+              </li>
+              <li>
+                <strong>Women{"'"}s Conversions:</strong> Sized slightly narrower and offset from Men{"'"}s (e.g. US Women{"'"}s 7 = UK 5 = EU 37.5 = JP 24 cm).
+              </li>
+              <li>
+                <strong>Children & Kids:</strong> Smaller scales based on Toddler, Little Kid, and Big Kid sizes corresponding to specific age brackets and feet lengths.
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -159,66 +221,70 @@ export default function ShoeSizeConverterPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How do I convert US shoe size to EU?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I convert US shoe size to EU?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   For US Men{"'"}s to EU, you can generally add 33 to the size. For US Women{"'"}s, adding 31 or 31.5 to the size matches the EU equivalent. Since exact ratios differ along the curve, we recommend inputting your exact size in our widget above for instant, precise matching.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Are men{"'"}s and women{"'"}s shoe sizes the same?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Are men{"'"}s and women{"'"}s shoe sizes the same?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   No, there is a distinct offset. In the US, Men{"'"}s sizes are approximately 1.5 sizes smaller than Women{"'"}s (e.g., a Men{"'"}s 7 is a Women{"'"}s 8.5). In the UK, the offset is typically 0.5 size. EU and Japanese sizes are unisex and scale strictly based on physical last sizes.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Why do shoe sizes vary between brands?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Why do shoe sizes vary between brands?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Brands build shoes using custom molds called {"'lasts'"} designed to appeal to specific demographics. Additionally, running shoes, hiking boots, and formal shoes have different interior space designs to maximize padding, comfort, and safety, resulting in sizing variance.
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I measure my foot length accurately at home?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Place a piece of paper on a hard floor against a wall. Stand on it with your heel lightly touching the wall, mark the longest part of your foot with a pencil, and measure the distance to the edge of the paper in centimeters or inches.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the Mondopoint sizing system?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Mondopoint is an international standard sizing system (ISO 9407) that expresses shoe sizes in millimeters, representing both the foot length and width the shoe is designed to fit. It is commonly used in military gear and ski boots.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How does foot width affect my shoe size?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  If you have wider feet, standard medium shoes (D for men, B for women) might feel restrictive. You may need to look for wide (E/EE for men, D for women) fittings or size up by a half-size in standard widths.
+                </p>
+              </div>
             </div>
           </section>
         </article>
 
         <RelatedTools currentSlug="shoe-size-converter" />
-
-        {/* Ad Placement Footer */}
-        <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
-          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
-            Advertisement
-          </div>
-        </div>
-      <RelatedTools currentSlug="shoe-size-converter" />
       </main>
 
       {/* Footer */}

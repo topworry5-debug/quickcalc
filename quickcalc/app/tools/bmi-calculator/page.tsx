@@ -67,8 +67,45 @@ export default function BMICalculatorPage() {
           "@type": "Answer",
           "text": "Body Mass Index is calculated by dividing a person's weight in kilograms by the square of their height in meters (BMI = kg/m²). If utilizing imperial measurements, the formula is BMI = [weight in pounds / (height in inches)²] x 703."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the limitations of using BMI as a health metric?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMI does not directly measure body fat percentage or distribute fat. It cannot differentiate between fat and lean muscle mass, nor does it account for bone density, age, or gender differences."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does BMI vary by age or gender?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While the basic mathematical calculation for BMI is the same for all adults, the interpretation can vary. Older adults tend to have more body fat than younger adults with the same BMI, and women generally have more body fat than men at the same BMI score."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often should I check my BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Checking your BMI every few months or during annual physical exams is typically sufficient for tracking body mass trends, unless otherwise advised by a healthcare provider."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BMI Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +114,11 @@ export default function BMICalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -144,6 +186,26 @@ export default function BMICalculatorPage() {
             </p>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              To calculate Body Mass Index (BMI), we use standard metric or imperial equations based on your preferred units:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Metric Formula:</strong> BMI = Weight (kg) / [Height (m)]²
+              </li>
+              <li>
+                <strong>Imperial Formula:</strong> BMI = [Weight (lbs) / [Height (in)]²] x 703
+              </li>
+            </ul>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
+              The resulting score is automatically mapped directly to clinical WHO guidelines to identify if your body mass falls within underweight, normal, overweight, or obese ranges.
+            </p>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -151,53 +213,65 @@ export default function BMICalculatorPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is a healthy BMI range?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is a healthy BMI range?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   For adults, a healthy Body Mass Index (BMI) is clinically defined as falling within the range of 18.5 to 24.9. Scores below 18.5 represent underweight status, scores from 25 to 29.9 indicate overweight classification, and a score of 30 or higher designates obesity.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Is BMI accurate for muscular or athletic people?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Is BMI accurate for muscular or athletic people?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   No, BMI can be highly misleading for bodybuilders, athletes, and individuals with dense muscle tissue. Because muscle weighs significantly more than fat per cubic inch, a highly fit person can register as {"'overweight'"} or {"'obese'"} on the BMI scale despite having very low body fat.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How is BMI calculated?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How is BMI calculated?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Body Mass Index is calculated by dividing a {"person's"} weight in kilograms by the square of their height in meters (BMI = kg/m²). If utilizing imperial measurements, the formula is BMI = [weight in pounds / (height in inches)²] x 703.
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What are the limitations of using BMI as a health metric?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  BMI does not directly measure body fat percentage or distribute fat. It cannot differentiate between fat and lean muscle mass, nor does it account for bone density, age, or gender differences.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Does BMI vary by age or gender?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  While the basic mathematical calculation for BMI is the same for all adults, the interpretation can vary. Older adults tend to have more body fat than younger adults with the same BMI, and women generally have more body fat than men at the same BMI score.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How often should I check my BMI?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Checking your BMI every few months or during annual physical exams is typically sufficient for tracking body mass trends, unless otherwise advised by a healthcare provider.
+                </p>
+              </div>
             </div>
           </section>
         </article>
@@ -210,7 +284,6 @@ export default function BMICalculatorPage() {
             Advertisement
           </div>
         </div>
-      <RelatedTools currentSlug="bmi-calculator" />
       </main>
 
       {/* Footer */}

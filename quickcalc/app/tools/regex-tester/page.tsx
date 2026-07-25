@@ -67,8 +67,45 @@ export default function RegexTesterPage() {
           "@type": "Answer",
           "text": "Common reasons include neglecting to set the global (g) flag to match multiple occurrences, case-mismatches without the case-insensitive (i) flag, unescaped literal characters (such as '.' or '?'), or subtle syntax differences between standard JavaScript regex engines and other engines like PCRE or Python."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a capture group and how do I use it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Capture groups are defined by enclosing a subpattern in parentheses `(...)`. They let you group and extract specific parts of a match for further reference, replacement, or processing in your code."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I escape special characters in regex?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To match a special regex meta-character literally (such as `.`, `*`, `+`, `?`, `^`, `$`, `(`, `)`, `[`, `]`, `{`, `}`, `|`, `\\`), prepend it with a backslash `\\` (e.g. `\\.` to match a literal dot)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between greedy and lazy matching?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Greedy quantifiers (like `*` or `+`) match as much text as possible. Adding a question mark (like `*?` or `+?`) makes them lazy, forcing them to match the shortest possible string of characters."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Regex Tester",
+    "operatingSystem": "All",
+    "applicationCategory": "DeveloperApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +114,11 @@ export default function RegexTesterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -151,8 +193,28 @@ export default function RegexTesterPage() {
               </li>
             </ul>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <strong>Engine Note:</strong> This utility utilizes the default JavaScript ECMAScript regular expression engine built natively into your browser. While mostly uniform, advanced regex elements like certain lookbehinds or backreferences can vary slightly compared to other engines (such as Python or PCRE).
+              <strong>Engine Note:</strong> This utility utilizes the default JavaScript ECMAScript regular expression expression engine built natively into your browser. While mostly uniform, advanced regex elements like certain lookbehinds or backreferences can vary slightly compared to other engines (such as Python or PCRE).
             </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Regex matching utilizes deterministic finite-state automata (DFA) or non-deterministic finite-state automata (NFA) state machines computed natively by the browser{"'"}s V8 JavaScript engine:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Compiling patterns:</strong> The browser parses your input expression and flags using the standard `new RegExp(pattern, flags)` constructor.
+              </li>
+              <li>
+                <strong>Evaluating text:</strong> The compiled regex runs across your test string to yield full Match objects, capturing start/end index boundaries and matching substrings.
+              </li>
+              <li>
+                <strong>Highlighting:</strong> Our interactive widget splits the test string using these match boundaries, wrapping matches in styled `span` tags to output live colored highlights.
+              </li>
+            </ul>
           </section>
 
           {/* Ad Placement 2 */}
@@ -162,66 +224,70 @@ export default function RegexTesterPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is a regex pattern used for?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is a regex pattern used for?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Regular expressions are widely used for client and server form validations (e.g. email, phone numbers, postal codes), text editing replacements, log file extraction, and security screens for suspicious input patterns.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What do the g, i, and m flags mean in regex?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What do the g, i, and m flags mean in regex?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   These modifiers specify searching conditions. Global (g) returns all matches in a string. Case-insensitive (i) accepts lower and upper case options. Multiline (m) allows anchors to behave on separate paragraphs and lines.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Why is my regex not matching what I expect?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Why is my regex not matching what I expect?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Most issues are due to missing flags (such as {"'g'"} for multiple matches or {"'i'"} for case-insensitive content) or because you have not properly escaped literal characters that carry special regex operations (like dots, brackets, and quantifiers).
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is a capture group and how do I use it?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Capture groups are defined by enclosing a subpattern in parentheses `(...)`. They let you group and extract specific parts of a match for further reference, replacement, or processing in your code.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I escape special characters in regex?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  To match a special regex meta-character literally (such as `.`, `*`, `+`, `?`, `^`, `$`, `(`, `)`, `[`, `]`, `{`, `}`, `|`, `\\`), prepend it with a backslash `\\` (e.g. `\\.` to match a literal dot).
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the difference between greedy and lazy matching?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Greedy quantifiers (like `*` or `+`) match as much text as possible. Adding a question mark (like `*?` or `+?`) makes them lazy, forcing them to match the shortest possible string of characters.
+                </p>
+              </div>
             </div>
           </section>
         </article>
 
         <RelatedTools currentSlug="regex-tester" />
-
-        {/* Ad Placement Footer */}
-        <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
-          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
-            Advertisement
-          </div>
-        </div>
-      <RelatedTools currentSlug="regex-tester" />
       </main>
 
       {/* Footer */}

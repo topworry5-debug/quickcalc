@@ -67,8 +67,45 @@ export default function PaperFabricConverterPage() {
           "@type": "Answer",
           "text": "The international ISO A-series (e.g. A4) is based on a single, logical aspect ratio of 1:√2, allowing sizes to scale perfectly when folded in half. The US Letter and Legal standards evolved from historical hand-made paper mold lengths (specifically 44 inches cut into quarters), which remain popular in North America today."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the aspect ratio of the ISO A-series paper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ISO A-series uses an aspect ratio of 1:√2 (approximately 1:1.4142). This mathematical ratio guarantees that when you fold a sheet of paper in half, the half-size sheet maintains the exact same proportions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert fabric width from inches to centimeters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the fabric width in inches by 2.54 to get the measurement in centimeters. For example, a standard 45-inch fabric is approximately 114.3 centimeters wide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the common dimensions for standard US envelope sizes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common business envelope is the No. 10 envelope, measuring 4.125 x 9.5 inches (105 x 241 mm). For standard invitations, A7 envelopes measuring 5.25 x 7.25 inches are widely used."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Paper & Fabric Size Converter",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +114,11 @@ export default function PaperFabricConverterPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -144,6 +186,26 @@ export default function PaperFabricConverterPage() {
             </p>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Converting paper dimensions and fabric yards relies on fixed linear ratios and international standard tables:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Paper Conversion:</strong> Uses official ISO 216 standards mapping mm, cm, and inches coordinates (e.g. A4 = 210 x 297 mm = 8.27 x 11.69 in).
+              </li>
+              <li>
+                <strong>Fabric Length:</strong> Calculated with standard physical multipliers where 1 Yard = 36 Inches = 3 Feet = 0.9144 Meters.
+              </li>
+              <li>
+                <strong>Area & Weight:</strong> Fabric density conversions typically scale using GSM (Grams per Square Meter) or Oz/Sq Yd ratios.
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -151,66 +213,70 @@ export default function PaperFabricConverterPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is the difference between A4 and Letter paper size?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the difference between A4 and Letter paper size?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A4 paper is narrower and longer than US Letter. A4 measures 210 x 297 mm, while US Letter measures 215.9 x 279.4 mm. When sending documents internationally, converting your layout to match the regional paper standard prevents layout cutoff.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How many meters are in a yard of fabric?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How many meters are in a yard of fabric?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   There are exactly 0.9144 meters in a yard. This standard multiplier ensures you do not buy insufficient fabric when following international patterns. Use our fabric quantity helper to quickly scale your fabric length!
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Why do paper sizes differ between countries?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Why do paper sizes differ between countries?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Regional standards trace back to local manufacturing traditions. While Europe and the rest of the world unified under the German-designed ISO standards in the 20th century to optimize scaling, North America retained the US Letter format owing to its deep entrenchment in commercial printer and copying equipment.
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the aspect ratio of the ISO A-series paper?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  The ISO A-series uses an aspect ratio of 1:√2 (approximately 1:1.4142). This mathematical ratio guarantees that when you fold a sheet of paper in half, the half-size sheet maintains the exact same proportions.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I convert fabric width from inches to centimeters?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Multiply the fabric width in inches by 2.54 to get the measurement in centimeters. For example, a standard 45-inch fabric is approximately 114.3 centimeters wide.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What are the common dimensions for standard US envelope sizes?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  The most common business envelope is the No. 10 envelope, measuring 4.125 x 9.5 inches (105 x 241 mm). For standard invitations, A7 envelopes measuring 5.25 x 7.25 inches are widely used.
+                </p>
+              </div>
             </div>
           </section>
         </article>
 
         <RelatedTools currentSlug="paper-fabric-size-converter" />
-
-        {/* Ad Placement Footer */}
-        <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
-          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
-            Advertisement
-          </div>
-        </div>
-      <RelatedTools currentSlug="paper-fabric-size-converter" />
       </main>
 
       {/* Footer */}

@@ -67,8 +67,45 @@ export default function DueDateCalculatorPage() {
           "@type": "Answer",
           "text": "A standard pregnancy is calculated as lasting 40 weeks (280 days). A pregnancy is clinically considered 'early term' between 37 weeks 0 days and 38 weeks 6 days, 'full term' between 39 weeks 0 days and 40 weeks 6 days, and 'late term' at 41 weeks."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Naegele's Rule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naegele's Rule is a standard way of estimating the due date of a pregnancy. It estimates the expected date of delivery (EDD) by adding one year, subtracting three months, and adding seven days to the first day of a woman's last menstrual period (LMP)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I have irregular menstrual cycles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your cycles are irregular or differ significantly from the standard 28-day length, using LMP alone can be less precise. In these cases, early dating ultrasounds or tracing the exact day of ovulation/conception are more accurate methods."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can my estimated due date change?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, it is common for healthcare providers to adjust your estimated due date after performing a first-trimester ultrasound, as fetal physical development measurements in the early weeks offer a highly precise look at gestation."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Due Date Calculator",
+    "operatingSystem": "All",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +114,11 @@ export default function DueDateCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -152,6 +194,26 @@ export default function DueDateCalculatorPage() {
             </p>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              We determine your estimated due date (EDD) and current gestational milestone breakdown using standard clinical obstetric algorithms:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Last Menstrual Period (LMP) Method:</strong> Adds exactly 280 days (40 weeks) to the first day of your last menstrual period.
+              </li>
+              <li>
+                <strong>Conception Date Method:</strong> Adds exactly 266 days (38 weeks) directly to your known date of conception.
+              </li>
+              <li>
+                <strong>IVF Transfer Method:</strong> Calculates milestones based on transfer date, adding 263 days for a 3-day embryo transfer or 261 days for a 5-day blastocyst transfer.
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -159,53 +221,65 @@ export default function DueDateCalculatorPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How accurate is a due date calculator?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How accurate is a due date calculator?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Calculators serve as an excellent screening estimate, but they cannot predict exact labor triggers. Ultrasound scans conducted during the first trimester are clinically considered the most precise method to confirm or adjust gestational dates.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is the difference between LMP and conception date methods?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the difference between LMP and conception date methods?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The Last Menstrual Period (LMP) method is the medical standard because most women know the date of their last period better than their conception day. However, since ovulation varies, the Conception Date method (which adds 266 days to fertilization) provides a narrower estimate when fertilization timings are certain.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How many weeks is a full-term pregnancy?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How many weeks is a full-term pregnancy?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A standard full-term pregnancy is defined as 39 weeks 0 days to 40 weeks 6 days. Babies born during this window have had the optimal time to mature, particularly in relation to brain, lung, and liver development.
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is Naegele{"'"}s Rule?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Naegele{"'"}s Rule is a standard way of estimating the due date of a pregnancy. It estimates the expected date of delivery (EDD) by adding one year, subtracting three months, and adding seven days to the first day of a {"woman's"} last menstrual period (LMP).
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What if I have irregular menstrual cycles?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  If your cycles are irregular or differ significantly from the standard 28-day length, using LMP alone can be less precise. In these cases, early dating ultrasounds or tracing the exact day of ovulation/conception are more accurate methods.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Can my estimated due date change?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes, it is common for healthcare providers to adjust your estimated due date after performing a first-trimester ultrasound, as fetal physical development measurements in the early weeks offer a highly precise look at gestation.
+                </p>
+              </div>
             </div>
           </section>
         </article>
@@ -218,7 +292,6 @@ export default function DueDateCalculatorPage() {
             Advertisement
           </div>
         </div>
-      <RelatedTools currentSlug="due-date-calculator" />
       </main>
 
       {/* Footer */}
