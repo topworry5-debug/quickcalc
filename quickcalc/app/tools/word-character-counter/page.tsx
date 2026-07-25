@@ -1,10 +1,7 @@
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
-
 import ThemeToggle from "@/components/ThemeToggle";
-
 import Breadcrumbs from "@/components/Breadcrumbs";
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import WordCharacterCounterWidget from "./WordCharacterCounterWidget";
@@ -71,12 +68,30 @@ export default function WordCharacterCounterPage() {
     ]
   };
 
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Word & Character Counter",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors">
       {/* FAQ Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -150,6 +165,39 @@ export default function WordCharacterCounterPage() {
             </ul>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              Our word and character counter executes a series of real-time lexical parsing calculations to evaluate your text metrics:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Character Counting:</strong> Total characters are calculated by measuring the length of the string (<code>text.length</code>). Characters without spaces are counted by stripping all whitespace characters using a global regular expression (<code>text.replace(/\s/g, '').length</code>).
+              </li>
+              <li>
+                <strong>Word Counting:</strong> The string is trimmed and split by a whitespace regular expression (<code>text.trim().split(/\s+/)</code>). To ensure accuracy, empty strings are filtered out from the resulting array before measuring length.
+              </li>
+              <li>
+                <strong>Sentence Counting:</strong> Sentences are identified by matching terminal punctuation marks followed by spaces or string endings (e.g., periods, exclamation marks, and question marks) using a regex pattern (<code>text.split(/[.!?]+(\s|$)/)</code>).
+              </li>
+              <li>
+                <strong>Paragraph Counting:</strong> Paragraphs are counted by splitting the text by newline characters (<code>text.split(/\n+/)</code>) and filtering out empty lines.
+              </li>
+              <li>
+                <strong>Automated Readability Index (ARI):</strong> The readability grade level is estimated using the standard formula:
+                <div className="bg-zinc-100 dark:bg-zinc-900 p-2 my-2 rounded font-mono text-xs overflow-x-auto text-emerald-600 dark:text-emerald-400">
+                  ARI = 4.71 * (Characters / Words) + 0.5 * (Words / Sentences) - 21.43
+                </div>
+                The result is mapped to approximate US school grade levels.
+              </li>
+              <li>
+                <strong>Estimated Reading Time:</strong> Calculated based on an average adult reading speed of 225 words per minute: <code>Reading Time = Words / 225</code>.
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -157,59 +205,50 @@ export default function WordCharacterCounterPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How is reading time calculated from word count?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
-                  Reading time is calculated by taking the total word count of your text and dividing it by the average adult reading speed, which typically ranges between 200 and 238 words per minute. Our tool displays a friendly estimated range (e.g., {"'about 2 to 3 minutes'"}) based on this standard model.
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How is reading time calculated from word count?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Reading time is calculated by taking the total word count of your text and dividing it by the average adult reading speed, which typically ranges between 200 and 238 words per minute. Our tool displays a friendly estimated range (e.g., 'about 2 to 3 minutes') based on this standard model.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is the character limit for a tweet/X post?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the character limit for a tweet/X post?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The standard character limit for a standard post on X (formerly Twitter) is 280 characters. Our tool includes a live platform limits panel that dynamically warns you with color-coded alerts as you approach or exceed this limit.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Does this count words in other languages?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Does this count words in other languages?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes! Our word and character counter splits words based on universal whitespace patterns, enabling accurate count capabilities for English, Spanish, French, German, and many other alphabet-based or split-whitespace languages.
                 </p>
-              </details>
+              </div>
             </div>
           </section>
         </article>
 
         <RelatedTools currentSlug="word-character-counter" />
-      <RelatedTools currentSlug="word-character-counter" />
+
+        {/* Ad Placement Footer */}
+        <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
+          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
+            Advertisement
+          </div>
+        </div>
       </main>
 
       {/* Footer */}

@@ -1,10 +1,7 @@
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
-
 import ThemeToggle from "@/components/ThemeToggle";
-
 import Breadcrumbs from "@/components/Breadcrumbs";
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import TimezonePlannerWidget from "./TimezonePlannerWidget";
@@ -71,12 +68,30 @@ export default function TimezonePlannerPage() {
     ]
   };
 
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Timezone Meeting Planner",
+    "operatingSystem": "All",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors">
       {/* FAQ Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -152,6 +167,34 @@ export default function TimezonePlannerPage() {
             </ul>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              To map schedule overlaps accurately, our system evaluates time conversions using modern, localized chronological processes:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Official IANA Time Zone Matching:</strong> Rather than relying on simple static mathematical offsets (which fail when regions shift between daylight and standard hours), we use location-specific identifiers (e.g., <code>Europe/London</code>, <code>Asia/Tokyo</code>) mapped to the browser's native <code>Intl.DateTimeFormat</code> API.
+              </li>
+              <li>
+                <strong>Absolute Epoch Reference:</strong> The selected meeting day and slider hour are first compiled into a standardized UTC timestamp.
+              </li>
+              <li>
+                <strong>Localized Hour Projection:</strong> The system projects this absolute UTC epoch back into each target team's timezone to extract the exact hour, minute, and calendar date of that region using local browser calendar systems.
+              </li>
+              <li>
+                <strong>Overlap Quality Classification:</strong>
+                <ul className="list-disc pl-6 space-y-1 mt-1">
+                  <li><strong>Core Working Hours (Green):</strong> 9:00 AM to 5:00 PM in the localized timezone.</li>
+                  <li><strong>Extended Working Hours (Amber):</strong> 8:00 AM to 9:00 AM, or 5:00 PM to 7:00 PM in the localized timezone.</li>
+                  <li><strong>Non-Working Hours (Red):</strong> Hours before 8:00 AM or after 7:00 PM, identifying times unsuitable for standard meetings.</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -159,53 +202,38 @@ export default function TimezonePlannerPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How do I find a meeting time that works across time zones?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
-                  Start by identifying the central location of key stakeholders. Input your preferred local time, select your target hubs in our widget above, and inspect rows displaying green {"\"Inside Core Hours\""} tags. This highlights overlapping business hours instantly.
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I find a meeting time that works across time zones?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Start by identifying the central location of key stakeholders. Input your preferred local time, select your target hubs in our widget above, and inspect rows displaying green "Inside Core Hours" tags. This highlights overlapping business hours instantly.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Does this tool account for daylight saving time?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Does this tool account for daylight saving time?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, fully. Our calculations utilize localized Intl capabilities running with the official IANA database strings. By changing the planned date, the system automatically checks and offsets DST status for each specific region correctly.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>{"What's the best overlap time for US and Europe teams?"}</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What's the best overlap time for US and Europe teams?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The ideal window is the US morning (9:00 AM to 12:00 PM EST), which maps comfortably to the European afternoon (2:00 PM to 5:00 PM GMT/CET). This ensures both teams are inside standard business hours with no one expected to join before 8:00 AM or after 7:00 PM.
                 </p>
-              </details>
+              </div>
             </div>
           </section>
         </article>
@@ -218,7 +246,6 @@ export default function TimezonePlannerPage() {
             Advertisement
           </div>
         </div>
-      <RelatedTools currentSlug="timezone-meeting-planner" />
       </main>
 
       {/* Footer */}

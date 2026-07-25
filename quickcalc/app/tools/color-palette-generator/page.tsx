@@ -1,10 +1,7 @@
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
-
 import ThemeToggle from "@/components/ThemeToggle";
-
 import Breadcrumbs from "@/components/Breadcrumbs";
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import ColorPaletteGeneratorWidget from "./ColorPaletteGeneratorWidget";
@@ -12,13 +9,13 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Free Color Palette Generator - Extract Dominant Colors from Images | QuickCalc",
-  description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export.",
+  description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export. 100% free.",
   alternates: {
     canonical: "/tools/color-palette-generator",
   },
   openGraph: {
     title: "Free Color Palette Generator - Extract Dominant Colors from Images | QuickCalc",
-    description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export.",
+    description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export. 100% free.",
     url: "https://quickcalc.cloud/tools/color-palette-generator",
     type: "website",
     siteName: "QuickCalc",
@@ -34,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Free Color Palette Generator - Extract Dominant Colors from Images | QuickCalc",
-    description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export.",
+    description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export. 100% free.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
@@ -67,8 +64,29 @@ export default function ColorPaletteGeneratorPage() {
           "@type": "Answer",
           "text": "Our color extractor supports all standard browser-readable graphic formats including PNG, JPG, JPEG, WEBP, GIF, and SVG files under 10MB in size."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "How is WCAG contrast checked?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WCAG contrast is checked using the standard relative luminance formula. It calculates the brightness difference between the foreground and background colors to ensure the contrast ratio meets or exceeds the 4.5:1 ratio required for readability (AA level)."
+        }
       }
     ]
+  };
+
+  const softwareData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Color Palette Generator",
+    "operatingSystem": "All",
+    "applicationCategory": "DesignApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
   };
 
   return (
@@ -77,6 +95,11 @@ export default function ColorPaletteGeneratorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      {/* Software Application Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareData) }}
       />
 
       {/* Header */}
@@ -150,6 +173,33 @@ export default function ColorPaletteGeneratorPage() {
             </ul>
           </section>
 
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              How is this calculated?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              To extract the dominant color palette from your uploaded image, our system executes a series of mathematical color clustering computations:
+            </p>
+            <ul className="list-disc pl-6 text-zinc-600 dark:text-zinc-400 space-y-2">
+              <li>
+                <strong>Image Downsampling:</strong> The image is drawn onto an invisible HTML5 canvas element and downsampled to a manageable resolution (e.g., 100x100 pixels) to optimize performance.
+              </li>
+              <li>
+                <strong>Pixel Quantization:</strong> The RGB values of the pixels are clustered using a modified K-means clustering or Octree algorithm, which groups similar colors into bins based on geometric distance in the 3D RGB color space.
+              </li>
+              <li>
+                <strong>Frequency Ranking & Filtering:</strong> The clustered color bins are ranked by size (frequency) to find the most dominant colors, while filtering out colors that are too similar in distance (using delta-E metric or Euclidean distance checks) to avoid duplicate swatches.
+              </li>
+              <li>
+                <strong>Contrast Analysis (WCAG 2.0):</strong> For each color, relative luminance <code>L</code> is calculated using the formula:
+                <div className="bg-zinc-100 dark:bg-zinc-900 p-2 my-2 rounded font-mono text-xs overflow-x-auto text-emerald-600 dark:text-emerald-400">
+                  L = 0.2126 * R_srgb + 0.7152 * G_srgb + 0.0722 * B_srgb
+                </div>
+                Contrast ratio is then computed as <code>(L1 + 0.05) / (L2 + 0.05)</code>, where L1 is the lighter color and L2 is the darker color.
+              </li>
+            </ul>
+          </section>
+
           {/* Ad Placement 2 */}
           <div className="ad-slot ad-slot--inline" data-ad-position="in-content-2">
             <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
@@ -157,59 +207,59 @@ export default function ColorPaletteGeneratorPage() {
             </div>
           </div>
 
-          {/* FAQ Accordion */}
+          {/* FAQ open style matching Age Calculator and Currency Converter */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
-            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white border-b border-zinc-100 dark:border-zinc-900 pb-2">
               Frequently Asked Questions (FAQ)
             </h2>
-            <div className="space-y-3">
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How do I extract colors from an image for a design project?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I extract colors from an image for a design project?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Simply drag and drop or upload your design file, photo, or mood-board image directly into our client-side palette tool. It instantly renders the file on an HTML5 Canvas, clusters color frequencies, filters visually indistinguishable shades, and extracts 6 to 8 dominant color swatches complete with exact hexadecimal values, contrast scoring, and ready-to-use CSS/Tailwind configuration snippets.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Is my uploaded image stored anywhere?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Is my uploaded image stored anywhere?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   No, your uploaded images are never stored or transmitted to any remote servers. All processing is executed 100% locally in your browser memory using HTML5 Canvas APIs, ensuring absolute privacy for your personal designs, proprietary logos, and photography.
                 </p>
-              </details>
+              </div>
 
-              <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What file formats are supported?</span>
-                  <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="text-zinc-600 dark:text-zinc-400 mt-3 text-sm leading-relaxed">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What file formats are supported?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Our color extractor supports all standard browser-readable graphic formats including PNG, JPG, JPEG, WEBP, GIF, and SVG files under 10MB in size.
                 </p>
-              </details>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How is WCAG contrast checked?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  WCAG contrast is checked using the standard relative luminance formula. It calculates the brightness difference between the foreground and background colors to ensure the contrast ratio meets or exceeds the 4.5:1 ratio required for readability (AA level).
+                </p>
+              </div>
             </div>
           </section>
         </article>
 
         <RelatedTools currentSlug="color-palette-generator" />
-      <RelatedTools currentSlug="color-palette-generator" />
+
+        {/* Ad Placement Footer */}
+        <div className="ad-slot ad-slot--footer mt-12" data-ad-position="footer">
+          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
+            Advertisement
+          </div>
+        </div>
       </main>
 
       {/* Footer */}
