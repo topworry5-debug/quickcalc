@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-to-calculate-zakat-nisab-gold-silver-savings-guide",
+    title: "How to Calculate Zakat: A Complete Guide to Nisab, Gold, Silver & Savings",
+    description: "Learn how to calculate Zakat step-by-step with our comprehensive guide. Understand the gold and silver nisab standards, what assets count, and when to pay.",
+    excerpt: "Learn how to calculate Zakat step-by-step with our comprehensive guide. Understand the gold and silver nisab standards, what assets count, and when to pay.",
+    date: "July 24, 2026",
+    readTime: "10 min read",
+    category: "Finance & Math",
+    icon: "🕌",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
     slug: "50-30-20-budget-rule-explained-does-it-actually-work",
     title: "The 50/30/20 Budget Rule Explained (And Why It Doesn't Work for Everyone)",
     description: "Learn how the 50/30/20 budgeting rule works, what actually counts as a \"need\" vs a \"want,\" and what to do if your rent alone eats up half your paycheck. Free calculator included.",

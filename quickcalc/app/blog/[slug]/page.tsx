@@ -15,6 +15,7 @@ import ShoeSizeArticle from "../data/shoe-size-article";
 import BmiArticle from "../data/bmi-article";
 import DstTimezoneArticle from "../data/dst-timezone-article";
 import PasswordEntropyArticle from "../data/password-entropy-article";
+import ZakatCalculationGuideArticle from "../data/zakat-calculation-guide-article";
 
 interface BlogPostProps {
   params: {
@@ -23,6 +24,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "how-to-calculate-zakat-nisab-gold-silver-savings-guide": ZakatCalculationGuideArticle,
   "50-30-20-budget-rule-explained-does-it-actually-work": BudgetRuleArticle,
   "usd-to-pkr-and-understanding-real-exchange-rates": UsdPkrArticle,
   "how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date": ExactAgeArticle,
@@ -83,7 +85,9 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     "@type": "Article",
     "headline": article.title,
     "description": article.description,
-    "datePublished": article.slug === "usd-to-pkr-and-understanding-real-exchange-rates"
+    "datePublished": article.slug === "how-to-calculate-zakat-nisab-gold-silver-savings-guide"
+      ? "2026-07-24"
+      : article.slug === "usd-to-pkr-and-understanding-real-exchange-rates"
       ? "2026-07-24"
       : article.slug === "50-30-20-budget-rule-explained-does-it-actually-work"
       ? "2026-07-24"
