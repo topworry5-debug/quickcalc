@@ -206,5 +206,14 @@ export const tools: Tool[] = [
     "color": "from-emerald-500 to-teal-600",
     "textColor": "text-emerald-600 dark:text-emerald-400",
     "category": "Finance"
+  },
+  {
+    "title": "Salary Take-Home Calculator",
+    "description": "Calculate your estimated net take-home salary after income taxes & payroll deductions in the US, Canada, and Pakistan side-by-side.",
+    "icon": "💵",
+    "href": "/tools/salary-take-home-calculator",
+    "color": "from-teal-500 via-cyan-500 to-emerald-500",
+    "textColor": "text-teal-600 dark:text-teal-400",
+    "category": "Finance"
   }
 ];
