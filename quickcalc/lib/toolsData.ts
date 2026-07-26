@@ -190,12 +190,21 @@ export const tools: Tool[] = [
     category: "Finance" // Currency Converter can be treated as both, we will handle this in relevance matching.
   },
   {
-    title: "Budget Calculator",
-    description: "Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.",
-    icon: "💰",
-    href: "/tools/budget-calculator",
-    color: "from-blue-500 via-indigo-500 to-emerald-500",
-    textColor: "text-indigo-600 dark:text-indigo-400",
-    category: "Finance"
+    "title": "Budget Calculator",
+    "description": "Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.",
+    "icon": "💰",
+    "href": "/tools/budget-calculator",
+    "color": "from-blue-500 via-indigo-500 to-emerald-500",
+    "textColor": "text-indigo-600 dark:text-indigo-400",
+    "category": "Finance"
+  },
+  {
+    "title": "Zakat Calculator",
+    "description": "Calculate your Zakat cleanly with a category-by-category breakdown. Support for custom gold/silver rates and Nisab standard selector.",
+    "icon": "⚖️",
+    "href": "/tools/zakat-calculator",
+    "color": "from-emerald-500 to-teal-600",
+    "textColor": "text-emerald-600 dark:text-emerald-400",
+    "category": "Finance"
   }
 ];
