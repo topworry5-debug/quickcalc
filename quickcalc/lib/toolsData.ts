@@ -19,6 +19,15 @@ export const tools: Tool[] = [
     category: "Health"
   },
   {
+    title: "Calorie Calculator",
+    description: "Calculate your BMR and TDEE using the modern Mifflin-St Jeor formula. Get tailored calorie targets for losing, maintaining, and gaining weight.",
+    icon: "🔥",
+    href: "/tools/calorie-calculator",
+    color: "from-orange-500 to-amber-600",
+    textColor: "text-orange-600 dark:text-orange-400",
+    category: "Health"
+  },
+  {
     title: "Water Intake Calculator",
     description: "Calculate your ideal daily hydration requirements based on your body weight, activity level, and climate.",
     icon: "💧",
