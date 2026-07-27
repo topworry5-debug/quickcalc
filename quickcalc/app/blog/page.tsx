@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-currency-conversion-actually-works-avoid-markup-fees",
+    title: "How Currency Conversion Actually Works (And How to Avoid Losing Money on It)",
+    description: "Learn how currency conversion actually works. Understand exchange rates, mid-market rates, bank markup fees, and how to avoid losing money abroad.",
+    excerpt: "Learn how currency conversion actually works. Understand exchange rates, mid-market rates, bank markup fees, and how to avoid losing money abroad.",
+    date: "July 26, 2026",
+    readTime: "10 min read",
+    category: "Finance & Math",
+    icon: "💱",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
     slug: "how-to-calculate-zakat-nisab-gold-silver-savings-guide",
     title: "How to Calculate Zakat: A Complete Guide to Nisab, Gold, Silver & Savings",
     description: "Learn how to calculate Zakat step-by-step with our comprehensive guide. Understand the gold and silver nisab standards, what assets count, and when to pay.",

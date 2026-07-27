@@ -16,6 +16,7 @@ import BmiArticle from "../data/bmi-article";
 import DstTimezoneArticle from "../data/dst-timezone-article";
 import PasswordEntropyArticle from "../data/password-entropy-article";
 import ZakatCalculationGuideArticle from "../data/zakat-calculation-guide-article";
+import CurrencyConversionGuideArticle from "../data/currency-conversion-guide-article";
 
 interface BlogPostProps {
   params: {
@@ -24,6 +25,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "how-currency-conversion-actually-works-avoid-markup-fees": CurrencyConversionGuideArticle,
   "how-to-calculate-zakat-nisab-gold-silver-savings-guide": ZakatCalculationGuideArticle,
   "50-30-20-budget-rule-explained-does-it-actually-work": BudgetRuleArticle,
   "usd-to-pkr-and-understanding-real-exchange-rates": UsdPkrArticle,
@@ -46,23 +48,28 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
   const article = articles.find((a) => a.slug === params.slug);
   if (!article) return {};
 
+  const isNewArticle = article.slug === "how-currency-conversion-actually-works-avoid-markup-fees";
+  const customTitle = isNewArticle
+    ? "How Currency Conversion Works & How to Avoid Fees"
+    : `${article.title} | QuickCalc Insights`;
+
   return {
-    title: `${article.title} | QuickCalc Insights`,
+    title: customTitle,
     description: article.description,
     alternates: {
       canonical: `/blog/${article.slug}`,
     },
     openGraph: {
-      title: `${article.title} | QuickCalc Insights`,
+      title: customTitle,
       description: article.description,
       url: `https://quickcalc.cloud/blog/${article.slug}`,
       type: "article",
-      publishedTime: "2026-07-18T00:00:00.000Z",
+      publishedTime: isNewArticle ? "2026-07-26T00:00:00.000Z" : "2026-07-18T00:00:00.000Z",
       siteName: "QuickCalc",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${article.title} | QuickCalc Insights`,
+      title: customTitle,
       description: article.description,
     },
   };
@@ -85,7 +92,9 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     "@type": "Article",
     "headline": article.title,
     "description": article.description,
-    "datePublished": article.slug === "how-to-calculate-zakat-nisab-gold-silver-savings-guide"
+    "datePublished": article.slug === "how-currency-conversion-actually-works-avoid-markup-fees"
+      ? "2026-07-26"
+      : article.slug === "how-to-calculate-zakat-nisab-gold-silver-savings-guide"
       ? "2026-07-24"
       : article.slug === "usd-to-pkr-and-understanding-real-exchange-rates"
       ? "2026-07-24"
@@ -102,7 +111,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
       : article.slug === "why-daylight-saving-time-breaks-simple-timezone-math" 
       ? "2026-07-17" 
       : "2026-07-16",
-    "dateModified": "2026-07-24",
+    "dateModified": "2026-07-26",
     "author": {
       "@type": "Organization",
       "name": "QuickCalc",
