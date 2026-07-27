@@ -37,6 +37,15 @@ export const tools: Tool[] = [
     category: "Health"
   },
   {
+    title: "Pace Calculator",
+    description: "Calculate running pace, time, or distance with our 3-in-1 calculator. View live km/mile side-by-side conversions and instant race time predictions.",
+    icon: "🏃",
+    href: "/tools/pace-calculator",
+    color: "from-blue-600 to-indigo-600",
+    textColor: "text-blue-600 dark:text-indigo-400",
+    category: "Health"
+  },
+  {
     title: "Due Date Calculator",
     description: "Estimate your baby's arrival date, trace gestational milestones, and follow your week-by-week trimester timeline.",
     icon: "👶",
