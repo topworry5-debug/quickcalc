@@ -1,0 +1,278 @@
+import RelatedTools from "@/components/RelatedTools";
+import ShareButtons from "@/components/ShareButtons";
+import ThemeToggle from "@/components/ThemeToggle";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import type { Metadata } from "next";
+import Link from "next/link";
+import InflationCalculatorWidget from "./InflationCalculatorWidget";
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Inflation Calculator - Past vs Present Buying Power | QuickCalc",
+  description: "Calculate how inflation affects your purchasing power across the US, Canada, and Pakistan. Compare money value then vs now using real CPI data.",
+  alternates: {
+    canonical: "/tools/inflation-calculator",
+  },
+  openGraph: {
+    title: "Inflation Calculator - Past vs Present Buying Power | QuickCalc",
+    description: "Calculate how inflation affects your purchasing power across the US, Canada, and Pakistan. Compare money value then vs now using real CPI data.",
+    url: "https://quickcalc.cloud/tools/inflation-calculator",
+    type: "website",
+    siteName: "QuickCalc",
+    images: [
+      {
+        url: "https://quickcalc.cloud/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Inflation Calculator on QuickCalc",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inflation Calculator - Past vs Present Buying Power | QuickCalc",
+    description: "Calculate how inflation affects your purchasing power across the US, Canada, and Pakistan. Compare money value then vs now using real CPI data.",
+    images: ["https://quickcalc.cloud/og-image.png"],
+  },
+};
+
+export default function InflationCalculatorPage() {
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is inflation calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Inflation is calculated by comparing the Consumer Price Index (CPI) values of two different time periods. The formula divides the CPI of the ending year by the CPI of the starting year, then multiplies the result by your original cash amount to find its equivalent modern value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is CPI (Consumer Price Index)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Consumer Price Index (CPI) is a statistical measure that tracks the average change over time in the prices paid by consumers for a standard basket of goods and services. It is the primary benchmark used by governments to determine official annual inflation rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does $100 today not buy as much as it used to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Over time, the general prices of goods and services rise due to inflation, which erodes the purchasing power of currency. As a result, a fixed sum of money like $100 buys a smaller portion of goods today than it did in previous decades."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much has inflation increased prices in Pakistan over the last decade?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Over the last decade, Pakistan has experienced substantial inflation, with cumulative price levels increasing by over 220%. This rapid rise means that products costing 100 Rupees in 2016 would require roughly 320 Rupees to purchase in 2026."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is inflation the same in every country?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, inflation varies widely between countries based on local monetary policy, economic stability, and supply chains. While developed nations like the US and Canada target a stable inflation rate around 2%, developing countries often face much higher rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I protect my savings from inflation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can protect your savings from inflation by investing in assets that historically outpace inflation, such as index funds, real estate, or inflation-indexed government bonds. Keeping all your cash in a low-interest bank account will result in a loss of real buying power over time."
+        }
+      }
+    ]
+  };
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Inflation Calculator: What Money Was Worth Then vs. Now (US, Canada & Pakistan)",
+    "description": "An interactive multi-country inflation calculator that supports US, Canada, and Pakistan data to compute real purchasing power in both directions.",
+    "author": {
+      "@type": "Organization",
+      "name": "QuickCalc"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "QuickCalc",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://quickcalc.cloud/og-image.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://quickcalc.cloud/tools/inflation-calculator"
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors">
+      {/* FAQ & Article Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
+      {/* Header */}
+      <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
+        <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 font-bold text-lg text-blue-600 dark:text-blue-400">
+            <span>⚖️ QuickCalc</span>
+          </Link>
+          <nav className="flex items-center gap-2 sm:gap-4">
+            <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Home
+            </Link>
+            <Link href="/blog" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Blog
+            </Link>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700">|</span>
+            <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600">Inflation Calculator</span>
+            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
+            <ThemeToggle />
+          </nav>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+        <Breadcrumbs toolName="Inflation Calculator" toolSlug="inflation-calculator" />
+        
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
+            Inflation Calculator: What Money Was Worth Then vs. Now (US, Canada & Pakistan)
+          </h1>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold">
+            Inflation represents the steady decline in the purchasing power of money over time, meaning each unit of currency buys fewer goods and services. As prices rise, the real-world value of your cash decreases, directly impacting your cost of living. Calculating historical inflation helps you see exactly how much cash is needed today to match the buying power of the past.
+          </p>
+        </div>
+
+        <ShareButtons url="https://quickcalc.cloud/tools/inflation-calculator" title="Inflation Calculator - Past vs Present Buying Power" />
+
+        <section className="my-8">
+          <InflationCalculatorWidget />
+        </section>
+
+        {/* Ad Slot */}
+        <div className="ad-slot ad-slot--inline my-8 animate-pulse" data-ad-position="in-content-1">
+          <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
+            Advertisement
+          </div>
+        </div>
+
+        {/* Informational Copy */}
+        <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
+              About this calculator
+            </h2>
+            <div className="text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-4">
+              <p>
+                <strong>Understanding Inflation and the Consumer Price Index (CPI)</strong>
+                <br />
+                The Consumer Price Index (CPI) is the standard metric used by governments to track inflation. It measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services, including housing, food, transportation, energy, and healthcare. When the CPI increases, it indicates that the overall cost of living is rising, which directly erodes the purchasing power of your money.
+              </p>
+              <p>
+                To measure inflation, statistical agencies like the US Bureau of Labor Statistics, Statistics Canada, and the Pakistan Bureau of Statistics regularly collect price data on thousands of items. By comparing the cost of this market basket in any given year to a designated base year, economists can determine the cumulative percentage increase in prices.
+              </p>
+              <p>
+                <strong>Why Do Inflation Rates Differ Significantly Between Countries?</strong>
+                <br />
+                Inflation rates differ significantly between countries due to distinct monetary policies, domestic economic factors, and fiscal stability. Developing economies, such as Pakistan, often experience higher inflation rates due to currency depreciation, supply chain disruptions, energy crises, and rapid changes in central bank interest rates. On the other hand, developed nations like the United States and Canada typically maintain lower, more stable inflation rates. This is achieved through independent central banks (like the Federal Reserve and the Bank of Canada) that manage monetary policy to target a stable inflation rate around 2% annually.
+              </p>
+              <p>
+                When comparing international currencies, planning travel, or sending remittances across borders, it is highly beneficial to evaluate purchasing power and real-world conversion rates using our live <Link href="/tools/currency-converter" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">Currency Converter</Link>. If you are evaluating how inflation affects your salary or budget, you can also explore our specialized <Link href="/tools/salary-take-home-calculator" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">Salary Take-Home Calculator</Link> to model your net income after tax deductions.
+              </p>
+            </div>
+          </section>
+
+          {/* Ad Slot */}
+          <div className="ad-slot ad-slot--inline my-8 animate-pulse" data-ad-position="in-content-2">
+            <div className="ad-placeholder-label border border-dashed border-zinc-300 dark:border-zinc-800 rounded-xl py-4 flex items-center justify-center bg-zinc-50/50 dark:bg-zinc-950/20 text-[10px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-widest cursor-default">
+              Advertisement
+            </div>
+          </div>
+
+          <section className="space-y-4 pt-4 border-t border-zinc-100 dark:border-zinc-900">
+            <h2 className="text-2xl font-bold text-zinc-950 dark:text-white pb-2">
+              Frequently Asked Questions (FAQ)
+            </h2>
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How is inflation calculated?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Inflation is calculated by comparing the Consumer Price Index (CPI) values of two different time periods. The formula divides the CPI of the ending year by the CPI of the starting year, then multiplies the result by your original cash amount to find its equivalent modern value.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is CPI (Consumer Price Index)?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  The Consumer Price Index (CPI) is a statistical measure that tracks the average change over time in the prices paid by consumers for a standard basket of goods and services. It is the primary benchmark used by governments to determine official annual inflation rates.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Why does $100 today not buy as much as it used to?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Over time, the general prices of goods and services rise due to inflation, which erodes the purchasing power of currency. As a result, a fixed sum of money like $100 buys a smaller portion of goods today than it did in previous decades.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How much has inflation increased prices in Pakistan over the last decade?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Over the last decade, Pakistan has experienced substantial inflation, with cumulative price levels increasing by over 220%. This rapid rise means that products costing 100 Rupees in 2016 would require roughly 320 Rupees to purchase in 2026.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Is inflation the same in every country?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  No, inflation varies widely between countries based on local monetary policy, economic stability, and supply chains. While developed nations like the US and Canada target a stable inflation rate around 2%, developing countries often face much higher rates.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How can I protect my savings from inflation?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  You can protect your savings from inflation by investing in assets that historically outpace inflation, such as index funds, real estate, or inflation-indexed government bonds. Keeping all your cash in a low-interest bank account will result in a loss of real buying power over time.
+                </p>
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <RelatedTools currentSlug="inflation-calculator" />
+      </main>
+
+      <Footer customText="Reliable, multi-country purchasing power and inflation trackers." />
+    </div>
+  );
+}

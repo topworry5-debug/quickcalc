@@ -251,5 +251,14 @@ export const tools: Tool[] = [
     "color": "from-blue-500 via-indigo-500 to-emerald-500",
     "textColor": "text-indigo-600 dark:text-indigo-400",
     "category": "Finance"
+  },
+  {
+    "title": "Inflation Calculator",
+    "description": "Calculate historical inflation and buying power changes in the US, Canada, and Pakistan. Compare money value then vs now instantly.",
+    "icon": "📈",
+    "href": "/tools/inflation-calculator",
+    "color": "from-blue-500 via-indigo-500 to-purple-600",
+    "textColor": "text-indigo-600 dark:text-indigo-400",
+    "category": "Finance"
   }
 ];
