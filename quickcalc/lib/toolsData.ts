@@ -260,5 +260,14 @@ export const tools: Tool[] = [
     "color": "from-blue-500 via-indigo-500 to-purple-600",
     "textColor": "text-indigo-600 dark:text-indigo-400",
     "category": "Finance"
+  },
+  {
+    "title": "Savings Growth Calculator",
+    "description": "Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest.",
+    "icon": "📈",
+    "href": "/tools/savings-growth-calculator",
+    "color": "from-teal-500 via-emerald-500 to-blue-500",
+    "textColor": "text-teal-600 dark:text-teal-400",
+    "category": "Finance"
   }
 ];
