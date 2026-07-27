@@ -242,5 +242,14 @@ export const tools: Tool[] = [
     "color": "from-amber-500 via-orange-500 to-red-500",
     "textColor": "text-orange-600 dark:text-orange-400",
     "category": "Finance"
+  },
+  {
+    "title": "Discount Calculator",
+    "description": "Calculate sale prices with single or stacked discounts, visual step-by-step math, and reverse pre-discount calculations instantly.",
+    "icon": "🏷️",
+    "href": "/tools/discount-calculator",
+    "color": "from-blue-500 via-indigo-500 to-emerald-500",
+    "textColor": "text-indigo-600 dark:text-indigo-400",
+    "category": "Finance"
   }
 ];
