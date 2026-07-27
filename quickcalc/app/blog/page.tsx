@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-to-calculate-exact-age-years-months-days",
+    title: "How to Calculate Your Exact Age (Years, Months, and Days)",
+    description: "Learn how to calculate your exact age in years, months, and days. Understand chronological age calculation, day-level precision, and leap year impacts.",
+    excerpt: "Learn how to calculate your exact age in years, months, and days. Understand chronological age calculation, day-level precision, and leap year impacts.",
+    date: "July 26, 2026",
+    readTime: "5 min read",
+    category: "Life & Math",
+    icon: "🎂",
+    color: "from-pink-500 to-rose-600",
+    textColor: "text-rose-600 dark:text-rose-400",
+  },
+  {
     slug: "how-currency-conversion-actually-works-avoid-markup-fees",
     title: "How Currency Conversion Actually Works (And How to Avoid Losing Money on It)",
     description: "Learn how currency conversion actually works. Understand exchange rates, mid-market rates, bank markup fees, and how to avoid losing money abroad.",

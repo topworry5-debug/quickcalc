@@ -17,6 +17,7 @@ import DstTimezoneArticle from "../data/dst-timezone-article";
 import PasswordEntropyArticle from "../data/password-entropy-article";
 import ZakatCalculationGuideArticle from "../data/zakat-calculation-guide-article";
 import CurrencyConversionGuideArticle from "../data/currency-conversion-guide-article";
+import AgeCalculatorGuideArticle from "../data/age-calculator-guide-article";
 
 interface BlogPostProps {
   params: {
@@ -25,6 +26,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "how-to-calculate-exact-age-years-months-days": AgeCalculatorGuideArticle,
   "how-currency-conversion-actually-works-avoid-markup-fees": CurrencyConversionGuideArticle,
   "how-to-calculate-zakat-nisab-gold-silver-savings-guide": ZakatCalculationGuideArticle,
   "50-30-20-budget-rule-explained-does-it-actually-work": BudgetRuleArticle,
@@ -92,7 +94,9 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     "@type": "Article",
     "headline": article.title,
     "description": article.description,
-    "datePublished": article.slug === "how-currency-conversion-actually-works-avoid-markup-fees"
+    "datePublished": article.slug === "how-to-calculate-exact-age-years-months-days"
+      ? "2026-07-26"
+      : article.slug === "how-currency-conversion-actually-works-avoid-markup-fees"
       ? "2026-07-26"
       : article.slug === "how-to-calculate-zakat-nisab-gold-silver-savings-guide"
       ? "2026-07-24"
