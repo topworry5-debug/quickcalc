@@ -215,5 +215,14 @@ export const tools: Tool[] = [
     "color": "from-teal-500 via-cyan-500 to-emerald-500",
     "textColor": "text-teal-600 dark:text-teal-400",
     "category": "Finance"
+  },
+  {
+    "title": "Pregnancy Weight Gain Calculator",
+    "description": "Calculate personalized healthy pregnancy weight gain ranges week-by-week based on pre-pregnancy Body Mass Index and gestational timing.",
+    "icon": "👶",
+    "href": "/tools/pregnancy-weight-gain-calculator",
+    "color": "from-teal-500 via-emerald-500 to-teal-600",
+    "textColor": "text-teal-600 dark:text-teal-400",
+    "category": "Health"
   }
 ];
