@@ -233,5 +233,14 @@ export const tools: Tool[] = [
     "color": "from-teal-500 via-emerald-500 to-teal-600",
     "textColor": "text-teal-600 dark:text-teal-400",
     "category": "Health"
+  },
+  {
+    "title": "Habit Cost Calculator",
+    "description": "Calculate the combined compounding time and money cost of daily recurring habits over years, decades, and by retirement.",
+    "icon": "⏳",
+    "href": "/tools/habit-cost-calculator",
+    "color": "from-amber-500 via-orange-500 to-red-500",
+    "textColor": "text-orange-600 dark:text-orange-400",
+    "category": "Finance"
   }
 ];
