@@ -56,50 +56,26 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the difference between gross pay and net pay?",
+        "name": "How much is my salary after tax?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Gross pay represents the total amount of money an employee earns before any deductions or taxes are withheld by the employer. Net pay, commonly referred to as take-home pay, is the actual amount of money an employee receives in their paycheck after all income taxes, payroll taxes, social security contributions, and voluntary deductions are subtracted."
+          "text": "To find out how much is my salary after tax, enter your annual or hourly gross wage into our calculator, select your country, and let the tool estimate your final net income. The calculator automatically applies federal brackets and standard social program contributions to show your actual earnings."
         }
       },
       {
         "@type": "Question",
-        "name": "How much tax is deducted from my salary in the US?",
+        "name": "Gross vs net salary difference?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In the United States, salary deductions include progressive federal income tax ranging from 10% to 37% depending on tax brackets, along with federal payroll taxes. These federal payroll taxes consist of a 6.2% Social Security tax up to the annual wage limit and a 1.45% Medicare tax. Employees may also face additional state and local income taxes depending on their specific location."
+          "text": "The gross vs net salary difference represents what you earn before deductions versus what you actually take home. Gross salary is the full amount agreed with your employer before taxes, whereas net salary is the actual amount paid to you after income tax, payroll deductions, and social contributions."
         }
       },
       {
         "@type": "Question",
-        "name": "Does this calculator include state or provincial tax?",
+        "name": "How to calculate take-home pay?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "This salary calculator utilizes simplified national figures and standard averages rather than exact localized brackets. For the United States, calculations are federal-only and do not include state or municipal income taxes. For Canada, calculations include a simplified flat average provincial tax rate of 10% in addition to the progressive federal tax brackets."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What deductions come out of my paycheck besides income tax?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Besides standard income tax, a typical paycheck is subject to mandatory social and insurance contributions. In the United States, these payroll taxes include Social Security and Medicare under the Federal Insurance Contributions Act. In Canada, payroll deductions include the Canada Pension Plan contribution and the Employment Insurance premium."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is take-home pay calculated in Pakistan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In Pakistan, salary take-home pay is determined by applying the progressive income tax slabs set by the Federal Board of Revenue for salaried individuals. Salaries below 600,000 PKR annually are completely exempt from tax, while income above that threshold is taxed across progressive brackets with rates ranging from 5% up to 35%."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why does my actual paycheck differ from this estimate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Actual paycheck figures often differ from standard online estimates because of localized state or provincial income taxes, individual tax credits, and custom filing statuses. Furthermore, individual employers may deduct pre-tax or post-tax amounts for health insurance premiums, retirement fund contributions, union dues, or other customized workplace benefits."
+          "text": "To learn how to calculate take-home pay, start with your gross salary and deduct progressive federal income taxes, local state or provincial taxes, and payroll deductions (like FICA in the US or CPP and EI in Canada). Our calculator automates this complex math to give you a clear net estimate in seconds."
         }
       }
     ]
@@ -170,7 +146,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
           </h1>
           {/* Tight 50-70 word stand-alone direct-answer paragraph */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-            Take-home pay is the net amount of earnings an employee receives in their paycheck after all mandatory deductions are subtracted from their gross salary. These standard reductions primarily include progressive federal income taxes, local provincial or state taxes, and essential payroll contributions such as social security, government pensions, and employment insurance.
+            If you are wondering how much is my salary after tax, this free tool provides the answers you need. Take-home pay is the net amount of earnings an employee receives in their paycheck after all mandatory deductions are subtracted from their gross salary. These standard reductions primarily include progressive federal income taxes, local provincial or state taxes, and essential payroll contributions such as social security, government pensions, and employment insurance.
           </p>
         </div>
 
@@ -221,55 +197,28 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the difference between gross pay and net pay?
+                  How much is my salary after tax?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Gross pay represents the total amount of money an employee earns before any deductions or taxes are withheld by the employer. Net pay, commonly referred to as take-home pay, is the actual amount of money an employee receives in their paycheck after all income taxes, payroll taxes, social security contributions, and voluntary deductions are subtracted.
+                  To find out how much is my salary after tax, enter your annual or hourly gross wage into our calculator, select your country, and let the tool estimate your final net income. The calculator automatically applies federal brackets and standard social program contributions to show your actual earnings.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much tax is deducted from my salary in the US?
+                  Gross vs net salary difference?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  In the United States, salary deductions include progressive federal income tax ranging from 10% to 37% depending on tax brackets, along with federal payroll taxes. These federal payroll taxes consist of a 6.2% Social Security tax up to the annual wage limit and a 1.45% Medicare tax. Employees may also face additional state and local income taxes depending on their specific location.
+                  The gross vs net salary difference represents what you earn before deductions versus what you actually take home. Gross salary is the full amount agreed with your employer before taxes, whereas net salary is the actual amount paid to you after income tax, payroll deductions, and social contributions.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Does this calculator include state or provincial tax?
+                  How to calculate take-home pay?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  This salary calculator utilizes simplified national figures and standard averages rather than exact localized brackets. For the United States, calculations are federal-only and do not include state or municipal income taxes. For Canada, calculations include a simplified flat average provincial tax rate of 10% in addition to the progressive federal tax brackets.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What deductions come out of my paycheck besides income tax?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Besides standard income tax, a typical paycheck is subject to mandatory social and insurance contributions. In the United States, these payroll taxes include Social Security and Medicare under the Federal Insurance Contributions Act. In Canada, payroll deductions include the Canada Pension Plan contribution and the Employment Insurance premium.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is take-home pay calculated in Pakistan?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  In Pakistan, salary take-home pay is determined by applying the progressive income tax slabs set by the Federal Board of Revenue for salaried individuals. Salaries below 600,000 PKR annually are completely exempt from tax, while income above that threshold is taxed across progressive brackets with rates ranging from 5% up to 35%.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Why does my actual paycheck differ from this estimate?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Actual paycheck figures often differ from standard online estimates because of localized state or provincial income taxes, individual tax credits, and custom filing statuses. Furthermore, individual employers may deduct pre-tax or post-tax amounts for health insurance premiums, retirement fund contributions, union dues, or other customized workplace benefits.
+                  To learn how to calculate take-home pay, start with your gross salary and deduct progressive federal income taxes, local state or provincial taxes, and payroll deductions (like FICA in the US or CPP and EI in Canada). Our calculator automates this complex math to give you a clear net estimate in seconds.
                 </p>
               </div>
             </div>

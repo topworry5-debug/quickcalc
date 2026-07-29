@@ -56,50 +56,42 @@ export default function ZakatCalculatorPage({ searchParams }: { searchParams?: {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is nisab in Zakat calculation?",
+        "name": "What is the nisab threshold?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nisab is the minimum threshold of wealth that a Muslim must own for a full lunar year before becoming obligated to pay Zakat. If your total net wealth is below this threshold, you are exempt from paying Zakat. The threshold is determined by the current market value of either 87.48 grams of gold or 612.36 grams of silver."
+          "text": "The nisab threshold is the minimum amount of wealth a Muslim must possess for a full lunar year before Zakat becomes obligatory. It is valued at 87.48 grams of gold or 612.36 grams of silver. Please note that different schools of thought may calculate this slightly differently and this calculator provides an estimate, so we suggest consulting a scholar for complex situations."
         }
       },
       {
         "@type": "Question",
-        "name": "Do I pay Zakat on gold jewelry I wear regularly?",
+        "name": "Is zakat due on salary?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Scholarly opinions differ regarding Zakat on regularly worn personal jewelry. The Hanafi school of thought holds that Zakat is due on all gold and silver jewelry regardless of usage. Other main schools of jurisprudence state that personal, non-excessive jewelry worn regularly is exempt, so you should consult your local scholar based on your chosen school."
+          "text": "No, zakat is not due on salary immediately upon receiving it. Instead, Zakat is calculated on your remaining savings and accumulated surplus wealth that exceeds the Nisab threshold at the end of your Zakat year. Any income spent on living expenses before that date is not subject to Zakat."
         }
       },
       {
         "@type": "Question",
-        "name": "Is Zakat calculated on income or savings?",
+        "name": "How to calculate zakat on gold?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Zakat is calculated on your total accumulated savings and net surplus assets held for a full lunar year, rather than your immediate monthly income. While your income contributes to your bank balance, only the money and assets that remain in your possession after meeting personal expenses and exceeding Nisab are subject to Zakat."
+          "text": "To calculate zakat on gold, determine the total weight in grams of gold assets you own. Multiply the weight by the current market price of gold per gram. If your gold and other qualifying net assets exceed the gold Nisab threshold (87.48 grams), you owe 2.5% on that total value. Different schools of thought calculate this slightly differently—for instance, some exempt regularly worn jewelry while others do not—so consulting a scholar is recommended for complex personal jewelry situations."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the difference between gold nisab and silver nisab?",
+        "name": "Zakat calculation Hanafi vs Shafi'i method?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The gold Nisab is based on the current price of 87.48 grams of gold, whereas the silver Nisab is based on 612.36 grams of silver. Because silver is currently valued much lower than gold in modern markets, the silver Nisab threshold is significantly easier to reach, meaning more people are eligible to pay under it."
+          "text": "The zakat calculation Hanafi vs Shafi'i method differs primarily in how jewelry and certain assets are handled. The Hanafi school requires Zakat on all gold and silver jewelry, whether worn or stored. In contrast, the Shafi'i school (along with Maliki and Hanbali) generally exempts personal jewelry that is worn regularly and is not excessive. Because this is an estimate, you should consult a scholar to ensure your calculations align with your school's rulings."
         }
       },
       {
         "@type": "Question",
-        "name": "Do I pay Zakat if I have debts?",
+        "name": "Is zakat due on stocks and investments?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, but you can deduct your immediate, outstanding liabilities and short-term debts from your total assets before calculating your Zakat. Only your net wealth (eligible assets minus what you owe to others) is compared against the Nisab threshold to determine if any Zakat is due."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How often do I need to pay Zakat?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Zakat is paid exactly once every lunar year, which is called the Hawl. This calculation period begins on the day your wealth first equals or exceeds the Nisab threshold, and Zakat becomes payable on that same date one lunar year later if your wealth remains above Nisab."
+          "text": "Yes, zakat is due on stocks and investments. If stocks are purchased as a long-term investment for dividends, Zakat is paid on the company's net zakatable assets (often estimated as 25% of the portfolio value). If bought for active trading, Zakat is due on the full current market value of the shares. As calculations vary and this tool provides an estimate, consulting a qualified Islamic scholar is recommended for complex investment structures."
         }
       }
     ]
@@ -177,7 +169,7 @@ export default function ZakatCalculatorPage({ searchParams }: { searchParams?: {
           
           {/* Direct Answer Paragraph (40-60 words) */}
           <p className="text-base sm:text-lg text-emerald-700 dark:text-emerald-400 font-medium leading-relaxed max-w-xl mx-auto border-l-4 border-emerald-500 pl-4 py-2 bg-emerald-50/50 dark:bg-emerald-950/10 rounded-r-lg text-left">
-            Zakat is a compulsory annual almsgiving in Islam, requiring eligible Muslims to donate 2.5% of their qualifying surplus wealth to those in need. This purification of wealth applies to assets exceeding a minimum threshold, known as Nisab, held continuously for one lunar year (Hawl).
+            If you are wondering what is the nisab threshold and how to calculate your annual charity, our Zakat Calculator makes it simple. Zakat is a compulsory annual almsgiving in Islam, requiring eligible Muslims to donate 2.5% of their qualifying surplus wealth to those in need. This purification of wealth applies to assets exceeding a minimum threshold, known as Nisab, held continuously for one lunar year (Hawl).
           </p>
         </div>
 
@@ -231,55 +223,46 @@ export default function ZakatCalculatorPage({ searchParams }: { searchParams?: {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is nisab in Zakat calculation?
+                  What is the nisab threshold?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Nisab is the minimum threshold of wealth that a Muslim must own for a full lunar year before becoming obligated to pay Zakat. If your total net wealth is below this threshold, you are exempt from paying Zakat. The threshold is determined by the current market value of either 87.48 grams of gold or 612.36 grams of silver.
+                  The nisab threshold is the minimum amount of wealth a Muslim must possess for a full lunar year before Zakat becomes obligatory. It is valued at 87.48 grams of gold or 612.36 grams of silver. Please note that different schools of thought may calculate this slightly differently and this calculator provides an estimate, so we suggest consulting a scholar for complex situations.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Do I pay Zakat on gold jewelry I wear regularly?
+                  Is zakat due on salary?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Scholarly opinions differ regarding Zakat on regularly worn personal jewelry. The Hanafi school of thought holds that Zakat is due on all gold and silver jewelry regardless of usage. Other main schools of jurisprudence state that personal, non-excessive jewelry worn regularly is exempt, so you should consult your local scholar based on your chosen school.
+                  No, zakat is not due on salary immediately upon receiving it. Instead, Zakat is calculated on your remaining savings and accumulated surplus wealth that exceeds the Nisab threshold at the end of your Zakat year. Any income spent on living expenses before that date is not subject to Zakat.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is Zakat calculated on income or savings?
+                  How to calculate zakat on gold?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Zakat is calculated on your total accumulated savings and net surplus assets held for a full lunar year, rather than your immediate monthly income. While your income contributes to your bank balance, only the money and assets that remain in your possession after meeting personal expenses and exceeding Nisab are subject to Zakat.
+                  To calculate zakat on gold, determine the total weight in grams of gold assets you own. Multiply the weight by the current market price of gold per gram. If your gold and other qualifying net assets exceed the gold Nisab threshold (87.48 grams), you owe 2.5% on that total value. Different schools of thought calculate this slightly differently—for instance, some exempt regularly worn jewelry while others do not—so consulting a scholar is recommended for complex personal jewelry situations.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the difference between gold nisab and silver nisab?
+                  Zakat calculation Hanafi vs Shafi'i method?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The gold Nisab is based on the current price of 87.48 grams of gold, whereas the silver Nisab is based on 612.36 grams of silver. Because silver is currently valued much lower than gold in modern markets, the silver Nisab threshold is significantly easier to reach, meaning more people are eligible to pay under it.
+                  The zakat calculation Hanafi vs Shafi'i method differs primarily in how jewelry and certain assets are handled. The Hanafi school requires Zakat on all gold and silver jewelry, whether worn or stored. In contrast, the Shafi'i school (along with Maliki and Hanbali) generally exempts personal jewelry that is worn regularly and is not excessive. Because this is an estimate, you should consult a scholar to ensure your calculations align with your school's rulings.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Do I pay Zakat if I have debts?
+                  Is zakat due on stocks and investments?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, but you can deduct your immediate, outstanding liabilities and short-term debts from your total assets before calculating your Zakat. Only your net wealth (eligible assets minus what you owe to others) is compared against the Nisab threshold to determine if any Zakat is due.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How often do I need to pay Zakat?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Zakat is paid exactly once every lunar year, which is called the Hawl. This calculation period begins on the day your wealth first equals or exceeds the Nisab threshold, and Zakat becomes payable on that same date one lunar year later if your wealth remains above Nisab.
+                  Yes, zakat is due on stocks and investments. If stocks are purchased as a long-term investment for dividends, Zakat is paid on the company's net zakatable assets (often estimated as 25% of the portfolio value). If bought for active trading, Zakat is due on the full current market value of the shares. As calculations vary and this tool provides an estimate, consulting a qualified Islamic scholar is recommended for complex investment structures.
                 </p>
               </div>
             </div>

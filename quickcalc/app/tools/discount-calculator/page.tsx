@@ -56,42 +56,26 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I calculate a discount percentage?",
+        "name": "How to calculate percentage off?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To calculate a discount percentage, divide the discount amount by the original price and multiply by 100. For instance, if an item is marked down by 15 on an original price of 100, the calculation is (15 / 100) * 100, which equals a 15% discount. This helps determine the exact promotional savings relative to the initial cost."
+          "text": "To find how to calculate percentage off, take the discount amount, divide it by the original price, and then multiply by 100. This calculation determines the exact percentage reduction applied to the retail price of your product."
         }
       },
       {
         "@type": "Question",
-        "name": "Is 20% off plus 10% off the same as 30% off?",
+        "name": "How much do I save with a discount code?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, 20% off plus 10% off is not the same as a flat 30% discount. Sequential stacked discounts are applied in stages, meaning the second 10% markdown is calculated on the already reduced subtotal rather than the original price. This sequential math results in an effective total savings of 28% instead of 30%."
+          "text": "How much you save with a discount code depends on whether it is a flat amount or a percentage deduction. Enter the original price and your discount code's percentage value into our calculator to instantly view your total cash savings and final price."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I find the original price from a sale price?",
+        "name": "Original price from sale price?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To calculate the pre-discount original price, divide the final sale price by one minus the discount percentage expressed as a decimal. For example, if a jacket costs 72 after a 20% discount, divide 72 by 0.80 (which is 1 minus 0.20) to find the original price of 90. This reverse calculation is extremely useful for verifying the true starting cost of clearance items."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the formula for calculating a sale price?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The basic mathematical formula for finding a sale price is Sale Price = Original Price * (1 - (Discount Percentage / 100)). If an item originally retails for 50 and has a 30% discount, the formula becomes 50 * (1 - 0.30), which equals a final sale price of 35. This simple equation underpins almost all commercial markdowns."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I calculate the final price after multiple discounts?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To calculate the final price after multiple stacked discounts, apply each percentage sequentially to the running subtotal. Begin by deducting the first percentage from the original price, then apply the second percentage directly to that newly reduced subtotal, repeating this for any further markdowns. Our live calculator simplifies this multi-tier sequence automatically as you type."
+          "text": "To find the original price from a sale price, divide the final sale price by one minus the discount percentage as a decimal (e.g., divide by 0.80 for a 20% discount). This reverse calculation retrieves your starting retail cost before the promotion."
         }
       }
     ]
@@ -160,7 +144,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
             Discount Calculator: Find Sale Price & Stacked Discounts
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold">
-            To calculate a discounted sale price, you simply subtract the discount value from the original pre-discount price. First, calculate the exact saving amount by multiplying the original retail price by the discount percentage and dividing by 100. Finally, deduct this calculated savings value from the initial original price to determine the final discounted purchase price.
+            If you are looking for how to calculate percentage off or find the final sale price, this tool makes it effortless. To calculate a discounted sale price, you simply subtract the discount value from the original pre-discount price. First, calculate the exact saving amount by multiplying the original retail price by the discount percentage and dividing by 100. Finally, deduct this calculated savings value from the initial original price to determine the final discounted purchase price.
           </p>
         </div>
 
@@ -211,46 +195,28 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I calculate a discount percentage?
+                  How to calculate percentage off?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  To calculate a discount percentage, divide the discount amount by the original price and multiply by 100. For instance, if an item is marked down by 15 on an original price of 100, the calculation is (15 / 100) * 100, which equals a 15% discount. This helps determine the exact promotional savings relative to the initial cost.
+                  To find how to calculate percentage off, take the discount amount, divide it by the original price, and then multiply by 100. This calculation determines the exact percentage reduction applied to the retail price of your product.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is 20% off plus 10% off the same as 30% off?
+                  How much do I save with a discount code?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  No, 20% off plus 10% off is not the same as a flat 30% discount. Sequential stacked discounts are applied in stages, meaning the second 10% markdown is calculated on the already reduced subtotal rather than the original price. This sequential math results in an effective total savings of 28% instead of 30%.
+                  How much you save with a discount code depends on whether it is a flat amount or a percentage deduction. Enter the original price and your discount code's percentage value into our calculator to instantly view your total cash savings and final price.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I find the original price from a sale price?
+                  Original price from sale price?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  To calculate the pre-discount original price, divide the final sale price by one minus the discount percentage expressed as a decimal. For example, if a jacket costs 72 after a 20% discount, divide 72 by 0.80 (which is 1 minus 0.20) to find the original price of 90. This reverse calculation is extremely useful for verifying the true starting cost of clearance items.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the formula for calculating a sale price?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The basic mathematical formula for finding a sale price is Sale Price = Original Price * (1 - (Discount Percentage / 100)). If an item originally retails for 50 and has a 30% discount, the formula becomes 50 * (1 - 0.30), which equals a final sale price of 35. This simple equation underpins almost all commercial markdowns.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I calculate the final price after multiple discounts?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  To calculate the final price after multiple stacked discounts, apply each percentage sequentially to the running subtotal. Begin by deducting the first percentage from the original price, then apply the second percentage directly to that newly reduced subtotal, repeating this for any further markdowns. Our live calculator simplifies this multi-tier sequence automatically as you type.
+                  To find the original price from a sale price, divide the final sale price by one minus the discount percentage as a decimal (e.g., divide by 0.80 for a 20% discount). This reverse calculation retrieves your starting retail cost before the promotion.
                 </p>
               </div>
             </div>

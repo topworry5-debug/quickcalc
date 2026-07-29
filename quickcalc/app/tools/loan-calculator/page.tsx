@@ -56,26 +56,26 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is an EMI?",
+        "name": "How much will my monthly loan payment be?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs consist of both interest and principal components, structured to fully pay off the loan over a set number of years."
+          "text": "To find out how much your monthly loan payment will be, enter your total loan amount, interest rate, and loan term into our calculator. The tool uses standard reducing balance algorithms to calculate your equated monthly installment (EMI) instantly."
         }
       },
       {
         "@type": "Question",
-        "name": "How is loan interest calculated?",
+        "name": "How does refinancing save money?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most standard consumer loans and mortgages use a reducing balance method. In this method, the interest rate is applied to the remaining principal balance at the end of each month, rather than the initial principal. As you pay off your principal, the interest portion of your EMI decreases."
+          "text": "Refinancing saves money by replacing your current high-interest loan with a new loan at a lower interest rate or a shorter term. This reduces both your monthly payments and the total amount of interest you will pay over the life of the loan."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I pay off my loan early to save on interest?",
+        "name": "How to compare loan offers side by side?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! Making prepayments or paying off a loan early directly reduces the outstanding principal balance. This can dramatically lower the total interest you pay and shorten your loan term. However, you should check with your lender for any prepayment penalty clauses."
+          "text": "To compare loan offers side by side, look at the annual percentage rate (APR), loan term, monthly payment amount, and total interest cost for each option. Our calculator helps you run different scenarios so you can easily choose the most affordable loan."
         }
       },
       {
@@ -84,6 +84,14 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "An amortization schedule is a complete table showing periodic loan payments. It details how much of each payment goes toward the principal balance versus how much goes toward interest, tracking the reducing balance over the entire life of the loan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I pay off my loan early?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you should pay off your loan early if you want to save money on interest. Making prepayments directly reduces the outstanding principal, shortening your loan term and lowering total interest, though you should check if your lender charges prepayment penalties."
         }
       }
     ]
@@ -145,7 +153,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
             Loan / EMI Calculator
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The Loan / EMI Calculator is a professional financial tool designed to help you accurately compute monthly installment payments, total interest liabilities, and overall repayment schedules.
+            If you are wondering how much will my monthly loan payment be, this free calculator helps you find the answer instantly. Our professional Loan / EMI Calculator is designed to help you accurately compute monthly installment payments, total interest liabilities, and overall repayment schedules.
           </p>
         </div>
 
@@ -225,28 +233,28 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is an EMI?
+                  How much will my monthly loan payment be?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs consist of both interest and principal components, structured to fully pay off the loan over a set number of years.
+                  To find out how much your monthly loan payment will be, enter your total loan amount, interest rate, and loan term into our calculator. The tool uses standard reducing balance algorithms to calculate your equated monthly installment (EMI) instantly.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is loan interest calculated?
+                  How does refinancing save money?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Most standard consumer loans and mortgages use a reducing balance method. In this method, the interest rate is applied to the remaining principal balance at the end of each month, rather than the initial principal. As you pay off your principal, the interest portion of your EMI decreases.
+                  Refinancing saves money by replacing your current high-interest loan with a new loan at a lower interest rate or a shorter term. This reduces both your monthly payments and the total amount of interest you will pay over the life of the loan.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Can I pay off my loan early to save on interest?
+                  How to compare loan offers side by side?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes! Making prepayments or paying off a loan early directly reduces the outstanding principal balance. This can dramatically lower the total interest you pay and shorten your loan term. However, you should check with your lender for any prepayment penalty clauses.
+                  To compare loan offers side by side, look at the annual percentage rate (APR), loan term, monthly payment amount, and total interest cost for each option. Our calculator helps you run different scenarios so you can easily choose the most affordable loan.
                 </p>
               </div>
 
@@ -256,6 +264,15 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   An amortization schedule is a complete table showing periodic loan payments. It details how much of each payment goes toward the principal balance versus how much goes toward interest, tracking the reducing balance over the entire life of the loan.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Should I pay off my loan early?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes, you should pay off your loan early if you want to save money on interest. Making prepayments directly reduces the outstanding principal, shortening your loan term and lowering total interest, though you should check if your lender charges prepayment penalties.
                 </p>
               </div>
             </div>

@@ -56,50 +56,26 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How is inflation calculated?",
+        "name": "What is $100 worth today compared to [past year]?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Inflation is calculated by comparing the Consumer Price Index (CPI) values of two different time periods. The formula divides the CPI of the ending year by the CPI of the starting year, then multiplies the result by your original cash amount to find its equivalent modern value."
+          "text": "To find out what is $100 worth today compared to a past year, enter $100 into our inflation calculator and select your starting year and ending year. The tool compares historical Consumer Price Index (CPI) values to show you exactly how much money you need today to match the purchasing power of that past year."
         }
       },
       {
         "@type": "Question",
-        "name": "What is CPI (Consumer Price Index)?",
+        "name": "How to calculate inflation adjusted value?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Consumer Price Index (CPI) is a statistical measure that tracks the average change over time in the prices paid by consumers for a standard basket of goods and services. It is the primary benchmark used by governments to determine official annual inflation rates."
+          "text": "To learn how to calculate inflation adjusted value, divide the Consumer Price Index (CPI) of your target year by the CPI of your starting year, and then multiply the result by your original cash amount. Our tool automates this calculation using real CPI data for the United States, Canada, and Pakistan."
         }
       },
       {
         "@type": "Question",
-        "name": "Why does $100 today not buy as much as it used to?",
+        "name": "Purchasing power over time calculator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Over time, the general prices of goods and services rise due to inflation, which erodes the purchasing power of currency. As a result, a fixed sum of money like $100 buys a smaller portion of goods today than it did in previous decades."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much has inflation increased prices in Pakistan over the last decade?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Over the last decade, Pakistan has experienced substantial inflation, with cumulative price levels increasing by over 220%. This rapid rise means that products costing 100 Rupees in 2016 would require roughly 320 Rupees to purchase in 2026."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is inflation the same in every country?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No, inflation varies widely between countries based on local monetary policy, economic stability, and supply chains. While developed nations like the US and Canada target a stable inflation rate around 2%, developing countries often face much higher rates."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I protect my savings from inflation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can protect your savings from inflation by investing in assets that historically outpace inflation, such as index funds, real estate, or inflation-indexed government bonds. Keeping all your cash in a low-interest bank account will result in a loss of real buying power over time."
+          "text": "Our purchasing power over time calculator helps you visualize how inflation erodes the value of money. By comparing annual prices and CPI statistics over decades, the calculator demonstrates how much cash has lost its buying power and what equivalent sum is needed to purchase the same goods today."
         }
       }
     ]
@@ -170,7 +146,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
             Inflation Calculator: What Money Was Worth Then vs. Now (US, Canada & Pakistan)
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold">
-            Inflation represents the steady decline in the purchasing power of money over time, meaning each unit of currency buys fewer goods and services. As prices rise, the real-world value of your cash decreases, directly impacting your cost of living. Calculating historical inflation helps you see exactly how much cash is needed today to match the buying power of the past.
+            If you are looking for a reliable purchasing power over time calculator, our tool provides precise historical comparisons instantly. Inflation represents the steady decline in the purchasing power of money over time, meaning each unit of currency buys fewer goods and services. As prices rise, the real-world value of your cash decreases, directly impacting your cost of living. Calculating historical inflation helps you see exactly how much cash is needed today to match the buying power of the past.
           </p>
         </div>
 
@@ -228,55 +204,28 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is inflation calculated?
+                  What is $100 worth today compared to [past year]?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Inflation is calculated by comparing the Consumer Price Index (CPI) values of two different time periods. The formula divides the CPI of the ending year by the CPI of the starting year, then multiplies the result by your original cash amount to find its equivalent modern value.
+                  To find out what is $100 worth today compared to a past year, enter $100 into our inflation calculator and select your starting year and ending year. The tool compares historical Consumer Price Index (CPI) values to show you exactly how much money you need today to match the purchasing power of that past year.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is CPI (Consumer Price Index)?
+                  How to calculate inflation adjusted value?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The Consumer Price Index (CPI) is a statistical measure that tracks the average change over time in the prices paid by consumers for a standard basket of goods and services. It is the primary benchmark used by governments to determine official annual inflation rates.
+                  To learn how to calculate inflation adjusted value, divide the Consumer Price Index (CPI) of your target year by the CPI of your starting year, and then multiply the result by your original cash amount. Our tool automates this calculation using real CPI data for the United States, Canada, and Pakistan.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Why does $100 today not buy as much as it used to?
+                  Purchasing power over time calculator?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Over time, the general prices of goods and services rise due to inflation, which erodes the purchasing power of currency. As a result, a fixed sum of money like $100 buys a smaller portion of goods today than it did in previous decades.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much has inflation increased prices in Pakistan over the last decade?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Over the last decade, Pakistan has experienced substantial inflation, with cumulative price levels increasing by over 220%. This rapid rise means that products costing 100 Rupees in 2016 would require roughly 320 Rupees to purchase in 2026.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is inflation the same in every country?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  No, inflation varies widely between countries based on local monetary policy, economic stability, and supply chains. While developed nations like the US and Canada target a stable inflation rate around 2%, developing countries often face much higher rates.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How can I protect my savings from inflation?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  You can protect your savings from inflation by investing in assets that historically outpace inflation, such as index funds, real estate, or inflation-indexed government bonds. Keeping all your cash in a low-interest bank account will result in a loss of real buying power over time.
+                  Our purchasing power over time calculator helps you visualize how inflation erodes the value of money. By comparing annual prices and CPI statistics over decades, the calculator demonstrates how much cash has lost its buying power and what equivalent sum is needed to purchase the same goods today.
                 </p>
               </div>
             </div>
