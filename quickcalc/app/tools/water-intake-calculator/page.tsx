@@ -1,5 +1,7 @@
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
+import EmbedWidget from "@/components/EmbedWidget";
+
 
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -19,7 +21,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function WaterIntakeCalculatorPage() {
+export default function WaterIntakeCalculatorPage({ searchParams }: { searchParams?: { embed?: string } }) {
+  const isEmbed = searchParams?.embed === "true";
+  if (isEmbed) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
+        <main className="max-w-4xl mx-auto w-full">
+          <WaterIntakeCalculatorWidget />
+        </main>
+      </div>
+    );
+  }
+
   const faqData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -136,6 +149,7 @@ export default function WaterIntakeCalculatorPage() {
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/water-intake-calculator" title="Water Intake Calculator" />
+        <EmbedWidget url="https://quickcalc.cloud/tools/water-intake-calculator" title="Water Intake Calculator" />
 
         {/* Interactive Calculator Widget Component */}
         <section className="my-8">

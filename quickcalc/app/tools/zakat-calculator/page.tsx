@@ -1,5 +1,7 @@
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
+import EmbedWidget from "@/components/EmbedWidget";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -36,7 +38,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ZakatCalculatorPage() {
+export default function ZakatCalculatorPage({ searchParams }: { searchParams?: { embed?: string } }) {
+  const isEmbed = searchParams?.embed === "true";
+  if (isEmbed) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
+        <main className="max-w-4xl mx-auto w-full">
+          <ZakatCalculatorWidget />
+        </main>
+      </div>
+    );
+  }
+
   const faqData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -169,6 +182,7 @@ export default function ZakatCalculatorPage() {
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/zakat-calculator" title="Zakat Calculator" />
+        <EmbedWidget url="https://quickcalc.cloud/tools/zakat-calculator" title="Zakat Calculator" />
 
         {/* The interactive widget */}
         <section className="my-8">

@@ -1,5 +1,7 @@
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
+import EmbedWidget from "@/components/EmbedWidget";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
@@ -36,7 +38,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DiscountCalculatorPage() {
+export default function DiscountCalculatorPage({ searchParams }: { searchParams?: { embed?: string } }) {
+  const isEmbed = searchParams?.embed === "true";
+  if (isEmbed) {
+    return (
+      <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
+        <main className="max-w-4xl mx-auto w-full">
+          <DiscountCalculatorWidget />
+        </main>
+      </div>
+    );
+  }
+
   const faqData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -152,6 +165,7 @@ export default function DiscountCalculatorPage() {
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/discount-calculator" title="Discount Calculator" />
+        <EmbedWidget url="https://quickcalc.cloud/tools/discount-calculator" title="Discount Calculator" />
 
         {/* The interactive widget */}
         <section className="my-8">
