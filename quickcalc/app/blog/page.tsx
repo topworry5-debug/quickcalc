@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "is-the-8-glasses-a-day-water-rule-actually-true",
+    title: "Is the \"8 Glasses a Day\" Water Rule Actually True? What Science Says",
+    description: "The 8x8 water rule isn't based on real science. Learn where it actually came from, what your body really needs, and how to find your personal daily water target in seconds.",
+    excerpt: "The 8x8 water rule isn't based on real science. Learn where it actually came from, what your body really needs, and how to find your personal daily water target in seconds.",
+    date: "July 29, 2026",
+    readTime: "5 min read",
+    category: "Health & Fitness",
+    icon: "💧",
+    color: "from-blue-500 to-sky-600",
+    textColor: "text-sky-600 dark:text-sky-400",
+  },
+  {
     slug: "how-to-calculate-exact-age-years-months-days",
     title: "How to Calculate Your Exact Age (Years, Months, and Days)",
     description: "Learn how to calculate your exact age in years, months, and days. Understand chronological age calculation, day-level precision, and leap year impacts.",
