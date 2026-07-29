@@ -4,7 +4,7 @@ export default function BmiArticle() {
   return (
     <>
       <p>
-        In the modern healthcare landscape, few indicators are as ubiquitous yet as heavily debated as the <strong>Body Mass Index (BMI)</strong>. Used by primary care clinics, life insurance providers, and global health bodies, BMI serves as a rapid screening baseline for assessing potential body composition classifications. However, while calculating your score is mathematically simple, interpreting what that value means for your physical body requires a deeper look into human physiology and clinical parameters.
+        In the modern healthcare landscape, many people ask: <strong>is BMI accurate</strong>? While the Body Mass Index (BMI) serves as a rapid screening baseline for assessing potential body composition classifications, interpreting what that value means for your physical body requires a deeper look into human physiology, tissue composition, and personal health.
       </p>
       
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
@@ -74,6 +74,36 @@ export default function BmiArticle() {
         <li><strong>Dual-Energy X-ray Absorptiometry (DEXA):</strong> Provides a precise scientific breakdown of body composition, mapping bone, lean muscle, and fat tissues.</li>
         <li><strong>Cardiovascular Fitness Metrics:</strong> Resting heart rates, blood pressure panels, and metabolic panels (blood lipids and HbA1c levels) are more directly reflective of biological fitness than height-weight proportions.</li>
       </ul>
+
+      <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
+        Frequently Asked Questions
+      </h2>
+      <div className="space-y-4 mb-6">
+        <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+            Is BMI accurate?
+          </summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+            While BMI is a useful population-level screening tool, its accuracy for individuals is limited. It does not measure body fat percentage directly, meaning it can misclassify muscular individuals or those with low muscle mass.
+          </p>
+        </details>
+        <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+            Why BMI is not accurate for athletes?
+          </summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+            Why BMI is not accurate for athletes comes down to muscle density. Muscle is significantly denser and heavier than fat. Highly athletic individuals with high muscle mass can register in the "overweight" or "obese" categories on BMI scales despite having exceptionally low body fat.
+          </p>
+        </details>
+        <details className="pb-4">
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+            What are the limitations of using BMI to measure health?
+          </summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+            The limitations of using BMI to measure health include its inability to differentiate between muscle and fat, its failure to track abdominal (visceral) fat distribution, and its disregard for differences in age, gender, and bone density.
+          </p>
+        </details>
+      </div>
     </>
   );
 }

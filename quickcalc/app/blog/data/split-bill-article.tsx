@@ -4,7 +4,7 @@ export default function SplitBillArticle() {
   return (
     <>
       <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
-        To split a bill fairly, list every item's price, assign them to the individuals who ordered or shared them, and calculate individual subtotals. Finally, allocate tax and tip proportionally by multiplying each person's subtotal share ratio by the total tax and tip amount. This prevents lower spenders from overpaying.
+        If you want to know how to split a bill when everyone ordered different things, the fairest approach is to list every item's price, assign them to the individuals who ordered or shared them, and calculate individual subtotals. Finally, allocate tax and tip proportionally by multiplying each person's subtotal share ratio by the total tax and tip amount. This prevents lower spenders from overpaying.
       </p>
 
       <p>
@@ -106,13 +106,10 @@ export default function SplitBillArticle() {
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Should tip be calculated on the pre-tax or post-tax amount?
+            How to split tax and tip fairly?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            Both are common. In most places, tipping on the pre-tax subtotal is traditional, 
-            but tipping on the total (including tax) is increasingly common too &mdash; it's really 
-            a matter of local custom or personal preference. Just be consistent with whichever 
-            you choose.
+            If you're wondering how to split tax and tip fairly, calculate each person's subtotal of items ordered, find their percentage share of the total subtotal, and apply that same percentage to the overall tax and tip. This proportional method ensures everyone pays tax and tip only on what they actually ordered.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">

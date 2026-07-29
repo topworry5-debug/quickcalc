@@ -4,7 +4,7 @@ export default function PercentageCalculatorArticle() {
   return (
     <>
       <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
-        To calculate percentage change, divide the difference between the new and old values by the original value, then multiply by 100. For discounts, multiply the original price by the discount percentage divided by 100, then subtract that amount from the original price to find the final sale price.
+        To know how to calculate percentage increase or general percentage change, divide the difference between the new and old values by the original value, then multiply by 100. For discounts, multiply the original price by the discount percentage divided by 100, then subtract that amount from the original price to find the final sale price.
       </p>
 
       <p>
@@ -121,20 +121,18 @@ export default function PercentageCalculatorArticle() {
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Why do I get a different answer than my friend for the same discount?
+            How to find the original price before a discount?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            Usually it's because one of you calculated the discount on the pre-tax price and 
-            the other on the post-tax price. Always check what the original number was.
+            If you want to know how to find the original price before a discount, divide the final sale price by (1 minus the discount percentage divided by 100). For example, if a jacket costs $60 after a 25% discount, dividing 60 by 0.75 gives you the original price of $80.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Can a percentage increase be over 100%?
+            How to calculate percentage increase if it is over 100%?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            Yes &mdash; if something doubles, that's a 100% increase. If it triples, that's a 200% 
-            increase. There's no upper limit.
+            To calculate percentage increase over 100%, use the same standard formula: subtract the original value from the new value, divide by the original value, and multiply by 100. If an item's price goes from $10 to $35, that represents a 250% increase.
           </p>
         </details>
         <details className="pb-4">

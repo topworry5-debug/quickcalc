@@ -4,7 +4,7 @@ export default function ExactAgeArticle() {
   return (
     <>
       <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
-        To calculate exact age, subtract your birth year from the current year, then compare the current month and day to your birth date. If the current date is before your birthday, subtract one year from the total. Adjust remaining months and days, borrowing days dynamically depending on varying month lengths.
+        To understand how to calculate age in years months days, subtract your birth year from the current year, then compare the current month and day to your birth date. If the current date is before your birthday, subtract one year from the total. Adjust remaining months and days, borrowing days dynamically depending on varying month lengths.
       </p>
 
       <p>
@@ -130,22 +130,18 @@ export default function ExactAgeArticle() {
       <div className="space-y-4 mb-6">
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Is calculating age in "years" always accurate for legal purposes?
+            How to calculate age in years months days?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            For most legal purposes (voting age, drinking age, etc.), the standard is 
-            simply whether your birthday has occurred yet in the current year &mdash; the exact 
-            day-and-month math described above is the correct method.
+            To know how to calculate age in years months days, subtract your birth year from the current year, adjust downward by one year if your birthday hasn't happened yet, and then count the remaining calendar months and days by borrowing dynamically based on each month's specific length.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Why do some age calculators give slightly different day counts?
+            How many days old am I?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            Small differences usually come from how leap years are handled internally, or 
-            whether the calculation includes the current day as a full day or a partial 
-            day. These are minor rounding choices, not calculation errors.
+            If you've ever asked yourself, "how many days old am I," you can calculate it roughly by multiplying your age in years by 365, adding one day for each leap year you have lived through, and then adding the exact number of days that have passed since your most recent birthday.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">

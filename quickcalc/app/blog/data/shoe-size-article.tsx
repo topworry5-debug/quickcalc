@@ -2,7 +2,7 @@ export default function ShoeSizeArticle() {
   return (
     <>
       <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
-        To convert international shoe sizes accurately, map your measurement against regional systems: a US men's size 9 is a UK 8, EU 42, or 27cm in Japan's centimeter-based sizing. Since brands use different foot molds, size conversions can vary, making rounding up the safest practice for online shopping.
+        If you want to know how to convert shoe size between countries accurately, map your measurement against regional systems: a US men's size 9 is a UK 8, EU 42, or 27cm in Japan's centimeter-based sizing. Since brands use different foot molds, size conversions can vary, making rounding up the safest practice for online shopping.
       </p>
 
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Why Aren't Shoe Sizes the Same Everywhere?</h2>
@@ -152,12 +152,12 @@ export default function ShoeSizeArticle() {
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Frequently Asked Questions</h2>
       <div className="space-y-4 mb-6">
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">Is EU shoe size the same for men and women?</summary>
-          <p className="mt-2 text-zinc-700 dark:text-zinc-300">No. EU sizes are numbered the same scale for both, but a men's EU 40 and a women's EU 40 fit differently &mdash; always check whether a chart is labeled for men's or women's before converting.</p>
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">Where can I find a US to EU shoe size chart?</summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">You can use our US to EU shoe size chart tables above to easily convert sizing for men, women, and kids. For example, a US men's size 9 converts to an EU 42, and a US women's size 8 converts to an EU 38.5.</p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
-          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">What shoe size is a 40 in Europe for a woman?</summary>
-          <p className="mt-2 text-zinc-700 dark:text-zinc-300">A women's EU 40 is roughly a US 9, UK 6.5, or 25.5cm in Japanese sizing.</p>
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">How to measure your foot for shoe size?</summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">To know how to measure your foot for shoe size, place a piece of paper on the floor against a wall, step on it with your heel against the wall, trace the outline of your foot, and measure the distance from the heel to your longest toe. Use this measurement in centimeters or inches against our conversion tables.</p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">Why do Japanese shoe sizes use centimeters?</summary>

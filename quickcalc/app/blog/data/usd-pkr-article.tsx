@@ -4,7 +4,7 @@ export default function UsdPkrArticle() {
   return (
     <>
       <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
-        The real currency exchange rate is the mid-market rate—the exact midpoint between global buy and sell prices seen on Google. Banks and transfer services offer worse rates by adding a hidden markup or spread margin on top of this rate to generate profit, which quietly increases your transaction costs.
+        If you have ever wondered, "why is my bank's exchange rate different" from the numbers you see online, the answer lies in profit margins. The real currency exchange rate is the mid-market rate—the exact midpoint between global buy and sell prices seen on Google. Banks and transfer services offer worse rates by adding a hidden markup or spread margin on top of this rate to generate profit, which quietly increases your transaction costs.
       </p>
 
       <p>
@@ -121,21 +121,18 @@ export default function UsdPkrArticle() {
       <div className="space-y-4 mb-6">
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Why does the rate change every time I check?
+            Why is my bank's exchange rate different?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            Currency markets trade continuously during business hours worldwide, so rates 
-            shift in small increments throughout the day based on live trading activity.
+            Why is my bank's exchange rate different? This happens because banks add a retail markup or spread on top of the real rate. This markup is baked directly into the rate they offer you, meaning you get fewer rupees or other local currency per dollar than the raw market value.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Is the mid-market rate what I'll actually receive when transferring money?
+            What is a mid-market exchange rate?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            Usually not exactly &mdash; most banks and transfer services add their own margin 
-            on top. The mid-market rate is your reference point for comparison, not a 
-            guaranteed rate you'll be offered.
+            What is a mid-market exchange rate? The mid-market exchange rate is the exact real-time midpoint between global buy and sell prices on foreign currency markets. It is the pure wholesale rate banks use with each other, serving as your honest baseline for comparing different transfer services.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">

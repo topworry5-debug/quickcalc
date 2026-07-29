@@ -4,7 +4,7 @@ export default function PasswordEntropyArticle() {
   return (
     <>
       <p>
-        We have all experienced the frustration of creating a new online account, only to be confronted with a strict set of security requirements: "Your password must contain at least 8 characters, one uppercase letter, one number, and one special symbol." To comply, many users take a simple word and make predictable substitutions, yielding combinations like <code>"P@ssw0rd123!"</code> or <code>"Tr41n$"</code>. To a human, these look complex. To a modern cryptographic attack script, they are incredibly easy to crack.
+        If you have ever asked yourself, "<strong>what makes a password strong</strong>," the answer isn't complex symbols &mdash; it's length. We have all experienced the frustration of creating a new online account, only to be confronted with a strict set of security requirements: "Your password must contain at least 8 characters, one uppercase letter, one number, and one special symbol." To comply, many users take a simple word and make predictable substitutions, yielding combinations like <code>"P@ssw0rd123!"</code> or <code>"Tr41n$"</code>. To a human, these look complex. To a modern cryptographic attack script, they are incredibly easy to crack.
       </p>
 
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
@@ -85,6 +85,36 @@ export default function PasswordEntropyArticle() {
           <strong>Use a Password Manager:</strong> For standard accounts, generate completely unique, high-entropy random characters (16+ characters long) and store them securely in an encrypted local vault. This eliminates the need to remember hundreds of credentials while securing optimal cryptographic safety.
         </li>
       </ol>
+
+      <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
+        Frequently Asked Questions
+      </h2>
+      <div className="space-y-4 mb-6">
+        <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+            What makes a password strong?
+          </summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+            What makes a password strong is its overall length (entropy) rather than complex characters. A long passphrase made of several unrelated, random words is incredibly strong because it is computationally impossible to guess via brute force, yet easy for a human to memorize.
+          </p>
+        </details>
+        <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+            How many characters should a password be?
+          </summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+            To remain secure against modern hacking hardware, a standard password should be at least 12 to 16 characters long. If you are creating a multi-word passphrase, aim for 20+ characters (four or more random words) for optimal cryptographic strength.
+          </p>
+        </details>
+        <details className="pb-4">
+          <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
+            What is password entropy explained simply?
+          </summary>
+          <p className="mt-2 text-zinc-700 dark:text-zinc-300">
+            What is password entropy explained simply? Password entropy is a mathematical score (measured in bits) of how random and unpredictable a password is. In simple terms, it measures how many total combinations a hacking program would have to test to guess your password. Higher entropy equals stronger defense.
+          </p>
+        </details>
+      </div>
     </>
   );
 }

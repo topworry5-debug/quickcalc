@@ -4,7 +4,7 @@ export default function BudgetRuleArticle() {
   return (
     <>
       <p className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 p-4 rounded-xl text-zinc-800 dark:text-zinc-200 font-medium">
-        To use the 50/30/20 budget rule, allocate 50% of your after-tax income to essential needs (housing, groceries, utilities), 30% to optional personal wants (dining, hobbies), and 20% to savings and extra debt payments. If high local housing costs exceed 50%, customize the percentages to 60/20/20 or similar ratios.
+        To use the 50/30/20 budget rule, allocate 50% of your after-tax income to essential needs (housing, groceries, utilities), 30% to optional personal wants (dining, hobbies), and 20% to savings and extra debt payments. But is the 50/30/20 rule realistic? Yes, if high local housing costs exceed 50%, you can easily customize the percentages to 60/20/20 or similar ratios to make it work.
       </p>
 
       <p>
@@ -150,20 +150,20 @@ export default function BudgetRuleArticle() {
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Is the 50/30/20 rule the same as a zero-based budget?
+            What is the 50/30/20 rule vs zero based budget difference?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            No. A zero-based budget assigns every single dollar a specific job (down to 
+            When comparing the 50/30/20 rule vs zero based budget, the main difference is simplicity. A zero-based budget assigns every single dollar a specific job (down to 
             the cent), while 50/30/20 works with broad categories instead of line items. 
             50/30/20 is simpler to maintain; zero-based budgets offer more precision.
           </p>
         </details>
         <details className="pb-4">
           <summary className="font-semibold cursor-pointer text-zinc-900 dark:text-white">
-            Is this rule realistic for a low or irregular income?
+            Is the 50/30/20 rule realistic for a low or irregular income?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            It can be harder to apply exactly, since fixed costs often take up a larger 
+            Whether the 50/30/20 rule is realistic depends on your base costs. It can be harder to apply exactly, since fixed costs often take up a larger 
             share of a smaller income. In that case, focus first on covering true needs, 
             then aim for whatever savings percentage is realistically achievable, even if 
             it's below 20% to start.
