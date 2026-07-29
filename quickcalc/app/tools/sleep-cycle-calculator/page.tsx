@@ -56,34 +56,26 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a sleep cycle?",
+        "name": "How does a 90 minute sleep cycle calculator work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A sleep cycle is a progression of different sleep stages, transitioning from light sleep to deep sleep, and finally to REM (Rapid Eye Movement) sleep. For most healthy adults, a single sleep cycle lasts approximately 90 minutes and repeats several times throughout the night."
+          "text": "A 90 minute sleep cycle calculator operates on the biological fact that human sleep consists of repeating 90-minute waves of light, deep, and REM sleep. Waking up at the end of a full cycle prevents sleep inertia, helping you feel alert."
         }
       },
       {
         "@type": "Question",
-        "name": "Why do I wake up tired after 8 hours of sleep?",
+        "name": "What time should I go to bed to wake up at my desired time?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Waking up tired—even after a full 8 hours—often occurs when your alarm goes off in the middle of a deep sleep stage. By aligning your alarm with the end of a 90-minute sleep cycle using our calculator, you can wake up naturally from light sleep feeling completely refreshed."
+          "text": "To know what time should I go to bed to wake up at a desired time, count backward in 90-minute increments from your waking goal, then subtract an additional 15 minutes for sleep latency (the time it takes to fall asleep). For example, if you must wake up at 7:00 AM, you should aim to go to bed at either 9:45 PM or 11:15 PM."
         }
       },
       {
         "@type": "Question",
-        "name": "How long does it take the average person to fall asleep?",
+        "name": "How many sleep cycles do I need?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "On average, it takes a healthy adult between 10 to 20 minutes to transition from full wakefulness to light sleep. This calculator factors in a standard 15-minute buffer (sleep latency) to ensure maximum bedtime precision."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many sleep cycles do I need per night?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most health experts recommend completing 5 to 6 sleep cycles per night, which translates to roughly 7.5 to 9 hours of restorative sleep, to optimize cognitive performance and overall physical health."
+          "text": "To optimize your health, cognitive function, and daily productivity, how many sleep cycles do I need is generally answered as 5 to 6 full cycles per night, which equates to about 7.5 to 9 hours of total restorative sleep."
         }
       }
     ]
@@ -145,7 +137,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
             Sleep Cycle Calculator
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The Sleep Cycle Calculator is a science-based tool designed to help you optimize your sleep schedule for maximum daily productivity and alertness. By analyzing standard human sleep cycles, which typically last 90 minutes each, this interactive tool helps you pinpoint either the ideal bedtimes to wake up feeling fully refreshed, or the perfect waking hours if you choose to sleep immediately.
+            If you are trying to figure out what time should I go to bed to wake up at a specific hour feeling completely refreshed, our free 90 minute sleep cycle calculator is the perfect bedtime planner. By analyzing standard human circadian rhythms, this interactive tool helps you pinpoint either the ideal bedtimes or the perfect waking hours to avoid morning grogginess.
           </p>
         </div>
 
@@ -222,37 +214,28 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a sleep cycle?
+                  How does a 90 minute sleep cycle calculator work?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  A sleep cycle is a progression of different sleep stages, transitioning from light sleep to deep sleep, and finally to REM (Rapid Eye Movement) sleep. For most healthy adults, a single sleep cycle lasts approximately 90 minutes and repeats several times throughout the night.
+                  A 90 minute sleep cycle calculator operates on the biological fact that human sleep consists of repeating 90-minute waves of light, deep, and REM sleep. Waking up at the end of a full cycle prevents sleep inertia, helping you feel alert.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Why do I wake up tired after 8 hours of sleep?
+                  What time should I go to bed to wake up at my desired time?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Waking up tired—even after a full 8 hours—often occurs when your alarm goes off in the middle of a deep sleep stage. By aligning your alarm with the end of a 90-minute sleep cycle using our calculator, you can wake up naturally from light sleep feeling completely refreshed.
+                  To know what time should I go to bed to wake up at a desired time, count backward in 90-minute increments from your waking goal, then subtract an additional 15 minutes for sleep latency (the time it takes to fall asleep). For example, if you must wake up at 7:00 AM, you should aim to go to bed at either 9:45 PM or 11:15 PM.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How long does it take the average person to fall asleep?
+                  How many sleep cycles do I need?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  On average, it takes a healthy adult between 10 to 20 minutes to transition from full wakefulness to light sleep. This calculator factors in a standard 15-minute buffer (sleep latency) to ensure maximum bedtime precision.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many sleep cycles do I need per night?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Most health experts recommend completing 5 to 6 sleep cycles per night, which translates to roughly 7.5 to 9 hours of restorative sleep, to optimize cognitive performance and overall physical health.
+                  To optimize your health, cognitive function, and daily productivity, how many sleep cycles do I need is generally answered as 5 to 6 full cycles per night, which equates to about 7.5 to 9 hours of total restorative sleep.
                 </p>
               </div>
             </div>

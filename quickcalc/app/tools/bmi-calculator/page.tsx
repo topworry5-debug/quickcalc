@@ -59,50 +59,34 @@ export default function BMICalculatorPage({ searchParams }: { searchParams?: { e
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a healthy BMI range?",
+        "name": "What is a healthy BMI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For adults, a healthy Body Mass Index (BMI) is clinically defined as falling within the range of 18.5 to 24.9. Scores below 18.5 represent underweight status, scores from 25 to 29.9 indicate overweight classification, and a score of 30 or higher designates obesity."
+          "text": "For most adults, a healthy BMI (Body Mass Index) is clinically defined as falling within the range of 18.5 to 24.9. Scores below 18.5 represent underweight status, scores from 25 to 29.9 indicate overweight classification, and a score of 30 or higher designates obesity."
         }
       },
       {
         "@type": "Question",
-        "name": "Is BMI accurate for muscular or athletic people?",
+        "name": "Is BMI accurate for athletes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, BMI can be highly misleading for bodybuilders, athletes, and individuals with dense muscle tissue. Because muscle weighs significantly more than fat per cubic inch, a highly fit person can register as 'overweight' or 'obese' on the BMI scale despite having very low body fat."
+          "text": "No, BMI is not always accurate for athletes, bodybuilders, and individuals with dense muscle tissue. Because muscle weighs significantly more than fat per cubic inch, a highly fit athlete can register as 'overweight' or 'obese' on the BMI scale despite having very low body fat."
         }
       },
       {
         "@type": "Question",
-        "name": "How is BMI calculated?",
+        "name": "How to calculate BMI by hand?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Body Mass Index is calculated by dividing a person's weight in kilograms by the square of their height in meters (BMI = kg/m²). If utilizing imperial measurements, the formula is BMI = [weight in pounds / (height in inches)²] x 703."
+          "text": "To calculate BMI by hand using the metric system, divide your weight in kilograms by your height in meters squared (BMI = kg/m²). For the imperial system, multiply your weight in pounds by 703, then divide that number by your height in inches squared: BMI = (lbs x 703) / inches²."
         }
       },
       {
         "@type": "Question",
-        "name": "What are the limitations of using BMI as a health metric?",
+        "name": "How does a BMI calculator for adults vs children differ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BMI does not directly measure body fat percentage or distribute fat. It cannot differentiate between fat and lean muscle mass, nor does it account for bone density, age, or gender differences."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does BMI vary by age or gender?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While the basic mathematical calculation for BMI is the same for all adults, the interpretation can vary. Older adults tend to have more body fat than younger adults with the same BMI, and women generally have more body fat than men at the same BMI score."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How often should I check my BMI?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Checking your BMI every few months or during annual physical exams is typically sufficient for tracking body mass trends, unless otherwise advised by a healthcare provider."
+          "text": "For adults, BMI is interpreted using fixed weight categories that apply equally regardless of age or sex. For children and teens, however, a BMI calculator for adults vs children differs because youth body fat changes rapidly as they grow and differs significantly between boys and girls, requiring plotting on age-and-gender-specific growth percentiles."
         }
       }
     ]
@@ -164,7 +148,7 @@ export default function BMICalculatorPage({ searchParams }: { searchParams?: { e
             BMI Calculator
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The Body Mass Index (BMI) Calculator is a highly interactive clinical screener designed to provide swift body mass classifications. By inputting your height and weight, this science-backed utility maps your parameters against standard World Health Organization bands. It serves as an accessible starting point for evaluating general body composition trends and overall health trajectories.
+            If you are wondering what is a healthy BMI and how your body composition compares to clinical standards, our free BMI Calculator provides an instant analysis. This science-backed screening utility helps you evaluate body weight classifications against World Health Organization bands, serving as an accessible starting point for evaluating general body composition trends and overall health trajectories.
           </p>
         </div>
 
@@ -235,55 +219,37 @@ export default function BMICalculatorPage({ searchParams }: { searchParams?: { e
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a healthy BMI range?
+                  What is a healthy BMI?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  For adults, a healthy Body Mass Index (BMI) is clinically defined as falling within the range of 18.5 to 24.9. Scores below 18.5 represent underweight status, scores from 25 to 29.9 indicate overweight classification, and a score of 30 or higher designates obesity.
+                  For most adults, a healthy BMI (Body Mass Index) is clinically defined as falling within the range of 18.5 to 24.9. Scores below 18.5 represent underweight status, scores from 25 to 29.9 indicate overweight classification, and a score of 30 or higher designates obesity.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is BMI accurate for muscular or athletic people?
+                  Is BMI accurate for athletes?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  No, BMI can be highly misleading for bodybuilders, athletes, and individuals with dense muscle tissue. Because muscle weighs significantly more than fat per cubic inch, a highly fit person can register as {"'overweight'"} or {"'obese'"} on the BMI scale despite having very low body fat.
+                  No, BMI is not always accurate for athletes, bodybuilders, and individuals with dense muscle tissue. Because muscle weighs significantly more than fat per cubic inch, a highly fit athlete can register as {"'overweight'"} or {"'obese'"} on the BMI scale despite having extremely low body fat.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is BMI calculated?
+                  How to calculate BMI by hand?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Body Mass Index is calculated by dividing a {"person's"} weight in kilograms by the square of their height in meters (BMI = kg/m²). If utilizing imperial measurements, the formula is BMI = [weight in pounds / (height in inches)²] x 703.
+                  To calculate BMI by hand using the metric system, divide your weight in kilograms by your height in meters squared (BMI = kg/m²). For the imperial system, multiply your weight in pounds by 703, then divide that number by your height in inches squared: BMI = (lbs x 703) / inches².
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What are the limitations of using BMI as a health metric?
+                  How does a BMI calculator for adults vs children differ?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  BMI does not directly measure body fat percentage or distribute fat. It cannot differentiate between fat and lean muscle mass, nor does it account for bone density, age, or gender differences.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Does BMI vary by age or gender?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  While the basic mathematical calculation for BMI is the same for all adults, the interpretation can vary. Older adults tend to have more body fat than younger adults with the same BMI, and women generally have more body fat than men at the same BMI score.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How often should I check my BMI?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Checking your BMI every few months or during annual physical exams is typically sufficient for tracking body mass trends, unless otherwise advised by a healthcare provider.
+                  For adults, BMI is interpreted using fixed weight categories that apply equally regardless of age or sex. For children and teens, however, a BMI calculator for adults vs children differs because youth body fat changes rapidly as they grow and differs significantly between boys and girls, requiring plotting on age-and-gender-specific growth percentiles.
                 </p>
               </div>
             </div>

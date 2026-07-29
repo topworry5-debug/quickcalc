@@ -59,50 +59,26 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "How to calculate due date from last period?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To understand how to calculate due date from last period, you add exactly 280 days (or 40 weeks) to the first day of your last menstrual period (LMP). This standard clinical method assumes a typical 28-day menstrual cycle where ovulation occurs around day 14."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "How accurate is a due date calculator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "An online due date calculator provides a highly reliable estimate, but only about 5% of babies are born exactly on their calculated due date. A normal, healthy full-term pregnancy can range anywhere from two weeks before to two weeks after the estimated date."
+          "text": "While a due date calculator is highly reliable for establishing a target baseline, only about 5% of babies are born exactly on their estimated due date. Most normal, healthy deliveries happen anytime within a four-week window spanning two weeks before and two weeks after the estimated date."
         }
       },
       {
         "@type": "Question",
-        "name": "What's the difference between LMP and conception date methods?",
+        "name": "How do I use a due date calculator by conception date?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Last Menstrual Period (LMP) method calculates your due date by adding 280 days (40 weeks) to the first day of your last period. The Conception Date method adds 266 days (38 weeks) directly to the date of conception, making it ideal if you know the exact day ovulation or conception occurred."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many weeks is a full-term pregnancy?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A standard pregnancy is calculated as lasting 40 weeks (280 days). A pregnancy is clinically considered 'early term' between 37 weeks 0 days and 38 weeks 6 days, 'full term' between 39 weeks 0 days and 40 weeks 6 days, and 'late term' at 41 weeks."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is Naegele's Rule?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Naegele's Rule is a standard way of estimating the due date of a pregnancy. It estimates the expected date of delivery (EDD) by adding one year, subtracting three months, and adding seven days to the first day of a woman's last menstrual period (LMP)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I have irregular menstrual cycles?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If your cycles are irregular or differ significantly from the standard 28-day length, using LMP alone can be less precise. In these cases, early dating ultrasounds or tracing the exact day of ovulation/conception are more accurate methods."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can my estimated due date change?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, it is common for healthcare providers to adjust your estimated due date after performing a first-trimester ultrasound, as fetal physical development measurements in the early weeks offer a highly precise look at gestation."
+          "text": "Using a due date calculator by conception date is highly accurate if you know the exact day of ovulation or fertilization. Since gestation naturally lasts about 266 days (38 weeks) from conception, the tool calculates your estimated due date by adding 266 days directly to your conception date."
         }
       }
     ]
@@ -164,7 +140,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
             Due Date Calculator
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Estimate your {"baby's"} arrival date and track your gestational milestones in real time. Unlike heavy, ad-cluttered platforms that force account registration or app downloads, QuickCalc delivers clear, compassionate, and mathematically precise answers instantly.
+            If you want to know how to calculate due date from last period, our free, warm visual pregnancy tracker provides clear and mathematically precise answers instantly. Estimate your {"baby's"} arrival date and track your gestational milestones in real time with absolutely no sign-ups or ad-clutter.
           </p>
         </div>
 
@@ -243,55 +219,28 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How to calculate due date from last period?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  To understand how to calculate due date from last period, you add exactly 280 days (or 40 weeks) to the first day of your last menstrual period (LMP). This standard clinical method assumes a typical 28-day menstrual cycle where ovulation occurs around day 14.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
                   How accurate is a due date calculator?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Calculators serve as an excellent screening estimate, but they cannot predict exact labor triggers. Ultrasound scans conducted during the first trimester are clinically considered the most precise method to confirm or adjust gestational dates.
+                  While a due date calculator is highly reliable for establishing a target baseline, only about 5% of babies are born exactly on their estimated due date. Most normal, healthy deliveries happen anytime within a four-week window spanning two weeks before and two weeks after the estimated date.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the difference between LMP and conception date methods?
+                  How do I use a due date calculator by conception date?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The Last Menstrual Period (LMP) method is the medical standard because most women know the date of their last period better than their conception day. However, since ovulation varies, the Conception Date method (which adds 266 days to fertilization) provides a narrower estimate when fertilization timings are certain.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many weeks is a full-term pregnancy?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  A standard full-term pregnancy is defined as 39 weeks 0 days to 40 weeks 6 days. Babies born during this window have had the optimal time to mature, particularly in relation to brain, lung, and liver development.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is Naegele{"'"}s Rule?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Naegele{"'"}s Rule is a standard way of estimating the due date of a pregnancy. It estimates the expected date of delivery (EDD) by adding one year, subtracting three months, and adding seven days to the first day of a {"woman's"} last menstrual period (LMP).
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What if I have irregular menstrual cycles?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  If your cycles are irregular or differ significantly from the standard 28-day length, using LMP alone can be less precise. In these cases, early dating ultrasounds or tracing the exact day of ovulation/conception are more accurate methods.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Can my estimated due date change?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, it is common for healthcare providers to adjust your estimated due date after performing a first-trimester ultrasound, as fetal physical development measurements in the early weeks offer a highly precise look at gestation.
+                  Using a due date calculator by conception date is highly accurate if you know the exact day of ovulation or fertilization. Since gestation naturally lasts about 266 days (38 weeks) from conception, the tool calculates your estimated due date by adding 266 days directly to your conception date.
                 </p>
               </div>
             </div>

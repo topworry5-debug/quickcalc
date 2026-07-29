@@ -36,42 +36,26 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I calculate my running pace?",
+        "name": "How to calculate running pace?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To calculate your running pace manually, divide your total running time by the total distance covered. For example, if you run 5 kilometers in 25 minutes, you divide 25 by 5 to get a pace of 5 minutes per kilometer. Our pace calculator automates this math instantly for both kilometers and miles simultaneously."
+          "text": "To understand how to calculate running pace manually, divide your total running time by the total distance covered. For example, if you run 5 kilometers in 25 minutes, you divide 25 by 5 to get a pace of 5 minutes per kilometer. Our pace calculator automates this math instantly for both kilometers and miles simultaneously."
         }
       },
       {
         "@type": "Question",
-        "name": "What is a good 5K pace for beginners?",
+        "name": "What is a good 5k pace for beginners?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For beginner runners, a good 5K pace is generally between 8 to 11 minutes per mile (5:00 to 6:50 minutes per kilometer). This results in a total 5K finish time of approximately 25 to 35 minutes. Your starting pace depends heavily on age, gender, and baseline physical fitness, but consistency will naturally improve it."
+          "text": "For beginner runners, what is a good 5k pace for beginners is generally between 8 to 11 minutes per mile (5:00 to 6:50 minutes per kilometer). This results in a total 5K finish time of approximately 25 to 35 minutes, though your starting pace depends heavily on age, gender, and baseline physical fitness."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I convert minutes per mile to minutes per kilometer?",
+        "name": "How does the minutes per mile to km/h conversion work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "To convert minutes per mile to minutes per kilometer, multiply your mile pace in decimal form by 0.62137. Alternatively, to go from kilometers to miles, divide your kilometer pace by 0.62137. This 3-in-1 pace tool displays both km and mile conversion side-by-side automatically, eliminating manual math entirely."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use my current pace to predict my marathon time?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, you can use your current training pace to estimate marathon finish times, but a flat calculation serves only as a baseline. Real-world race results are heavily impacted by accumulated fatigue, course terrain, elevation profile, weather conditions, and fueling strategies, which usually slow runners down over longer distances."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the difference between pace and speed?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Pace measures the time it takes to cover a specific unit of distance, typically expressed in minutes per kilometer or minutes per mile. In contrast, speed measures the distance covered in a specific unit of time, such as kilometers per hour (km/h) or miles per hour (mph). Runners usually prefer pace as it is easier to track."
+          "text": "To do a minutes per mile to km/h conversion, you first convert your pace into decimal minutes per mile, divide 60 by that decimal to get miles per hour (mph), and then multiply by 1.60934 to find kilometers per hour (km/h). For example, a 10-minute mile is 6 mph, which converts to approximately 9.66 km/h. Our tool handles these conversions automatically."
         }
       }
     ]
@@ -142,7 +126,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
           
           {/* Tight 50-70 word direct-answer paragraph */}
           <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 font-medium leading-relaxed bg-blue-50/50 dark:bg-blue-950/10 p-4 rounded-xl border border-blue-100 dark:border-blue-950/50">
-            A running pace is the rate at which you cover ground, typically measured as the time required to complete one kilometer or one mile. In athletics, running pace operates as a direct mathematical ratio linking distance to time, which serves as the core metric for evaluating physical exertion, pacing strategies, and overall athletic progression.
+            If you are trying to figure out how to calculate running pace, distance, or finish times for your next training session, our interactive 3-in-1 Pace Calculator makes it incredibly easy. This tool operates as a direct mathematical ratio linking distance to time, which serves as the core metric for evaluating physical exertion, pacing strategies, and overall athletic progression.
           </p>
         </div>
 
@@ -182,46 +166,28 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I calculate my running pace?
+                  How to calculate running pace?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  To calculate your running pace manually, divide your total running time by the total distance covered. For example, if you run 5 kilometers in 25 minutes, you divide 25 by 5 to get a pace of 5 minutes per kilometer. Our pace calculator automates this math instantly for both kilometers and miles simultaneously.
+                  To understand how to calculate running pace manually, divide your total running time by the total distance covered. For example, if you run 5 kilometers in 25 minutes, you divide 25 by 5 to get a pace of 5 minutes per kilometer. Our pace calculator automates this math instantly for both kilometers and miles simultaneously.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a good 5K pace for beginners?
+                  What is a good 5k pace for beginners?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  For beginner runners, a good 5K pace is generally between 8 to 11 minutes per mile (5:00 to 6:50 minutes per kilometer). This results in a total 5K finish time of approximately 25 to 35 minutes. Your starting pace depends heavily on age, gender, and baseline physical fitness, but consistency will naturally improve it.
+                  For beginner runners, what is a good 5k pace for beginners is generally between 8 to 11 minutes per mile (5:00 to 6:50 minutes per kilometer). This results in a total 5K finish time of approximately 25 to 35 minutes, though your starting pace depends heavily on age, gender, and baseline physical fitness.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I convert minutes per mile to minutes per kilometer?
+                  How does the minutes per mile to km/h conversion work?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  To convert minutes per mile to minutes per kilometer, multiply your mile pace in decimal form by 0.62137. Alternatively, to go from kilometers to miles, divide your kilometer pace by 0.62137. This 3-in-1 pace tool displays both km and mile conversion side-by-side automatically, eliminating manual math entirely.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Can I use my current pace to predict my marathon time?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, you can use your current training pace to estimate marathon finish times, but a flat calculation serves only as a baseline. Real-world race results are heavily impacted by accumulated fatigue, course terrain, elevation profile, weather conditions, and fueling strategies, which usually slow runners down over longer distances.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What's the difference between pace and speed?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Pace measures the time it takes to cover a specific unit of distance, typically expressed in minutes per kilometer or minutes per mile. In contrast, speed measures the distance covered in a specific unit of time, such as kilometers per hour (km/h) or miles per hour (mph). Runners usually prefer pace as it is easier to track.
+                  To do a minutes per mile to km/h conversion, you first convert your pace into decimal minutes per mile, divide 60 by that decimal to get miles per hour (mph), and then multiply by 1.60934 to find kilometers per hour (km/h). For example, a 10-minute mile is 6 mph, which converts to approximately 9.66 km/h. Our tool handles these conversions automatically.
                 </p>
               </div>
             </div>

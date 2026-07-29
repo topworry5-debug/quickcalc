@@ -39,50 +39,34 @@ export default function WaterIntakeCalculatorPage({ searchParams }: { searchPara
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How many glasses of water should I drink a day?",
+        "name": "How much water should I drink?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "While the traditional '8 glasses a day' is a simple rule of thumb, our calculator provides a personalized target based on your weight and activity. For an average adult, this is typically between 9 and 13 glasses (2.2 to 3.2 liters) per day."
+          "text": "Determining how much water you should drink depends on your unique physiology, activity level, and climate. For an average adult, this is typically between 9 and 13 cups (2.2 to 3.2 liters) per day, but our calculator helps you find your exact target."
         }
       },
       {
         "@type": "Question",
-        "name": "What are the signs of mild dehydration?",
+        "name": "How much water should I drink based on my weight?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Early symptoms of dehydration include dry mouth, dark yellow or amber-colored urine, fatigue, headaches, dizziness, and muscle cramps. If you feel thirsty, your body is already mildly dehydrated."
+          "text": "A standard baseline recommendation is to drink about 35 milliliters of water per kilogram of body weight (roughly 0.5 fluid ounces per pound). So, how much water you should drink based on your weight scales directly with your body mass before factoring in exercise or environment."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I drink too much water?",
+        "name": "What is the 8 glasses a day myth?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, drinking excessive amounts of water can lead to hyponatremia, a rare but serious condition where blood sodium levels become dangerously low. This usually only occurs during extreme endurance events when vast quantities of plain water are consumed without replacing lost electrolytes."
+          "text": "The '8 glasses a day myth' suggests that everyone needs exactly 64 ounces of water daily, regardless of their size, climate, or activity levels. In reality, hydration is highly individualized; while 8 glasses is a simple starting point, your actual fluid needs may be higher or lower depending on your weight and sweat rate."
         }
       },
       {
         "@type": "Question",
-        "name": "How does climate affect my daily water needs?",
+        "name": "How much water do I need in hot weather?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Hotter and more humid climates require a higher water intake because your body loses more fluids through sweat to maintain a stable temperature. It is recommended to add at least 500 ml (approx. 2 glasses) to your daily baseline in warm climates."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does tea or coffee count toward my daily water intake?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, caffeinated beverages like tea and coffee do contribute to your daily fluid intake. While caffeine has a mild diuretic effect, the water content in these drinks outweighs the fluid loss for regular caffeine consumers."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is water intake calculated differently for pregnant or breastfeeding individuals?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, pregnant and breastfeeding individuals need significantly more water to support fetal development and breast milk production. It is recommended to consult a doctor to establish your customized fluid guidelines during these periods."
+          "text": "To stay safe, how much water you need in hot weather increases significantly because your body loses extra fluid through sweat to keep cool. It is generally recommended to add at least 500 ml (about 2 extra glasses) to your daily baseline when exposed to high heat or humidity."
         }
       }
     ]
@@ -144,7 +128,7 @@ export default function WaterIntakeCalculatorPage({ searchParams }: { searchPara
             Water Intake Calculator
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The Water Intake Calculator is an easy-to-use, science-backed tool designed to help you determine your optimal daily hydration requirements. By analyzing key factors such as your body weight, physical activity level, and local climate conditions, this free tool computes a personalized hydration plan tailored directly to your lifestyle. Staying adequately hydrated is vital for optimizing physical performance, maintaining energy levels, supporting healthy brain function, and facilitating proper digestion.
+            If you are wondering how much water should I drink each day to stay fully hydrated and healthy, our science-backed Water Intake Calculator is here to help. By analyzing key factors such as your body weight, physical activity level, and local climate conditions, this free tool computes a personalized hydration plan tailored directly to your lifestyle, helping you optimize physical performance and brain function.
           </p>
         </div>
 
@@ -204,55 +188,37 @@ export default function WaterIntakeCalculatorPage({ searchParams }: { searchPara
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many glasses of water should I drink a day?
+                  How much water should I drink?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  While the traditional {"\"8 glasses a day\""} is a simple rule of thumb, our calculator provides a personalized target based on your weight and activity. For an average adult, this is typically between 9 and 13 glasses (2.2 to 3.2 liters) per day.
+                  Determining how much water you should drink depends on your unique physiology, activity level, and climate. For an average adult, this is typically between 9 and 13 cups (2.2 to 3.2 liters) per day, but our calculator helps you find your exact target.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What are the signs of mild dehydration?
+                  How much water should I drink based on my weight?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Early symptoms of dehydration include dry mouth, dark yellow or amber-colored urine, fatigue, headaches, dizziness, and muscle cramps. If you feel thirsty, your body is already mildly dehydrated.
+                  A standard baseline recommendation is to drink about 35 milliliters of water per kilogram of body weight (roughly 0.5 fluid ounces per pound). So, how much water you should drink based on your weight scales directly with your body mass before factoring in exercise or environment.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Can I drink too much water?
+                  What is the 8 glasses a day myth?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, drinking excessive amounts of water can lead to hyponatremia, a rare but serious condition where blood sodium levels become dangerously low. This usually only occurs during extreme endurance events when vast quantities of plain water are consumed without replacing lost electrolytes.
+                  The {"'8 glasses a day myth'"} suggests that everyone needs exactly 64 ounces of water daily, regardless of their size, climate, or activity levels. In reality, hydration is highly individualized; while 8 glasses is a simple starting point, your actual fluid needs may be higher or lower depending on your weight and sweat rate.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does climate affect my daily water needs?
+                  How much water do I need in hot weather?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Hotter and more humid climates require a higher water intake because your body loses more fluids through sweat to maintain a stable temperature. It is recommended to add at least 500 ml (approx. 2 glasses) to your daily baseline in warm climates.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Does tea or coffee count toward my daily water intake?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, caffeinated beverages like tea and coffee do contribute to your daily fluid intake. While caffeine has a mild diuretic effect, the water content in these drinks outweighs the fluid loss for regular caffeine consumers.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is water intake calculated differently for pregnant or breastfeeding individuals?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, pregnant and breastfeeding individuals need significantly more water to support fetal development and breast milk production. It is recommended to consult a doctor to establish your customized fluid guidelines during these periods.
+                  To stay safe, how much water you need in hot weather increases significantly because your body loses extra fluid through sweat to keep cool. It is generally recommended to add at least 500 ml (about 2 extra glasses) to your daily baseline when exposed to high heat or humidity.
                 </p>
               </div>
             </div>

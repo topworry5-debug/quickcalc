@@ -64,34 +64,18 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "What is the difference between BMR and TDEE?",
+        "name": "What is the TDEE vs BMR difference?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Your Basal Metabolic Rate (BMR) represents the absolute baseline level of energy your body requires to perform basic life-sustaining functions at complete rest. In contrast, your Total Daily Energy Expenditure (TDEE) represents the total number of calories you burn daily once physical activities, exercise, and active processes are calculated by multiplying your BMR by an activity multiplier."
+          "text": "The TDEE vs BMR difference lies in physical activity. Your Basal Metabolic Rate (BMR) is the baseline energy your body requires to survive at complete rest, while your Total Daily Energy Expenditure (TDEE) factors in all daily movement, exercise, and active processes by applying an activity multiplier to your BMR."
         }
       },
       {
         "@type": "Question",
-        "name": "Is the Mifflin-St Jeor equation accurate?",
+        "name": "How to calculate maintenance calories?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, the Mifflin-St Jeor equation is clinically proven to be the most accurate modern BMR formula for healthy adults, which is why it is considered the current gold standard in nutritional science. Empirical studies consistently demonstrate that it outperforms older formulas like the Harris-Benedict equation, predicting metabolic rates within 10% of actual values."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many calories should I eat to gain muscle?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To support muscle growth while minimizing excess fat accumulation, you should eat a conservative caloric surplus of roughly 300 to 500 calories above your maintenance level (TDEE). This energy surplus provides the biological fuel necessary to synthesize new muscle tissues, and should be paired with consistent resistance training and adequate dietary protein intake."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need to eat back the calories I burn from exercise?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No, you do not need to eat back the calories burned during exercise if you have already factored your exercise routines into your activity level multiplier when calculating your initial TDEE. Eating back estimated active calories often leads to weight loss stalls because wearable fitness trackers and cardio machines regularly overestimate active energy expenditure."
+          "text": "To understand how to calculate maintenance calories, you first need to find your BMR using a standard formula (like Mifflin-St Jeor), and then multiply that number by your physical activity factor. This resulting total, known as your TDEE, represents the exact number of daily calories required to maintain your current body weight."
         }
       }
     ]
@@ -171,7 +155,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
           
           {/* Direct Answer Paragraph - 40-60 words (48 words total) */}
           <p className="text-base sm:text-lg font-medium text-zinc-800 dark:text-zinc-300 bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100 dark:border-orange-950/30 rounded-xl p-4 leading-relaxed mb-6">
-            Your daily calorie needs depend on your Basal Metabolic Rate (BMR) — the calories burned at rest — multiplied by your activity level. This is called your Total Daily Energy Expenditure (TDEE). Calculating this determines how many calories you must consume to lose, maintain, or gain weight.
+            If you want to know how many calories should I eat to lose weight, our Calorie Calculator determines your personalized energy targets instantly. It maps your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) to show you how to safely structure a sustainable deficit, maintenance, or surplus.
           </p>
           
           <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
@@ -266,37 +250,19 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the difference between BMR and TDEE?
+                  What is the TDEE vs BMR difference?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Your Basal Metabolic Rate (BMR) represents the absolute baseline level of energy your body requires to perform basic life-sustaining functions at complete rest. In contrast, your Total Daily Energy Expenditure (TDEE) represents the total number of calories you burn daily once physical activities, exercise, and active processes are calculated by multiplying your BMR by an activity multiplier.
+                  The TDEE vs BMR difference lies in physical activity. Your Basal Metabolic Rate (BMR) is the baseline energy your body requires to survive at complete rest, while your Total Daily Energy Expenditure (TDEE) factors in all daily movement, exercise, and active processes by applying an activity multiplier to your BMR.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is the Mifflin-St Jeor equation accurate?
+                  How to calculate maintenance calories?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Yes, the Mifflin-St Jeor equation is clinically proven to be the most accurate modern BMR formula for healthy adults, which is why it is considered the current gold standard in nutritional science. Empirical studies consistently demonstrate that it outperforms older formulas like the Harris-Benedict equation, predicting metabolic rates within 10% of actual values.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many calories should I eat to gain muscle?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  To support muscle growth while minimizing excess fat accumulation, you should eat a conservative caloric surplus of roughly 300 to 500 calories above your maintenance level (TDEE). This energy surplus provides the biological fuel necessary to synthesize new muscle tissues, and should be paired with consistent resistance training and adequate dietary protein intake.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Do I need to eat back the calories I burn from exercise?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  No, you do not need to eat back the calories burned during exercise if you have already factored your exercise routines into your activity level multiplier when calculating your initial TDEE. Eating back estimated active calories often leads to weight loss stalls because wearable fitness trackers and cardio machines regularly overestimate active energy expenditure.
+                  To understand how to calculate maintenance calories, you first need to find your BMR using a standard formula (like Mifflin-St Jeor), and then multiply that number by your physical activity factor. This resulting total, known as your TDEE, represents the exact number of daily calories required to maintain your current body weight.
                 </p>
               </div>
 
