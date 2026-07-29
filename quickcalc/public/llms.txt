@@ -28,6 +28,7 @@ QuickCalc is designed to help users perform instant, accurate calculations and c
 - [Age Calculator](https://quickcalc.cloud/tools/age-calculator) - Find your exact chronological age in years, months, and days. Uncover your zodiac traits, generational era, countdown to your next birthday, and share your personalized age card!
 - [Currency Converter](https://quickcalc.cloud/tools/currency-converter) - Convert 35+ major world currencies instantly with live exchange rates. Compare ranges and copy formatted results with backlinks.
 - [Budget Calculator](https://quickcalc.cloud/tools/budget-calculator) - Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.
+- [Travel Time & Fuel Cost Calculator](https://quickcalc.cloud/tools/travel-time-fuel-calculator) - Calculate speed, distance, time, flight cruising durations, and estimated vehicle trip fuel costs in real-time.
 
 ## Blog
 

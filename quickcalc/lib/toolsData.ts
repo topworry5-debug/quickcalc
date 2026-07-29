@@ -269,5 +269,14 @@ export const tools: Tool[] = [
     "color": "from-teal-500 via-emerald-500 to-blue-500",
     "textColor": "text-teal-600 dark:text-teal-400",
     "category": "Finance"
+  },
+  {
+    title: "Travel Time & Fuel Cost Calculator",
+    description: "Calculate speed, distance, time, flight cruising durations, and estimated vehicle trip fuel costs in real-time.",
+    icon: "⛽",
+    href: "/tools/travel-time-fuel-calculator",
+    color: "from-blue-600 via-indigo-600 to-sky-600",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Planning"
   }
 ];
