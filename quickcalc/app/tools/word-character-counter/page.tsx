@@ -56,18 +56,26 @@ export default function WordCharacterCounterPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How is reading time calculated from word count?",
+        "name": "How to count words in an essay?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Reading time is calculated by taking the total word count of your text and dividing it by the average adult reading speed, which typically ranges between 200 and 238 words per minute. Our tool displays a friendly estimated range (e.g., 'about 2 to 3 minutes') based on this standard model."
+          "text": "To find out how to count words in an essay, copy your text and paste it into our free input box above. The tool instantly parses the characters and updates your exact word count, sentence count, and paragraph density in real-time, completely free."
         }
       },
       {
         "@type": "Question",
-        "name": "What is the character limit for a tweet/X post?",
+        "name": "What is the character limit for a tweet or X post?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The standard character limit for a standard post on X (formerly Twitter) is 280 characters. Our tool includes a live platform limits panel that dynamically warns you with color-coded alerts as you approach or exceed this limit."
+          "text": "The character limit for a tweet or X post is exactly 280 characters for standard users. Our live tracker displays platform-specific limit warnings dynamically so you can trim or write your social updates perfectly without exceeding requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this a good word counter for college application essays?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our tool is a highly accurate word counter for college application essays. It tracks character counts and paragraph limits with zero lag, and computes the Automated Readability Index (ARI) to help you verify that your writing is styled at the appropriate comprehension level."
         }
       },
       {
@@ -137,7 +145,7 @@ export default function WordCharacterCounterPage({ searchParams }: { searchParam
             Word & Character Counter
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            A fast, robust text analytics tool providing instant word counts, character counts, paragraph metrics, reading time estimations, and social platform limit warnings as you type.
+            Wondering how to count words in an essay or need to check the standard character limit for a tweet or X post? Our free interactive Word & Character Counter provides real-time tracking, serves as an excellent word counter for college application essays, and outputs deep readability analysis as you type.
           </p>
         </div>
 
@@ -227,19 +235,28 @@ export default function WordCharacterCounterPage({ searchParams }: { searchParam
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is reading time calculated from word count?
+                  How to count words in an essay?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Reading time is calculated by taking the total word count of your text and dividing it by the average adult reading speed, which typically ranges between 200 and 238 words per minute. Our tool displays a friendly estimated range (e.g., 'about 2 to 3 minutes') based on this standard model.
+                  To find out how to count words in an essay, copy your text and paste it into our free input box above. The tool instantly parses the characters and updates your exact word count, sentence count, and paragraph density in real-time, completely free.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the character limit for a tweet/X post?
+                  What is the character limit for a tweet or X post?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The standard character limit for a standard post on X (formerly Twitter) is 280 characters. Our tool includes a live platform limits panel that dynamically warns you with color-coded alerts as you approach or exceed this limit.
+                  The character limit for a tweet or X post is exactly 280 characters for standard users. Our live tracker displays platform-specific limit warnings dynamically so you can trim or write your social updates perfectly without exceeding requirements.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Is this a good word counter for college application essays?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes, our tool is a highly accurate word counter for college application essays. It tracks character counts and paragraph limits with zero lag, and computes the Automated Readability Index (ARI) to help you verify that your writing is styled at the appropriate comprehension level.
                 </p>
               </div>
 

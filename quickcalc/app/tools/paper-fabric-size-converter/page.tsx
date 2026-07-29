@@ -59,18 +59,26 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the difference between A4 and Letter paper size?",
+        "name": "What size is A4 vs letter paper?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A4 is the international standard (ISO 216) measuring 210 x 297 mm (8.27 x 11.69 inches). In contrast, US Letter is the North American standard measuring 215.9 x 279.4 mm (8.5 x 11.0 inches). Letter paper is slightly wider, while A4 is slightly longer."
+          "text": "To understand what size is A4 vs letter paper, A4 is the international standard (ISO 216) measuring 210 x 297 mm (8.27 x 11.69 inches), while US Letter is the North American standard measuring 215.9 x 279.4 mm (8.5 x 11.0 inches). This makes Letter paper slightly wider, while A4 is slightly longer."
         }
       },
       {
         "@type": "Question",
-        "name": "How many meters are in a yard of fabric?",
+        "name": "What is A4 paper size in inches?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "There are exactly 0.9144 meters in a yard of fabric. If you are converting the other way, one meter of fabric equals approximately 1.0936 yards."
+          "text": "The standard A4 paper size in inches is exactly 8.27 x 11.69 inches (210 x 297 millimeters). Our converter translates these dimensions to other standard units like centimeters, points, and picas instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does a yard to meter fabric conversion work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard yard to meter fabric conversion uses the multiplier 0.9144 (1 yard = 0.9144 meters). If you have the measurement in meters and need yards, multiply by 1.0936 instead. This helps ensure you purchase the correct amount of material for sewing projects."
         }
       },
       {
@@ -79,14 +87,6 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The international ISO A-series (e.g. A4) is based on a single, logical aspect ratio of 1:√2, allowing sizes to scale perfectly when folded in half. The US Letter and Legal standards evolved from historical hand-made paper mold lengths (specifically 44 inches cut into quarters), which remain popular in North America today."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the aspect ratio of the ISO A-series paper?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The ISO A-series uses an aspect ratio of 1:√2 (approximately 1:1.4142). This mathematical ratio guarantees that when you fold a sheet of paper in half, the half-size sheet maintains the exact same proportions."
         }
       },
       {
@@ -164,7 +164,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
             Paper & Fabric Size Converter
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Quickly convert international print sizes and textile length units in one place. Unlike static lists or separate, ad-heavy chart pages, our utility offers clean modes to convert paper dimensions and textile measurements simultaneously as you interact.
+            Need to find the standard A4 paper size in inches or perform a quick yard to meter fabric conversion? Our interactive Paper & Fabric Size Converter makes it simple to understand what size is A4 vs letter paper, plus seamlessly convert diverse craft and textile dimensions as you type.
           </p>
         </div>
 
@@ -235,19 +235,28 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the difference between A4 and Letter paper size?
+                  What size is A4 vs letter paper?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  A4 paper is narrower and longer than US Letter. A4 measures 210 x 297 mm, while US Letter measures 215.9 x 279.4 mm. When sending documents internationally, converting your layout to match the regional paper standard prevents layout cutoff.
+                  To understand what size is A4 vs letter paper, A4 is the international standard (ISO 216) measuring 210 x 297 mm (8.27 x 11.69 inches), while US Letter is the North American standard measuring 215.9 x 279.4 mm (8.5 x 11.0 inches). This makes Letter paper slightly wider, while A4 is slightly longer.
                 </p>
               </div>
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many meters are in a yard of fabric?
+                  What is A4 paper size in inches?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  There are exactly 0.9144 meters in a yard. This standard multiplier ensures you do not buy insufficient fabric when following international patterns. Use our fabric quantity helper to quickly scale your fabric length!
+                  The standard A4 paper size in inches is exactly 8.27 x 11.69 inches (210 x 297 millimeters). Our converter translates these dimensions to other standard units like centimeters, points, and picas instantly.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How does a yard to meter fabric conversion work?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  A standard yard to meter fabric conversion uses the multiplier 0.9144 (1 yard = 0.9144 meters). If you have the measurement in meters and need yards, multiply by 1.0936 instead. This helps ensure you purchase the correct amount of material for sewing projects.
                 </p>
               </div>
 
@@ -257,15 +266,6 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Regional standards trace back to local manufacturing traditions. While Europe and the rest of the world unified under the German-designed ISO standards in the 20th century to optimize scaling, North America retained the US Letter format owing to its deep entrenchment in commercial printer and copying equipment.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the aspect ratio of the ISO A-series paper?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The ISO A-series uses an aspect ratio of 1:√2 (approximately 1:1.4142). This mathematical ratio guarantees that when you fold a sheet of paper in half, the half-size sheet maintains the exact same proportions.
                 </p>
               </div>
 

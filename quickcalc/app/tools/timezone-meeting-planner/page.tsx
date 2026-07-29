@@ -56,10 +56,26 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I find a meeting time that works across time zones?",
+        "name": "How to schedule a meeting across time zones?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best approach is to map out your core team locations and look for overlapping windows inside standard working hours (typically 8:00 AM to 7:00 PM local time). For extreme spans (like US and East Asia), alternating early-morning and late-evening sessions share the burden fairly."
+          "text": "To find how to schedule a meeting across time zones, add your team's locations into our interactive planner above. It dynamically maps localized core hours side-by-side, making it incredibly simple to identify overlapping green slots that work for all attendees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best time to meet UTC to EST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best time to meet UTC to EST is usually between 1:00 PM and 5:00 PM UTC, which corresponds to a comfortable morning slot of 8:00 AM to 12:00 PM EST. This allows both parties to collaborate during their standard localized working day."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert meeting time to multiple time zones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To convert meeting time to multiple time zones, pick your planned meeting date and slide the hour control. Our planner instantly displays the corresponding local times and dates across all your selected global offices in real-time."
         }
       },
       {
@@ -68,14 +84,6 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. By executing calculations with official, location-based IANA timezone identifiers (e.g. 'America/New_York') rather than static, offset numbers (like UTC-5), our tool automatically factors in exact localized daylight saving transitions based on the meeting date chosen."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the best overlap time for US and Europe teams?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The optimal meeting window for US East Coast and European teams lies between 9:00 AM and 1:00 PM EST, which corresponds to 2:00 PM to 6:00 PM in London/Paris. For the US West Coast, the sweet spot is tighter, typically between 8:00 AM and 10:00 AM PST."
         }
       }
     ]
@@ -137,7 +145,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
             Timezone Meeting Planner
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Find the perfect overlap for distributed teams easily. Our local comparison engine maps exact working windows, flags local dates, and compiles instant share links with absolutely no accounts or log-ins required.
+            If you need to know how to schedule a meeting across time zones or want to find the best time to meet UTC to EST with team members, our global team overlap tool is here to help. Easily convert meeting time to multiple time zones and see exact visual working hour highlights instantly.
           </p>
         </div>
 
@@ -224,10 +232,28 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I find a meeting time that works across time zones?
+                  How to schedule a meeting across time zones?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Start by identifying the central location of key stakeholders. Input your preferred local time, select your target hubs in our widget above, and inspect rows displaying green "Inside Core Hours" tags. This highlights overlapping business hours instantly.
+                  To find how to schedule a meeting across time zones, add your team{"'"}s locations into our interactive planner above. It dynamically maps localized core hours side-by-side, making it incredibly simple to identify overlapping green slots that work for all attendees.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  What is the best time to meet UTC to EST?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  The best time to meet UTC to EST is usually between 1:00 PM and 5:00 PM UTC, which corresponds to a comfortable morning slot of 8:00 AM to 12:00 PM EST. This allows both parties to collaborate during their standard localized working day.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How do I convert meeting time to multiple time zones?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  To convert meeting time to multiple time zones, pick your planned meeting date and slide the hour control. Our planner instantly displays the corresponding local times and dates across all your selected global offices in real-time.
                 </p>
               </div>
 
@@ -237,15 +263,6 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, fully. Our calculations utilize localized Intl capabilities running with the official IANA database strings. By changing the planned date, the system automatically checks and offsets DST status for each specific region correctly.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What's the best overlap time for US and Europe teams?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  The ideal window is the US morning (9:00 AM to 12:00 PM EST), which maps comfortably to the European afternoon (2:00 PM to 5:00 PM GMT/CET). This ensures both teams are inside standard business hours with no one expected to join before 8:00 AM or after 7:00 PM.
                 </p>
               </div>
             </div>

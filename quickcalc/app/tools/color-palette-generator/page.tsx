@@ -56,10 +56,26 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I extract colors from an image for a design project?",
+        "name": "How to create a color palette from an image?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Simply drag and drop or upload your design file, photo, or mood-board image directly into our client-side palette tool. It instantly renders the file on an HTML5 Canvas, clusters color frequencies, filters visually indistinguishable shades, and extracts 6 to 8 dominant color swatches complete with exact hexadecimal values, contrast scoring, and ready-to-use CSS/Tailwind configuration snippets."
+          "text": "To learn how to create a color palette from an image, drag and drop your photo or graphic into our browser-based analyzer above. It instantly loads the file on a local canvas, applies pixel clustering, and extracts 6 to 8 dominant colors with click-to-copy hex codes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this a complementary color scheme generator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our interactive tool operates as a robust complementary color scheme generator free of charge. You can analyze any uploaded graphic, view WCAG contrast scores, and immediately export matching styling objects such as CSS custom properties or Tailwind theme variables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the hex code color palette generator work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our hex code color palette generator parses image pixels using advanced downsampling and RGB quantization. It isolates visual clusters, removes indistinguishable adjacent shades, and outputs clean hexadecimal values so you can paste them directly into Photoshop, Figma, or your CSS files."
         }
       },
       {
@@ -68,22 +84,6 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "No, your uploaded images are never stored or transmitted to any remote servers. All processing is executed 100% locally in your browser memory using HTML5 Canvas APIs, ensuring absolute privacy for your personal designs, proprietary logos, and photography."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What file formats are supported?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our color extractor supports all standard browser-readable graphic formats including PNG, JPG, JPEG, WEBP, GIF, and SVG files under 10MB in size."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is WCAG contrast checked?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "WCAG contrast is checked using the standard relative luminance formula. It calculates the brightness difference between the foreground and background colors to ensure the contrast ratio meets or exceeds the 4.5:1 ratio required for readability (AA level)."
         }
       }
     ]
@@ -145,7 +145,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
             Color Palette Generator
           </h1>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Extract up to 8 beautiful dominant colors from any image instantly. Build accessible color-conscious palettes with built-in, real-time WCAG contrast assessments, and export ready-to-copy code structures — all with complete local privacy.
+            If you are looking for how to create a color palette from an image or need a complementary color scheme generator free of paywalls, our interactive utility is here to help. Easily extract swatches using our hex code color palette generator and copy styling objects right to your clipboard.
           </p>
         </div>
 
@@ -229,10 +229,28 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I extract colors from an image for a design project?
+                  How to create a color palette from an image?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Simply drag and drop or upload your design file, photo, or mood-board image directly into our client-side palette tool. It instantly renders the file on an HTML5 Canvas, clusters color frequencies, filters visually indistinguishable shades, and extracts 6 to 8 dominant color swatches complete with exact hexadecimal values, contrast scoring, and ready-to-use CSS/Tailwind configuration snippets.
+                  To learn how to create a color palette from an image, drag and drop your photo or graphic into our browser-based analyzer above. It instantly loads the file on a local canvas, applies pixel clustering, and extracts 6 to 8 dominant colors with click-to-copy hex codes.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  Is this a complementary color scheme generator free?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Yes, our interactive tool operates as a robust complementary color scheme generator free of charge. You can analyze any uploaded graphic, view WCAG contrast scores, and immediately export matching styling objects such as CSS custom properties or Tailwind theme variables.
+                </p>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                  How does the hex code color palette generator work?
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  Our hex code color palette generator parses image pixels using advanced downsampling and RGB quantization. It isolates visual clusters, removes indistinguishable adjacent shades, and outputs clean hexadecimal values so you can paste them directly into Photoshop, Figma, or your CSS files.
                 </p>
               </div>
 
@@ -242,24 +260,6 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   No, your uploaded images are never stored or transmitted to any remote servers. All processing is executed 100% locally in your browser memory using HTML5 Canvas APIs, ensuring absolute privacy for your personal designs, proprietary logos, and photography.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What file formats are supported?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Our color extractor supports all standard browser-readable graphic formats including PNG, JPG, JPEG, WEBP, GIF, and SVG files under 10MB in size.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is WCAG contrast checked?
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  WCAG contrast is checked using the standard relative luminance formula. It calculates the brightness difference between the foreground and background colors to ensure the contrast ratio meets or exceeds the 4.5:1 ratio required for readability (AA level).
                 </p>
               </div>
             </div>
