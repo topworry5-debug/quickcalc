@@ -1,43 +1,39 @@
 # QuickCalc
 
-A free suite of online calculators and converters.
-
-QuickCalc is designed to help users perform instant, accurate calculations and conversions across health, finance, utility, development, and planning domains. The site runs completely in the browser for secure, private, and instant results without server-side processing overhead or tracking.
-
-- [Homepage](https://quickcalc.cloud) - Access the full suite of free online calculators and converters.
+> Elegant, Science-Backed Calculator Suite for your health, finance, and educational calculation needs.
 
 ## Tools
+- [BMI Calculator](https://quickcalc.cloud/tools/bmi-calculator): Calculate your body mass index (BMI) instantly. Analyze clinical weight ranges with a live horizontal gauge.
+- [Calorie Calculator](https://quickcalc.cloud/tools/calorie-calculator): Calculate your BMR and TDEE using the modern Mifflin-St Jeor formula. Get tailored calorie targets for losing, maintaining, and gaining weight.
+- [Water Intake Calculator](https://quickcalc.cloud/tools/water-intake-calculator): Calculate your ideal daily hydration requirements based on your body weight, activity level, and climate.
+- [Pace Calculator](https://quickcalc.cloud/tools/pace-calculator): Calculate running pace, time, or distance with our 3-in-1 calculator. View live km/mile side-by-side conversions and instant race time predictions.
+- [Due Date Calculator](https://quickcalc.cloud/tools/due-date-calculator): Estimate your baby's arrival date, trace gestational milestones, and follow your week-by-week trimester timeline.
+- [Shoe Size Converter](https://quickcalc.cloud/tools/shoe-size-converter): Convert shoe sizes instantly between US, UK, EU, and Japan systems simultaneously with built-in brand variance guidance.
+- [Paper & Fabric Size Converter](https://quickcalc.cloud/tools/paper-fabric-size-converter): Convert standard print paper formats and fabric lengths simultaneously with two dedicated, live-updating modes.
+- [JSON & CSV Converter](https://quickcalc.cloud/tools/json-csv-converter): Convert JSON to CSV and CSV back to nested JSON structures securely in browser memory. 100% private client-side translation.
+- [Regex Tester](https://quickcalc.cloud/tools/regex-tester): Test and debug regular expressions instantly with live colored highlighting and plain-language pattern explanations.
+- [Sleep Cycle Calculator](https://quickcalc.cloud/tools/sleep-cycle-calculator): Optimize your bedtime and waking schedule using 90-minute sleep cycles to wake up refreshed and energetic.
+- [GPA Converter](https://quickcalc.cloud/tools/gpa-converter): Convert international grades and percentages from US, UK, Canada, India, and Pakistan to the standard 4.0 scale.
+- [Loan / EMI Calculator](https://quickcalc.cloud/tools/loan-calculator): Calculate monthly installments, interest payments, and view a comprehensive year-by-year amortization schedule.
+- [Color Palette Generator](https://quickcalc.cloud/tools/color-palette-generator): Extract up to 8 beautiful dominant colors from any image. Analyze WCAG contrast compliance and export custom CSS/Tailwind configurations.
+- [Word & Character Counter](https://quickcalc.cloud/tools/word-character-counter): Count words, characters, sentences, paragraphs, and estimated reading times. Get live warning notifications for popular social post limits.
+- [Secure Password Generator](https://quickcalc.cloud/tools/password-generator): Generate cryptographically secure passwords locally with precise entropy calculations and customizable pools.
+- [Timezone Meeting Planner](https://quickcalc.cloud/tools/timezone-meeting-planner): Schedule meetings across multiple timezones safely using geographical database options and overlap calculations.
+- [Tip Calculator](https://quickcalc.cloud/tools/tip-calculator): Calculate custom tipping values instantly, split bills evenly between groups, and copy detailed breakdowns locally.
+- [Percentage Calculator](https://quickcalc.cloud/tools/percentage-calculator): Calculate percentage changes, fractions, savings, discount values, and reverse percentages instantly with dynamic formulas.
+- [Group Expense Splitter](https://quickcalc.cloud/tools/group-expense-splitter): Split group bills, meals, and trip expenses unevenly. Allocate specific items and distribute tax/tip proportionally.
+- [Age Calculator](https://quickcalc.cloud/tools/age-calculator): Find your exact chronological age in years, months, and days. Uncover your zodiac traits, generational era, countdown to your next birthday, and share your personalized age card!
+- [Currency Converter](https://quickcalc.cloud/tools/currency-converter): Convert 35+ major world currencies instantly with live exchange rates. Compare ranges and copy formatted results with backlinks.
+- [Budget Calculator](https://quickcalc.cloud/tools/budget-calculator): Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.
+- [Zakat Calculator](https://quickcalc.cloud/tools/zakat-calculator): Calculate your Zakat cleanly with a category-by-category breakdown. Support for custom gold/silver rates and Nisab standard selector.
+- [Salary Take-Home Calculator](https://quickcalc.cloud/tools/salary-take-home-calculator): Calculate your estimated net take-home salary after income taxes & payroll deductions in the US, Canada, and Pakistan side-by-side.
+- [Pregnancy Weight Gain Calculator](https://quickcalc.cloud/tools/pregnancy-weight-gain-calculator): Calculate personalized healthy pregnancy weight gain ranges week-by-week based on pre-pregnancy Body Mass Index and gestational timing.
+- [Habit Cost Calculator](https://quickcalc.cloud/tools/habit-cost-calculator): Calculate the combined compounding time and money cost of daily recurring habits over years, decades, and by retirement.
+- [Discount Calculator](https://quickcalc.cloud/tools/discount-calculator): Calculate sale prices with single or stacked discounts, visual step-by-step math, and reverse pre-discount calculations instantly.
+- [Inflation Calculator](https://quickcalc.cloud/tools/inflation-calculator): Calculate historical inflation and buying power changes in the US, Canada, and Pakistan. Compare money value then vs now instantly.
+- [Savings Growth Calculator](https://quickcalc.cloud/tools/savings-growth-calculator): Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest.
+- [Travel Time & Fuel Cost Calculator](https://quickcalc.cloud/tools/travel-time-fuel-calculator): Calculate speed, distance, time, flight cruising durations, and estimated vehicle trip fuel costs in real-time.
 
-- [BMI Calculator](https://quickcalc.cloud/tools/bmi-calculator) - Calculate your body mass index (BMI) instantly and analyze clinical weight ranges with a live horizontal gauge.
-- [Water Intake Calculator](https://quickcalc.cloud/tools/water-intake-calculator) - Calculate your ideal daily hydration requirements based on your body weight, activity level, and climate.
-- [Due Date Calculator](https://quickcalc.cloud/tools/due-date-calculator) - Estimate your baby's arrival date, trace gestational milestones, and follow your week-by-week trimester timeline.
-- [Shoe Size Converter](https://quickcalc.cloud/tools/shoe-size-converter) - Convert shoe sizes instantly between US, UK, EU, and Japan systems simultaneously with built-in brand variance guidance.
-- [Paper & Fabric Size Converter](https://quickcalc.cloud/tools/paper-fabric-size-converter) - Convert standard print paper formats and fabric lengths simultaneously with two dedicated, live-updating modes.
-- [JSON & CSV Converter](https://quickcalc.cloud/tools/json-csv-converter) - Convert JSON to CSV and CSV back to nested JSON structures securely in browser memory. 100% private client-side translation.
-- [Regex Tester](https://quickcalc.cloud/tools/regex-tester) - Test and debug regular expressions instantly with live colored highlighting and plain-language pattern explanations.
-- [Sleep Cycle Calculator](https://quickcalc.cloud/tools/sleep-cycle-calculator) - Optimize your bedtime and waking schedule using 90-minute sleep cycles to wake up refreshed and energetic.
-- [GPA Converter](https://quickcalc.cloud/tools/gpa-converter) - Convert international grades and percentages from US, UK, Canada, India, and Pakistan to the standard 4.0 scale.
-- [Loan / EMI Calculator](https://quickcalc.cloud/tools/loan-calculator) - Calculate monthly installments, interest payments, and view a comprehensive year-by-year amortization schedule.
-- [Color Palette Generator](https://quickcalc.cloud/tools/color-palette-generator) - Extract up to 8 beautiful dominant colors from any image. Analyze WCAG contrast compliance and export custom CSS/Tailwind configurations.
-- [Word & Character Counter](https://quickcalc.cloud/tools/word-character-counter) - Count words, characters, sentences, paragraphs, and estimated reading times. Get live warning notifications for popular social post limits.
-- [Secure Password Generator](https://quickcalc.cloud/tools/password-generator) - Generate cryptographically secure passwords locally with precise entropy calculations and customizable pools.
-- [Timezone Meeting Planner](https://quickcalc.cloud/tools/timezone-meeting-planner) - Schedule meetings across multiple timezones safely using geographical database options and overlap calculations.
-- [Tip Calculator](https://quickcalc.cloud/tools/tip-calculator) - Calculate custom tipping values instantly, split bills evenly between groups, and copy detailed breakdowns locally.
-- [Percentage Calculator](https://quickcalc.cloud/tools/percentage-calculator) - Calculate percentage changes, fractions, savings, discount values, and reverse percentages instantly with dynamic formulas.
-- [Group Expense Splitter](https://quickcalc.cloud/tools/group-expense-splitter) - Split group bills, meals, and trip expenses unevenly. Allocate specific items and distribute tax/tip proportionally.
-- [Age Calculator](https://quickcalc.cloud/tools/age-calculator) - Find your exact chronological age in years, months, and days. Uncover your zodiac traits, generational era, countdown to your next birthday, and share your personalized age card!
-- [Currency Converter](https://quickcalc.cloud/tools/currency-converter) - Convert 35+ major world currencies instantly with live exchange rates. Compare ranges and copy formatted results with backlinks.
-- [Budget Calculator](https://quickcalc.cloud/tools/budget-calculator) - Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.
-- [Travel Time & Fuel Cost Calculator](https://quickcalc.cloud/tools/travel-time-fuel-calculator) - Calculate speed, distance, time, flight cruising durations, and estimated vehicle trip fuel costs in real-time.
-
-## Blog
-
-- [The 50/30/20 Budget Rule Explained](https://quickcalc.cloud/blog/50-30-20-budget-rule-explained-does-it-actually-work) - Learn how the 50/30/20 budgeting rule works, what actually counts as a "need" vs a "want," and what to do if rent eats up half your paycheck.
-- [Why Your Bank's Exchange Rate Is Different From Google's](https://quickcalc.cloud/blog/usd-to-pkr-and-understanding-real-exchange-rates) - Confused why your bank gives a worse exchange rate than what you see online? Learn how mid-market rates work and why banks charge more.
-- [How to Calculate Your Exact Age and Fun Birth Date Facts](https://quickcalc.cloud/blog/how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date) - Learn how to calculate your exact age in years, months, and days, plus discover your zodiac sign, generation, and how many days you've actually been alive.
-- [How to Split a Bill Fairly When Everyone Orders Different Things](https://quickcalc.cloud/blog/how-to-split-a-bill-fairly-when-everyone-orders-different-things) - Splitting the bill equally isn't always fair. Learn how to split expenses properly when people order different amounts.
-- [How to Calculate Percentage Increase, Decrease & Discounts](https://quickcalc.cloud/blog/how-to-calculate-percentage-increase-decrease-discount) - Confused by percentage math? Learn how to calculate percentage increase, decrease, and discounts step by step, with real examples.
-- [US vs UK vs EU vs Japan Shoe Sizes Conversion Guide](https://quickcalc.cloud/blog/us-uk-eu-japan-shoe-size-conversion-guide) - Convert shoe sizes between US, UK, EU, and Japan with our complete international shoe size guide. Learn formulas and sizing histories.
-- [How to Calculate BMI Accurately and Its Limitations](https://quickcalc.cloud/blog/how-to-calculate-bmi-accurately-and-its-limitations) - Learn how to compute your Body Mass Index (BMI) precisely with standard equations, and understand the biological limits of BMI.
-- [Why Daylight Saving Time Breaks Simple Timezone Math](https://quickcalc.cloud/blog/why-daylight-saving-time-breaks-simple-timezone-math) - An in-depth look at how Daylight Saving Time (DST) complicates global meeting coordination and why UTC offsets shift.
-- [What Makes a Password Actually Strong? Understanding Entropy](https://quickcalc.cloud/blog/what-makes-a-password-actually-strong-understanding-entropy) - Unpack the math behind password strength, learn how information entropy determines brute-force resistance, and discover why length beats complexity.
+## About
+- [About](https://quickcalc.cloud/about)
+- [Contact](https://quickcalc.cloud/contact)

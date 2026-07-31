@@ -118,7 +118,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
       "@type": "WebPage",
       "@id": "https://quickcalc.cloud/tools/habit-cost-calculator"
     }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors">

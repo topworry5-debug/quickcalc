@@ -4,7 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import AdSlot from "@/components/AdSlot";
 import Footer from "@/components/Footer";
 
@@ -22,11 +22,20 @@ interface HomeClientProps {
 }
 
 export default function HomeClient({ initialTools }: HomeClientProps) {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+
+  // Initialize search query from 'q' parameter on mount
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) {
+      setSearchQuery(q);
+    }
+  }, [searchParams]);
 
   const filteredTools = initialTools.filter((tool) => {
     const query = searchQuery.toLowerCase();
@@ -117,6 +126,16 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
             QuickCalc offers a collection of beautiful, fully featured, and highly responsive tools tailored directly for your health, finance, and educational calculation needs. Designed with precision, ease-of-use, and accessibility in mind.
+          </p>
+        </div>
+
+        {/* Category Intro Section */}
+        <div className="max-w-3xl mx-auto mb-12 text-center space-y-4">
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Whether you need to check a health metric, project a financial plan, or convert technical data, our <strong>free online calculators</strong> provide <strong>instant results</strong> with <strong>no sign-up required</strong>. We have carefully organized our resources into three core areas to ensure you can find what you need in seconds.
+          </p>
+          <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Our <strong>Health & Wellness</strong> tools empower you to monitor fitness, nutrition, and personal wellness goals with ease and precision. Our <strong>Finance & Money</strong> calculators help you analyze loan options, calculate take-home pay, and manage your savings effectively. Finally, our <strong>Productivity & Education</strong> converters and meeting planners streamline your daily study, work, and developmental tasks.
           </p>
         </div>
 

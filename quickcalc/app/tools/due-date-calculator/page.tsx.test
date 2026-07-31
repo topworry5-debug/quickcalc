@@ -1,4 +1,5 @@
 import RelatedTools from "@/components/RelatedTools";
+import { generateFAQSchema } from "@/lib/schema";
 import ShareButtons from "@/components/ShareButtons";
 import EmbedWidget from "@/components/EmbedWidget";
 
@@ -44,7 +45,22 @@ export const metadata: Metadata = {
 export default function DueDateCalculatorPage({ searchParams }: { searchParams?: { embed?: string } }) {
   const isEmbed = searchParams?.embed === "true";
   if (isEmbed) {
-    return (
+      const faqs = [
+    {
+      question: "How to calculate due date from last period?",
+      answer: "To understand how to calculate due date from last period, you add exactly 280 days (or 40 weeks) to the first day of your last menstrual period (LMP). This standard clinical method assumes a typical 28-day menstrual cycle where ovulation occurs around day 14."
+    },
+    {
+      question: "How accurate is a due date calculator?",
+      answer: "While a due date calculator is highly reliable for establishing a target baseline, only about 5% of babies are born exactly on their estimated due date. Most normal, healthy deliveries happen anytime within a four-week window spanning two weeks before and two weeks after the estimated date."
+    },
+    {
+      question: "How do I use a due date calculator by conception date?",
+      answer: "Using a due date calculator by conception date is highly accurate if you know the exact day of ovulation or fertilization. Since gestation naturally lasts about 266 days (38 weeks) from conception, the tool calculates your estimated due date by adding 266 days directly to your conception date."
+    }
+  ];
+
+  return (
       <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
         <main className="max-w-4xl mx-auto w-full">
           <DueDateCalculatorWidget />
@@ -53,36 +69,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
     );
   }
 
-  const faqData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How to calculate due date from last period?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "To understand how to calculate due date from last period, you add exactly 280 days (or 40 weeks) to the first day of your last menstrual period (LMP). This standard clinical method assumes a typical 28-day menstrual cycle where ovulation occurs around day 14."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How accurate is a due date calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "While a due date calculator is highly reliable for establishing a target baseline, only about 5% of babies are born exactly on their estimated due date. Most normal, healthy deliveries happen anytime within a four-week window spanning two weeks before and two weeks after the estimated date."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I use a due date calculator by conception date?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Using a due date calculator by conception date is highly accurate if you know the exact day of ovulation or fertilization. Since gestation naturally lasts about 266 days (38 weeks) from conception, the tool calculates your estimated due date by adding 266 days directly to your conception date."
-        }
-      }
-    ]
-  };
+  
 
   const softwareData = {
     "@context": "https://schema.org",
@@ -95,14 +82,16 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
       "price": "0",
       "priceCurrency": "USD"
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors">
       {/* FAQ Structured Data */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
       {/* Software Application Structured Data */}
       <script

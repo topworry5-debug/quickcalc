@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeClient from "./HomeClient";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "QuickCalc - Elegant, Science-Backed Calculator Suite",
@@ -35,7 +36,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
-      <HomeClient initialTools={tools} />
+      <Suspense fallback={null}>
+        <HomeClient initialTools={tools} />
+      </Suspense>
     </>
   );
 }

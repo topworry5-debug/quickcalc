@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { generateBreadcrumbSchema } from "../lib/schema";
 
 interface BreadcrumbsProps {
   toolName: string;
@@ -7,30 +8,11 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ toolName, toolSlug }: BreadcrumbsProps) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://quickcalc.cloud"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Tools",
-        "item": "https://quickcalc.cloud"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": toolName,
-        "item": `https://quickcalc.cloud/tools/${toolSlug}`
-      }
-    ]
-  };
+  const schema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://quickcalc.cloud/" },
+    { name: "Tools", url: "https://quickcalc.cloud/" },
+    { name: toolName, url: `https://quickcalc.cloud/tools/${toolSlug}` },
+  ]);
 
   return (
     <nav aria-label="Breadcrumb" className="mb-6">

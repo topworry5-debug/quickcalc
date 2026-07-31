@@ -66,6 +66,7 @@ export const inflationData: Record<string, CountryData> = {
       { year: 2022, cpi: 292.655 },
       { year: 2023, cpi: 304.702 },
       { year: 2024, cpi: 313.200 },
+      // Note: 2025 and 2026 values are estimated/projected, not final published data
       { year: 2025, cpi: 321.000 },
       { year: 2026, cpi: 329.000 },
     ],
@@ -112,6 +113,7 @@ export const inflationData: Record<string, CountryData> = {
       { year: 2022, cpi: 151.2 },
       { year: 2023, cpi: 157.1 },
       { year: 2024, cpi: 161.5 },
+      // Note: 2025 and 2026 values are estimated/projected, not final published data
       { year: 2025, cpi: 165.5 },
       { year: 2026, cpi: 169.6 },
     ],
@@ -158,6 +160,7 @@ export const inflationData: Record<string, CountryData> = {
       { year: 2022, cpi: 147.5 },
       { year: 2023, cpi: 190.5 },
       { year: 2024, cpi: 237.1 },
+      // Note: 2025 and 2026 values are estimated/projected, not final published data
       { year: 2025, cpi: 265.5 },
       { year: 2026, cpi: 292.0 },
     ],
