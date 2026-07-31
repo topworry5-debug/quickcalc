@@ -36,7 +36,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to calculate running pace?",
+        "name": "How do I calculate my running pace for a marathon or 5k?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To understand how to calculate running pace manually, divide your total running time by the total distance covered. For example, if you run 5 kilometers in 25 minutes, you divide 25 by 5 to get a pace of 5 minutes per kilometer. Our pace calculator automates this math instantly for both kilometers and miles simultaneously."
@@ -44,7 +44,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
       },
       {
         "@type": "Question",
-        "name": "What is a good 5k pace for beginners?",
+        "name": "What is a good average 5k run pace for a beginner?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "For beginner runners, what is a good 5k pace for beginners is generally between 8 to 11 minutes per mile (5:00 to 6:50 minutes per kilometer). This results in a total 5K finish time of approximately 25 to 35 minutes, though your starting pace depends heavily on age, gender, and baseline physical fitness."
@@ -52,7 +52,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
       },
       {
         "@type": "Question",
-        "name": "How does the minutes per mile to km/h conversion work?",
+        "name": "How do I convert my minutes-per-mile running pace to km/h?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To do a minutes per mile to km/h conversion, you first convert your pace into decimal minutes per mile, divide 60 by that decimal to get miles per hour (mph), and then multiply by 1.60934 to find kilometers per hour (km/h). For example, a 10-minute mile is 6 mph, which converts to approximately 9.66 km/h. Our tool handles these conversions automatically."
@@ -145,7 +145,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this calculator
+              About Our Running Pace and Marathon Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Understanding the math behind your running performance is essential whether you are preparing for your first 5K or training for an elite-level marathon. The primary formulas linking these elements are direct: Pace equals Time divided by Distance, Time equals Distance multiplied by Pace, and Distance equals Time divided by Pace. Balancing these variables lets you formulate highly customized strategies for race day, ensuring you do not start too fast and risk premature fatigue.
@@ -166,7 +166,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate running pace?
+                  How do I calculate my running pace for a marathon or 5k?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To understand how to calculate running pace manually, divide your total running time by the total distance covered. For example, if you run 5 kilometers in 25 minutes, you divide 25 by 5 to get a pace of 5 minutes per kilometer. Our pace calculator automates this math instantly for both kilometers and miles simultaneously.
@@ -175,7 +175,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a good 5k pace for beginners?
+                  What is a good average 5k run pace for a beginner?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   For beginner runners, what is a good 5k pace for beginners is generally between 8 to 11 minutes per mile (5:00 to 6:50 minutes per kilometer). This results in a total 5K finish time of approximately 25 to 35 minutes, though your starting pace depends heavily on age, gender, and baseline physical fitness.
@@ -184,7 +184,7 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does the minutes per mile to km/h conversion work?
+                  How do I convert my minutes-per-mile running pace to km/h?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To do a minutes per mile to km/h conversion, you first convert your pace into decimal minutes per mile, divide 60 by that decimal to get miles per hour (mph), and then multiply by 1.60934 to find kilometers per hour (km/h). For example, a 10-minute mile is 6 mph, which converts to approximately 9.66 km/h. Our tool handles these conversions automatically.

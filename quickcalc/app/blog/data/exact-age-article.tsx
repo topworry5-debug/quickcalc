@@ -100,7 +100,7 @@ export default function ExactAgeArticle() {
         Birth year ranges are commonly grouped into generations 
         &mdash; Gen Z, Millennial, Gen X, Baby Boomer, and so on. These labels come from 
         sociological research and roughly track shared cultural touchpoints, though 
-        the exact year cutoffs vary slightly between sources.
+        the exact year cutoffs vary slightly between sources. If you want to check how the buying power of currency has shifted since your birth year or generational era, our <Link href="/tools/inflation-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Inflation Calculator</Link> lets you compare historical values instantly.
       </p>
 
       <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">Your zodiac sign(s).</p>

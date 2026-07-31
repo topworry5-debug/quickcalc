@@ -124,8 +124,7 @@ export default function BudgetRuleArticle() {
             Should I use my pre-tax or after-tax income for this calculation?
           </summary>
           <p className="mt-2 text-zinc-700 dark:text-zinc-300">
-            After-tax (take-home) income. Budgeting against your gross salary overstates 
-            how much money you actually have available each month.
+            After-tax (take-home) income. If you need to estimate your net income after taxes, our <Link href="/tools/salary-take-home-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Salary Take-Home Calculator</Link> can determine this for you. Budgeting against your gross salary overstates how much money you actually have available each month.
           </p>
         </details>
         <details className="border-b border-zinc-200 dark:border-zinc-800 pb-4">

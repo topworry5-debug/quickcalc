@@ -59,7 +59,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to convert US shoe size to UK?",
+        "name": "How do I convert a US men's or women's shoe size to UK sizes?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To convert US shoe size to UK for men, you generally subtract 1 full size (e.g., a US Men's 9 is a UK 8). For women, the conversion typically requires subtracting 2 sizes (e.g., a US Women's 7 is a UK 5). Use our live converter tool above to get instant, precise cross-regional conversions."
@@ -67,7 +67,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How to measure your shoe size at home?",
+        "name": "How can I accurately measure my foot length at home to find my shoe size?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To measure your shoe size at home, place a piece of paper on a flat floor against a wall. Stand on the paper with your heel touching the wall, mark the tip of your longest toe with a pen, and measure the distance from the wall to the mark in inches or centimeters to find your length."
@@ -75,7 +75,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "Is there a kids shoe size chart by age?",
+        "name": "Is there a reliable children's shoe size chart by age and foot length?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, while a kids shoe size chart by age provides general guidance (such as Toddlers size 4-9 for ages 1-3, Little Kids size 10-13 for ages 4-6, and Big Kids size 1-7 for ages 7+), children's feet grow rapidly and vary greatly. Measuring their actual foot length is the most accurate way to find their correct size."
@@ -83,7 +83,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How does the EU to US shoe size conversion for women work?",
+        "name": "How do I convert European (EU) shoe sizes to US women's sizes?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "An EU to US shoe size conversion for women typically involves adding 31 to 31.5 to the US women's size (e.g., a US Women's size 7 is approximately an EU size 37.5 or 38). Our online converter calculates this conversion instantly to ensure you get the best fit."
@@ -91,7 +91,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "Why do shoe sizes vary between brands?",
+        "name": "Why do my shoe sizes differ so much between athletic brands?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Brands construct shoes around their own 'lasts' (the physical molds used to shape shoes). Additionally, materials, stitching methods, and internal padding heavily affect the real interior volume, frequently causing shoe sizes to shift ±0.5 size from standard tables."
@@ -99,7 +99,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How does foot width affect my shoe size?",
+        "name": "How do I choose the right shoe size if I have wide or narrow feet?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "If you have wider feet, standard medium shoes (D for men, B for women) might feel restrictive. You may need to look for wide (E/EE for men, D for women) fittings or size up by a half-size in standard widths."
@@ -187,7 +187,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              Sizing Systems Explained
+              Global Shoe Sizing Systems Explained
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Global shoe sizing is rooted in rich historical craftsmanship, which is why systems diverge so significantly today:
@@ -210,7 +210,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How International Shoe Sizes are Converted (US, UK, EU, cm)
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Converting between different shoe size systems relies on standard regional lookup tables and sizing curves:
@@ -243,7 +243,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to convert US shoe size to UK?
+                  How do I convert a US men's or women's shoe size to UK sizes?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To convert US shoe size to UK for men, you generally subtract 1 full size (e.g., a US Men{"'"}s 9 is a UK 8). For women, the conversion typically requires subtracting 2 sizes (e.g., a US Women{"'"}s 7 is a UK 5). Use our live converter tool above to get instant, precise cross-regional conversions.
@@ -252,7 +252,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to measure your shoe size at home?
+                  How can I accurately measure my foot length at home to find my shoe size?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To measure your shoe size at home, place a piece of paper on a flat floor against a wall. Stand on the paper with your heel touching the wall, mark the tip of your longest toe with a pen, and measure the distance from the wall to the mark in inches or centimeters to find your length.
@@ -261,7 +261,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is there a kids shoe size chart by age?
+                  Is there a reliable children's shoe size chart by age and foot length?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, while a kids shoe size chart by age provides general guidance (such as Toddlers size 4-9 for ages 1-3, Little Kids size 10-13 for ages 4-6, and Big Kids size 1-7 for ages 7+), children{"'"}s feet grow rapidly and vary greatly. Measuring their actual foot length is the most accurate way to find their correct size.
@@ -270,7 +270,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does the EU to US shoe size conversion for women work?
+                  How do I convert European (EU) shoe sizes to US women's sizes?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   An EU to US shoe size conversion for women typically involves adding 31 to 31.5 to the US women{"'"}s size (e.g., a US Women{"'"}s size 7 is approximately an EU size 37.5 or 38). Our online converter calculates this conversion instantly to ensure you get the best fit.
@@ -279,7 +279,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Why do shoe sizes vary between brands?
+                  Why do my shoe sizes differ so much between athletic brands?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Brands build shoes using custom molds called {"'lasts'"} designed to appeal to specific demographics. Additionally, running shoes, hiking boots, and formal shoes have different interior space designs to maximize padding, comfort, and safety, resulting in sizing variance.
@@ -288,7 +288,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does foot width affect my shoe size?
+                  How do I choose the right shoe size if I have wide or narrow feet?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   If you have wider feet, standard medium shoes (D for men, B for women) might feel restrictive. You may need to look for wide (E/EE for men, D for women) fittings or size up by a half-size in standard widths.

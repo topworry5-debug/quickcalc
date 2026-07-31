@@ -1,4 +1,4 @@
-import Link from "next/link";
+ import Link from "next/link";
 
 export default function AgeCalculatorGuideArticle() {
   const faqJsonLd = {
@@ -173,7 +173,7 @@ export default function AgeCalculatorGuideArticle() {
         One of the most common applications is verifying eligibility for legal milestones. Governments use precise birth dates to determine school enrollment eligibility, ensuring children meet strict cutoffs down to the day before entering kindergarten. Similarly, voting registries, military enrollment boards, and retirement pension funds require exact birth-date tracking to verify that individuals have hit their legal benchmarks.
       </p>
       <p>
-        Beyond legalities, tracking time in smaller units like total days can reveal fun personal milestones. Have you ever wondered when you'll celebrate your 10,000th day alive? For the average person, this milestone occurs around the age of twenty-seven years and four months. Reaching 15,000 days puts you at roughly forty-one years old. Measuring your lifespan this way shifts your perspective, making time feel like a collection of unique, numbered opportunities rather than abstract blocks of years.
+        Beyond legalities, tracking time in smaller units like total days can reveal fun personal milestones. Have you ever wondered when you'll celebrate your 10,000th day alive? For the average person, this milestone occurs around the age of twenty-seven years and four months. Reaching 15,000 days puts you at roughly forty-one years old. Measuring your lifespan this way shifts your perspective, making time feel like a collection of unique, numbered opportunities rather than abstract blocks of years. Additionally, if you're interested in how small daily rituals compound over these thousands of days, our <Link href="/tools/habit-cost-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Habit Cost Calculator</Link> can show you the long-term impact of your daily choices on your time and savings.
       </p>
       <p>
         In medical and developmental contexts, tracking precise age is critical. Doctors use child development charts that measure growth in highly specific weekly or monthly intervals. Precise calculations are also necessary for filling out life insurance applications, pension documentation, and foreign travel visas where a mismatch of even a single day can lead to administrative delays.

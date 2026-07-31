@@ -28,6 +28,9 @@ export default function BmiArticle() {
       <p>
         You can try calculating your precise score instantly on our dedicated, private <Link href="/tools/bmi-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Scientific BMI Calculator</Link>, which maps your values across live WHO weight classification gauges.
       </p>
+      <p>
+        If your goal is to manage your weight or analyze your daily energy balance, you can pair your BMI with our <Link href="/tools/calorie-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Calorie Calculator</Link> to find your precise daily calorie targets based on your metabolic baseline.
+      </p>
 
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">
         What BMI Actually Screens: The WHO Classifications

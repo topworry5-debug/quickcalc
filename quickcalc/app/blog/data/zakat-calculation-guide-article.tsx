@@ -329,7 +329,7 @@ export default function ZakatCalculationGuideArticle() {
       </div>
 
       <p className="mt-12 text-zinc-700 dark:text-zinc-300">
-        Managing complex finances requires practical systems that remove uncertainty and reduce mathematical errors. For your broader personal financial planning, you can explore other resources such as our <Link href="/tools/loan-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Loan Calculator</Link> to analyze liabilities, or our <Link href="/tools/currency-converter" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Currency Converter</Link> to check live currency exchange rates across global markets.
+        Managing complex finances requires practical systems that remove uncertainty and reduce mathematical errors. For your broader personal financial planning, you can explore other resources such as our <Link href="/tools/loan-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Loan Calculator</Link> to analyze liabilities, our <Link href="/tools/savings-growth-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Savings Growth Calculator</Link> to forecast long-term compound wealth accumulation, or our <Link href="/tools/currency-converter" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Currency Converter</Link> to check live currency exchange rates across global markets.
       </p>
     </>
   );

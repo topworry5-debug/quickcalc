@@ -55,7 +55,7 @@ export default function SplitBillArticle() {
       <p>
         This is the step almost everyone gets wrong. Tax and tip shouldn't be split 
         equally either &mdash; they should be split based on how much each person's subtotal 
-        contributes to the total bill.
+        contributes to the total bill. For simpler tables where everyone splits the bill and the tipping percentage evenly, our <Link href="/tools/tip-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Tip Calculator</Link> offers a faster shortcut.
       </p>
 
       <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold my-4">

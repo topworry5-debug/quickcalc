@@ -56,7 +56,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do I calculate running pace from distance and time?",
+        "name": "How do I calculate my average speed from distance and travel time?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To calculate running pace, divide your total running time by your total distance. For example, if you run 10 kilometers in 50 minutes, divide 50 by 10 to get a pace of 5 minutes per kilometer. In miles, 10km is about 6.21 miles, resulting in a pace of approximately 8 minutes and 3 seconds per mile."
@@ -64,7 +64,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How do I convert mph to km/h?",
+        "name": "How do I convert miles per hour (mph) to kilometers per hour (km/h)?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To convert miles per hour (mph) to kilometers per hour (km/h), multiply the speed in mph by 1.609344. Conversely, to convert km/h to mph, multiply the speed in km/h by 0.621371."
@@ -72,7 +72,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How accurate is a flight time estimate based on distance alone?",
+        "name": "How do I estimate flight duration based on airport distance?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Distance-only flight estimates are great for raw cruising duration but exclude ground taxiing, takeoff climbs, standard holding patterns, landing descent, and headwinds. Adding a buffer of 45 minutes for short flights and up to 1.5 hours for long-haul routes yields a much more realistic door-to-door schedule."
@@ -80,7 +80,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "What is a good running pace for beginners?",
+        "name": "What is a good running speed and pace for beginners?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "For beginner runners, a comfortable, conversational pace is highly recommended, which generally falls between 8:00 to 9:30 minutes per kilometer (12:50 to 15:15 minutes per mile). As cardiovascular stamina and muscle endurance develop, paces naturally lower toward intermediate levels."
@@ -88,7 +88,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "What is the formula for speed, distance, and time?",
+        "name": "How do I calculate speed, distance, and time using formulas?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The fundamental formula is Speed = Distance ÷ Time. From this base, you can calculate the other two variables through simple algebraic rearrangement: Distance = Speed × Time, and Time = Distance ÷ Speed."
@@ -96,7 +96,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How does vehicle fuel efficiency affect trip cost?",
+        "name": "How do I estimate the fuel cost of a road trip using distance and MPG?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Vehicle fuel efficiency dictates how much fuel is consumed per unit of distance. Higher efficiency (higher MPG or lower L/100km) means you burn fewer liters or gallons of fuel over the same trip, dramatically lowering your total trip fuel cost."
@@ -104,7 +104,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "What is a knot and when is it used for speed?",
+        "name": "What is a knot and how do I convert knots to mph or km/h?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "A knot is a unit of speed equal to one nautical mile per hour, or exactly 1.852 km/h (approximately 1.1508 mph). It is the standard speed unit utilized worldwide in maritime navigation and aviation."
@@ -197,7 +197,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
           
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Average Speed, Travel Distance, and Time are Calculated
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Calculations involving rate, time, and distance rely on standard physics formulas. By converting inputs to matching system units (such as metric kilometers or imperial miles), our system solves for your unknown variables using these clear algebraic rearrangements:
@@ -232,7 +232,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
               
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I calculate running pace from distance and time?
+                  How do I calculate my average speed from distance and travel time?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Simply divide your total running duration by the distance. For example, a 50-minute 10K translates to exactly 5:00 minutes per kilometer (or 8:03 minutes per mile). Tracking this helps runners stay consistent and target race-specific performance goals.
@@ -241,7 +241,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I convert mph to km/h?
+                  How do I convert miles per hour (mph) to kilometers per hour (km/h)?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To convert miles per hour (mph) to kilometers per hour (km/h), multiply your mph value by 1.609344. For example, 60 mph is roughly equal to 96.56 km/h. To convert back, multiply by 0.621371.
@@ -250,7 +250,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How accurate is a flight time estimate based on distance alone?
+                  How do I estimate flight duration based on airport distance?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   While cruising-speed calculations give an accurate flight-deck duration, real-world factors like headwinds, tailwinds, airport ground taxiing, takeoff climbs, landing descents, and air traffic control loops typically add between 30 to 90 minutes to any flight.
@@ -259,7 +259,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a good running pace for beginners?
+                  What is a good running speed and pace for beginners?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A beginner runner's pace usually ranges from 8:00 to 9:30 minutes per kilometer (12:50 to 15:15 minutes per mile). The key is maintaining a conversational effort level where you can speak in full sentences without gasping.
@@ -268,7 +268,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a knot and when is it used for speed?
+                  What is a knot and how do I convert knots to mph or km/h?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A knot is equal to one nautical mile per hour (1.852 km/h or 1.1508 mph). It is widely utilized across marine transport and aviation because nautical miles align perfectly with Earth's latitude lines of coordination.
@@ -277,7 +277,7 @@ export default function SpeedDistanceTimePage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does vehicle fuel efficiency affect trip cost?
+                  How do I estimate the fuel cost of a road trip using distance and MPG?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Fuel efficiency directly dictates the volume of fuel required to drive a given route. Highly efficient vehicles (e.g., hybrid cars or highly tuned diesel engines) burn fewer liters or gallons, significantly reducing overall travel fuel costs.

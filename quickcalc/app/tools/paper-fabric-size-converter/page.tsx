@@ -59,7 +59,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What size is A4 vs letter paper?",
+        "name": "What is the difference in dimensions between A4 and US Letter paper?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To understand what size is A4 vs letter paper, A4 is the international standard (ISO 216) measuring 210 x 297 mm (8.27 x 11.69 inches), while US Letter is the North American standard measuring 215.9 x 279.4 mm (8.5 x 11.0 inches). This makes Letter paper slightly wider, while A4 is slightly longer."
@@ -67,7 +67,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "What is A4 paper size in inches?",
+        "name": "What are the dimensions of A4 paper in inches, millimeters, and centimeters?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The standard A4 paper size in inches is exactly 8.27 x 11.69 inches (210 x 297 millimeters). Our converter translates these dimensions to other standard units like centimeters, points, and picas instantly."
@@ -75,7 +75,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "How does a yard to meter fabric conversion work?",
+        "name": "How do I convert fabric yards to meters for sewing projects?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "A standard yard to meter fabric conversion uses the multiplier 0.9144 (1 yard = 0.9144 meters). If you have the measurement in meters and need yards, multiply by 1.0936 instead. This helps ensure you purchase the correct amount of material for sewing projects."
@@ -83,7 +83,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "Why do paper sizes differ between countries?",
+        "name": "Why do standard paper sizes differ between North America and Europe?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The international ISO A-series (e.g. A4) is based on a single, logical aspect ratio of 1:√2, allowing sizes to scale perfectly when folded in half. The US Letter and Legal standards evolved from historical hand-made paper mold lengths (specifically 44 inches cut into quarters), which remain popular in North America today."
@@ -91,7 +91,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "How do I convert fabric width from inches to centimeters?",
+        "name": "How do I convert fabric bolt width from inches to centimeters?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Multiply the fabric width in inches by 2.54 to get the measurement in centimeters. For example, a standard 45-inch fabric is approximately 114.3 centimeters wide."
@@ -99,7 +99,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "What are the common dimensions for standard US envelope sizes?",
+        "name": "What are the dimensions of standard US envelopes like No. 10?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The most common business envelope is the No. 10 envelope, measuring 4.125 x 9.5 inches (105 x 241 mm). For standard invitations, A7 envelopes measuring 5.25 x 7.25 inches are widely used."
@@ -187,7 +187,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              Understanding Sizing Standards
+              Understanding Paper and Fabric Sizing Standards
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Standardizations for daily measurements are key to global communication, yet different fields rely on distinct unit heritage:
@@ -202,7 +202,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Paper Dimensions and Fabric Yards are Converted
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Converting paper dimensions and fabric yards relies on fixed linear ratios and international standard tables:
@@ -235,7 +235,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What size is A4 vs letter paper?
+                  What is the difference in dimensions between A4 and US Letter paper?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To understand what size is A4 vs letter paper, A4 is the international standard (ISO 216) measuring 210 x 297 mm (8.27 x 11.69 inches), while US Letter is the North American standard measuring 215.9 x 279.4 mm (8.5 x 11.0 inches). This makes Letter paper slightly wider, while A4 is slightly longer.
@@ -244,7 +244,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is A4 paper size in inches?
+                  What are the dimensions of A4 paper in inches, millimeters, and centimeters?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The standard A4 paper size in inches is exactly 8.27 x 11.69 inches (210 x 297 millimeters). Our converter translates these dimensions to other standard units like centimeters, points, and picas instantly.
@@ -253,7 +253,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does a yard to meter fabric conversion work?
+                  How do I convert fabric yards to meters for sewing projects?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A standard yard to meter fabric conversion uses the multiplier 0.9144 (1 yard = 0.9144 meters). If you have the measurement in meters and need yards, multiply by 1.0936 instead. This helps ensure you purchase the correct amount of material for sewing projects.
@@ -262,7 +262,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Why do paper sizes differ between countries?
+                  Why do standard paper sizes differ between North America and Europe?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Regional standards trace back to local manufacturing traditions. While Europe and the rest of the world unified under the German-designed ISO standards in the 20th century to optimize scaling, North America retained the US Letter format owing to its deep entrenchment in commercial printer and copying equipment.
@@ -271,7 +271,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I convert fabric width from inches to centimeters?
+                  How do I convert fabric bolt width from inches to centimeters?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Multiply the fabric width in inches by 2.54 to get the measurement in centimeters. For example, a standard 45-inch fabric is approximately 114.3 centimeters wide.
@@ -280,7 +280,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What are the common dimensions for standard US envelope sizes?
+                  What are the dimensions of standard US envelopes like No. 10?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The most common business envelope is the No. 10 envelope, measuring 4.125 x 9.5 inches (105 x 241 mm). For standard invitations, A7 envelopes measuring 5.25 x 7.25 inches are widely used.

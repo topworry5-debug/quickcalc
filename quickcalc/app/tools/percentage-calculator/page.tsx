@@ -57,7 +57,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How do you calculate percentage of a number?",
+        "name": "How do I find the percentage of a number manually?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To calculate the percentage of a number, multiply the number by the percentage value and then divide the result by 100. For example, to find 20% of 1500: (20 * 1500) / 100 = 300."
@@ -65,7 +65,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "How do I calculate a percentage increase or decrease?",
+        "name": "How do I calculate a percentage increase or decrease between two values?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To calculate percentage change: subtract the old value from the new value, divide that difference by the old value, and then multiply by 100. A positive result indicates an increase, while a negative result represents a decrease."
@@ -73,7 +73,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "What is reverse percentage?",
+        "name": "How do I calculate a reverse percentage to find the original value?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Reverse percentage means working backwards from a known final value and percentage to find the original value. For example, if you know a value is 30% of the original, you divide the final value by 0.30 to find the original."
@@ -81,7 +81,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "How do you find the final price after a discount?",
+        "name": "How do I calculate the final price after applying a percentage discount?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Multiply the original price by the discount percentage and divide by 100 to find the saved amount. Subtract that saved amount from the original price to find the final price. For example, a 15% discount on $80 saves $12, making the final price $68."
@@ -151,7 +151,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How Percentages Help in Daily Calculations
+              How Percentage Calculations Help with Everyday Math
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Percentages are used in almost every aspect of life—from measuring shopping discounts and corporate growth statistics to comparing financial performance or analyzing test results. Our calculator supports four essential mathematical configurations:
@@ -187,7 +187,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
             <div className="space-y-3">
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How do you calculate percentage of a number?</span>
+                  <span>How do I find the percentage of a number manually?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -201,7 +201,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
 
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How do I calculate a percentage increase or decrease?</span>
+                  <span>How do I calculate a percentage increase or decrease between two values?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -215,7 +215,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
 
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is reverse percentage?</span>
+                  <span>How do I calculate a reverse percentage to find the original value?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -229,7 +229,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
 
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How do you find the final price after a discount?</span>
+                  <span>How do I calculate the final price after applying a percentage discount?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />

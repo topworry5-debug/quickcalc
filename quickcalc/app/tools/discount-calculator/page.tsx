@@ -56,7 +56,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to calculate percentage off?",
+        "name": "How do I calculate percentage off a price manually?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find how to calculate percentage off, take the discount amount, divide it by the original price, and then multiply by 100. This calculation determines the exact percentage reduction applied to the retail price of your product."
@@ -64,7 +64,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
       },
       {
         "@type": "Question",
-        "name": "How much do I save with a discount code?",
+        "name": "How can I find out how much I save with a 20% discount code?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "How much you save with a discount code depends on whether it is a flat amount or a percentage deduction. Enter the original price and your discount code's percentage value into our calculator to instantly view your total cash savings and final price."
@@ -72,7 +72,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
       },
       {
         "@type": "Question",
-        "name": "Original price from sale price?",
+        "name": "How do I calculate the original price from a sale price and discount percentage?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find the original price from a sale price, divide the final sale price by one minus the discount percentage as a decimal (e.g., divide by 0.80 for a 20% discount). This reverse calculation retrieves your starting retail cost before the promotion."
@@ -167,7 +167,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this calculator
+              About Our Percentage Discount and Savings Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Welcome to our advanced Discount Calculator, designed to simplify complicated retail pricing and help you make smarter purchase decisions. Standard calculations usually cover a single discount percent and stop there, leaving shoppers in the dark when navigating more complex pricing scenarios. This tool changes that by integrating three distinct real-world applications into a single view: finding the final price after a single discount, calculating sequential multi-tier stacked discounts, and running a reverse mode to find the original pre-discount retail price from any known sale value.
@@ -195,7 +195,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate percentage off?
+                  How do I calculate percentage off a price manually?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find how to calculate percentage off, take the discount amount, divide it by the original price, and then multiply by 100. This calculation determines the exact percentage reduction applied to the retail price of your product.
@@ -204,7 +204,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much do I save with a discount code?
+                  How can I find out how much I save with a 20% discount code?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   How much you save with a discount code depends on whether it is a flat amount or a percentage deduction. Enter the original price and your discount code's percentage value into our calculator to instantly view your total cash savings and final price.
@@ -213,7 +213,7 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Original price from sale price?
+                  How do I calculate the original price from a sale price and discount percentage?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find the original price from a sale price, divide the final sale price by one minus the discount percentage as a decimal (e.g., divide by 0.80 for a 20% discount). This reverse calculation retrieves your starting retail cost before the promotion.

@@ -56,7 +56,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much is my salary after tax?",
+        "name": "How do I calculate my net take-home salary after taxes?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find out how much is my salary after tax, enter your annual or hourly gross wage into our calculator, select your country, and let the tool estimate your final net income. The calculator automatically applies federal brackets and standard social program contributions to show your actual earnings."
@@ -64,7 +64,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
       },
       {
         "@type": "Question",
-        "name": "Gross vs net salary difference?",
+        "name": "What is the difference between my gross salary and net pay?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The gross vs net salary difference represents what you earn before deductions versus what you actually take home. Gross salary is the full amount agreed with your employer before taxes, whereas net salary is the actual amount paid to you after income tax, payroll deductions, and social contributions."
@@ -72,7 +72,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
       },
       {
         "@type": "Question",
-        "name": "How to calculate take-home pay?",
+        "name": "How do I estimate my biweekly or monthly take-home pay from an annual salary?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To learn how to calculate take-home pay, start with your gross salary and deduct progressive federal income taxes, local state or provincial taxes, and payroll deductions (like FICA in the US or CPP and EI in Canada). Our calculator automates this complex math to give you a clear net estimate in seconds."
@@ -169,7 +169,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this calculator
+              About Our Take-Home Pay and Net Salary Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Gross pay represents the absolute total compensation agreed upon with an employer, while net pay is the actual cash deposited into a bank account. Our dynamic multi-country tool computes these differences side-by-side, providing an instantaneous breakdown of how federal taxes and social programs affect your income across the United States, Canada, and Pakistan.
@@ -197,7 +197,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much is my salary after tax?
+                  How do I calculate my net take-home salary after taxes?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find out how much is my salary after tax, enter your annual or hourly gross wage into our calculator, select your country, and let the tool estimate your final net income. The calculator automatically applies federal brackets and standard social program contributions to show your actual earnings.
@@ -206,7 +206,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Gross vs net salary difference?
+                  What is the difference between my gross salary and net pay?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The gross vs net salary difference represents what you earn before deductions versus what you actually take home. Gross salary is the full amount agreed with your employer before taxes, whereas net salary is the actual amount paid to you after income tax, payroll deductions, and social contributions.
@@ -215,7 +215,7 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate take-home pay?
+                  How do I estimate my biweekly or monthly take-home pay from an annual salary?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To learn how to calculate take-home pay, start with your gross salary and deduct progressive federal income taxes, local state or provincial taxes, and payroll deductions (like FICA in the US or CPP and EI in Canada). Our calculator automates this complex math to give you a clear net estimate in seconds.

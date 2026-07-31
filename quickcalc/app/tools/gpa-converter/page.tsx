@@ -56,7 +56,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to calculate GPA from percentage?",
+        "name": "How do I convert my high school percentage grade to a 4.0 GPA?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find out how to calculate GPA from percentage marks, map your percentage to its corresponding letter grade and points. For example, in the US, a score of 90-100% is typically an 'A' (3.7 to 4.0 GPA), while 80-89% is a 'B' (2.7 to 3.3 GPA). Our interactive converter automates this percentage-to-GPA calculation instantly."
@@ -64,7 +64,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
       },
       {
         "@type": "Question",
-        "name": "How to convert letter grades to GPA on a 4.0 scale?",
+        "name": "How do I convert letter grades to a weighted or unweighted GPA on a 4.0 scale?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To understand how to convert letter grades to GPA on a 4.0 scale, assign standard points to each grade (A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0). Multiply each course's grade points by its credit hours, sum these values, and then divide by the total number of credit hours completed."
@@ -72,7 +72,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
       },
       {
         "@type": "Question",
-        "name": "What is a good GPA for college applications?",
+        "name": "What is considered a good GPA for competitive college applications?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "When wondering what is a good GPA for college applications, a 3.5 to 4.0 unweighted GPA is highly competitive for top-tier universities. For many state colleges and universities, a GPA of 3.0 or higher is considered a solid and respectable average for admission consideration."
@@ -80,7 +80,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
       },
       {
         "@type": "Question",
-        "name": "Do universities accept online GPA converters?",
+        "name": "Do college admissions offices accept grades converted by online GPA calculators?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Online GPA converters are excellent for estimation and planning. However, when applying to colleges, most universities require an official transcript evaluation from accredited services like WES (World Education Services) or their own internal admissions board to verify GPA conversion."
@@ -168,7 +168,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this GPA Converter
+              About Our High School & College GPA Converter
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Grade Point Average (GPA) is more than just a number; it is a universally recognized standard of academic achievement. However, because education systems around the globe are organized differently, comparing performance across borders can be incredibly difficult. For instance, the UK uses honors classifications like First Class and Upper Second Class, while countries in South Asia like India and Pakistan measure academic success as an aggregate percentage of marks.
@@ -183,7 +183,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Letter Grades and Percentages are Converted to a 4.0 GPA
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               To convert grades from different international formats into a standard 4.0 GPA, the converter maps academic results using standardized mapping tables:
@@ -225,7 +225,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate GPA from percentage?
+                  How do I convert my high school percentage grade to a 4.0 GPA?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find out how to calculate GPA from percentage marks, map your percentage to its corresponding letter grade and points. For example, in the US, a score of 90-100% is typically an {"'A'"} (3.7 to 4.0 GPA), while 80-89% is a {"'B'"} (2.7 to 3.3 GPA). Our interactive converter automates this percentage-to-GPA calculation instantly.
@@ -234,7 +234,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to convert letter grades to GPA on a 4.0 scale?
+                  How do I convert letter grades to a weighted or unweighted GPA on a 4.0 scale?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To understand how to convert letter grades to GPA on a 4.0 scale, assign standard points to each grade (A = 4.0, B = 3.0, C = 2.0, D = 1.0, F = 0). Multiply each course{"'"}s grade points by its credit hours, sum these values, and then divide by the total number of credit hours completed.
@@ -243,7 +243,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is a good GPA for college applications?
+                  What is considered a good GPA for competitive college applications?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   When wondering what is a good GPA for college applications, a 3.5 to 4.0 unweighted GPA is highly competitive for top-tier universities. For many state colleges and universities, a GPA of 3.0 or higher is considered a solid and respectable average for admission consideration.
@@ -252,7 +252,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Do universities accept online GPA converters?
+                  Do college admissions offices accept grades converted by online GPA calculators?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Online GPA converters are excellent for estimation and planning. However, when applying to colleges, most universities require an official transcript evaluation from accredited services like WES (World Education Services) or their own internal admissions board to verify GPA conversion.

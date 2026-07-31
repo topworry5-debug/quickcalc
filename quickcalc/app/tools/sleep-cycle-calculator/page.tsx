@@ -56,7 +56,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How does a 90 minute sleep cycle calculator work?",
+        "name": "How do I calculate my sleep cycles using the 90-minute rule?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "A 90 minute sleep cycle calculator operates on the biological fact that human sleep consists of repeating 90-minute waves of light, deep, and REM sleep. Waking up at the end of a full cycle prevents sleep inertia, helping you feel alert."
@@ -64,7 +64,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "What time should I go to bed to wake up at my desired time?",
+        "name": "What time should I sleep to wake up at 7 AM feeling refreshed?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To know what time should I go to bed to wake up at a desired time, count backward in 90-minute increments from your waking goal, then subtract an additional 15 minutes for sleep latency (the time it takes to fall asleep). For example, if you must wake up at 7:00 AM, you should aim to go to bed at either 9:45 PM or 11:15 PM."
@@ -72,7 +72,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "How many sleep cycles do I need?",
+        "name": "How many sleep cycles do I need per night for optimal energy?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To optimize your health, cognitive function, and daily productivity, how many sleep cycles do I need is generally answered as 5 to 6 full cycles per night, which equates to about 7.5 to 9 hours of total restorative sleep."
@@ -160,7 +160,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Sleep Cycle Calculator
+              About Our Sleep Cycle and Waking Time Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Have you ever slept for eight or nine hours, only to wake up feeling completely exhausted? Conversely, have you ever slept for just four or five hours and felt surprisingly awake and energetic? This phenomenon is explained by the biology of sleep cycles. During the night, your brain moves through repeating cycles of light sleep, deep sleep, and REM (dreaming) sleep.
@@ -175,7 +175,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Sleep Cycles and the 90-Minute Rule are Calculated
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               To calculate the most effective wake-up times and bedtimes, our system models standard biological circadian rhythms:
@@ -214,7 +214,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does a 90 minute sleep cycle calculator work?
+                  How do I calculate my sleep cycles using the 90-minute rule?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A 90 minute sleep cycle calculator operates on the biological fact that human sleep consists of repeating 90-minute waves of light, deep, and REM sleep. Waking up at the end of a full cycle prevents sleep inertia, helping you feel alert.
@@ -223,7 +223,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What time should I go to bed to wake up at my desired time?
+                  What time should I sleep to wake up at 7 AM feeling refreshed?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To know what time should I go to bed to wake up at a desired time, count backward in 90-minute increments from your waking goal, then subtract an additional 15 minutes for sleep latency (the time it takes to fall asleep). For example, if you must wake up at 7:00 AM, you should aim to go to bed at either 9:45 PM or 11:15 PM.
@@ -232,7 +232,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many sleep cycles do I need?
+                  How many sleep cycles do I need per night for optimal energy?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To optimize your health, cognitive function, and daily productivity, how many sleep cycles do I need is generally answered as 5 to 6 full cycles per night, which equates to about 7.5 to 9 hours of total restorative sleep.

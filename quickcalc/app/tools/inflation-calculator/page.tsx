@@ -56,7 +56,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is $100 worth today compared to [past year]?",
+        "name": "What is $100 worth today compared to a historical year?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find out what is $100 worth today compared to a past year, enter $100 into our inflation calculator and select your starting year and ending year. The tool compares historical Consumer Price Index (CPI) values to show you exactly how much money you need today to match the purchasing power of that past year."
@@ -64,7 +64,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
       },
       {
         "@type": "Question",
-        "name": "How to calculate inflation adjusted value?",
+        "name": "How do I calculate the inflation-adjusted value of money?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To learn how to calculate inflation adjusted value, divide the Consumer Price Index (CPI) of your target year by the CPI of your starting year, and then multiply the result by your original cash amount. Our tool automates this calculation using real CPI data for the United States, Canada, and Pakistan."
@@ -72,7 +72,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
       },
       {
         "@type": "Question",
-        "name": "Purchasing power over time calculator?",
+        "name": "How do I find my dollar's purchasing power over time using an inflation calculator?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Our purchasing power over time calculator helps you visualize how inflation erodes the value of money. By comparing annual prices and CPI statistics over decades, the calculator demonstrates how much cash has lost its buying power and what equivalent sum is needed to purchase the same goods today."
@@ -168,7 +168,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this calculator
+              About Our CPI Inflation and Buying Power Calculator
             </h2>
             <div className="text-zinc-600 dark:text-zinc-400 leading-relaxed space-y-4">
               <p>
@@ -204,7 +204,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is $100 worth today compared to [past year]?
+                  What is $100 worth today compared to a historical year?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find out what is $100 worth today compared to a past year, enter $100 into our inflation calculator and select your starting year and ending year. The tool compares historical Consumer Price Index (CPI) values to show you exactly how much money you need today to match the purchasing power of that past year.
@@ -213,7 +213,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate inflation adjusted value?
+                  How do I calculate the inflation-adjusted value of money?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To learn how to calculate inflation adjusted value, divide the Consumer Price Index (CPI) of your target year by the CPI of your starting year, and then multiply the result by your original cash amount. Our tool automates this calculation using real CPI data for the United States, Canada, and Pakistan.
@@ -222,7 +222,7 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Purchasing power over time calculator?
+                  How do I find my dollar's purchasing power over time using an inflation calculator?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Our purchasing power over time calculator helps you visualize how inflation erodes the value of money. By comparing annual prices and CPI statistics over decades, the calculator demonstrates how much cash has lost its buying power and what equivalent sum is needed to purchase the same goods today.

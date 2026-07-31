@@ -56,7 +56,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much will my monthly loan payment be?",
+        "name": "How do I calculate my monthly loan payments with interest?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find out how much your monthly loan payment will be, enter your total loan amount, interest rate, and loan term into our calculator. The tool uses standard reducing balance algorithms to calculate your equated monthly installment (EMI) instantly."
@@ -64,7 +64,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
       },
       {
         "@type": "Question",
-        "name": "How does refinancing save money?",
+        "name": "How much money can I save by refinancing my loan at a lower rate?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Refinancing saves money by replacing your current high-interest loan with a new loan at a lower interest rate or a shorter term. This reduces both your monthly payments and the total amount of interest you will pay over the life of the loan."
@@ -72,7 +72,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
       },
       {
         "@type": "Question",
-        "name": "How to compare loan offers side by side?",
+        "name": "How do I compare different loan offers side-by-side using APR?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To compare loan offers side by side, look at the annual percentage rate (APR), loan term, monthly payment amount, and total interest cost for each option. Our calculator helps you run different scenarios so you can easily choose the most affordable loan."
@@ -80,7 +80,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
       },
       {
         "@type": "Question",
-        "name": "What is an amortization schedule?",
+        "name": "How do I read an amortization schedule to see how much interest I pay?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "An amortization schedule is a complete table showing periodic loan payments. It details how much of each payment goes toward the principal balance versus how much goes toward interest, tracking the reducing balance over the entire life of the loan."
@@ -88,7 +88,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
       },
       {
         "@type": "Question",
-        "name": "Should I pay off my loan early?",
+        "name": "Is it financially beneficial to pay off a personal loan early?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, you should pay off your loan early if you want to save money on interest. Making prepayments directly reduces the outstanding principal, shortening your loan term and lowering total interest, though you should check if your lender charges prepayment penalties."
@@ -176,7 +176,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Loan/EMI Calculator
+              About Our Loan and Monthly EMI Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Managing personal finances requires a clear understanding of debt obligation and long-term liabilities. Whether purchasing a new family home, leasing a vehicle, or financing educational tuition, borrowing money represents a major commitment. Knowing exactly how much you will pay each month—and how much of that payment goes towards interest versus original principal—is critical for budgeting.
@@ -191,7 +191,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Monthly Loan Payments and Interest are Calculated
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               The monthly payment (EMI) is calculated using the standard reducing balance loan formula:
@@ -233,7 +233,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much will my monthly loan payment be?
+                  How do I calculate my monthly loan payments with interest?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find out how much your monthly loan payment will be, enter your total loan amount, interest rate, and loan term into our calculator. The tool uses standard reducing balance algorithms to calculate your equated monthly installment (EMI) instantly.
@@ -242,7 +242,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does refinancing save money?
+                  How much money can I save by refinancing my loan at a lower rate?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Refinancing saves money by replacing your current high-interest loan with a new loan at a lower interest rate or a shorter term. This reduces both your monthly payments and the total amount of interest you will pay over the life of the loan.
@@ -251,7 +251,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to compare loan offers side by side?
+                  How do I compare different loan offers side-by-side using APR?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To compare loan offers side by side, look at the annual percentage rate (APR), loan term, monthly payment amount, and total interest cost for each option. Our calculator helps you run different scenarios so you can easily choose the most affordable loan.
@@ -260,7 +260,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is an amortization schedule?
+                  How do I read an amortization schedule to see how much interest I pay?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   An amortization schedule is a complete table showing periodic loan payments. It details how much of each payment goes toward the principal balance versus how much goes toward interest, tracking the reducing balance over the entire life of the loan.
@@ -269,7 +269,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Should I pay off my loan early?
+                  Is it financially beneficial to pay off a personal loan early?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, you should pay off your loan early if you want to save money on interest. Making prepayments directly reduces the outstanding principal, shortening your loan term and lowering total interest, though you should check if your lender charges prepayment penalties.

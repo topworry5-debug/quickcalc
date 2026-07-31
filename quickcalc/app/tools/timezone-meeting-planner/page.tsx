@@ -56,7 +56,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to schedule a meeting across time zones?",
+        "name": "How do I schedule an international meeting across multiple time zones?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To find how to schedule a meeting across time zones, add your team's locations into our interactive planner above. It dynamically maps localized core hours side-by-side, making it incredibly simple to identify overlapping green slots that work for all attendees."
@@ -64,7 +64,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
       },
       {
         "@type": "Question",
-        "name": "What is the best time to meet UTC to EST?",
+        "name": "What are the overlapping working hours to meet between UTC, EST, and PST?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The best time to meet UTC to EST is usually between 1:00 PM and 5:00 PM UTC, which corresponds to a comfortable morning slot of 8:00 AM to 12:00 PM EST. This allows both parties to collaborate during their standard localized working day."
@@ -72,7 +72,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
       },
       {
         "@type": "Question",
-        "name": "How do I convert meeting time to multiple time zones?",
+        "name": "How do I convert a local meeting time for global team members?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To convert meeting time to multiple time zones, pick your planned meeting date and slide the hour control. Our planner instantly displays the corresponding local times and dates across all your selected global offices in real-time."
@@ -80,7 +80,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
       },
       {
         "@type": "Question",
-        "name": "Does this tool account for daylight saving time?",
+        "name": "Does this timezone planner automatically adjust for daylight saving time (DST)?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. By executing calculations with official, location-based IANA timezone identifiers (e.g. 'America/New_York') rather than static, offset numbers (like UTC-5), our tool automatically factors in exact localized daylight saving transitions based on the meeting date chosen."
@@ -168,7 +168,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              Why Distributed Teams Need Timezone Planning
+              Why Remote Teams Need Global Timezone Planning
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               In modern distributed and remote organizations, coordinating synchronous meeting intervals is an essential daily challenge. Miscalculating local times leads to missed standups, disrupted workflows, and fatigue caused by expecting team members to join late-night or early-morning calls unexpectedly.
@@ -191,7 +191,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Overlapping Working Hours are Calculated Across Time Zones
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               To map schedule overlaps accurately, our system evaluates time conversions using modern, localized chronological processes:
@@ -232,7 +232,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to schedule a meeting across time zones?
+                  How do I schedule an international meeting across multiple time zones?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To find how to schedule a meeting across time zones, add your team{"'"}s locations into our interactive planner above. It dynamically maps localized core hours side-by-side, making it incredibly simple to identify overlapping green slots that work for all attendees.
@@ -241,7 +241,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the best time to meet UTC to EST?
+                  What are the overlapping working hours to meet between UTC, EST, and PST?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The best time to meet UTC to EST is usually between 1:00 PM and 5:00 PM UTC, which corresponds to a comfortable morning slot of 8:00 AM to 12:00 PM EST. This allows both parties to collaborate during their standard localized working day.
@@ -250,7 +250,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I convert meeting time to multiple time zones?
+                  How do I convert a local meeting time for global team members?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To convert meeting time to multiple time zones, pick your planned meeting date and slide the hour control. Our planner instantly displays the corresponding local times and dates across all your selected global offices in real-time.
@@ -259,7 +259,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Does this tool account for daylight saving time?
+                  Does this timezone planner automatically adjust for daylight saving time (DST)?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, fully. Our calculations utilize localized Intl capabilities running with the official IANA database strings. By changing the planned date, the system automatically checks and offsets DST status for each specific region correctly.

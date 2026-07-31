@@ -63,8 +63,7 @@ export default function PercentageCalculatorArticle() {
 
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">How Do You Calculate a Store Discount?</h2>
       <p>
-        Discounts combine both ideas above. You're not just finding a percentage &mdash; 
-        you're subtracting it from the original price.
+        Discounts combine both ideas above. You're not just finding a percentage &mdash; you're subtracting it from the original price. If you have complex or stacked discounts to resolve on the fly, our specialized <Link href="/tools/discount-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Discount Calculator</Link> does the heavy lifting for you instantly.
       </p>
       <p className="font-mono bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 p-4 rounded-xl text-center text-sm font-semibold">
         Formula: Original Price &minus; (Original Price &times; Discount% &divide; 100)

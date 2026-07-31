@@ -56,7 +56,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to create a color palette from an image?",
+        "name": "How can I extract a hex code color palette from my own image?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To learn how to create a color palette from an image, drag and drop your photo or graphic into our browser-based analyzer above. It instantly loads the file on a local canvas, applies pixel clustering, and extracts 6 to 8 dominant colors with click-to-copy hex codes."
@@ -64,7 +64,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
       },
       {
         "@type": "Question",
-        "name": "Is this a complementary color scheme generator free?",
+        "name": "Can I generate complementary and monochromatic color schemes for free?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, our interactive tool operates as a robust complementary color scheme generator free of charge. You can analyze any uploaded graphic, view WCAG contrast scores, and immediately export matching styling objects such as CSS custom properties or Tailwind theme variables."
@@ -72,7 +72,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
       },
       {
         "@type": "Question",
-        "name": "How does the hex code color palette generator work?",
+        "name": "How does a color palette generator extract hex codes from uploaded photos?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Our hex code color palette generator parses image pixels using advanced downsampling and RGB quantization. It isolates visual clusters, removes indistinguishable adjacent shades, and outputs clean hexadecimal values so you can paste them directly into Photoshop, Figma, or your CSS files."
@@ -80,7 +80,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
       },
       {
         "@type": "Question",
-        "name": "Is my uploaded image stored anywhere?",
+        "name": "Is my uploaded image saved on a server when generating a color palette?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "No, your uploaded images are never stored or transmitted to any remote servers. All processing is executed 100% locally in your browser memory using HTML5 Canvas APIs, ensuring absolute privacy for your personal designs, proprietary logos, and photography."
@@ -168,7 +168,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Color Palette Generator
+              About Our Color Palette and Hex Code Generator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Our professional-grade Color Palette Generator provides designers, developers, and creators with a streamlined mechanism to derive visually cohesive color schemes from mood boards, logo graphics, or photographs. Utilizing intelligent pixel-quantization algorithms and spatial-hue clustering, this utility identifies dominant hues while actively filtering redundant adjacent values to ensure a beautiful, distinct range.
@@ -189,7 +189,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Color Palette Harmonies are Calculated (HEX, RGB & HSL)
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               To extract the dominant color palette from your uploaded image, our system executes a series of mathematical color clustering computations:
@@ -229,7 +229,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to create a color palette from an image?
+                  How can I extract a hex code color palette from my own image?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To learn how to create a color palette from an image, drag and drop your photo or graphic into our browser-based analyzer above. It instantly loads the file on a local canvas, applies pixel clustering, and extracts 6 to 8 dominant colors with click-to-copy hex codes.
@@ -238,7 +238,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is this a complementary color scheme generator free?
+                  Can I generate complementary and monochromatic color schemes for free?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, our interactive tool operates as a robust complementary color scheme generator free of charge. You can analyze any uploaded graphic, view WCAG contrast scores, and immediately export matching styling objects such as CSS custom properties or Tailwind theme variables.
@@ -247,7 +247,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How does the hex code color palette generator work?
+                  How does a color palette generator extract hex codes from uploaded photos?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Our hex code color palette generator parses image pixels using advanced downsampling and RGB quantization. It isolates visual clusters, removes indistinguishable adjacent shades, and outputs clean hexadecimal values so you can paste them directly into Photoshop, Figma, or your CSS files.
@@ -256,7 +256,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is my uploaded image stored anywhere?
+                  Is my uploaded image saved on a server when generating a color palette?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   No, your uploaded images are never stored or transmitted to any remote servers. All processing is executed 100% locally in your browser memory using HTML5 Canvas APIs, ensuring absolute privacy for your personal designs, proprietary logos, and photography.

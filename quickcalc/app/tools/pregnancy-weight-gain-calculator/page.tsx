@@ -56,7 +56,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much weight should I gain during pregnancy?",
+        "name": "How much weight should I gain during pregnancy based on my pre-pregnancy BMI?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Healthy weight gain depends on your starting Body Mass Index (BMI). According to clinical Institute of Medicine (IOM) guidelines, women with a normal pre-pregnancy BMI (18.5–24.9) should aim to gain 11.5–16 kg (25–35 lbs) over their pregnancy. Underweight women should aim for 12.5–18 kg, while overweight and obese women are recommended ranges of 7–11.5 kg and 5–9 kg respectively."
@@ -64,7 +64,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
       },
       {
         "@type": "Question",
-        "name": "Is it normal to lose weight in early pregnancy?",
+        "name": "Is it normal to lose weight during the first trimester of pregnancy?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, it is very common to lose a small amount of weight during the first trimester. This is typically caused by morning sickness, severe nausea, food aversions, or changes in appetite. If you experience significant weight loss or have difficulty keeping fluids down, consult your doctor or midwife for personalized care."
@@ -72,7 +72,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
       },
       {
         "@type": "Question",
-        "name": "How much weight should I gain with twins?",
+        "name": "What is the recommended pregnancy weight gain timeline for twins?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Twin pregnancies have higher recommended weight gain ranges to support both babies. Under standard IOM guidelines, women with a normal starting BMI should gain 16.8–24.5 kg (37–54 lbs) with twins. For overweight starting BMIs, the target is 14.1–22.7 kg, and for obese starting BMIs, it is 11.3–19.1 kg."
@@ -80,7 +80,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
       },
       {
         "@type": "Question",
-        "name": "What happens if I gain too much weight during pregnancy?",
+        "name": "What are the risks of gaining more than the recommended pregnancy weight?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Gaining more than the recommended guidelines is very common and often represents natural fluid retention or growth spurts. While excessive gain is statistically associated with higher risk of gestational diabetes, high blood pressure, or larger birth weight, these guidelines are not strict rules. Always speak with your healthcare provider to interpret weight changes compassionately rather than restricting food."
@@ -88,7 +88,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
       },
       {
         "@type": "Question",
-        "name": "Does pregnancy weight gain happen evenly throughout?",
+        "name": "How is pregnancy weight gain distributed across trimesters?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "No, weight gain is highly non-linear throughout pregnancy. Most women gain very little weight (about 0.5 to 2 kg or 1 to 4.5 lbs) during the first trimester due to early fetal sizing and nausea. In the second and third trimesters, weight gain accelerates to a steady weekly rate of about 0.2 to 0.5 kg (0.5 to 1 lb) per week."
@@ -186,7 +186,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Calculator
+              About Our Pregnancy Weight Gain Tracker
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               The Institute of Medicine (IOM) and National Research Council guidelines offer a scientifically backed framework for healthy gestational weight gain, recognizing that a one-size-fits-all target is clinically inappropriate. By tailoring weight recommendations to pre-pregnancy Body Mass Index (BMI), healthcare providers can better support maternal health and fetal development. Your pre-pregnancy BMI serves as an indicator of nutritional reserves; thus, individuals starting with a lower BMI are advised to gain more to support the baby{"'"}s growth, while those starting with a higher BMI have lower recommended ranges.
@@ -198,7 +198,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              Why Starting BMI Matters
+              Why Pre-Pregnancy BMI Matters for Healthy Weight Gain
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Before calculating your gestational gains, understanding your pre-pregnancy weight category is vital. You can easily find this by using our dedicated{" "}
@@ -231,7 +231,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much weight should I gain during pregnancy?
+                  How much weight should I gain during pregnancy based on my pre-pregnancy BMI?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Healthy weight gain depends on your starting Body Mass Index (BMI). According to clinical Institute of Medicine (IOM) guidelines, women with a normal pre-pregnancy BMI (18.5–24.9) should aim to gain 11.5–16 kg (25–35 lbs) over their pregnancy. Underweight women should aim for 12.5–18 kg, while overweight and obese women are recommended ranges of 7–11.5 kg and 5–9 kg respectively.
@@ -240,7 +240,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is it normal to lose weight in early pregnancy?
+                  Is it normal to lose weight during the first trimester of pregnancy?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes, it is very common to lose a small amount of weight during the first trimester. This is typically caused by morning sickness, severe nausea, food aversions, or changes in appetite. If you experience significant weight loss or have difficulty keeping fluids down, consult your doctor or midwife for personalized care.
@@ -249,7 +249,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much weight should I gain with twins?
+                  What is the recommended pregnancy weight gain timeline for twins?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Twin pregnancies have higher recommended weight gain ranges to support both babies. Under standard IOM guidelines, women with a normal starting BMI should gain 16.8–24.5 kg (37–54 lbs) with twins. For overweight starting BMIs, the target is 14.1–22.7 kg, and for obese starting BMIs, it is 11.3–19.1 kg.
@@ -258,7 +258,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What happens if I gain too much weight during pregnancy?
+                  What are the risks of gaining more than the recommended pregnancy weight?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Gaining more than the recommended guidelines is very common and often represents natural fluid retention or growth spurts. While excessive gain is statistically associated with higher risk of gestational diabetes, high blood pressure, or larger birth weight, these guidelines are not strict rules. Always speak with your healthcare provider to interpret weight changes compassionately rather than restricting food.
@@ -267,7 +267,7 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Does pregnancy weight gain happen evenly throughout?
+                  How is pregnancy weight gain distributed across trimesters?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   No, weight gain is highly non-linear throughout pregnancy. Most women gain very little weight (about 0.5 to 2 kg or 1 to 4.5 lbs) during the first trimester due to early fetal sizing and nausea. In the second and third trimesters, weight gain accelerates to a steady weekly rate of about 0.2 to 0.5 kg (0.5 to 1 lb) per week.

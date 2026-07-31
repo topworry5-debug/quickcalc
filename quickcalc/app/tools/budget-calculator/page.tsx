@@ -57,7 +57,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What counts as a 'Need' vs a 'Want'?",
+        "name": "What counts as a Need vs a Want in the 50/30/20 budget?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Needs are essential expenses you must pay to survive and maintain basic employment, such as housing (rent or mortgage), groceries, utilities, basic insurance, transportation, and minimum debt payments. Wants are non-essential discretionary expenses you could live without if necessary, such as dining out, streaming services, concert tickets, vacations, premium apparel, and hobbies."
@@ -65,7 +65,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "What if my rent alone is more than 50% of my income?",
+        "name": "What should I do if my rent is more than 50% of my income?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "If high housing costs push your Needs past 50%, you will need to adjust your split (e.g., to 60/20/20 or 70/20/10) or scale back on discretionary Wants to cover the gap. You can use our customizable slider above to model different percentage targets that fit your specific financial situation."
@@ -73,7 +73,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "Should I use pre-tax or after-tax income for this calculation?",
+        "name": "Do I use pre-tax or net take-home income for the 50/30/20 rule?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The 50/30/20 rule is designed to be calculated using your after-tax monthly income (also known as net take-home pay). If you have pre-tax deductions for retirement savings (like a 401k) or health insurance, you can either add them back to make your calculations fully consistent, or simply count them toward your 20% savings goal."
@@ -81,7 +81,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "Is the 50/30/20 rule realistic for low-income budgets?",
+        "name": "Is the 50/30/20 budgeting rule realistic for low-income earners?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "For lower-income households, high fixed costs (housing, utilities, food) often swallow 70% or more of after-tax income, leaving very little for wants or savings. In these cases, a 50/30/20 rule is a great North Star goal, but you may need to temporarily use a customized 70/20/10 or 80/15/5 plan while working to increase income or reduce fixed expenses."
@@ -89,7 +89,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "What if I have debt — does it count as a Need or Savings?",
+        "name": "Where does credit card debt fit in the 50/30/20 budget?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Under the 50/30/20 system, minimum payments required to keep your accounts in good standing (e.g., minimum credit card payments, student loans, car loans) are classified as Needs because failing to pay them carries severe consequences. Extra debt principal repayments or aggressive payoffs, however, are treated as part of your 20% Savings & Debt Repayment category."
@@ -97,7 +97,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "Can I adjust the percentages for my situation?",
+        "name": "How do I adjust the 50/30/20 budget percentages for my personal savings goals?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Absolutely! Financial situations are highly personal. If you are aggressively paying down high-interest debt or saving for a down payment, you might target a 50/15/35 split. If you live in a high-cost-of-living area, a 60/20/20 split may be much more realistic."
@@ -105,7 +105,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "How is this different from a zero-based budget?",
+        "name": "What is the difference between a 50/30/20 budget and a zero-based budget?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The 50/30/20 rule is a high-level proportional budgeting framework that splits money into three broad buckets with minimal tracking. A zero-based budget is a more granular system where every single dollar of income is assigned to a specific category (e.g., rent, gas, dining, cinema) until the total remaining equals zero."
@@ -113,7 +113,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
       },
       {
         "@type": "Question",
-        "name": "Is this budget calculator free to use?",
+        "name": "Is there a free 50/30/20 budget calculator with no sign-up?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes! Our budget calculator is 100% free to use. There are no subscriptions, registration requirements, or paywalls. It runs securely inside your web browser and respects your privacy by processing all calculation data locally without saving or sharing it."
@@ -184,7 +184,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
           
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How the 50/30/20 rule works
+              How the 50/30/20 Budgeting Rule Works for Your Income
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Applying the 50/30/20 strategy means cleanly segmenting your after-tax income. This simplifies monthly financial tracking because you do not have to categorize every minor receipt. Instead, you focus on three high-level targets:
@@ -222,7 +222,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What if my rent alone is more than 50% of my income?
+                  What should I do if my rent is more than 50% of my income?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   If high housing costs push your Needs past 50%, you will need to adjust your split (e.g., to 60/20/20 or 70/20/10) or scale back on discretionary Wants to cover the gap. You can use our customizable slider above to model different percentage targets that fit your specific financial situation.
@@ -231,7 +231,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Should I use pre-tax or after-tax income for this calculation?
+                  Do I use pre-tax or net take-home income for the 50/30/20 rule?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The 50/30/20 rule is designed to be calculated using your after-tax monthly income (also known as net take-home pay). If you have pre-tax deductions for retirement savings (like a 401k) or health insurance, you can either add them back to make your calculations fully consistent, or simply count them toward your 20% savings goal.
@@ -240,7 +240,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is the 50/30/20 rule realistic for low-income budgets?
+                  Is the 50/30/20 budgeting rule realistic for low-income earners?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   For lower-income households, high fixed costs (housing, utilities, food) often swallow 70% or more of after-tax income, leaving very little for wants or savings. In these cases, a 50/30/20 rule is a great North Star goal, but you may need to temporarily use a customized 70/20/10 or 80/15/5 plan while working to increase income or reduce fixed expenses.
@@ -249,7 +249,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What if I have debt — does it count as a Need or Savings?
+                  Where does credit card debt fit in the 50/30/20 budget?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Under the 50/30/20 system, minimum payments required to keep your accounts in good standing (e.g., minimum credit card payments, student loans, car loans) are classified as Needs because failing to pay them carries severe consequences. Extra debt principal repayments or aggressive payoffs, however, are treated as part of your 20% Savings & Debt Repayment category.
@@ -258,7 +258,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Can I adjust the percentages for my situation?
+                  How do I adjust the 50/30/20 budget percentages for my personal savings goals?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Absolutely! Financial situations are highly personal. If you are aggressively paying down high-interest debt or saving for a down payment, you might target a 50/15/35 split. If you live in a high-cost-of-living area, a 60/20/20 split may be much more realistic.
@@ -267,7 +267,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is this different from a zero-based budget?
+                  What is the difference between a 50/30/20 budget and a zero-based budget?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The 50/30/20 rule is a high-level proportional budgeting framework that splits money into three broad buckets with minimal tracking. A zero-based budget is a more granular system where every single dollar of income is assigned to a specific category (e.g., rent, gas, dining, cinema) until the total remaining equals zero.
@@ -276,7 +276,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Is this budget calculator free to use?
+                  Is there a free 50/30/20 budget calculator with no sign-up?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Yes! Our budget calculator is 100% free to use. There are no subscriptions, registration requirements, or paywalls. It runs securely inside your web browser and respects your privacy by processing all calculation data locally without saving or sharing it.

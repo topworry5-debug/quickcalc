@@ -56,7 +56,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much will my savings grow with compound interest?",
+        "name": "How much will my savings grow over 10 years with compound interest?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "How much your savings will grow with compound interest depends on your initial deposit, interest rate, contribution frequency, and timeframe. By continuously reinvesting your earnings, compound interest creates a powerful snowball effect that accelerates your balance growth over the years."
@@ -64,7 +64,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
       },
       {
         "@type": "Question",
-        "name": "How long to reach a savings goal?",
+        "name": "How do I calculate how long it will take to reach my savings goal?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To calculate how long to reach a savings goal, use our calculator to see how your regular monthly contributions and compound interest combine over time. By adjusting the rate of return and monthly contribution amounts, you can find the exact timeline needed to hit your target."
@@ -72,7 +72,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
       },
       {
         "@type": "Question",
-        "name": "Compound interest calculator monthly?",
+        "name": "How do I calculate monthly compound interest on my savings account?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Our compound interest calculator monthly mode allows you to model regular monthly deposits and see how compounding monthly accelerates your returns. Because interest compounds twelve times a year, your savings grow faster than they would with annual compounding."
@@ -180,7 +180,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Calculator
+              About Our Compound Interest Savings Growth Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Our professional Savings Growth Calculator is designed to map your long-term wealth trajectory accurately. This calculator employs the standard compound interest formula to show how your assets compile. Specifically, the formula is:
@@ -234,7 +234,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much will my savings grow with compound interest?
+                  How much will my savings grow over 10 years with compound interest?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   How much your savings will grow with compound interest depends on your initial deposit, interest rate, contribution frequency, and timeframe. By continuously reinvesting your earnings, compound interest creates a powerful snowball effect that accelerates your balance growth over the years.
@@ -243,7 +243,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How long to reach a savings goal?
+                  How do I calculate how long it will take to reach my savings goal?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To calculate how long to reach a savings goal, use our calculator to see how your regular monthly contributions and compound interest combine over time. By adjusting the rate of return and monthly contribution amounts, you can find the exact timeline needed to hit your target.
@@ -252,7 +252,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Compound interest calculator monthly?
+                  How do I calculate monthly compound interest on my savings account?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Our compound interest calculator monthly mode allows you to model regular monthly deposits and see how compounding monthly accelerates your returns. Because interest compounds twelve times a year, your savings grow faster than they would with annual compounding.

@@ -32,7 +32,7 @@ export default function DstTimezoneArticle() {
         <li><strong>The Southern Hemisphere (e.g. Australia):</strong> Operates on completely inverted seasons. Sydney transitions to DST on the first Sunday of October and returns on the first Sunday of April.</li>
       </ul>
       <p>
-        These staggered schedules create multiple highly disruptive "transition windows" throughout the year. For instance, during the three-week gap in March, the time difference between New York and London shrinks from 5 hours to 4 hours, only to expand back to 5 hours once Europe transitions.
+        These staggered schedules create multiple highly disruptive "transition windows" throughout the year. For instance, during the three-week gap in March, the time difference between New York and London shrinks from 5 hours to 4 hours, only to expand back to 5 hours once Europe transitions. When planning international flights or travel arrangements across these changing boundaries, our <Link href="/tools/travel-time-fuel-calculator" className="text-blue-600 dark:text-blue-400 font-semibold underline">Travel Time & Fuel Cost Calculator</Link> can help accurately determine flight durations and speed variations regardless of local clock adjustments.
       </p>
 
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">

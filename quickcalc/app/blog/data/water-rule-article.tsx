@@ -61,7 +61,7 @@ export default function WaterRuleArticle() {
       </p>
       <p>
         <strong>Pregnancy and breastfeeding.</strong> Both increase fluid needs significantly 
-        above baseline recommendations.
+        above baseline recommendations. If you're tracking other health parameters during this time, you can also check your ideal prenatal weights using our <Link href="/tools/pregnancy-weight-gain-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Pregnancy Weight Gain Calculator</Link>.
       </p>
 
       <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">Is Thirst a Reliable Guide?</h2>

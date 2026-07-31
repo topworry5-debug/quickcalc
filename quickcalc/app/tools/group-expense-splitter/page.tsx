@@ -57,7 +57,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How is an uneven bill split calculated?",
+        "name": "How do I calculate an uneven bill split among friends?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "An uneven bill split distributes itemized costs only to the individuals who shared those specific items. Each item is split equally among its specified consumers, rather than dividing the global subtotal equally by the total group size."
@@ -65,7 +65,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "How should tax and tips be distributed?",
+        "name": "How do I split tax and tip proportionally on a restaurant bill?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Tax and tips should be distributed proportionally based on each person's individual subtotal. This ensures that someone who only ordered a small side dish doesn't pay an equal share of the tax and tips as someone who ordered a large expensive meal."
@@ -73,7 +73,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "Can I copy the split breakdown to share with friends?",
+        "name": "How do I share the split bill breakdown with my group on Venmo or WhatsApp?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes! Our Group Expense Splitter includes a 'Copy Shareable Breakdown' button that generates a clear, clean text message summarizing exactly what each group member owes and what they paid for. You can easily paste this into WhatsApp, iMessage, or group chats."
@@ -81,7 +81,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
       },
       {
         "@type": "Question",
-        "name": "What is the maximum number of members supported?",
+        "name": "How many people can I add to this free group expense splitter?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Our calculator supports adding up to 15 members dynamically with real-time reactive calculations as you add or remove individuals."
@@ -151,7 +151,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              Why Itemized Splitting is Fairer than Equal Divisions
+              Why Itemized Bill Splitting is Fairer than Equal Division
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               In social gatherings, dining out, or shared group trips, splitting costs equally often creates friction because group members order differently. Our Itemized Group Expense Splitter guarantees fairness by isolating each item cost and dividing it only among the exact people who consumed or enjoyed it.
@@ -176,7 +176,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
             <div className="space-y-3">
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How is an uneven bill split calculated?</span>
+                  <span>How do I calculate an uneven bill split among friends?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -190,7 +190,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
 
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>How should tax and tips be distributed?</span>
+                  <span>How do I split tax and tip proportionally on a restaurant bill?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -204,7 +204,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
 
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>Can I copy the split breakdown to share with friends?</span>
+                  <span>How do I share the split bill breakdown with my group on Venmo or WhatsApp?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -218,7 +218,7 @@ export default function GroupExpenseSplitterPage({ searchParams }: { searchParam
 
               <details className="group border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 bg-white dark:bg-zinc-900 transition-all duration-150 [&_summary::-webkit-details-marker]:hidden">
                 <summary className="flex justify-between items-center font-semibold text-zinc-800 dark:text-zinc-200 cursor-pointer focus:outline-none">
-                  <span>What is the maximum number of members supported?</span>
+                  <span>How many people can I add to this free group expense splitter?</span>
                   <span className="transition group-open:rotate-180 text-zinc-400 dark:text-zinc-500">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-5 h-5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />

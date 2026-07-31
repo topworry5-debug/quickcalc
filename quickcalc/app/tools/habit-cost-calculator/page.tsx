@@ -56,7 +56,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much time do I spend on my phone per year?",
+        "name": "How do I calculate how much screen time I spend on my phone per year?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "If you spend an average of 4 hours daily on your phone, you spend 1,460 hours per year scrolling. This equals roughly 61 full 24-hour days or about 91 active waking days spent entirely on your mobile screen annually."
@@ -64,7 +64,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
       },
       {
         "@type": "Question",
-        "name": "How much does a daily coffee habit cost per year?",
+        "name": "How much does my daily coffee habit cost me over a year?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "A daily $5.00 coffee habit accumulates to $1,825.00 over a single year. Over 10 years, the out-of-pocket cost rises to $18,250.00, which could have compounding value exceeding $31,000 if placed into modest investments instead."
@@ -72,7 +72,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
       },
       {
         "@type": "Question",
-        "name": "How is the cost of a habit calculated over time?",
+        "name": "How is the long-term financial cost of a habit calculated?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The cost of a habit is calculated using linear multiplication of the daily recurring resource cost across specific calendar intervals. We multiply daily hours or currency spent by 365 days for one year, by 1,825 days for five years, and by 3,650 days for ten years."
@@ -80,7 +80,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
       },
       {
         "@type": "Question",
-        "name": "Does this calculator account for inflation or investment growth?",
+        "name": "Does this tool calculate the opportunity cost of habits if invested instead?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The base money cost reflects out-of-pocket spending without adjusting for inflation. However, our calculator features a compound interest projection demonstrating what those cumulative funds could grow to if directed into monthly investments yielding 7% annually."
@@ -88,7 +88,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
       },
       {
         "@type": "Question",
-        "name": "What is considered excessive daily screen time?",
+        "name": "What daily screen time limits are considered healthy for adults?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "While experts suggest limiting non-work screen time to under two hours daily, the average adult spends over four hours looking at screens. Compounded over a decade, spending four hours daily uses 14,600 hours, equivalent to nearly 608 full 24-hour days."
@@ -187,7 +187,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About This Calculator: The Math Behind Daily Habits
+              About Our Daily Habit Cost and Screen Time Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Every daily habit has an impact that compounds silently over time. This tool calculates these impacts using simple, transparent math: multiplying the daily hours or financial outlays by the total number of days across selected calendar timeframes. Specifically, a single year consists of 365 days, five years represents 1,825 days, ten years represents 3,650 days, and the retirement projection calculates the exact count of days remaining until you reach age 65.
@@ -215,7 +215,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much time do I spend on my phone per year?
+                  How do I calculate how much screen time I spend on my phone per year?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   If you spend an average of 4 hours daily on your phone, you spend 1,460 hours per year scrolling. This equals roughly 61 full 24-hour days or about 91 active waking days spent entirely on your mobile screen annually.
@@ -224,7 +224,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much does a daily coffee habit cost per year?
+                  How much does my daily coffee habit cost me over a year?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   A daily $5.00 coffee habit accumulates to $1,825.00 over a single year. Over 10 years, the out-of-pocket cost rises to $18,250.00, which could have compounding value exceeding $31,000 if placed into modest investments instead.
@@ -233,7 +233,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How is the cost of a habit calculated over time?
+                  How is the long-term financial cost of a habit calculated?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The cost of a habit is calculated using linear multiplication of the daily recurring resource cost across specific calendar intervals. We multiply daily hours or currency spent by 365 days for one year, by 1,825 days for five years, and by 3,650 days for ten years.
@@ -242,7 +242,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Does this calculator account for inflation or investment growth?
+                  Does this tool calculate the opportunity cost of habits if invested instead?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The base money cost reflects out-of-pocket spending without adjusting for inflation. However, our calculator features a compound interest projection demonstrating what those cumulative funds could grow to if directed into monthly investments yielding 7% annually.
@@ -251,7 +251,7 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is considered excessive daily screen time?
+                  What daily screen time limits are considered healthy for adults?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   While experts suggest limiting non-work screen time to under two hours daily, the average adult spends over four hours looking at screens. Compounded over a decade, spending four hours daily uses 14,600 hours, equivalent to nearly 608 full 24-hour days.

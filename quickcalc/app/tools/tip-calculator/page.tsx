@@ -56,7 +56,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much should I tip?",
+        "name": "What is the standard percentage to tip at a restaurant?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "How much you should tip depends heavily on standard regional guidelines and service quality. In North America, a standard sit-down restaurant tip is 15% to 20% of the pre-tax total, while in Europe, a service charge is often already included in the bill or rounded up to the nearest Euro."
@@ -64,7 +64,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
       },
       {
         "@type": "Question",
-        "name": "Tip calculator for large groups?",
+        "name": "How do I calculate tip and split the bill for a large group?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Our tip calculator for large groups makes splitting restaurant checks simple and stress-free. Adjust the group headcount slider above to instantly divide the total bill, tax, and gratuity symmetrically among any number of guests so everyone pays their fair share."
@@ -72,7 +72,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
       },
       {
         "@type": "Question",
-        "name": "How to split the bill with tip included?",
+        "name": "How do I split a restaurant bill evenly with tax and tip included?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To learn how to split the bill with tip included, enter the total subtotal, select your desired tip percentage, and adjust the number of people. The calculator automatically computes the total gratuity, adds it to the base bill, and displays the exact split share per person."
@@ -160,7 +160,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              Understanding Tipping Etiquette & Bill Splitting
+              Understanding Restaurant Tipping Etiquette & Bill Splitting
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Gratuity rules are fluid, depending greatly on geographical region, local dining cultures, and service quality. In standard sit-down restaurants across North America, tipping **15% to 20%** is typical, whereas European countries often integrate a service fee directly into the bill or expect a modest roundup instead of massive percentages.
@@ -180,7 +180,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Tipping Percentages and Split Bills are Calculated
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Our tip calculator executes simple, highly precise real-time algebraic equations to evaluate bill breakdowns:
@@ -223,7 +223,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How much should I tip?
+                  What is the standard percentage to tip at a restaurant?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   How much you should tip depends heavily on standard regional guidelines and service quality. In North America, a standard sit-down restaurant tip is 15% to 20% of the pre-tax total, while in Europe, a service charge is often already included in the bill or rounded up to the nearest Euro.
@@ -232,7 +232,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  Tip calculator for large groups?
+                  How do I calculate tip and split the bill for a large group?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Our tip calculator for large groups makes splitting restaurant checks simple and stress-free. Adjust the group headcount slider above to instantly divide the total bill, tax, and gratuity symmetrically among any number of guests so everyone pays their fair share.
@@ -241,7 +241,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to split the bill with tip included?
+                  How do I split a restaurant bill evenly with tax and tip included?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To learn how to split the bill with tip included, enter the total subtotal, select your desired tip percentage, and adjust the number of people. The calculator automatically computes the total gratuity, adds it to the base bill, and displays the exact split share per person.

@@ -59,7 +59,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How to calculate due date from last period?",
+        "name": "How do I calculate my baby's due date from my last menstrual period?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To understand how to calculate due date from last period, you add exactly 280 days (or 40 weeks) to the first day of your last menstrual period (LMP). This standard clinical method assumes a typical 28-day menstrual cycle where ovulation occurs around day 14."
@@ -67,7 +67,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How accurate is a due date calculator?",
+        "name": "How accurate is a pregnancy due date calculator compared to an ultrasound?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "While a due date calculator is highly reliable for establishing a target baseline, only about 5% of babies are born exactly on their estimated due date. Most normal, healthy deliveries happen anytime within a four-week window spanning two weeks before and two weeks after the estimated date."
@@ -75,7 +75,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How do I use a due date calculator by conception date?",
+        "name": "Can I calculate my due date by conception date or IVF transfer date?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Using a due date calculator by conception date is highly accurate if you know the exact day of ovulation or fertilization. Since gestation naturally lasts about 266 days (38 weeks) from conception, the tool calculates your estimated due date by adding 266 days directly to your conception date."
@@ -168,7 +168,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Due Date Calculator
+              About Our Pregnancy Due Date Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Estimating a pregnancy due date is a mixture of biological patterns and mathematical rules. The most common standard is <strong>Naegele{"'"}s Rule</strong>, named after the 19th-century obstetrician Franz Karl Naegele. This method assumes a standard 28-day menstrual cycle and places ovulation at exactly 14 days, projecting a total pregnancy duration of 40 weeks (280 days) starting from the first day of your Last Menstrual Period (LMP).
@@ -186,7 +186,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How is this calculated?
+              How Baby Due Date and Gestational Age are Calculated
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               We determine your estimated due date (EDD) and current gestational milestone breakdown using standard clinical obstetric algorithms:
@@ -219,7 +219,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
             <div className="space-y-6">
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate due date from last period?
+                  How do I calculate my baby's due date from my last menstrual period?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To understand how to calculate due date from last period, you add exactly 280 days (or 40 weeks) to the first day of your last menstrual period (LMP). This standard clinical method assumes a typical 28-day menstrual cycle where ovulation occurs around day 14.
@@ -228,7 +228,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How accurate is a due date calculator?
+                  How accurate is a pregnancy due date calculator compared to an ultrasound?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   While a due date calculator is highly reliable for establishing a target baseline, only about 5% of babies are born exactly on their estimated due date. Most normal, healthy deliveries happen anytime within a four-week window spanning two weeks before and two weeks after the estimated date.
@@ -237,7 +237,7 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How do I use a due date calculator by conception date?
+                  Can I calculate my due date by conception date or IVF transfer date?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   Using a due date calculator by conception date is highly accurate if you know the exact day of ovulation or fertilization. Since gestation naturally lasts about 266 days (38 weeks) from conception, the tool calculates your estimated due date by adding 266 days directly to your conception date.

@@ -76,7 +76,7 @@ export default function PasswordEntropyArticle() {
       </p>
       <ol className="list-decimal pl-6 space-y-3">
         <li>
-          <strong>Pick Random Words:</strong> Select 4 to 6 random, completely unrelated common words. Do not make them a coherent sentence (e.g. <code>"ocean apple pocket guitar"</code>).
+          <strong>Pick Random Words:</strong> Select 4 to 6 random, completely unrelated common words. Do not make them a coherent sentence (e.g. <code>"ocean apple pocket guitar"</code>). If you want to check the exact length and count of characters in your words, our <Link href="/tools/word-character-counter" className="text-rose-600 dark:text-rose-400 font-semibold underline">Word & Character Counter</Link> can help verify your overall passphrase length.
         </li>
         <li>
           <strong>Avoid Common Phrases:</strong> Avoid quotes, idioms, song lyrics, or patterns that appear in books, which can be captured by dictionary attacks.

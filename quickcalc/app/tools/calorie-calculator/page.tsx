@@ -56,7 +56,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How many calories should I eat to lose weight?",
+        "name": "How many calories do I need to eat daily to lose weight?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To safely and sustainably lose weight, you should consume approximately 500 calories below your Total Daily Energy Expenditure (TDEE) each day. This moderate deficit of 500 kcal per day creates a cumulative weekly shortage of 3,500 calories, which translates to a highly reliable weight loss of roughly 0.5 kilograms or 1 pound of body fat per week."
@@ -64,7 +64,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "What is the TDEE vs BMR difference?",
+        "name": "What is the difference between my BMR and TDEE?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "The TDEE vs BMR difference lies in physical activity. Your Basal Metabolic Rate (BMR) is the baseline energy your body requires to survive at complete rest, while your Total Daily Energy Expenditure (TDEE) factors in all daily movement, exercise, and active processes by applying an activity multiplier to your BMR."
@@ -72,7 +72,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
       },
       {
         "@type": "Question",
-        "name": "How to calculate maintenance calories?",
+        "name": "How do I calculate my daily maintenance calories based on activity level?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "To understand how to calculate maintenance calories, you first need to find your BMR using a standard formula (like Mifflin-St Jeor), and then multiply that number by your physical activity factor. This resulting total, known as your TDEE, represents the exact number of daily calories required to maintain your current body weight."
@@ -182,7 +182,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
         <article className="prose prose-zinc dark:prose-invert max-w-3xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              About this Calorie Calculator
+              About Our Daily Calorie and TDEE Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Achieving your fitness or health objectives requires a precise understanding of your body{"'"}s daily energy usage. Two vital scientific metrics establish this foundation: <strong>Basal Metabolic Rate (BMR)</strong> and <strong>Total Daily Energy Expenditure (TDEE)</strong>.
@@ -200,7 +200,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
 
           <section className="space-y-4">
             <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">
-              How the Mifflin-St Jeor Formula Works
+              How the Mifflin-St Jeor Formula Works for Daily Calorie Needs
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Our calculator processes your inputs using the official sex-specific Mifflin-St Jeor equations to identify your BMR:
@@ -241,7 +241,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
               
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How many calories should I eat to lose weight?
+                  How many calories do I need to eat daily to lose weight?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To safely and sustainably lose weight, you should consume approximately 500 calories below your Total Daily Energy Expenditure (TDEE) each day. This moderate deficit of 500 kcal per day creates a cumulative weekly shortage of 3,500 calories, which translates to a highly reliable weight loss of roughly 0.5 kilograms or 1 pound of body fat per week.
@@ -250,7 +250,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  What is the TDEE vs BMR difference?
+                  What is the difference between my BMR and TDEE?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   The TDEE vs BMR difference lies in physical activity. Your Basal Metabolic Rate (BMR) is the baseline energy your body requires to survive at complete rest, while your Total Daily Energy Expenditure (TDEE) factors in all daily movement, exercise, and active processes by applying an activity multiplier to your BMR.
@@ -259,7 +259,7 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
 
               <div className="space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                  How to calculate maintenance calories?
+                  How do I calculate my daily maintenance calories based on activity level?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   To understand how to calculate maintenance calories, you first need to find your BMR using a standard formula (like Mifflin-St Jeor), and then multiply that number by your physical activity factor. This resulting total, known as your TDEE, represents the exact number of daily calories required to maintain your current body weight.

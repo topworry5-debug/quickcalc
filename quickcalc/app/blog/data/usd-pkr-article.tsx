@@ -85,9 +85,7 @@ export default function UsdPkrArticle() {
       </h2>
       <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">Rates change constantly.</p>
       <p>
-        Currency markets move throughout the day based on 
-        economic data, interest rate decisions, and global events &mdash; the rate you see 
-        right now may be slightly different in a few hours.
+        Currency markets move throughout the day based on economic data, inflation metrics, interest rate decisions, and global events &mdash; the rate you see right now may be slightly different in a few hours. If you want to see how purchasing power has changed historically alongside currency fluctuations, our <Link href="/tools/inflation-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">Inflation Calculator</Link> lets you compare historical values instantly.
       </p>
       <p className="font-semibold text-zinc-900 dark:text-white mt-4 mb-2">Weekends can freeze rates.</p>
       <p>
