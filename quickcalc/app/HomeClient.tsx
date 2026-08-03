@@ -232,7 +232,7 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
               <Link
                 key={tool.href}
                 href={tool.href}
-                className="group block bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+                className="group block bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-200 hover:scale-[1.02] overflow-hidden"
               >
                 <div className="p-6 sm:p-8 flex flex-col h-full justify-between">
                   <div>

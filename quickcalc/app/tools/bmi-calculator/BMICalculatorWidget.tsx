@@ -210,7 +210,7 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
 
         {/* Live Result Area */}
         {result ? (
-          <div className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40 p-6 rounded-xl space-y-6 transition-all">
+          <div className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/40 p-6 rounded-xl space-y-6 transition-all animate-fade-in">
             {/* Visual Header of Results */}
             <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
               <div className="sm:col-span-4 text-center sm:text-left">
@@ -298,7 +298,7 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
               <button
                 type="button"
                 onClick={handleCopy}
-                className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 hover:scale-[1.02] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
               >
                 {copied ? "✅ Copied Summary!" : "📋 Copy Result Summary"}
               </button>
@@ -306,7 +306,7 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
               <button
                 type="button"
                 onClick={handleExportTxt}
-                className="flex items-center gap-2 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors bg-teal-50 dark:bg-teal-950/20 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                className="flex items-center gap-2 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-200 hover:scale-[1.02] bg-teal-50 dark:bg-teal-950/20 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
               >
                 📥 Export Report (.txt)
               </button>
