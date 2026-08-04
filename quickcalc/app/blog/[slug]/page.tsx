@@ -20,6 +20,8 @@ import CurrencyConversionGuideArticle from "../data/currency-conversion-guide-ar
 import AgeCalculatorGuideArticle from "../data/age-calculator-guide-article";
 import WaterRuleArticle from "../data/water-rule-article";
 import RegexTutorialGuideArticle from "../data/regex-tutorial-guide-article";
+import RunningPaceStrategyGuideArticle from "../data/running-pace-strategy-guide-article";
+import LoanEmiCalculationGuideArticle from "../data/loan-emi-calculation-guide-article";
 import ShareButtons from "@/components/ShareButtons";
 
 interface BlogPostProps {
@@ -29,6 +31,8 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "how-loan-emi-is-calculated-amortization-repayment-guide": LoanEmiCalculationGuideArticle,
+  "running-pace-strategy-guide-calculate-target-race-pace": RunningPaceStrategyGuideArticle,
   "how-to-write-and-test-regular-expressions-regex-tutorial-guide": RegexTutorialGuideArticle,
   "is-the-8-glasses-a-day-water-rule-actually-true": WaterRuleArticle,
   "how-to-calculate-exact-age-years-months-days": AgeCalculatorGuideArticle,
@@ -106,7 +110,15 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     "@type": "Article",
     "headline": article.title,
     "description": article.description,
-    "datePublished": article.slug === "is-the-8-glasses-a-day-water-rule-actually-true"
+    "datePublished": article.slug === "how-loan-emi-is-calculated-amortization-repayment-guide"
+      ? "2026-08-04"
+      : article.slug === "running-pace-strategy-guide-calculate-target-race-pace"
+      ? "2026-08-04"
+      : article.slug === "how-to-write-and-test-regular-expressions-regex-tutorial-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-write-and-test-regular-expressions-regex-tutorial-guide"
+      ? "2026-08-02"
+      : article.slug === "is-the-8-glasses-a-day-water-rule-actually-true"
       ? "2026-07-29"
       : article.slug === "how-to-calculate-exact-age-years-months-days"
       ? "2026-07-26"
@@ -150,7 +162,97 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "is-the-8-glasses-a-day-water-rule-actually-true" ? {
+  const faqJsonLd = article.slug === "how-loan-emi-is-calculated-amortization-repayment-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is EMI and how does it work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EMI (Equated Monthly Installment) is a fixed monthly payment made by a borrower to a lender. It covers both principal repayment and interest charges, structured so the total monthly payment stays equal while the internal split between principal and interest shifts over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the mathematical formula to calculate loan EMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The standard EMI formula is EMI = P * [ r(1+r)^n ] / [ (1+r)^n - 1 ], where P is principal, r is monthly interest rate, and n is loan tenure in months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between reducing balance and flat rate interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flat rate interest calculates interest on the entire initial loan amount throughout the full tenure. Reducing balance interest recalculates interest monthly based only on your remaining outstanding principal, making reducing balance significantly cheaper."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do extra principal prepayments reduce total loan interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Extra principal prepayments directly reduce your remaining balance. Because monthly interest is calculated as a percentage of remaining principal, lowering the balance reduces subsequent interest charges and shortens your loan term."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is interest higher in the first few years of a long-term loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because your outstanding principal is at its highest point at the beginning of the loan, the calculated interest fee is also at its peak. As principal shrinks over time, less of your fixed monthly payment goes toward interest and more goes toward principal reduction."
+        }
+      }
+    ]
+  } : article.slug === "running-pace-strategy-guide-calculate-target-race-pace" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate running pace manually?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide your total running time in minutes by the total distance run in miles or kilometers. For example, running 4 miles in 36 minutes equals 36 / 4 = 9 minutes per mile pace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a good average running pace for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A typical beginner running pace ranges between 9:30 and 12:00 minutes per mile (5:55 to 7:27 per kilometer). For a 5K race, this results in finish times between 29 and 37 minutes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between an even split and a negative split?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An even split means running each mile at the exact same pace throughout the race. A negative split means running the second half of the race faster than the first half."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert speed in mph to running pace per mile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide 60 by your speed in miles per hour. For instance, running at 6.0 mph equals 60 / 6 = 10:00 minutes per mile pace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is pacing important in distance running?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Proper pacing prevents premature glycogen depletion and lactate accumulation, ensuring your body stays within its aerobic zone and preventing severe fatigue late in the race."
+        }
+      }
+    ]
+  } : article.slug === "is-the-8-glasses-a-day-water-rule-actually-true" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

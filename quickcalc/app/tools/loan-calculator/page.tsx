@@ -185,7 +185,11 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
               Unlike other generic web-based converters that gate accurate analysis, QuickCalc offers this tool <strong>100% free with absolutely zero sign-ins, zero email capture, and zero hidden paywalls</strong>. We believe critical financial modeling and decision-making tools should be fully accessible to everyone instantly.
             </p>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Our Loan and Equated Monthly Installment (EMI) Calculator uses standard banking amortization algorithms to map out your repayment trajectory. The calculator relies on the reducing-balance methodology. In this arrangement, interest is computed at periodic intervals solely on the outstanding principal balance.
+              Our Loan and Equated Monthly Installment (EMI) Calculator uses standard banking amortization algorithms to map out your repayment trajectory. The calculator relies on the reducing-balance methodology. In this arrangement, interest is computed at periodic intervals solely on the outstanding principal balance. Read our comprehensive guide on{" "}
+              <Link href="/blog/how-loan-emi-is-calculated-amortization-repayment-guide" className="text-emerald-600 dark:text-emerald-400 font-semibold underline">
+                How Loan EMI is Calculated: Amortization &amp; Repayment Strategy
+              </Link>{" "}
+              for a complete step-by-step breakdown.
             </p>
           </section>
 

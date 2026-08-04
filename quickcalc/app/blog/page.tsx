@@ -13,6 +13,30 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-loan-emi-is-calculated-amortization-repayment-guide",
+    title: "How Loan EMI is Calculated: Amortization & Repayment Guide",
+    description: "Learn how loan EMI is calculated step-by-step. Understand amortization schedules, reducing balance interest, and calculate your total interest for free.",
+    excerpt: "Learn how loan EMI is calculated step-by-step. Understand amortization schedules, reducing balance vs flat rate interest, and calculate your total interest for free.",
+    date: "August 4, 2026",
+    readTime: "8 min read",
+    category: "Finance & Math",
+    icon: "📊",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
+    slug: "running-pace-strategy-guide-calculate-target-race-pace",
+    title: "Running Pace Strategy Guide: How to Calculate Target Race Pace",
+    description: "Master your running pace strategy for 5K, 10K, half, and full marathons. Avoid burnout and calculate your exact min/mile target pace for free.",
+    excerpt: "Learn how to master your running pace strategy for 5K, 10K, half, and full marathons. Avoid early burnout, calculate exact split times, and hit your PR target.",
+    date: "August 4, 2026",
+    readTime: "8 min read",
+    category: "Health & Fitness",
+    icon: "🏃",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
     slug: "how-to-write-and-test-regular-expressions-regex-tutorial-guide",
     title: "How to Write and Test Regular Expressions: A Beginner's Regex Tutorial Guide",
     description: "Learn how to write, test, and debug regular expressions (regex). Understand character classes, quantifiers, anchors, flags, and how to use our live pattern debugger.",

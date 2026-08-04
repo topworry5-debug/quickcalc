@@ -148,7 +148,11 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
               About Our Running Pace and Marathon Calculator
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Understanding the math behind your running performance is essential whether you are preparing for your first 5K or training for an elite-level marathon. The primary formulas linking these elements are direct: Pace equals Time divided by Distance, Time equals Distance multiplied by Pace, and Distance equals Time divided by Pace. Balancing these variables lets you formulate highly customized strategies for race day, ensuring you do not start too fast and risk premature fatigue.
+              Understanding the math behind your running performance is essential whether you are preparing for your first 5K or training for an elite-level marathon. The primary formulas linking these elements are direct: Pace equals Time divided by Distance, Time equals Distance multiplied by Pace, and Distance equals Time divided by Pace. Balancing these variables lets you formulate highly customized strategies for race day, ensuring you do not start too fast and risk premature fatigue. Read our detailed guide on{" "}
+              <Link href="/blog/running-pace-strategy-guide-calculate-target-race-pace" className="text-blue-600 dark:text-blue-400 font-semibold underline">
+                Running Pace Strategy &amp; Race Day Split Calculations
+              </Link>{" "}
+              for step-by-step race strategy tips.
             </p>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               However, executing a perfect pacing strategy involves more than just numbers. Our built-in race time predictor assumes a flat pacing strategy where your pace remains entirely constant. In real-world environments, factors like cumulative fatigue, muscular endurance, heat index, and course terrain dramatically influence your final times. While our predictor helps you set ideal target paces, matching those estimates requires rigorous training, structured nutrition, and using tools like the <Link href="/tools/calorie-calculator" className="text-blue-600 dark:text-blue-400 hover:underline">Calorie Calculator</Link> to ensure you are properly fueled for high-mileage runs.
