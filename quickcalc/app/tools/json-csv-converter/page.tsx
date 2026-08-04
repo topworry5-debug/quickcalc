@@ -13,14 +13,14 @@ import JSONCSVConverterWidget from "./JSONCSVConverterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "JSON to CSV Converter - 100% Private Client-Side Tool | QuickCalc",
-  description: "Convert JSON arrays to CSV spreadsheets and CSV back to nested JSON structures instantly. No cookies, no data collection, 100% browser-local conversion.",
+  title: "Private JSON to CSV Converter - Free Client-Side Tool",
+  description: "Convert JSON arrays to CSV spreadsheets or CSV back to nested JSON structures. 100% private browser-local utility with no data collection or cookies.",
   alternates: {
     canonical: "/tools/json-csv-converter",
   },
   openGraph: {
-    title: "JSON to CSV Converter - 100% Private Client-Side Tool | QuickCalc",
-    description: "Convert JSON arrays to CSV spreadsheets and CSV back to nested JSON structures instantly. No cookies, no data collection, 100% browser-local conversion.",
+    title: "Private JSON to CSV Converter - Free Client-Side Tool",
+    description: "Convert JSON arrays to CSV spreadsheets or CSV back to nested JSON structures. 100% private browser-local utility with no data collection or cookies.",
     url: "https://quickcalc.cloud/tools/json-csv-converter",
     type: "website",
     siteName: "QuickCalc",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JSON to CSV Converter - 100% Private Client-Side Tool | QuickCalc",
-    description: "Convert JSON arrays to CSV spreadsheets and CSV back to nested JSON structures instantly. No cookies, no data collection, 100% browser-local conversion.",
+    title: "Private JSON to CSV Converter - Free Client-Side Tool",
+    description: "Convert JSON arrays to CSV spreadsheets or CSV back to nested JSON structures. 100% private browser-local utility with no data collection or cookies.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

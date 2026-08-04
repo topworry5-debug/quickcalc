@@ -10,14 +10,14 @@ import SalaryTakeHomeCalculatorWidget from "./SalaryTakeHomeCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Salary Calculator: Take-Home Pay After Tax | QuickCalc",
-  description: "Calculate your estimated net take-home salary after taxes & payroll deductions in the US, Canada, and Pakistan. Fast, side-by-side comparison.",
+  title: "Salary Take-Home Calculator - Net Income Pay After Tax",
+  description: "Calculate your exact net take-home salary after income taxes and payroll deductions in the US, Canada, and Pakistan with a fast, free comparison.",
   alternates: {
     canonical: "/tools/salary-take-home-calculator",
   },
   openGraph: {
-    title: "Salary Calculator: Take-Home Pay After Tax | QuickCalc",
-    description: "Calculate your estimated net take-home salary after taxes & payroll deductions in the US, Canada, and Pakistan. Fast, side-by-side comparison.",
+    title: "Salary Take-Home Calculator - Net Income Pay After Tax",
+    description: "Calculate your exact net take-home salary after income taxes and payroll deductions in the US, Canada, and Pakistan with a fast, free comparison.",
     url: "https://quickcalc.cloud/tools/salary-take-home-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Salary Calculator: Take-Home Pay After Tax | QuickCalc",
-    description: "Calculate your estimated net take-home salary after taxes & payroll deductions in the US, Canada, and Pakistan. Fast, side-by-side comparison.",
+    title: "Salary Take-Home Calculator - Net Income Pay After Tax",
+    description: "Calculate your exact net take-home salary after income taxes and payroll deductions in the US, Canada, and Pakistan with a fast, free comparison.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

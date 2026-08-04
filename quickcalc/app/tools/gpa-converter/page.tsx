@@ -10,14 +10,14 @@ import GPAConverterWidget from "./GPAConverterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "GPA Converter - Convert Grades & Percentage to 4.0 Scale | QuickCalc",
-  description: "Convert percentage grades or letter grades from the US, UK, Canada, Pakistan, and India to the standard US 4.0 GPA scale easily. 100% free.",
+  title: "GPA Converter - Convert Percentage to 4.0 Scale Easily",
+  description: "Convert international percentage grades and letter grades from the US, UK, Canada, India, and Pakistan to the standard 4.0 GPA scale instantly.",
   alternates: {
     canonical: "/tools/gpa-converter",
   },
   openGraph: {
-    title: "GPA Converter - Convert Grades & Percentage to 4.0 Scale | QuickCalc",
-    description: "Convert percentage grades or letter grades from the US, UK, Canada, Pakistan, and India to the standard US 4.0 GPA scale easily. 100% free.",
+    title: "GPA Converter - Convert Percentage to 4.0 Scale Easily",
+    description: "Convert international percentage grades and letter grades from the US, UK, Canada, India, and Pakistan to the standard 4.0 GPA scale instantly.",
     url: "https://quickcalc.cloud/tools/gpa-converter",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GPA Converter - Convert Grades & Percentage to 4.0 Scale | QuickCalc",
-    description: "Convert percentage grades or letter grades from the US, UK, Canada, Pakistan, and India to the standard US 4.0 GPA scale easily. 100% free.",
+    title: "GPA Converter - Convert Percentage to 4.0 Scale Easily",
+    description: "Convert international percentage grades and letter grades from the US, UK, Canada, India, and Pakistan to the standard 4.0 GPA scale instantly.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

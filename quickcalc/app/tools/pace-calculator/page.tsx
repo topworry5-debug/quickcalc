@@ -11,8 +11,8 @@ import Footer from "@/components/Footer";
 import AdSlot from "@/components/AdSlot";
 
 export const metadata: Metadata = {
-  title: "Pace Calculator: Convert Running Pace, Time & Distance",
-  description: "Calculate running pace, finish time, and distance with our 3-in-1 pace calculator. View instant race predictor times for 5K, 10K, half, and marathons.",
+  title: "Running Pace Calculator - Distance, Time & Speed Finder",
+  description: "Calculate running pace, time, or distance with our 3-in-1 calculator. Get instant race time predictions for 5K, 10K, half marathons, and marathons.",
   alternates: {
     canonical: "/tools/pace-calculator",
   },

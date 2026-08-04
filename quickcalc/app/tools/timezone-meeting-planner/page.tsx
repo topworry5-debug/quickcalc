@@ -10,14 +10,14 @@ import TimezonePlannerWidget from "./TimezonePlannerWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Timezone Meeting Planner - Global Team Overlap Calculator | QuickCalc",
-  description: "Schedule across multiple timezones safely using actual IANA geographical database names. Detect working hour overlaps and share direct setup links with no sign-in required.",
+  title: "Timezone Meeting Planner - Global Team Work Overlap Tool",
+  description: "Schedule global meetings across multiple timezones safely. Instantly find working hour overlaps and share setup links with no sign-in required.",
   alternates: {
     canonical: "/tools/timezone-meeting-planner",
   },
   openGraph: {
-    title: "Timezone Meeting Planner - Global Team Overlap Calculator | QuickCalc",
-    description: "Schedule across multiple timezones safely using actual IANA geographical database names. Detect working hour overlaps and share direct setup links with no sign-in required.",
+    title: "Timezone Meeting Planner - Global Team Work Overlap Tool",
+    description: "Schedule global meetings across multiple timezones safely. Instantly find working hour overlaps and share setup links with no sign-in required.",
     url: "https://quickcalc.cloud/tools/timezone-meeting-planner",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Timezone Meeting Planner - Global Team Overlap Calculator | QuickCalc",
-    description: "Schedule across multiple timezones safely using actual IANA geographical database names. Detect working hour overlaps and share direct setup links with no sign-in required.",
+    title: "Timezone Meeting Planner - Global Team Work Overlap Tool",
+    description: "Schedule global meetings across multiple timezones safely. Instantly find working hour overlaps and share setup links with no sign-in required.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

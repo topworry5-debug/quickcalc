@@ -11,14 +11,14 @@ import GroupExpenseSplitterWidget from "./GroupExpenseSplitterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Group Expense Splitter - Split Bills Unevenly by Item | QuickCalc",
-  description: "Split group restaurant bills, shared travel costs, and shared expenses unevenly by item. Assign custom splits, compute proportional tax/tips, and copy shareable summaries.",
+  title: "Group Bill Splitter - Split Shared Expenses Unevenly",
+  description: "Split group restaurant bills, travel costs, and rent unevenly by item. Assign custom splits, compute tax or tip proportionally, and copy breakdowns.",
   alternates: {
     canonical: "/tools/group-expense-splitter",
   },
   openGraph: {
-    title: "Group Expense Splitter - Split Bills Unevenly by Item | QuickCalc",
-    description: "Split group restaurant bills, shared travel costs, and shared expenses unevenly by item. Assign custom splits, compute proportional tax/tips, and copy shareable summaries.",
+    title: "Group Bill Splitter - Split Shared Expenses Unevenly",
+    description: "Split group restaurant bills, travel costs, and rent unevenly by item. Assign custom splits, compute tax or tip proportionally, and copy breakdowns.",
     url: "https://quickcalc.cloud/tools/group-expense-splitter",
     type: "website",
     siteName: "QuickCalc",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Group Expense Splitter - Split Bills Unevenly by Item | QuickCalc",
-    description: "Split group restaurant bills, shared travel costs, and shared expenses unevenly by item. Assign custom splits, compute proportional tax/tips, and copy shareable summaries.",
+    title: "Group Bill Splitter - Split Shared Expenses Unevenly",
+    description: "Split group restaurant bills, travel costs, and rent unevenly by item. Assign custom splits, compute tax or tip proportionally, and copy breakdowns.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

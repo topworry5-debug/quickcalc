@@ -10,14 +10,14 @@ import ColorPaletteGeneratorWidget from "./ColorPaletteGeneratorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Free Color Palette Generator - Extract Dominant Colors from Images | QuickCalc",
-  description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export. 100% free.",
+  title: "Image Color Palette Generator - Free Hex Code Extractor",
+  description: "Extract dominant colors from any image instantly. Get copy-to-click hex codes, CSS variables, Tailwind configurations, and WCAG accessibility contrast scores.",
   alternates: {
     canonical: "/tools/color-palette-generator",
   },
   openGraph: {
-    title: "Free Color Palette Generator - Extract Dominant Colors from Images | QuickCalc",
-    description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export. 100% free.",
+    title: "Image Color Palette Generator - Free Hex Code Extractor",
+    description: "Extract dominant colors from any image instantly. Get copy-to-click hex codes, CSS variables, Tailwind configurations, and WCAG accessibility contrast scores.",
     url: "https://quickcalc.cloud/tools/color-palette-generator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Color Palette Generator - Extract Dominant Colors from Images | QuickCalc",
-    description: "Upload an image to extract 6-8 dominant colors instantly. Includes click-to-copy hex codes, WCAG contrast checks, CSS variables, and Tailwind export. 100% free.",
+    title: "Image Color Palette Generator - Free Hex Code Extractor",
+    description: "Extract dominant colors from any image instantly. Get copy-to-click hex codes, CSS variables, Tailwind configurations, and WCAG accessibility contrast scores.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

@@ -10,14 +10,14 @@ import InflationCalculatorWidget from "./InflationCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Inflation Calculator - Past vs Present Buying Power | QuickCalc",
-  description: "Calculate how inflation affects your purchasing power across the US, Canada, and Pakistan. Compare money value then vs now using real CPI data.",
+  title: "Inflation Calculator - Compare Past vs Present Value",
+  description: "Calculate how inflation changes your purchasing power in the US, Canada, and Pakistan. Compare money value then vs now using official CPI historical data.",
   alternates: {
     canonical: "/tools/inflation-calculator",
   },
   openGraph: {
-    title: "Inflation Calculator - Past vs Present Buying Power | QuickCalc",
-    description: "Calculate how inflation affects your purchasing power across the US, Canada, and Pakistan. Compare money value then vs now using real CPI data.",
+    title: "Inflation Calculator - Compare Past vs Present Value",
+    description: "Calculate how inflation changes your purchasing power in the US, Canada, and Pakistan. Compare money value then vs now using official CPI historical data.",
     url: "https://quickcalc.cloud/tools/inflation-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Inflation Calculator - Past vs Present Buying Power | QuickCalc",
-    description: "Calculate how inflation affects your purchasing power across the US, Canada, and Pakistan. Compare money value then vs now using real CPI data.",
+    title: "Inflation Calculator - Compare Past vs Present Value",
+    description: "Calculate how inflation changes your purchasing power in the US, Canada, and Pakistan. Compare money value then vs now using official CPI historical data.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

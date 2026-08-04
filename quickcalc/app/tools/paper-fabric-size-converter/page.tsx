@@ -13,14 +13,14 @@ import PaperFabricConverterWidget from "./PaperFabricConverterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Paper & Fabric Size Converter - Dual Measurement Tool | QuickCalc",
-  description: "Convert print paper sizes (A0-A10, Letter, Legal) and fabric measurements (yards, meters, inches, cm) instantly. 100% free with no paywalls.",
+  title: "Paper & Fabric Size Converter - Free Dimension Utility",
+  description: "Convert paper sizes (A0-A10, Letter, Legal) and fabric lengths (yards, meters, inches, cm) simultaneously with no paywalls or sign-ups required.",
   alternates: {
     canonical: "/tools/paper-fabric-size-converter",
   },
   openGraph: {
-    title: "Paper & Fabric Size Converter - Dual Measurement Tool | QuickCalc",
-    description: "Convert print paper sizes (A0-A10, Letter, Legal) and fabric measurements (yards, meters, inches, cm) instantly. 100% free with no paywalls.",
+    title: "Paper & Fabric Size Converter - Free Dimension Utility",
+    description: "Convert paper sizes (A0-A10, Letter, Legal) and fabric lengths (yards, meters, inches, cm) simultaneously with no paywalls or sign-ups required.",
     url: "https://quickcalc.cloud/tools/paper-fabric-size-converter",
     type: "website",
     siteName: "QuickCalc",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paper & Fabric Size Converter - Dual Measurement Tool | QuickCalc",
-    description: "Convert print paper sizes (A0-A10, Letter, Legal) and fabric measurements (yards, meters, inches, cm) instantly. 100% free with no paywalls.",
+    title: "Paper & Fabric Size Converter - Free Dimension Utility",
+    description: "Convert paper sizes (A0-A10, Letter, Legal) and fabric lengths (yards, meters, inches, cm) simultaneously with no paywalls or sign-ups required.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

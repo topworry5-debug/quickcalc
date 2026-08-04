@@ -19,6 +19,7 @@ import ZakatCalculationGuideArticle from "../data/zakat-calculation-guide-articl
 import CurrencyConversionGuideArticle from "../data/currency-conversion-guide-article";
 import AgeCalculatorGuideArticle from "../data/age-calculator-guide-article";
 import WaterRuleArticle from "../data/water-rule-article";
+import RegexTutorialGuideArticle from "../data/regex-tutorial-guide-article";
 import ShareButtons from "@/components/ShareButtons";
 
 interface BlogPostProps {
@@ -28,6 +29,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "how-to-write-and-test-regular-expressions-regex-tutorial-guide": RegexTutorialGuideArticle,
   "is-the-8-glasses-a-day-water-rule-actually-true": WaterRuleArticle,
   "how-to-calculate-exact-age-years-months-days": AgeCalculatorGuideArticle,
   "how-currency-conversion-actually-works-avoid-markup-fees": CurrencyConversionGuideArticle,
@@ -190,6 +192,59 @@ export default function BlogPostPage({ params }: BlogPostProps) {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Thirst, darker urine color, fatigue, and headache are common early signs. Urine that's pale yellow is generally a good indicator of adequate hydration."
+        }
+      }
+    ]
+  } : article.slug === "how-to-write-and-test-regular-expressions-regex-tutorial-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does regex actually stand for, and where did it start?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Regex stands for Regular Expression. The concept originated in the 1950s when mathematician Stephen Cole Kleene described regular languages. Today, almost every modern programming language supports it to find and manipulate text patterns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is regex considered a full programming language?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, regex is not a general-purpose programming language. It is a specialized, domain-specific pattern-matching language designed solely for parsing and manipulating text within other hosting environments and languages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the key difference between the asterisk (*) and plus (+) quantifiers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The asterisk matches the preceding element zero or more times, making it completely optional. The plus quantifier requires the preceding element to appear at least once, matching it one or more times."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I search for a literal period (.) or asterisk (*) without triggering their wildcards?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You must escape them by putting a backslash before them, like \\. or \\*. This tells the regex engine to treat them as plain text characters rather than special operators."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are regular expressions case-sensitive by default?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, they are case-sensitive. Searching for 'cat' will ignore 'Cat'. To match regardless of case, you need to append the 'i' flag to your regular expression."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can using bad regex patterns slow down my application?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, highly nested quantifiers like (a+)+ can cause 'catastrophic backtracking' in complex strings. This happens when the engine tries millions of potential matches, spiking CPU usage."
         }
       }
     ]

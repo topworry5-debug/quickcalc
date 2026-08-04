@@ -10,14 +10,14 @@ import CalorieCalculatorWidget from "./CalorieCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Calorie Calculator - Find Daily Calorie Needs | QuickCalc",
-  description: "Calculate your daily calorie needs (TDEE & BMR) using the highly accurate Mifflin-St Jeor formula. Get targeted cut, maintain, and bulk plans instantly.",
+  title: "Calorie Calculator - TDEE & Daily Calorie Needs Finder",
+  description: "Calculate your daily calorie needs using the scientific Mifflin-St Jeor formula. Get custom weight loss or muscle gain targets with no signup needed.",
   alternates: {
     canonical: "/tools/calorie-calculator",
   },
   openGraph: {
-    title: "Calorie Calculator - Find Daily Calorie Needs | QuickCalc",
-    description: "Calculate your daily calorie needs (TDEE & BMR) using the highly accurate Mifflin-St Jeor formula. Get targeted cut, maintain, and bulk plans instantly.",
+    title: "Calorie Calculator - TDEE & Daily Calorie Needs Finder",
+    description: "Calculate your daily calorie needs using the scientific Mifflin-St Jeor formula. Get custom weight loss or muscle gain targets with no signup needed.",
     url: "https://quickcalc.cloud/tools/calorie-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calorie Calculator - Find Daily Calorie Needs | QuickCalc",
-    description: "Calculate your daily calorie needs (TDEE & BMR) using the highly accurate Mifflin-St Jeor formula. Get targeted cut, maintain, and bulk plans instantly.",
+    title: "Calorie Calculator - TDEE & Daily Calorie Needs Finder",
+    description: "Calculate your daily calorie needs using the scientific Mifflin-St Jeor formula. Get custom weight loss or muscle gain targets with no signup needed.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

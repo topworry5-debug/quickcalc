@@ -13,14 +13,14 @@ import ShoeSizeConverterWidget from "./ShoeSizeConverterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Shoe Size Converter - Live Cross-Regional Conversion | QuickCalc",
-  description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously. Discover why brands vary and locate your perfect fit today.",
+  title: "Shoe Size Converter - US, UK, EU & Japan Size Conversions",
+  description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously with helpful brand-specific sizing variance and fit guidance.",
   alternates: {
     canonical: "/tools/shoe-size-converter",
   },
   openGraph: {
-    title: "Shoe Size Converter - Live Cross-Regional Conversion | QuickCalc",
-    description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously. Discover why brands vary and locate your perfect fit today.",
+    title: "Shoe Size Converter - US, UK, EU & Japan Size Conversions",
+    description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously with helpful brand-specific sizing variance and fit guidance.",
     url: "https://quickcalc.cloud/tools/shoe-size-converter",
     type: "website",
     siteName: "QuickCalc",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shoe Size Converter - Live Cross-Regional Conversion | QuickCalc",
-    description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously. Discover why brands vary and locate your perfect fit today.",
+    title: "Shoe Size Converter - US, UK, EU & Japan Size Conversions",
+    description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously with helpful brand-specific sizing variance and fit guidance.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

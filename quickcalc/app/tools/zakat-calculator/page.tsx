@@ -10,14 +10,14 @@ import ZakatCalculatorWidget from "./ZakatCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Zakat Calculator: Calculate Your Zakat on Cash & Gold | QuickCalc",
-  description: "Calculate your Zakat easily with our category-by-category calculator. Supports custom gold & silver rates with live Nisab threshold comparisons.",
+  title: "Zakat Calculator - Easy Gold, Silver & Savings Nisab Tool",
+  description: "Calculate your Zakat cleanly with an itemized cash, gold, and silver breakdown. Compares savings to standard Nisab thresholds with live custom rates.",
   alternates: {
     canonical: "/tools/zakat-calculator",
   },
   openGraph: {
-    title: "Zakat Calculator: Calculate Your Zakat on Cash & Gold | QuickCalc",
-    description: "Calculate your Zakat easily with our category-by-category calculator. Supports custom gold & silver rates with live Nisab threshold comparisons.",
+    title: "Zakat Calculator - Easy Gold, Silver & Savings Nisab Tool",
+    description: "Calculate your Zakat cleanly with an itemized cash, gold, and silver breakdown. Compares savings to standard Nisab thresholds with live custom rates.",
     url: "https://quickcalc.cloud/tools/zakat-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zakat Calculator: Calculate Your Zakat on Cash & Gold | QuickCalc",
-    description: "Calculate your Zakat easily with our category-by-category calculator. Supports custom gold & silver rates with live Nisab threshold comparisons.",
+    title: "Zakat Calculator - Easy Gold, Silver & Savings Nisab Tool",
+    description: "Calculate your Zakat cleanly with an itemized cash, gold, and silver breakdown. Compares savings to standard Nisab thresholds with live custom rates.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

@@ -11,14 +11,14 @@ import CurrencyConverterWidget from "./CurrencyConverterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Currency Converter - Live Exchange Rates for 35+ Currencies | QuickCalc",
-  description: "Convert 35+ currencies with live, real-time exchange rates. Free online converter supporting USD to PKR, EUR, GBP, INR, and more with instant results.",
+  title: "Live Currency Converter - Convert 35+ World Exchange Rates",
+  description: "Convert 35+ global currencies instantly with real-time exchange rates. Check USD to PKR, EUR to USD, and GBP to EUR conversion tables with no markup fees.",
   alternates: {
     canonical: "/tools/currency-converter",
   },
   openGraph: {
-    title: "Currency Converter - Live Exchange Rates for 35+ Currencies | QuickCalc",
-    description: "Convert 35+ currencies with live, real-time exchange rates. Free online converter supporting USD to PKR, EUR, GBP, INR, and more with instant results.",
+    title: "Live Currency Converter - Convert 35+ World Exchange Rates",
+    description: "Convert 35+ global currencies instantly with real-time exchange rates. Check USD to PKR, EUR to USD, and GBP to EUR conversion tables with no markup fees.",
     url: "https://quickcalc.cloud/tools/currency-converter",
     type: "website",
     siteName: "QuickCalc",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Currency Converter - Live Exchange Rates for 35+ Currencies | QuickCalc",
-    description: "Convert 35+ currencies with live, real-time exchange rates. Free online converter supporting USD to PKR, EUR, GBP, INR, and more with instant results.",
+    title: "Live Currency Converter - Convert 35+ World Exchange Rates",
+    description: "Convert 35+ global currencies instantly with real-time exchange rates. Check USD to PKR, EUR to USD, and GBP to EUR conversion tables with no markup fees.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

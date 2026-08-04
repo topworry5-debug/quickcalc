@@ -14,8 +14,8 @@ import Footer from "@/components/Footer";
 import AdSlot from "@/components/AdSlot";
 
 export const metadata: Metadata = {
-  title: "Water Intake Calculator - How Much Water Should You Drink Daily?",
-  description: "Calculate your ideal daily water intake in liters and glasses. Get a personalized hydration plan based on weight, activity level, and climate.",
+  title: "Daily Water Intake Calculator - Find Your Hydration Needs",
+  description: "Calculate your ideal daily water intake in liters and cups. Get a personalized hydration plan based on body weight, climate, and exercise levels.",
   alternates: {
     canonical: "/tools/water-intake-calculator",
   },

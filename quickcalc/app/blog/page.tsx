@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "how-to-write-and-test-regular-expressions-regex-tutorial-guide",
+    title: "How to Write and Test Regular Expressions: A Beginner's Regex Tutorial Guide",
+    description: "Learn how to write, test, and debug regular expressions (regex). Understand character classes, quantifiers, anchors, flags, and how to use our live pattern debugger.",
+    excerpt: "Learn how to write, test, and debug regular expressions (regex). Understand character classes, quantifiers, anchors, flags, and how to use our live pattern debugger.",
+    date: "August 2, 2026",
+    readTime: "8 min read",
+    category: "Utility & Programming",
+    icon: "🧩",
+    color: "from-purple-500 to-indigo-600",
+    textColor: "text-purple-600 dark:text-purple-400",
+  },
+  {
     slug: "is-the-8-glasses-a-day-water-rule-actually-true",
     title: "Is the \"8 Glasses a Day\" Water Rule Actually True? What Science Says",
     description: "The 8x8 water rule isn't based on real science. Learn where it actually came from, what your body really needs, and how to find your personal daily water target in seconds.",

@@ -10,14 +10,14 @@ import DiscountCalculatorWidget from "./DiscountCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Discount Calculator: Find Sale Price & Stacked Discounts",
-  description: "Calculate single or stacked discounts step-by-step. Supports sequential deductions, reverse mode to find original prices, and clipboard sharing.",
+  title: "Discount Calculator - Find Sale Price & Stacked Promos",
+  description: "Calculate shopping sale prices with single or stacked discounts instantly. Run reverse calculations to find the original price of discounted items.",
   alternates: {
     canonical: "/tools/discount-calculator",
   },
   openGraph: {
-    title: "Discount Calculator: Find Sale Price & Stacked Discounts",
-    description: "Calculate single or stacked discounts step-by-step. Supports sequential deductions, reverse mode to find original prices, and clipboard sharing.",
+    title: "Discount Calculator - Find Sale Price & Stacked Promos",
+    description: "Calculate shopping sale prices with single or stacked discounts instantly. Run reverse calculations to find the original price of discounted items.",
     url: "https://quickcalc.cloud/tools/discount-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Discount Calculator: Find Sale Price & Stacked Discounts",
-    description: "Calculate single or stacked discounts step-by-step. Supports sequential deductions, reverse mode to find original prices, and clipboard sharing.",
+    title: "Discount Calculator - Find Sale Price & Stacked Promos",
+    description: "Calculate shopping sale prices with single or stacked discounts instantly. Run reverse calculations to find the original price of discounted items.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

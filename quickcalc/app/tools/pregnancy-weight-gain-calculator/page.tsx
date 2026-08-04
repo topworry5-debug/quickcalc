@@ -10,14 +10,14 @@ import PregnancyWeightGainCalculatorWidget from "./PregnancyWeightGainCalculator
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Pregnancy Weight Gain Calculator by Week & BMI | QuickCalc",
-  description: "Calculate your personalized healthy pregnancy weight gain range week-by-week based on pre-pregnancy BMI. Supportive, scientific, and free.",
+  title: "Pregnancy Weight Gain Calculator - Week & BMI Tracker",
+  description: "Calculate your healthy weight gain range week-by-week during pregnancy. Get personalized, supportive, and science-backed targets based on pre-pregnancy BMI.",
   alternates: {
     canonical: "/tools/pregnancy-weight-gain-calculator",
   },
   openGraph: {
-    title: "Pregnancy Weight Gain Calculator by Week & BMI | QuickCalc",
-    description: "Calculate your personalized healthy pregnancy weight gain range week-by-week based on pre-pregnancy BMI. Supportive, scientific, and free.",
+    title: "Pregnancy Weight Gain Calculator - Week & BMI Tracker",
+    description: "Calculate your healthy weight gain range week-by-week during pregnancy. Get personalized, supportive, and science-backed targets based on pre-pregnancy BMI.",
     url: "https://quickcalc.cloud/tools/pregnancy-weight-gain-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pregnancy Weight Gain Calculator by Week & BMI | QuickCalc",
-    description: "Calculate your personalized healthy pregnancy weight gain range week-by-week based on pre-pregnancy BMI. Supportive, scientific, and free.",
+    title: "Pregnancy Weight Gain Calculator - Week & BMI Tracker",
+    description: "Calculate your healthy weight gain range week-by-week during pregnancy. Get personalized, supportive, and science-backed targets based on pre-pregnancy BMI.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

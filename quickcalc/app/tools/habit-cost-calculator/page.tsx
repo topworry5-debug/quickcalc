@@ -10,14 +10,14 @@ import HabitCostCalculatorWidget from "./HabitCostCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Habit Cost Calculator: Time & Money Cost",
-  description: "Calculate the compounding time and money cost of recurring daily habits. See how small habits add up over years, decades, and by retirement.",
+  title: "Habit Cost Calculator - Long-Term Time & Money Impact",
+  description: "Calculate the true compounding financial and time cost of recurring daily habits. See how small daily expenses grow over years, decades, or by retirement.",
   alternates: {
     canonical: "/tools/habit-cost-calculator",
   },
   openGraph: {
-    title: "Habit Cost Calculator: See the Real Time & Money Cost",
-    description: "Calculate the compounding time and money cost of recurring daily habits. See how small habits add up over years, decades, and by retirement.",
+    title: "Habit Cost Calculator - Long-Term Time & Money Impact",
+    description: "Calculate the true compounding financial and time cost of recurring daily habits. See how small daily expenses grow over years, decades, or by retirement.",
     url: "https://quickcalc.cloud/tools/habit-cost-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Habit Cost Calculator: See the Real Time & Money Cost",
-    description: "Calculate the compounding time and money cost of recurring daily habits. See how small habits add up over years, decades, and by retirement.",
+    title: "Habit Cost Calculator - Long-Term Time & Money Impact",
+    description: "Calculate the true compounding financial and time cost of recurring daily habits. See how small daily expenses grow over years, decades, or by retirement.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

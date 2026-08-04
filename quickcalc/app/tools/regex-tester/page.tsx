@@ -13,14 +13,14 @@ import RegexTesterWidget from "./RegexTesterWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Regex Tester - Live Regular Expression Pattern Debugger | QuickCalc",
-  description: "Test and debug regular expressions (regex) instantly with live colored background highlighting. Plain-language pattern explanations, common templates, and local execution.",
+  title: "Live Regex Tester - Test Regular Expression Patterns",
+  description: "Test and debug regular expressions (regex) in real-time with colored background highlighting, direct pattern explanations, and built-in templates.",
   alternates: {
     canonical: "/tools/regex-tester",
   },
   openGraph: {
-    title: "Regex Tester - Live Regular Expression Pattern Debugger | QuickCalc",
-    description: "Test and debug regular expressions (regex) instantly with live colored background highlighting. Plain-language pattern explanations, common templates, and local execution.",
+    title: "Live Regex Tester - Test Regular Expression Patterns",
+    description: "Test and debug regular expressions (regex) in real-time with colored background highlighting, direct pattern explanations, and built-in templates.",
     url: "https://quickcalc.cloud/tools/regex-tester",
     type: "website",
     siteName: "QuickCalc",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Regex Tester - Live Regular Expression Pattern Debugger | QuickCalc",
-    description: "Test and debug regular expressions (regex) instantly with live colored background highlighting. Plain-language pattern explanations, common templates, and local execution.",
+    title: "Live Regex Tester - Test Regular Expression Patterns",
+    description: "Test and debug regular expressions (regex) in real-time with colored background highlighting, direct pattern explanations, and built-in templates.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

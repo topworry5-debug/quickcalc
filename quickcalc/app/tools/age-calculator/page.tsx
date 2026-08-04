@@ -11,14 +11,14 @@ import AgeCalculatorWidget from "./AgeCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Age Calculator - Find Your Exact Age in Years, Months & Days | QuickCalc",
-  description: "Discover your exact age in years, months, and days with our free age calculator. Calculate your total days lived, zodiac sign, generation, and heartbeats lived.",
+  title: "Age Calculator - Find Your Exact Chronological Age Instantly",
+  description: "Calculate your exact age in years, months, and days with our free online tool. Find your birth day of the week, next birthday countdown, and zodiac traits.",
   alternates: {
     canonical: "/tools/age-calculator",
   },
   openGraph: {
-    title: "Age Calculator - Find Your Exact Age in Years, Months & Days | QuickCalc",
-    description: "Discover your exact age in years, months, and days with our free age calculator. Calculate your total days lived, zodiac sign, generation, and heartbeats lived.",
+    title: "Age Calculator - Find Your Exact Chronological Age Instantly",
+    description: "Calculate your exact age in years, months, and days with our free online tool. Find your birth day of the week, next birthday countdown, and zodiac traits.",
     url: "https://quickcalc.cloud/tools/age-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Age Calculator - Find Your Exact Age in Years, Months & Days | QuickCalc",
-    description: "Discover your exact age in years, months, and days with our free age calculator. Calculate your total days lived, zodiac sign, generation, and heartbeats lived.",
+    title: "Age Calculator - Find Your Exact Chronological Age Instantly",
+    description: "Calculate your exact age in years, months, and days with our free online tool. Find your birth day of the week, next birthday countdown, and zodiac traits.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

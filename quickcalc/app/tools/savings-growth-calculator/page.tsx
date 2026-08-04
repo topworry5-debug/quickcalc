@@ -10,14 +10,14 @@ import SavingsGrowthCalculatorWidget from "./SavingsGrowthCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Savings Growth Calculator - Compound Interest | QuickCalc",
-  description: "Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest. 100% free.",
+  title: "Savings Growth Calculator - Free Compound Interest Tool",
+  description: "Calculate compound interest savings growth with our free tool. Set regular monthly or yearly deposits and trace interest growth over time easily.",
   alternates: {
     canonical: "/tools/savings-growth-calculator",
   },
   openGraph: {
-    title: "Savings Growth Calculator - Compound Interest | QuickCalc",
-    description: "Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest. 100% free.",
+    title: "Savings Growth Calculator - Free Compound Interest Tool",
+    description: "Calculate compound interest savings growth with our free tool. Set regular monthly or yearly deposits and trace interest growth over time easily.",
     url: "https://quickcalc.cloud/tools/savings-growth-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Savings Growth Calculator - Compound Interest | QuickCalc",
-    description: "Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest. 100% free.",
+    title: "Savings Growth Calculator - Free Compound Interest Tool",
+    description: "Calculate compound interest savings growth with our free tool. Set regular monthly or yearly deposits and trace interest growth over time easily.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

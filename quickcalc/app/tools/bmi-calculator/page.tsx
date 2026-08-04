@@ -13,14 +13,14 @@ import BMICalculatorWidget from "./BMICalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "BMI Calculator - Scientific Visual Body Mass Index Screener | QuickCalc",
-  description: "Calculate your body mass index (BMI) instantly. Analyze clinical weight ranges with a live horizontal gauge. 100% free with no sign-ups.",
+  title: "Free BMI Calculator - Instant Body Mass Index Screener",
+  description: "Calculate your body mass index (BMI) instantly. Check your healthy weight range with our live interactive gauge. No signup or email required.",
   alternates: {
     canonical: "/tools/bmi-calculator",
   },
   openGraph: {
-    title: "BMI Calculator - Scientific Visual Body Mass Index Screener | QuickCalc",
-    description: "Calculate your body mass index (BMI) instantly. Analyze clinical weight ranges with a live horizontal gauge. 100% free with no sign-ups.",
+    title: "Free BMI Calculator - Instant Body Mass Index Screener",
+    description: "Calculate your body mass index (BMI) instantly. Check your healthy weight range with our live interactive gauge. No signup or email required.",
     url: "https://quickcalc.cloud/tools/bmi-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BMI Calculator - Scientific Visual Body Mass Index Screener | QuickCalc",
-    description: "Calculate your body mass index (BMI) instantly. Analyze clinical weight ranges with a live horizontal gauge. 100% free with no sign-ups.",
+    title: "Free BMI Calculator - Instant Body Mass Index Screener",
+    description: "Calculate your body mass index (BMI) instantly. Check your healthy weight range with our live interactive gauge. No signup or email required.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

@@ -10,14 +10,14 @@ import TravelTimeFuelWidget from "./TravelTimeFuelWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Travel Time & Fuel Cost Calculator - How Much Will Gas Cost for Your Trip? | QuickCalc",
-  description: "Estimate trip duration and expenses with this fuel cost calculator. Plan your route by distance and mpg to calculate gas costs and compare driving vs flying.",
+  title: "Travel Time & Fuel Calculator - Estimate Gas Costs Online",
+  description: "Calculate trip driving duration and estimate exact vehicle gas cost. Enter your route distance, vehicle mpg, and local fuel price for instant planning.",
   alternates: {
     canonical: "/tools/travel-time-fuel-calculator",
   },
   openGraph: {
-    title: "Travel Time & Fuel Cost Calculator - How Much Will Gas Cost for Your Trip? | QuickCalc",
-    description: "Estimate trip duration and expenses with this fuel cost calculator. Plan your route by distance and mpg to calculate gas costs and compare driving vs flying.",
+    title: "Travel Time & Fuel Calculator - Estimate Gas Costs Online",
+    description: "Calculate trip driving duration and estimate exact vehicle gas cost. Enter your route distance, vehicle mpg, and local fuel price for instant planning.",
     url: "https://quickcalc.cloud/tools/travel-time-fuel-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Travel Time & Fuel Cost Calculator - How Much Will Gas Cost for Your Trip? | QuickCalc",
-    description: "Estimate trip duration and expenses with this fuel cost calculator. Plan your route by distance and mpg to calculate gas costs and compare driving vs flying.",
+    title: "Travel Time & Fuel Calculator - Estimate Gas Costs Online",
+    description: "Calculate trip driving duration and estimate exact vehicle gas cost. Enter your route distance, vehicle mpg, and local fuel price for instant planning.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

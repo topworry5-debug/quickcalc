@@ -10,14 +10,14 @@ import SleepCycleCalculatorWidget from "./SleepCycleCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Sleep Cycle Calculator - Scientific REM & Deep Sleep Bedtime Planner | QuickCalc",
-  description: "Calculate your optimal sleep cycles, bedtimes, or wake up times instantly. Prevent morning grogginess and align with biological 90-minute sleep cycles. 100% free.",
+  title: "Sleep Cycle Calculator - Bedtime & Waking Schedule Tool",
+  description: "Calculate optimal bedtimes or wake-up times based on natural 90-minute REM sleep cycles. Wake up feeling refreshed and prevent morning fatigue instantly.",
   alternates: {
     canonical: "/tools/sleep-cycle-calculator",
   },
   openGraph: {
-    title: "Sleep Cycle Calculator - Scientific REM & Deep Sleep Bedtime Planner | QuickCalc",
-    description: "Calculate your optimal sleep cycles, bedtimes, or wake up times instantly. Prevent morning grogginess and align with biological 90-minute sleep cycles. 100% free.",
+    title: "Sleep Cycle Calculator - Bedtime & Waking Schedule Tool",
+    description: "Calculate optimal bedtimes or wake-up times based on natural 90-minute REM sleep cycles. Wake up feeling refreshed and prevent morning fatigue instantly.",
     url: "https://quickcalc.cloud/tools/sleep-cycle-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sleep Cycle Calculator - Scientific REM & Deep Sleep Bedtime Planner | QuickCalc",
-    description: "Calculate your optimal sleep cycles, bedtimes, or wake up times instantly. Prevent morning grogginess and align with biological 90-minute sleep cycles. 100% free.",
+    title: "Sleep Cycle Calculator - Bedtime & Waking Schedule Tool",
+    description: "Calculate optimal bedtimes or wake-up times based on natural 90-minute REM sleep cycles. Wake up feeling refreshed and prevent morning fatigue instantly.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

@@ -11,14 +11,14 @@ import BudgetCalculatorWidget from "./BudgetCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Budget Calculator - 50/30/20 Rule Income Split Planner | QuickCalc",
-  description: "Use our free budget calculator based on the 50/30/20 rule to instantly split after-tax income into needs, wants, and savings. Compare actual spending!",
+  title: "50/30/20 Budget Calculator - Split Income & Plan Savings",
+  description: "Plan your monthly budget with our free 50/30/20 income split calculator. Easily track your needs, wants, and savings goals with no sign-up required.",
   alternates: {
     canonical: "/tools/budget-calculator",
   },
   openGraph: {
-    title: "Budget Calculator - 50/30/20 Rule Income Split Planner | QuickCalc",
-    description: "Use our free budget calculator based on the 50/30/20 rule to instantly split after-tax income into needs, wants, and savings. Compare actual spending!",
+    title: "50/30/20 Budget Calculator - Split Income & Plan Savings",
+    description: "Plan your monthly budget with our free 50/30/20 income split calculator. Easily track your needs, wants, and savings goals with no sign-up required.",
     url: "https://quickcalc.cloud/tools/budget-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Budget Calculator - 50/30/20 Rule Income Split Planner | QuickCalc",
-    description: "Use our free budget calculator based on the 50/30/20 rule to instantly split after-tax income into needs, wants, and savings. Compare actual spending!",
+    title: "50/30/20 Budget Calculator - Split Income & Plan Savings",
+    description: "Plan your monthly budget with our free 50/30/20 income split calculator. Easily track your needs, wants, and savings goals with no sign-up required.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

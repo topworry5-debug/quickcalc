@@ -10,14 +10,14 @@ import TipCalculatorWidget from "./TipCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Tip Calculator - Live Bill Splitter & Custom Percentages | QuickCalc",
-  description: "Test custom tips instantly with a slider. Split bills evenly between groups, calculate tip per person, and copy detailed billing breakdowns locally.",
+  title: "Tip Calculator - Free Bill Splitter & Custom Tips",
+  description: "Calculate tips instantly with an interactive slider. Split bills evenly with friends, find per-person costs, and copy the breakdown with no signup.",
   alternates: {
     canonical: "/tools/tip-calculator",
   },
   openGraph: {
-    title: "Tip Calculator - Live Bill Splitter & Custom Percentages | QuickCalc",
-    description: "Test custom tips instantly with a slider. Split bills evenly between groups, calculate tip per person, and copy detailed billing breakdowns locally.",
+    title: "Tip Calculator - Free Bill Splitter & Custom Tips",
+    description: "Calculate tips instantly with an interactive slider. Split bills evenly with friends, find per-person costs, and copy the breakdown with no signup.",
     url: "https://quickcalc.cloud/tools/tip-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tip Calculator - Live Bill Splitter & Custom Percentages | QuickCalc",
-    description: "Test custom tips instantly with a slider. Split bills evenly between groups, calculate tip per person, and copy detailed billing breakdowns locally.",
+    title: "Tip Calculator - Free Bill Splitter & Custom Tips",
+    description: "Calculate tips instantly with an interactive slider. Split bills evenly with friends, find per-person costs, and copy the breakdown with no signup.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

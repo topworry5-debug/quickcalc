@@ -10,14 +10,14 @@ import PasswordGeneratorWidget from "./PasswordGeneratorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Secure Password Generator - Cryptographic Password Strength & Entropy | QuickCalc",
-  description: "Generate cryptographically secure passwords locally with precise entropy bit calculations. Pronounceable memorable options, random custom pools, and mathematical strength explanation.",
+  title: "Secure Password Generator - Strong Local Password Tool",
+  description: "Generate cryptographically secure random passwords locally. Calculate precise mathematical entropy, choose memorable options, with 100% browser privacy.",
   alternates: {
     canonical: "/tools/password-generator",
   },
   openGraph: {
-    title: "Secure Password Generator - Cryptographic Password Strength & Entropy | QuickCalc",
-    description: "Generate cryptographically secure passwords locally with precise entropy bit calculations. Pronounceable memorable options, random custom pools, and mathematical strength explanation.",
+    title: "Secure Password Generator - Strong Local Password Tool",
+    description: "Generate cryptographically secure random passwords locally. Calculate precise mathematical entropy, choose memorable options, with 100% browser privacy.",
     url: "https://quickcalc.cloud/tools/password-generator",
     type: "website",
     siteName: "QuickCalc",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Secure Password Generator - Cryptographic Password Strength & Entropy | QuickCalc",
-    description: "Generate cryptographically secure passwords locally with precise entropy bit calculations. Pronounceable memorable options, random custom pools, and mathematical strength explanation.",
+    title: "Secure Password Generator - Strong Local Password Tool",
+    description: "Generate cryptographically secure random passwords locally. Calculate precise mathematical entropy, choose memorable options, with 100% browser privacy.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };

@@ -13,14 +13,14 @@ import DueDateCalculatorWidget from "./DueDateCalculatorWidget";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Due Date Calculator - Warm Visual Pregnancy Tracker | QuickCalc",
-  description: "Calculate your estimated due date, current trimester, and pregnancy milestones instantly. 100% free with no email required and zero paywalls.",
+  title: "Pregnancy Due Date Calculator - Track Gestational Weeks",
+  description: "Calculate your estimated pregnancy due date and track gestational milestones week-by-week. Free and private tracker with no sign-up or paywalls.",
   alternates: {
     canonical: "/tools/due-date-calculator",
   },
   openGraph: {
-    title: "Due Date Calculator - Warm Visual Pregnancy Tracker | QuickCalc",
-    description: "Calculate your estimated due date, current trimester, and pregnancy milestones instantly. 100% free with no email required and zero paywalls.",
+    title: "Pregnancy Due Date Calculator - Track Gestational Weeks",
+    description: "Calculate your estimated pregnancy due date and track gestational milestones week-by-week. Free and private tracker with no sign-up or paywalls.",
     url: "https://quickcalc.cloud/tools/due-date-calculator",
     type: "website",
     siteName: "QuickCalc",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Due Date Calculator - Warm Visual Pregnancy Tracker | QuickCalc",
-    description: "Calculate your estimated due date, current trimester, and pregnancy milestones instantly. 100% free with no email required and zero paywalls.",
+    title: "Pregnancy Due Date Calculator - Track Gestational Weeks",
+    description: "Calculate your estimated pregnancy due date and track gestational milestones week-by-week. Free and private tracker with no sign-up or paywalls.",
     images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
