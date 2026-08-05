@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { calculateRetirement } from "@/lib/calculators/retirementCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function RetirementCalculatorWidget() {
   const [currentAge, setCurrentAge] = useState<string>("30");
@@ -74,6 +76,41 @@ Calculated 100% free on QuickCalc.cloud`;
     } catch (err) {
       console.error("Failed to copy summary", err);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    if (isInvalidAge || !currentPlan) return;
+
+    generatePdf({
+      toolName: "Retirement Calculator",
+      toolSlug: "retirement-calculator",
+      inputs: [
+        { label: "Current Age", value: `${numCurrentAge}` },
+        { label: "Target Retirement Age", value: `${numRetirementAge}` },
+        { label: "Current Savings", value: formatCurrency(numCurrentSavings) },
+        { label: "Monthly Contribution", value: `${formatCurrency(numMonthlyContribution)} (${numAnnualSalaryGrowth}% growth)` },
+        { label: "Expected Return Rate", value: `${numAnnualReturn}%` },
+      ],
+      results: [
+        { label: "Projected Nest Egg", value: formatCurrency(currentPlan.projectedTotal), isHighlight: true },
+        { label: "Total Contributed", value: `${formatCurrency(currentPlan.totalContributed)} (${currentPlan.contributionPercent}%)` },
+        { label: "Total Growth Earned", value: `${formatCurrency(currentPlan.totalGrowth)} (${currentPlan.growthPercent}%)` },
+      ],
+      summaryNote: `At age ${numRetirementAge}, your projected retirement nest egg is ${formatCurrency(currentPlan.projectedTotal)} after ${currentPlan.yearsCount} compounding years.`,
+      table: {
+        title: "Year-by-Year Growth Schedule",
+        headers: ["Year", "Age", "Monthly Pmt", "Yearly Added", "Yearly Growth", "End Balance"],
+        rows: currentPlan.yearlyData.map((row) => [
+          `Year ${row.year}`,
+          `Age ${row.age}`,
+          formatCurrency(row.monthlyContribution),
+          formatCurrency(row.contributionsThisYear),
+          `+${formatCurrency(row.growthThisYear)}`,
+          formatCurrency(row.endBalance),
+        ]),
+      },
+      filename: `Retirement-Projection-Age${numRetirementAge}.pdf`,
+    });
   };
 
   return (
@@ -339,12 +376,15 @@ Calculated 100% free on QuickCalc.cloud`;
 
             {/* Actions Bar */}
             <div className="flex flex-wrap items-center justify-between gap-4 border-t border-zinc-200 dark:border-zinc-800 pt-6">
-              <button
-                onClick={handleCopy}
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all shadow-md active:scale-95 flex items-center gap-2"
-              >
-                {copied ? "✓ Summary Copied!" : "📋 Copy Projection Summary"}
-              </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={handleCopy}
+                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all shadow-md active:scale-95 flex items-center gap-2"
+                >
+                  {copied ? "✓ Summary Copied!" : "📋 Copy Projection Summary"}
+                </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5 px-4 text-sm rounded-xl" />
+              </div>
 
               <button
                 onClick={() => setShowTable(!showTable)}

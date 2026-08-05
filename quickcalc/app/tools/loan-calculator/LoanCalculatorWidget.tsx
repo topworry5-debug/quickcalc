@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 import { calculateLoan, LoanResult } from "../../../lib/calculators/loanCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function LoanCalculatorWidget() {
   const [principal, setPrincipal] = useState<string>("100000");
   const [annualRate, setAnnualRate] = useState<string>("7.5");
   const [tenure, setTenure] = useState<string>("5");
   const [tenureUnit, setTenureUnit] = useState<"years" | "months">("years");
+  const [copied, setCopied] = useState<boolean>(false);
+
   const [result, setResult] = useState<LoanResult | null>({
     monthlyEMI: 2003.79,
     totalInterestPayable: 20227.4,
@@ -19,7 +23,67 @@ export default function LoanCalculatorWidget() {
       { yearNumber: 4, startingBalance: 44470.69, principalPaid: 21453.60, interestPaid: 2984.43, totalPaid: 24438.03, endingBalance: 23017.09 },
       { yearNumber: 5, startingBalance: 23017.09, principalPaid: 23017.09, interestPaid: 1326.69, totalPaid: 24343.78, endingBalance: 0 }
     ]
-  }); // Default calculation for 100,000 at 7.5% for 5 years
+  });
+
+  const handleCopy = async () => {
+    if (!result) return;
+    const amountStr = parseFloat(principal).toLocaleString();
+    const summaryText = `QuickCalc Loan / EMI Summary:
+- Loan Principal: $${amountStr}
+- Annual Interest Rate: ${annualRate}%
+- Tenure: ${tenure} ${tenureUnit}
+- Monthly Payment (EMI): $${result.monthlyEMI.toFixed(2)}
+- Total Interest Payable: $${result.totalInterestPayable.toFixed(2)}
+- Total Payment: $${result.totalPayment.toFixed(2)}
+Calculated 100% free on QuickCalc.cloud`;
+
+    try {
+      await navigator.clipboard.writeText(summaryText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy summary", err);
+    }
+  };
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+    const numAmount = parseFloat(principal) || 0;
+    const numRate = parseFloat(annualRate) || 0;
+    const numTenure = parseFloat(tenure) || 0;
+
+    const emiStr = result.monthlyEMI.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const interestStr = result.totalInterestPayable.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const totalStr = result.totalPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    generatePdf({
+      toolName: "Loan / EMI Calculator",
+      toolSlug: "loan-calculator",
+      inputs: [
+        { label: "Loan Amount", value: `$${numAmount.toLocaleString()}` },
+        { label: "Annual Interest Rate", value: `${numRate}%` },
+        { label: "Loan Tenure", value: `${numTenure} ${tenureUnit}` },
+      ],
+      results: [
+        { label: "Monthly EMI", value: `$${emiStr}`, isHighlight: true },
+        { label: "Total Interest", value: `$${interestStr}` },
+        { label: "Total Payment", value: `$${totalStr}` },
+      ],
+      summaryNote: `Loan breakdown for $${numAmount.toLocaleString()} borrowed at ${numRate}% annual interest over ${numTenure} ${tenureUnit}.`,
+      table: {
+        title: "Year-by-Year Amortization Schedule",
+        headers: ["Year", "Starting Balance", "Principal Paid", "Interest Paid", "Ending Balance"],
+        rows: result.amortizationTable.map((row) => [
+          `Year ${row.yearNumber}`,
+          `$${row.startingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          `$${row.principalPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          `$${row.interestPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          `$${row.endingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        ]),
+      },
+      filename: `Loan-EMI-Summary-${numAmount}.pdf`,
+    });
+  };
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -75,55 +139,51 @@ export default function LoanCalculatorWidget() {
             <input
               id="principal"
               type="number"
+              min="1"
               value={principal}
               onChange={(e) => setPrincipal(e.target.value)}
-              className="block w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-transparent pl-8 pr-4 py-3 text-zinc-900 dark:text-white focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-              placeholder="e.g. 50000"
-              required
-              min="1"
-              step="any"
+              className="w-full pl-8 pr-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              placeholder="e.g. 250000"
             />
           </div>
         </div>
 
-        {/* Interest Rate and Tenure */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="annualRate" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-              Interest Rate (Annual %)
-            </label>
-            <div className="relative rounded-lg shadow-sm">
-              <input
-                id="annualRate"
-                type="number"
-                value={annualRate}
-                onChange={(e) => setAnnualRate(e.target.value)}
-                className="block w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-transparent pl-4 pr-8 py-3 text-zinc-900 dark:text-white focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                placeholder="e.g. 5.5"
-                required
-                min="0"
-                step="any"
-              />
-              <span className="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-500">%</span>
-            </div>
+        {/* Interest Rate */}
+        <div>
+          <label htmlFor="rate" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+            Annual Interest Rate (%)
+          </label>
+          <div className="relative rounded-lg shadow-sm">
+            <input
+              id="rate"
+              type="number"
+              step="0.01"
+              min="0"
+              value={annualRate}
+              onChange={(e) => setAnnualRate(e.target.value)}
+              className="w-full pl-4 pr-8 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              placeholder="e.g. 6.5"
+            />
+            <span className="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-500">%</span>
           </div>
+        </div>
 
-          <div>
-            <label htmlFor="tenure" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-              Loan Term (Tenure)
-            </label>
-            <div className="flex rounded-lg shadow-sm">
-              <input
-                id="tenure"
-                type="number"
-                value={tenure}
-                onChange={(e) => setTenure(e.target.value)}
-                className="block w-full rounded-l-lg border border-zinc-300 dark:border-zinc-700 bg-transparent px-4 py-3 text-zinc-900 dark:text-white focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                placeholder="e.g. 5"
-                required
-                min="1"
-                step="any"
-              />
+        {/* Tenure */}
+        <div>
+          <label htmlFor="tenure" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+            Loan Duration (Tenure)
+          </label>
+          <div className="flex rounded-lg shadow-sm">
+            <input
+              id="tenure"
+              type="number"
+              min="1"
+              value={tenure}
+              onChange={(e) => setTenure(e.target.value)}
+              className="w-full pl-4 pr-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-y border-l border-zinc-300 dark:border-zinc-700 rounded-l-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
+              placeholder="e.g. 30"
+            />
+            <div className="flex">
               <button
                 type="button"
                 onClick={() => setTenureUnit("years")}
@@ -221,6 +281,19 @@ export default function LoanCalculatorWidget() {
               </div>
             </div>
           )}
+
+          {/* Actions Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 p-6 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+            <button
+              type="button"
+              onClick={handleCopy}
+              className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 hover:scale-[1.02] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
+            >
+              {copied ? "✅ Copied Summary!" : "📋 Copy Loan Summary"}
+            </button>
+
+            <DownloadPdfButton onClick={handleDownloadPdf} />
+          </div>
         </div>
       )}
     </div>

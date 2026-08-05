@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { calculateBMI, BMICalculatorResult } from "../../../lib/calculators/bmiCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function BMICalculatorWidget() {
   const [weight, setWeight] = useState<string>("70");
@@ -13,6 +15,29 @@ export default function BMICalculatorWidget() {
 
   const [result, setResult] = useState<BMICalculatorResult | null>(null);
   const [copied, setCopied] = useState(false);
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+    const heightDisplay = heightUnit === "cm" ? `${heightCm} cm` : `${heightFt} ft ${heightIn} in`;
+    const weightDisplay = `${weight} ${weightUnit}`;
+
+    generatePdf({
+      toolName: "BMI Calculator",
+      toolSlug: "bmi-calculator",
+      inputs: [
+        { label: "Height", value: heightDisplay },
+        { label: "Weight", value: weightDisplay },
+        { label: "Unit System", value: heightUnit === "cm" ? "Metric" : "Imperial" },
+      ],
+      results: [
+        { label: "BMI Value", value: `${result.bmi}`, isHighlight: true },
+        { label: "Classification", value: `${result.category}` },
+        { label: "Normal BMI Range", value: "18.5 - 24.9" },
+      ],
+      summaryNote: `Clinical Classification: ${result.category}. Normal range is 18.5 - 24.9 BMI. Body Mass Index provides a useful general assessment, though individual muscle mass and frame structure should also be considered.`,
+      filename: `BMI-Health-Report-${result.bmi}.pdf`,
+    });
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -303,13 +328,16 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
                 {copied ? "✅ Copied Summary!" : "📋 Copy Result Summary"}
               </button>
 
-              <button
-                type="button"
-                onClick={handleExportTxt}
-                className="flex items-center gap-2 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-200 hover:scale-[1.02] bg-teal-50 dark:bg-teal-950/20 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
-              >
-                📥 Export Report (.txt)
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleExportTxt}
+                  className="flex items-center gap-2 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-all duration-200 hover:scale-[1.02] bg-teal-50 dark:bg-teal-950/20 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                >
+                  📥 Export TXT
+                </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} />
+              </div>
             </div>
           </div>
         ) : (
