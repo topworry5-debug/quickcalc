@@ -29,6 +29,17 @@ import GPAConverterGuideArticle from "../data/gpa-converter-guide-article";
 import SleepCycleGuideArticle from "../data/sleep-cycle-guide-article";
 import SalaryTakeHomeGuideArticle from "../data/salary-take-home-guide-article";
 import SavingsGrowthGuideArticle from "../data/savings-growth-guide-article";
+import DiscountCalculatorGuideArticle from "../data/discount-calculator-guide-article";
+import InflationCalculatorGuideArticle from "../data/inflation-calculator-guide-article";
+import DueDateCalculatorGuideArticle from "../data/due-date-calculator-guide-article";
+import PregnancyWeightGainGuideArticle from "../data/pregnancy-weight-gain-guide-article";
+import PaceCalculatorGuideArticle from "../data/pace-calculator-guide-article";
+import TravelTimeFuelGuideArticle from "../data/travel-time-fuel-guide-article";
+import JSONCSVConverterGuideArticle from "../data/json-csv-converter-guide-article";
+import ColorPaletteGuideArticle from "../data/color-palette-guide-article";
+import WordCharacterCounterGuideArticle from "../data/word-character-counter-guide-article";
+import PaperFabricGuideArticle from "../data/paper-fabric-guide-article";
+import HabitCostGuideArticle from "../data/habit-cost-guide-article";
 import ShareButtons from "@/components/ShareButtons";
 
 interface BlogPostProps {
@@ -38,6 +49,17 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "how-to-calculate-the-cost-of-daily-habits-financial-guide": HabitCostGuideArticle,
+  "how-to-convert-paper-and-fabric-sizes-dimensions-guide": PaperFabricGuideArticle,
+  "how-to-count-words-and-characters-writing-limits-guide": WordCharacterCounterGuideArticle,
+  "how-to-generate-color-palette-from-image-ui-design-guide": ColorPaletteGuideArticle,
+  "how-to-convert-json-to-csv-flattening-guide": JSONCSVConverterGuideArticle,
+  "how-to-calculate-travel-time-fuel-cost-road-trip-guide": TravelTimeFuelGuideArticle,
+  "how-to-calculate-running-pace-min-mile-speed-guide": PaceCalculatorGuideArticle,
+  "how-to-calculate-pregnancy-weight-gain-bmi-guide": PregnancyWeightGainGuideArticle,
+  "how-to-calculate-pregnancy-due-date-naegele-rule-guide": DueDateCalculatorGuideArticle,
+  "how-to-calculate-inflation-rate-purchasing-power-guide": InflationCalculatorGuideArticle,
+  "how-to-calculate-discount-percentage-sale-math-guide": DiscountCalculatorGuideArticle,
   "how-to-calculate-savings-growth-compound-interest-guide": SavingsGrowthGuideArticle,
   "how-to-calculate-take-home-pay-net-salary-guide": SalaryTakeHomeGuideArticle,
   "how-to-calculate-sleep-cycles-wake-up-time-guide": SleepCycleGuideArticle,
@@ -124,7 +146,29 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     "@type": "Article",
     "headline": article.title,
     "description": article.description,
-    "datePublished": article.slug === "how-to-calculate-savings-growth-compound-interest-guide"
+    "datePublished": article.slug === "how-to-calculate-the-cost-of-daily-habits-financial-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-convert-paper-and-fabric-sizes-dimensions-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-count-words-and-characters-writing-limits-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-generate-color-palette-from-image-ui-design-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-convert-json-to-csv-flattening-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-travel-time-fuel-cost-road-trip-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-running-pace-min-mile-speed-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-pregnancy-weight-gain-bmi-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-pregnancy-due-date-naegele-rule-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-inflation-rate-purchasing-power-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-discount-percentage-sale-math-guide"
+      ? "2026-08-04"
+      : article.slug === "how-to-calculate-savings-growth-compound-interest-guide"
       ? "2026-08-04"
       : article.slug === "how-to-calculate-take-home-pay-net-salary-guide"
       ? "2026-08-04"
@@ -190,7 +234,502 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "how-to-calculate-savings-growth-compound-interest-guide" ? {
+  const faqJsonLd = article.slug === "how-to-calculate-the-cost-of-daily-habits-financial-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do small daily expenses add up over 5, 10, or 20 years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A daily $5 expense adds up to $1,826 per year, $9,131 over 5 years, and $18,262 over 10 years in raw cash, or over $26,000 if invested at 7% interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the \"Latte Factor\" in personal finance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Popularized by author David Bach, the Latte Factor illustrates how small daily discretionary purchases (like a $5 coffee) compound into massive lost wealth over a lifetime."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate the opportunity cost of daily habits if invested instead?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Calculate the monthly total of your daily habit and use the compound interest formula FV = PMT x [((1+r/n)^(nt)-1)/(r/n)] at a standard 7% annual return."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much time do daily habits consume over a lifetime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Spending just 30 minutes a day on a habit consumes 182.5 hours per year, which equates to over 7.6 full days every year or 76 full days per decade."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can you audit and break costly daily spending habits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Audit 90 days of bank statements, calculate the annual cost of every recurring micro-expense, and redirect high-cost habits toward automated savings or low-cost alternatives."
+        }
+      }
+    ]
+  } : article.slug === "how-to-convert-paper-and-fabric-sizes-dimensions-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the exact difference in dimensions between A4 paper and US Letter size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ISO A4 paper measures 210 x 297 mm (8.27 x 11.69 inches), making it taller and narrower, whereas US Letter measures 215.9 x 279.4 mm (8.5 x 11.0 inches), making it wider and shorter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the ISO 216 paper sizing system work (A0 to A10)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ISO 216 uses a constant aspect ratio of 1:1.4142 (1 to square root of 2); cutting an A0 sheet (1 m²) in half creates two A1 sheets, and cutting A1 in half creates two A2 sheets down to A10."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you convert fabric yards to meters or inches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To convert yards to meters, multiply yards by 0.9144; to convert yards to inches, multiply yards by 36 (e.g., 5 yards = 4.572 meters = 180 inches)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does North America use Letter size instead of ISO A4 paper?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "North America retained traditional imperial paper sizes defined by historic hand-paper-making mold dimensions, whereas the rest of the world adopted the metric-based ISO 216 standard in the 20th century."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the dimensions of standard ISO paper sizes (A0, A1, A2, A3, A4)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A0 is 841x1189 mm, A1 is 594x841 mm, A2 is 420x594 mm, A3 is 297x420 mm, and A4 is 210x297 mm."
+        }
+      }
+    ]
+  } : article.slug === "how-to-count-words-and-characters-writing-limits-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you count words and characters in a piece of text?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Paste your text into an online word counter tool; it splits string tokens by whitespace to calculate word count and measures total string length to determine character counts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between character count with spaces vs without spaces?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Character count with spaces includes every letter, number, punctuation mark, and blank space, while character count without spaces excludes all blank spaces and line breaks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the character limits for major social media platforms (Twitter, Instagram, LinkedIn)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Twitter/X allows 280 characters per post, Instagram bios allow 150 characters (captions up to 2,200), and LinkedIn posts allow up to 3,000 characters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate estimated reading time from word count?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide your total word count by an average reading speed of 200 to 238 words per minute (e.g., a 1,000-word article takes roughly 4 to 5 minutes to read)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many words should be in a standard blog post or essay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard SEO blog posts typically range from 1,400 to 2,500 words for comprehensive coverage, while high school and college essays usually specify targets between 500 and 2,500 words."
+        }
+      }
+    ]
+  } : article.slug === "how-to-generate-color-palette-from-image-ui-design-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you generate a color palette from an image or photo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Upload your image to an online color palette generator that uses pixel quantization algorithms to scan the photo and automatically extract its dominant, vibrant color swatches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the 60-30-10 color rule in UI and web design?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 60-30-10 rule is a classic design balance ratio allocating 60% of the visual layout to a dominant neutral color, 30% to a secondary brand color, and 10% to an accent call-to-action color."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do HEX, RGB, and HSL color formats differ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HEX uses a 6-digit base-16 code (#0EA5E9), RGB specifies red, green, and blue light intensity (0-255), and HSL defines hue angle (0-360 deg), saturation (%), and lightness (%)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum WCAG contrast ratio for accessible text readability?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "According to WCAG 2.1 Level AA standards, body text must maintain a contrast ratio of at least 4.5:1 against its background color, while large text (18pt+ or 14pt bold) requires at least 3:1."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many colors should a website or brand palette contain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A well-structured digital brand palette typically contains 3 to 5 core colors: a dominant neutral (light/dark), a primary brand color, a secondary supporting color, and 1 or 2 accent colors for actions."
+        }
+      }
+    ]
+  } : article.slug === "how-to-convert-json-to-csv-flattening-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you convert a JSON file into a CSV file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Paste your JSON array into an online converter or use a Python script with pandas.json_normalize() to map JSON object keys to CSV header columns and values to comma-delimited data rows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you flatten nested JSON objects into flat CSV columns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nested JSON objects are flattened using dot notation, where parent and child key names are combined into a single column header (e.g., profile.address.city)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you convert a CSV file back into a JSON object array?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A CSV parser reads the first row as object keys, then iterates through each subsequent row to construct an array of JSON key-value objects, converting dot-notation keys back into nested sub-objects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Excel open JSON files directly without converting to CSV first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Excel can import JSON using Power Query via Data / Get Data / From File / From JSON, though converting to CSV first is much faster for simple spreadsheets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle special characters, commas, and quotes during CSV conversion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Any field value containing commas, newlines, or double quotes must be wrapped in double quotes in CSV format, and internal double quotes must be escaped by doubling them (\"\")."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-travel-time-fuel-cost-road-trip-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate driving travel time from distance and speed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide total distance by your average driving speed (e.g., 300 miles / 60 MPH = 5 hours of driving time), then add estimated time for rest and refueling stops."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate gas cost for a road trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the total trip distance by your vehicle's fuel efficiency (MPG) to find total gallons needed, then multiply that volume by the current gas price per gallon."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the formula to calculate total fuel used for a trip?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Total Fuel Used = Total Distance / Fuel Efficiency (MPG for miles, or Distance in km * (L/100km / 100) for metric)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does driving speed affect your car's fuel efficiency (MPG)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fuel efficiency peaks between 50 and 60 MPH on most vehicles; driving at speeds above 50 MPH rapidly increases aerodynamic drag, reducing fuel economy by roughly 7% to 15% for every 5 MPH over 50."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you convert Miles Per Gallon (MPG) to Liters per 100km (L/100km)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide 235.215 by your Miles Per Gallon (US) figure (e.g., 235.215 / 30 MPG = 7.84 L/100km)."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-running-pace-min-mile-speed-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate running pace per mile or kilometer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide your total running time in minutes by the total distance covered in miles or kilometers (e.g., 40 minutes / 4 miles = 10:00 min/mile pace)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between running speed (mph/kph) and running pace (min/mi or min/km)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Speed measures distance covered over time (higher numbers mean faster), whereas pace measures time spent per unit of distance (lower numbers mean faster)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you convert min/km to min/mile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply your pace in minutes per kilometer by 1.60934 to find your equivalent pace in minutes per mile (e.g., a 5:00 min/km pace equals an 8:02 min/mile pace)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you convert treadmill speed (mph) to running pace (min/mile)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide 60 by your treadmill speed setting in miles per hour (e.g., 60 / 6.0 MPH = 10:00 min/mile pace; 60 / 7.5 MPH = 8:00 min/mile pace)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate your target pace for a 5k, 10k, or half marathon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide your target finish time by the total race distance (3.1 miles for a 5k, 6.21 miles for a 10k, or 13.1 miles for a half marathon) to determine your required split pace per mile."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-pregnancy-weight-gain-bmi-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much weight should a woman gain during pregnancy based on pre-pregnancy BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Women starting at a normal BMI (18.5–24.9) should gain 25 to 35 lbs total, underweight women (BMI < 18.5) should gain 28 to 40 lbs, overweight women (BMI 25–29.9) should gain 15 to 25 lbs, and obese women (BMI ≥ 30) should gain 11 to 20 lbs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is weight distributed during pregnancy (where does the weight go)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In a typical 30-pound weight gain, the baby accounts for ~7.5 lbs, maternal fat stores ~7 lbs, blood volume expansion ~4 lbs, fluid retention ~4 lbs, uterine growth ~2 lbs, amniotic fluid ~2 lbs, breast tissue ~2 lbs, and the placenta ~1.5 lbs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much weight should you gain in the first trimester vs second and third trimesters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Women typically gain 1 to 5 pounds total during the entire first trimester, followed by approximately 0.8 to 1 pound per week throughout the second and third trimesters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much extra weight should you gain if you are expecting twins?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Women expecting twins should aim to gain 37 to 54 pounds if starting at a normal BMI, 50 to 62 pounds if underweight, 31 to 50 pounds if overweight, and 25 to 42 pounds if obese."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it normal to lose weight during the first trimester due to morning sickness?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, mild weight loss of 2 to 5 pounds during the first trimester is common due to nausea and food aversions; most women regain this weight easily once appetite returns in the second trimester."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-pregnancy-due-date-naegele-rule-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate your estimated due date from your last period?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add 7 days to the first day of your last menstrual period, subtract 3 months, and add 1 year (Naegele's Rule), establishing a standard 280-day gestational timeline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Naegele's Rule for calculating pregnancy due date?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Naegele's Rule is a standard medical formula that estimates a due date by adding 7 days to the first day of a woman's last menstrual period and subtracting 3 months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate due date if you know your exact conception date?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add 266 days (38 weeks) directly to your known conception date, ovulation test peak date, or IVF embryo transfer date."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What percentage of babies are actually born on their estimated due date?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only about 4% to 5% of babies are born on their exact estimated due date, though roughly 90% arrive within a normal window between 37 and 42 weeks of gestation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between gestational age and conception age?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gestational age is measured from the first day of your last period (40 weeks total), whereas conception age (fetal age) is measured from actual fertilization (38 weeks total)."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-inflation-rate-purchasing-power-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate the inflation rate between two years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subtract the starting Consumer Price Index (CPI) from the ending CPI, divide the result by the starting CPI, and multiply by 100 to find the cumulative inflation percentage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Consumer Price Index (CPI) and how is it used to measure inflation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The CPI is an economic indicator that tracks average price changes over time for a fixed market basket of goods and services, serving as the official benchmark measure for inflation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much purchasing power has $100 lost over the last 10 or 20 years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Over a typical 10-year period with average 3% annual inflation, $100 loses roughly 25% of its purchasing power, requiring about $134 today to purchase what $100 bought a decade prior."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between nominal return and real inflation-adjusted return?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nominal return is the raw percentage interest earned on an investment, whereas real return subtracts the inflation rate to reflect your actual gain in purchasing power."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you adjust historical dollar amounts for inflation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the historical dollar amount by the current CPI index number, and divide that product by the historical CPI index number from the target year."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-discount-percentage-sale-math-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate a discount percentage on a product?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the original price by the discount percentage expressed as a decimal (e.g., $80 * 0.15 = $12 saved), then subtract that savings from the original price ($80 - $12 = $68)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do double or stacked discounts work (e.g., 20% off + 10% off)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Stacked discounts apply sequentially. The first discount is taken off the original price, and the second discount is applied to the newly reduced intermediate subtotal, yielding an effective 28% total discount rather than 30%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate the original price if you only know the sale price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the sale price by (1 minus the discount rate as a decimal). For example, if a jacket is on sale for $60 after a 20% discount, divide $60 by 0.80 to find the original retail price of $75."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is an easy mental math trick for calculating 20% off?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Move the decimal point one place to the left to find 10% of the price, then double that number to get 20%. Subtract that total from the original sticker price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does sales tax get calculated before or after a discount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sales tax is almost always calculated after the discount has been applied, meaning you only pay tax on the lower final sale price."
+        }
+      }
+    ]
+  } : article.slug === "how-to-calculate-savings-growth-compound-interest-guide" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
