@@ -262,6 +262,15 @@ export const tools: Tool[] = [
     "category": "Finance"
   },
   {
+    title: "Retirement Calculator",
+    description: "Calculate your retirement savings with compound growth. Model monthly contributions, return rates, and compare starting earlier vs later.",
+    icon: "🏦",
+    href: "/tools/retirement-calculator",
+    color: "from-emerald-600 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance"
+  },
+  {
     "title": "Savings Growth Calculator",
     "description": "Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest.",
     "icon": "📈",
