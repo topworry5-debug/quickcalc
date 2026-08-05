@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { calculateBMI, BMICalculatorResult } from "../../../lib/calculators/bmiCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { calculateBMI, getBMIExplanationSteps, BMICalculatorResult } from "../../../lib/calculators/bmiCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function BMICalculatorWidget() {
   const [weight, setWeight] = useState<string>("70");
@@ -109,6 +110,25 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result) return [];
+    const weightNum = parseFloat(weight) || 0;
+    const cmNum = parseFloat(heightCm) || 0;
+    const ftNum = parseFloat(heightFt) || 0;
+    const inNum = parseFloat(heightIn) || 0;
+    return getBMIExplanationSteps(
+      {
+        weight: weightNum,
+        weightUnit,
+        heightCm: cmNum,
+        heightFt: ftNum,
+        heightIn: inNum,
+        heightUnit,
+      },
+      result
+    );
+  }, [result, weight, weightUnit, heightCm, heightFt, heightIn, heightUnit]);
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8 transition-colors">
@@ -339,6 +359,9 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
                 <DownloadPdfButton onClick={handleDownloadPdf} />
               </div>
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         ) : (
           <div className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/10 p-8 rounded-xl text-center space-y-2">

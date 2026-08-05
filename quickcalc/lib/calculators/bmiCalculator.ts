@@ -98,3 +98,47 @@ export function calculateBMI({
     percent: Math.min(100, Math.max(0, parseFloat(percent.toFixed(1)))),
   };
 }
+
+export function getBMIExplanationSteps(
+  params: BMICalculatorParams,
+  result: BMICalculatorResult
+): string[] {
+  const steps: string[] = [];
+  const { weight, weightUnit, heightCm, heightFt, heightIn, heightUnit } = params;
+
+  if (weightUnit === "lb") {
+    const weightKg = (weight * 0.45359237).toFixed(2);
+    steps.push(`Convert weight from pounds to kilograms: ${weight} lbs ÷ 2.205 = ${weightKg} kg`);
+  } else {
+    steps.push(`Record weight: ${weight} kg`);
+  }
+
+  let heightM = 0;
+  if (heightUnit === "cm") {
+    heightM = (heightCm || 0) / 100;
+    steps.push(`Convert height to meters: ${heightCm} cm ÷ 100 = ${heightM} m`);
+  } else {
+    const totalInches = (heightFt || 0) * 12 + (heightIn || 0);
+    heightM = totalInches * 0.0254;
+    steps.push(`Convert height (${heightFt || 0} ft ${heightIn || 0} in = ${totalInches} in) to meters: ${totalInches} in × 0.0254 = ${heightM.toFixed(3)} m`);
+  }
+
+  const heightSquared = (heightM * heightM).toFixed(4);
+  steps.push(`Square the height in meters: ${heightM.toFixed(2)} × ${heightM.toFixed(2)} = ${heightSquared} m²`);
+
+  const weightKgNum = weightUnit === "lb" ? weight * 0.45359237 : weight;
+  steps.push(`Divide weight by height squared: ${weightKgNum.toFixed(2)} ÷ ${heightSquared} = ${result.bmi}`);
+
+  const categoryRange =
+    result.category === "Underweight"
+      ? "less than 18.5"
+      : result.category === "Normal"
+      ? "18.5–24.9"
+      : result.category === "Overweight"
+      ? "25.0–29.9"
+      : "30.0 or higher";
+
+  steps.push(`Your BMI of ${result.bmi} falls into the '${result.category}' weight range (${categoryRange}).`);
+
+  return steps;
+}

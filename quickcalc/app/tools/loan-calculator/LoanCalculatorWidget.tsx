@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { calculateLoan, LoanResult } from "../../../lib/calculators/loanCalculator";
+import { useState, useMemo } from "react";
+import { calculateLoan, getLoanExplanationSteps, LoanResult } from "../../../lib/calculators/loanCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function LoanCalculatorWidget() {
   const [principal, setPrincipal] = useState<string>("100000");
@@ -120,6 +121,17 @@ Calculated 100% free on QuickCalc.cloud`;
       maximumFractionDigits: 0
     }).format(val);
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result) return [];
+    const pNum = parseFloat(principal) || 0;
+    const rNum = parseFloat(annualRate) || 0;
+    const tNum = parseFloat(tenure) || 0;
+    return getLoanExplanationSteps(
+      { principal: pNum, annualRate: rNum, tenure: tNum, tenureUnit },
+      result
+    );
+  }, [result, principal, annualRate, tenure, tenureUnit]);
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8">
@@ -247,6 +259,9 @@ Calculated 100% free on QuickCalc.cloud`;
                 </span>
               </div>
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
 
           {/* Amortization Table */}

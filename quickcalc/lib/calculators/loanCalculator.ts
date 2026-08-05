@@ -97,3 +97,37 @@ export function calculateLoan({
     amortizationTable,
   };
 }
+
+export function getLoanExplanationSteps(
+  params: LoanParams,
+  result: LoanResult
+): string[] {
+  const steps: string[] = [];
+  const { principal, annualRate, tenure, tenureUnit } = params;
+
+  const totalMonths = tenureUnit === "years" ? tenure * 12 : tenure;
+  if (tenureUnit === "years") {
+    steps.push(`Convert loan term into months: ${tenure} years × 12 = ${totalMonths} monthly payments`);
+  } else {
+    steps.push(`Loan duration: ${totalMonths} monthly payments`);
+  }
+
+  const monthlyRatePercent = annualRate / 12;
+  const monthlyRateDecimal = monthlyRatePercent / 100;
+  steps.push(`Calculate monthly interest rate: ${annualRate}% ÷ 12 = ${monthlyRatePercent.toFixed(4)}% per month (${monthlyRateDecimal.toFixed(6)} decimal)`);
+
+  if (annualRate === 0) {
+    steps.push(`With 0% interest, divide loan principal by number of months: $${principal.toLocaleString()} ÷ ${totalMonths} = $${result.monthlyEMI.toLocaleString()} / month`);
+  } else {
+    steps.push(
+      `Apply EMI formula [P × r × (1+r)^n] ÷ [(1+r)^n - 1]: Principal = $${principal.toLocaleString()}, monthly rate r = ${monthlyRateDecimal.toFixed(6)}, n = ${totalMonths}`
+    );
+    steps.push(`Calculated monthly payment (EMI): $${result.monthlyEMI.toLocaleString()} / month`);
+  }
+
+  steps.push(`Calculate total payment over full term: $${result.monthlyEMI.toLocaleString()} × ${totalMonths} months = $${result.totalPayment.toLocaleString()}`);
+
+  steps.push(`Calculate total interest paid: Total Payment ($${result.totalPayment.toLocaleString()}) - Principal ($${principal.toLocaleString()}) = $${result.totalInterestPayable.toLocaleString()}`);
+
+  return steps;
+}

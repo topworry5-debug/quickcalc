@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { calculateRetirement } from "@/lib/calculators/retirementCalculator";
+import { calculateRetirement, getRetirementExplanationSteps } from "@/lib/calculators/retirementCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function RetirementCalculatorWidget() {
   const [currentAge, setCurrentAge] = useState<string>("30");
@@ -53,6 +54,30 @@ export default function RetirementCalculatorWidget() {
       maximumFractionDigits: 0,
     }).format(val);
   };
+
+  const explanationSteps = useMemo(() => {
+    if (isInvalidAge) return [];
+    return getRetirementExplanationSteps(
+      {
+        currentAge: numCurrentAge,
+        retirementAge: numRetirementAge,
+        currentSavings: numCurrentSavings,
+        monthlyContribution: numMonthlyContribution,
+        annualReturn: numAnnualReturn,
+        annualSalaryGrowth: numAnnualSalaryGrowth,
+      },
+      results
+    );
+  }, [
+    isInvalidAge,
+    numCurrentAge,
+    numRetirementAge,
+    numCurrentSavings,
+    numMonthlyContribution,
+    numAnnualReturn,
+    numAnnualSalaryGrowth,
+    results,
+  ]);
 
   const handleCopy = async () => {
     if (isInvalidAge) return;
@@ -393,6 +418,9 @@ Calculated 100% free on QuickCalc.cloud`;
                 {showTable ? "Hide Year-by-Year Table ▲" : "View Year-by-Year Growth Table ▼"}
               </button>
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
 
             {/* Year-by-Year Growth Table */}
             {showTable && currentPlan.yearlyData.length > 0 && (

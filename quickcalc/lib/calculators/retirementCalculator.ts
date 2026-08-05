@@ -162,3 +162,41 @@ export function calculateRetirement(
     later5Years,
   };
 }
+
+export function getRetirementExplanationSteps(
+  params: {
+    currentAge: number;
+    retirementAge: number;
+    currentSavings: number;
+    monthlyContribution: number;
+    annualReturn: number;
+    annualSalaryGrowth: number;
+  },
+  result: RetirementCalculationResult
+): string[] {
+  const steps: string[] = [];
+  const { currentAge, retirementAge, currentSavings, monthlyContribution, annualReturn, annualSalaryGrowth } = params;
+  const summary = result.currentPlan;
+
+  const yearsCount = Math.max(0, retirementAge - currentAge);
+  const totalMonths = yearsCount * 12;
+
+  steps.push(`Determine investment horizon: Age ${currentAge} to retirement age ${retirementAge} = ${yearsCount} years (${totalMonths} months)`);
+
+  if (currentSavings > 0) {
+    steps.push(`Starting nest egg: $${currentSavings.toLocaleString()} initial savings balance`);
+  } else {
+    steps.push(`Starting nest egg: $0 initial balance`);
+  }
+
+  const growthNote = annualSalaryGrowth > 0 ? ` with a ${annualSalaryGrowth}% annual contribution increase` : "";
+  steps.push(`Total out-of-pocket contributions: $${summary.totalContributed.toLocaleString()} contributed ($${monthlyContribution.toLocaleString()}/month over ${yearsCount} years${growthNote})`);
+
+  steps.push(`Apply ${annualReturn}% annual return: Monthly compounding yields $${summary.totalGrowth.toLocaleString()} in interest & investment gains`);
+
+  steps.push(`Calculate projected final portfolio: $${summary.totalContributed.toLocaleString()} (contributions) + $${summary.totalGrowth.toLocaleString()} (growth) = $${summary.projectedTotal.toLocaleString()} total nest egg at age ${retirementAge}`);
+
+  steps.push(`Portfolio wealth composition: Compound growth makes up ${summary.growthPercent.toFixed(1)}% of your total wealth, while direct contributions make up ${summary.contributionPercent.toFixed(1)}%`);
+
+  return steps;
+}
