@@ -71,3 +71,41 @@ export function getWakeUpTimesForSleepNow(): SleepTimeOption[] {
 
   return options;
 }
+
+export function getSleepExplanationSteps(
+  mode: "wakeup" | "sleepnow",
+  timeStr: string,
+  options: SleepTimeOption[]
+): string[] {
+  const steps: string[] = [];
+
+  if (mode === "wakeup") {
+    steps.push(`Target wake-up time entered: ${timeStr}`);
+    steps.push(`Factor in sleep onset latency: Subtract 15 minutes (average time required to fall asleep)`);
+    steps.push(`Calculate 90-minute sleep cycle boundaries (1 full cycle = 1.5 hours)`);
+
+    const opt5 = options.find((o) => o.cycles === 5);
+    const opt6 = options.find((o) => o.cycles === 6);
+    if (opt5) {
+      steps.push(`Optimal bedtime (5 cycles / 7.5 hrs): Go to sleep at ${opt5.time} to complete 5 full REM cycles`);
+    }
+    if (opt6) {
+      steps.push(`Full rest bedtime (6 cycles / 9.0 hrs): Go to sleep at ${opt6.time} for maximum recovery`);
+    }
+  } else {
+    steps.push(`Current time: Preparing to sleep right now`);
+    steps.push(`Factor in sleep onset latency: Add 15 minutes to fall asleep`);
+    steps.push(`Calculate wake-up times at natural 90-minute REM cycle completion points`);
+
+    const opt5 = options.find((o) => o.cycles === 5);
+    const opt6 = options.find((o) => o.cycles === 6);
+    if (opt5) {
+      steps.push(`Recommended wake-up alarm (5 cycles / 7.5 hrs): Set alarm for ${opt5.time}`);
+    }
+    if (opt6) {
+      steps.push(`Longer rest wake-up alarm (6 cycles / 9.0 hrs): Set alarm for ${opt6.time}`);
+    }
+  }
+
+  return steps;
+}

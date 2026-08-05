@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { formatSecondsToTime, formatPace, timeToSeconds } from "../../../lib/calculators/paceCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { formatSecondsToTime, formatPace, timeToSeconds, getPaceExplanationSteps } from "../../../lib/calculators/paceCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 type Mode = "pace" | "time" | "distance";
 
@@ -146,6 +147,23 @@ export default function PaceCalculatorWidget() {
       setSpeedMph(mph.toFixed(2));
     }
   }, [mode, distance, distanceUnit, hours, minutes, seconds, paceMin, paceSec, paceUnit]);
+
+  const explanationSteps = useMemo(() => {
+    const distNum = parseFloat(distance) || 0;
+    const h = parseInt(hours, 10) || 0;
+    const m = parseInt(minutes, 10) || 0;
+    const s = parseInt(seconds, 10) || 0;
+    const totalSec = timeToSeconds(h, m, s);
+
+    if (distNum <= 0 || totalSec <= 0) return [];
+
+    return getPaceExplanationSteps(distNum, distanceUnit, totalSec, {
+      pacePerKm: calculatedPaceKm || "--:--",
+      pacePerMile: calculatedPaceMile || "--:--",
+      speedKph: speedKph || "0.00",
+      speedMph: speedMph || "0.00",
+    });
+  }, [distance, distanceUnit, hours, minutes, seconds, calculatedPaceKm, calculatedPaceMile, speedKph, speedMph]);
 
   // Race Time Predictions logic
   // Returns prediction times for 5k, 10k, Half, Full marathon based on the active or calculated pace
@@ -549,6 +567,9 @@ export default function PaceCalculatorWidget() {
             ))}
           </div>
         </div>
+
+        {/* Step-by-Step Explanation Accordion */}
+        <ExplainResultAccordion steps={explanationSteps} />
       </div>
     </div>
   );

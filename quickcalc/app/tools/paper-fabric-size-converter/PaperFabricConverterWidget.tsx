@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   getPaperSizeResult,
   convertFabricLength,
+  getPaperFabricExplanationSteps,
   PAPER_SIZES,
   FabricUnit,
   FabricConversionResult,
@@ -11,6 +12,7 @@ import {
 } from "../../../lib/calculators/paperFabricCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function PaperFabricConverterWidget() {
   const [mode, setMode] = useState<"paper" | "fabric">("paper");
@@ -92,6 +94,16 @@ export default function PaperFabricConverterWidget() {
       });
     }
   };
+
+  const explanationSteps = useMemo(() => {
+    const fabVal = parseFloat(fabricValue) || 0;
+    return getPaperFabricExplanationSteps(
+      mode,
+      paperResult,
+      { value: fabVal, unit: fabricUnit },
+      fabricResult
+    );
+  }, [mode, paperResult, fabricValue, fabricUnit, fabricResult]);
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8 transition-colors">
@@ -309,6 +321,9 @@ export default function PaperFabricConverterWidget() {
             <span className="text-2xs text-zinc-400 dark:text-zinc-500 italic">
               Live simultaneous print & textile conversion
             </span>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         )}
       </div>

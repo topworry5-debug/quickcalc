@@ -143,3 +143,29 @@ export function calculateSavingsGrowth(
     })),
   };
 }
+
+export function getSavingsGrowthExplanationSteps(
+  initialDeposit: number,
+  regularAmount: number,
+  frequency: "monthly" | "yearly",
+  annualRate: number,
+  years: number,
+  result: SavingsCalculationResult
+): string[] {
+  const steps: string[] = [];
+
+  steps.push(`Initial deposit starting principal: $${initialDeposit.toLocaleString()}`);
+  steps.push(`Recurring contribution: $${regularAmount.toLocaleString()} per ${frequency}`);
+
+  const recurringTotal = result.totalContributed - initialDeposit;
+  steps.push(`Calculate total deposits over ${years} years: $${initialDeposit.toLocaleString()} initial + $${recurringTotal.toLocaleString()} recurring = $${result.totalContributed.toLocaleString()} contributed out of pocket`);
+
+  steps.push(`Compound interest earned at ${annualRate}% APY over ${years} years: Earned $${result.totalInterest.toLocaleString()} in interest returns`);
+
+  steps.push(`Final accumulated nest egg: $${result.totalContributed.toLocaleString()} (principal) + $${result.totalInterest.toLocaleString()} (interest) = $${result.finalBalance.toLocaleString()}`);
+
+  const interestPct = (result.totalInterest / (result.finalBalance || 1)) * 100;
+  steps.push(`Portfolio ratio: Contributions account for ${((result.totalContributed / (result.finalBalance || 1)) * 100).toFixed(1)}% of your balance, while compound growth provided ${interestPct.toFixed(1)}%`);
+
+  return steps;
+}

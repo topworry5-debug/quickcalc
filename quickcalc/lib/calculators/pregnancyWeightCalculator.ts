@@ -237,3 +237,30 @@ export function calculatePregnancyWeightGain({
     message,
   };
 }
+
+export function getPregnancyWeightExplanationSteps(
+  params: PregnancyCalculatorParams,
+  result: PregnancyCalculatorResult
+): string[] {
+  const steps: string[] = [];
+  const { prePregnancyWeight, currentWeight, weightUnit, currentWeek, pregnancyType } = params;
+
+  steps.push(`Calculate pre-pregnancy baseline BMI: ${result.bmi} BMI falls into the '${result.bmiCategory}' category`);
+
+  const unitLabel = weightUnit === "lb" ? "lbs" : "kg";
+  const gained = weightUnit === "lb" ? result.totalGainedLb : result.totalGainedKg;
+  const targetMin = weightUnit === "lb" ? result.expectedMinLb : result.expectedMinKg;
+  const targetMax = weightUnit === "lb" ? result.expectedMaxLb : result.expectedMaxKg;
+  const totalMin = weightUnit === "lb" ? result.totalRecommendedMinLb : result.totalRecommendedMinKg;
+  const totalMax = weightUnit === "lb" ? result.totalRecommendedMaxLb : result.totalRecommendedMaxKg;
+
+  steps.push(`Calculate actual weight gained so far: ${currentWeight} ${unitLabel} (current) - ${prePregnancyWeight} ${unitLabel} (pre-pregnancy) = ${gained.toFixed(1)} ${unitLabel} gained at Week ${currentWeek}`);
+
+  steps.push(`Apply IOM Guidelines (${pregnancyType === "single" ? "Single Baby" : "Twins"}, ${result.bmiCategory}): Total recommended 40-week gain range is ${totalMin} to ${totalMax} ${unitLabel}`);
+
+  steps.push(`Calculate week-specific target range for Week ${currentWeek}: Ideal target range is ${targetMin.toFixed(1)} to ${targetMax.toFixed(1)} ${unitLabel}`);
+
+  steps.push(`Status assessment: Your current gain of ${gained.toFixed(1)} ${unitLabel} is ${result.status === "within" ? "within" : result.status === "below" ? "slightly below" : "slightly above"} the recommended range for Week ${currentWeek}`);
+
+  return steps;
+}

@@ -171,3 +171,13 @@ export function calculateAge(birthDateString: string): AgeResult | string {
     heartbeats
   };
 }
+
+export function getAgeExplanationSteps(birthdate: string, result: AgeResult): string[] {
+  const steps: string[] = [];
+  steps.push(`Start date: Date of birth recorded as ${birthdate} (born on a ${result.dayOfWeekBorn})`);
+  steps.push(`Calculate exact calendar difference: ${result.years} full years, ${result.months} months, and ${result.days} days elapsed up to today`);
+  steps.push(`Convert total elapsed lifespan: ${result.totalDays.toLocaleString()} days = ${result.totalWeeks.toLocaleString()} weeks = ${result.totalHours.toLocaleString()} hours`);
+  steps.push(`Calculate next milestone: ${result.daysUntilNextBirthday} days until your next birthday (falling on a ${result.dayOfWeekNextBirthday})`);
+  steps.push(`Determine era & profile: Born in ${birthdate.slice(0, 4)} → ${result.generation}, Zodiac: ${result.zodiacSign}, Chinese Zodiac: ${result.chineseZodiac}`);
+  return steps;
+}

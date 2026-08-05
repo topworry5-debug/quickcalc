@@ -151,3 +151,28 @@ export function convertShoeSize(
     jp: interpolate("jp"),
   };
 }
+
+export function getShoeSizeExplanationSteps(
+  gender: "men" | "women",
+  inputSystem: SizingSystem,
+  inputSize: number,
+  result: ShoeSizeEntry
+): string[] {
+  const steps: string[] = [];
+
+  const sysLabels: Record<SizingSystem, string> = {
+    us: "US / Canada",
+    uk: "UK / Australia",
+    eu: "Europe (EU)",
+    jp: "Japan / CM",
+  };
+
+  steps.push(`Recorded input: ${gender === "men" ? "Men's" : "Women's"} ${sysLabels[inputSystem]} Size ${inputSize}`);
+  steps.push(`Apply international conversion grid interpolation`);
+  steps.push(`US / Canada Size equivalent: Size ${result.us}`);
+  steps.push(`UK / Australia Size equivalent: Size ${result.uk}`);
+  steps.push(`Europe (EU) Size equivalent: Size ${result.eu}`);
+  steps.push(`Japan (Foot length in centimeters): ${result.jp} cm`);
+
+  return steps;
+}

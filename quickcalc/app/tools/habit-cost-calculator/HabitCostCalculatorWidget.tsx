@@ -3,6 +3,8 @@
 import { useState, useMemo, useRef } from "react";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import { getHabitExplanationSteps } from "@/lib/calculators/habitCalculator";
 
 export default function HabitCostCalculatorWidget() {
   const [habitName, setHabitName] = useState<string>("");
@@ -188,6 +190,32 @@ export default function HabitCostCalculatorWidget() {
   }, [calculations, dailyTimeInHours, parsedDailyCost]);
 
   const hasAnyInput = dailyTimeInHours > 0 || parsedDailyCost > 0;
+
+  const explanationSteps = useMemo(() => {
+    if (!hasAnyInput) return [];
+    const tenYearCalc = calculations.find((c) => c.key === "10y");
+    const totalMinutes = parsedHours * 60 + parsedMinutes;
+    const monthlyCost = parsedDailyCost * 30.416;
+    const yearlyCost = parsedDailyCost * 365;
+    const tenYearCost = tenYearCalc?.totalMoney || yearlyCost * 10;
+    const investedTenYear = tenYearCalc?.compoundedValue || 0;
+    const yearlyHours = (totalMinutes * 365) / 60;
+
+    return getHabitExplanationSteps(
+      {
+        habitName,
+        dailyCost: parsedDailyCost,
+        dailyMinutes: totalMinutes,
+      },
+      {
+        monthlyCost,
+        yearlyCost,
+        tenYearCost,
+        investedTenYear,
+        yearlyHours,
+      }
+    );
+  }, [hasAnyInput, calculations, parsedHours, parsedMinutes, parsedDailyCost, habitName]);
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-8">
@@ -496,6 +524,9 @@ export default function HabitCostCalculatorWidget() {
             <p className="text-center text-xs text-zinc-500 dark:text-zinc-400 italic">
               Click to copy or download your habit cost report.
             </p>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         </div>
       )}

@@ -95,3 +95,27 @@ export function convertFabricLength(
     cm: parseFloat((meters / 0.01).toFixed(2)),
   };
 }
+
+export function getPaperFabricExplanationSteps(
+  mode: "paper" | "fabric",
+  paperResult?: PaperSizeResult | null,
+  fabricInput?: { value: number; unit: FabricUnit },
+  fabricResult?: FabricConversionResult | string | null
+): string[] {
+  const steps: string[] = [];
+
+  if (mode === "paper" && paperResult) {
+    steps.push(`Selected paper standard: ${paperResult.name}`);
+    steps.push(`Exact dimensions in Millimeters: ${paperResult.mm.width} mm × ${paperResult.mm.height} mm`);
+    steps.push(`Convert to Centimeters (mm ÷ 10): ${paperResult.cm.width} cm × ${paperResult.cm.height} cm`);
+    steps.push(`Convert to Imperial Inches (mm ÷ 25.4): ${paperResult.inches.width}" × ${paperResult.inches.height}"`);
+  } else if (mode === "fabric" && fabricInput && fabricResult && typeof fabricResult !== "string") {
+    steps.push(`Input fabric length: ${fabricInput.value} ${fabricInput.unit}`);
+    steps.push(`Convert to SI base unit (Meters): ${fabricResult.meters} m`);
+    steps.push(`Convert to Yards (m ÷ 0.9144): ${fabricResult.yards} yards`);
+    steps.push(`Convert to Inches (m ÷ 0.0254): ${fabricResult.inches} inches`);
+    steps.push(`Convert to Centimeters: ${fabricResult.cm} cm`);
+  }
+
+  return steps;
+}

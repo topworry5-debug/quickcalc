@@ -40,3 +40,19 @@ export function calculateTip(config: TipConfig): TipResult {
     totalPerPerson: Number(totalPerPerson.toFixed(2)),
   };
 }
+
+export function getTipExplanationSteps(config: TipConfig, result: TipResult): string[] {
+  const steps: string[] = [];
+  const { billAmount, tipPercentage, peopleCount } = config;
+
+  steps.push(`Base bill subtotal: $${billAmount.toFixed(2)}`);
+  steps.push(`Calculate total tip (${tipPercentage}%): $${billAmount.toFixed(2)} × ${tipPercentage}% = $${result.tipAmount.toFixed(2)} tip`);
+  steps.push(`Sum grand bill total: $${billAmount.toFixed(2)} (bill) + $${result.tipAmount.toFixed(2)} (tip) = $${result.totalBill.toFixed(2)}`);
+
+  if (peopleCount > 1) {
+    steps.push(`Split tip per person (${peopleCount} people): $${result.tipAmount.toFixed(2)} ÷ ${peopleCount} = $${result.tipPerPerson.toFixed(2)} tip per person`);
+    steps.push(`Split total per person: $${result.totalBill.toFixed(2)} ÷ ${peopleCount} = $${result.totalPerPerson.toFixed(2)} total owed per person`);
+  }
+
+  return steps;
+}

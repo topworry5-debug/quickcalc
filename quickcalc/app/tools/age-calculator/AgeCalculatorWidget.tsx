@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { calculateAge, AgeResult } from "@/lib/calculators/ageCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { calculateAge, getAgeExplanationSteps, AgeResult } from "@/lib/calculators/ageCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function AgeCalculatorWidget() {
   const [dateString, setDateString] = useState<string>("");
@@ -64,6 +65,11 @@ export default function AgeCalculatorWidget() {
       console.error("Failed to copy", err);
     }
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result || typeof result === "string") return [];
+    return getAgeExplanationSteps(dateString, result);
+  }, [dateString, result]);
 
   const isError = typeof result === "string";
 
@@ -323,6 +329,8 @@ export default function AgeCalculatorWidget() {
               </div>
             </div>
 
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         )}
       </div>

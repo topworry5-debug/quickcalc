@@ -171,3 +171,24 @@ export function calculateTimezoneOverlap(
 
   return { rows };
 }
+
+export function getTimezoneExplanationSteps(
+  sourceCityName: string,
+  sourceTime: string,
+  result: TimezonePlanResult
+): string[] {
+  const steps: string[] = [];
+
+  steps.push(`Origin meeting time: ${sourceTime} in ${sourceCityName}`);
+  steps.push(`Convert origin time to UTC reference timestamp`);
+
+  const workingCities = result.rows.filter((r) => r.isWorkingHours);
+  steps.push(`Working hours filter (8:00 AM - 7:00 PM): ${workingCities.length} out of ${result.rows.length} global business hubs fall within standard business hours`);
+
+  if (result.rows.length > 0) {
+    const sample = result.rows[0];
+    steps.push(`Example timezone conversion (${sample.name}): ${sourceTime} in ${sourceCityName} translates to ${sample.formattedTime} (${sample.dayOffsetLabel}) in ${sample.name}`);
+  }
+
+  return steps;
+}

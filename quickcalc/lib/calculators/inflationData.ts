@@ -166,3 +166,27 @@ export const inflationData: Record<string, CountryData> = {
     ],
   },
 };
+
+export interface InflationExplanationParams {
+  amount: number;
+  startYear: number;
+  endYear: number;
+  symbol: string;
+  startCPI: number;
+  endCPI: number;
+  equivalentAmount: number;
+  totalPercent: number;
+}
+
+export function getInflationExplanationSteps(params: InflationExplanationParams): string[] {
+  const steps: string[] = [];
+  const { amount, startYear, endYear, symbol, startCPI, endCPI, equivalentAmount, totalPercent } = params;
+
+  steps.push(`Base currency amount: ${symbol}${amount.toLocaleString()} in Year ${startYear} (CPI Index: ${startCPI})`);
+  steps.push(`Target year CPI Index: Year ${endYear} CPI Index is ${endCPI}`);
+  steps.push(`Calculate cumulative inflation rate: ((${endCPI} - ${startCPI}) ÷ ${startCPI}) × 100 = +${totalPercent.toFixed(1)}% cumulative inflation`);
+  steps.push(`Calculate equivalent purchasing power: ${symbol}${amount.toLocaleString()} × (${endCPI} ÷ ${startCPI}) = ${symbol}${equivalentAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
+  steps.push(`Conclusion: ${symbol}${amount.toLocaleString()} in ${startYear} has the exact same buying power as ${symbol}${equivalentAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} in ${endYear}`);
+
+  return steps;
+}

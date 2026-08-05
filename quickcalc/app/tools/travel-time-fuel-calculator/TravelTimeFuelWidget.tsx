@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   DistanceUnit,
   TimeUnit,
@@ -9,9 +9,11 @@ import {
   calculateSDT,
   calculateFlightDuration,
   calculateFuelCost,
+  getTravelExplanationSteps,
 } from "@/lib/calculators/travelCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 type ActiveTab = "sdt" | "flight" | "fuel";
 
@@ -96,6 +98,32 @@ export default function TravelTimeFuelWidget() {
       setFuelResult(res);
     }
   }, [activeTab, fuelDistance, fuelDistanceUnit, efficiency, efficiencyUnit, fuelPrice, priceUnit]);
+
+  const explanationSteps = useMemo(() => {
+    if (activeTab === "sdt" && sdtResult) {
+      return getTravelExplanationSteps("sdt", {
+        calculateType: sdtType,
+        distance: parseFloat(distance) || 0,
+        distanceUnit,
+        speed: parseFloat(speed) || 0,
+        speedUnit,
+        time: parseFloat(time) || 0,
+        timeUnit,
+        result: sdtResult,
+      });
+    } else if (activeTab === "fuel" && fuelResult) {
+      return getTravelExplanationSteps("fuel", undefined, {
+        distance: parseFloat(fuelDistance) || 0,
+        distanceUnit: fuelDistanceUnit,
+        efficiency: parseFloat(efficiency) || 0,
+        efficiencyUnit,
+        fuelPrice: parseFloat(fuelPrice) || 0,
+        priceUnit,
+        result: fuelResult,
+      });
+    }
+    return [];
+  }, [activeTab, sdtType, sdtResult, fuelResult, distance, distanceUnit, speed, speedUnit, time, timeUnit, fuelDistance, fuelDistanceUnit, efficiency, efficiencyUnit, fuelPrice, priceUnit]);
 
   const handleReset = () => {
     if (activeTab === "sdt") {
@@ -565,6 +593,9 @@ export default function TravelTimeFuelWidget() {
             )}
           </div>
         )}
+
+        {/* Step-by-Step Explanation Accordion */}
+        <ExplainResultAccordion steps={explanationSteps} />
 
         {/* Global Action Buttons */}
         <div className="flex items-center justify-between pt-2">

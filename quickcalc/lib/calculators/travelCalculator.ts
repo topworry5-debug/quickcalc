@@ -185,3 +185,46 @@ export function calculateFuelCost({
     efficiencyL100km: parseFloat(l100km.toFixed(2)),
   };
 }
+
+export function getTravelExplanationSteps(
+  mode: "sdt" | "fuel",
+  sdtParams?: { calculateType: "time" | "distance" | "speed"; distance: number; distanceUnit: DistanceUnit; speed: number; speedUnit: SpeedUnit; time: number; timeUnit: TimeUnit; result: SDTResult },
+  fuelParams?: { distance: number; distanceUnit: string; efficiency: number; efficiencyUnit: string; fuelPrice: number; priceUnit: string; result: FuelCalculatorResult }
+): string[] {
+  const steps: string[] = [];
+
+  if (mode === "sdt" && sdtParams) {
+    const { calculateType, distance, distanceUnit, speed, speedUnit, time, timeUnit, result } = sdtParams;
+
+    if (calculateType === "time") {
+      steps.push(`Calculate travel time: Distance ÷ Speed`);
+      steps.push(`Distance input: ${distance} ${distanceUnit}`);
+      steps.push(`Speed input: ${speed} ${speedUnit}`);
+      steps.push(`Convert both to SI base units (meters and m/s) for the calculation`);
+      steps.push(`Result: Travel time = ${result.formatted}`);
+    } else if (calculateType === "distance") {
+      steps.push(`Calculate distance: Speed × Time`);
+      steps.push(`Speed input: ${speed} ${speedUnit}`);
+      steps.push(`Time input: ${time} ${timeUnit}`);
+      steps.push(`Convert both to SI base units (m/s and seconds) for the calculation`);
+      steps.push(`Result: Distance covered = ${result.formatted}`);
+    } else if (calculateType === "speed") {
+      steps.push(`Calculate average speed: Distance ÷ Time`);
+      steps.push(`Distance input: ${distance} ${distanceUnit}`);
+      steps.push(`Time input: ${time} ${timeUnit}`);
+      steps.push(`Convert both to SI base units (meters and seconds) for the calculation`);
+      steps.push(`Result: Average speed = ${result.formatted}`);
+    }
+  } else if (mode === "fuel" && fuelParams) {
+    const { distance, distanceUnit, efficiency, efficiencyUnit, fuelPrice, priceUnit, result } = fuelParams;
+
+    steps.push(`Trip distance: ${distance} ${distanceUnit}`);
+    steps.push(`Vehicle fuel efficiency: ${efficiency} ${efficiencyUnit}`);
+    steps.push(`Normalized efficiency to L/100km: ${result.efficiencyL100km} L/100km`);
+    steps.push(`Calculate total fuel needed: (distance in km × ${result.efficiencyL100km} L/100km) ÷ 100 = ${result.totalFuelLiters} liters`);
+    steps.push(`Fuel price: ${fuelPrice} (${priceUnit})`);
+    steps.push(`Total fuel cost: ${result.totalCost.toFixed(2)}`);
+  }
+
+  return steps;
+}

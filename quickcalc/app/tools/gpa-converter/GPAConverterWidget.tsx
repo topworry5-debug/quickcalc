@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { convertToGPA, GradingSystem, GPAConverterResult } from "../../../lib/calculators/gpaConverter";
+import { useState, useMemo } from "react";
+import { convertToGPA, getGpaExplanationSteps, GradingSystem, GPAConverterResult } from "../../../lib/calculators/gpaConverter";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function GPAConverterWidget() {
   const [system, setSystem] = useState<GradingSystem>("us-percentage");
@@ -77,6 +78,11 @@ export default function GPAConverterWidget() {
         return "";
     }
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result) return [];
+    return getGpaExplanationSteps(system, gradeInput, result);
+  }, [system, gradeInput, result]);
 
   return (
     <div className="w-full max-w-xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8">
@@ -168,6 +174,9 @@ export default function GPAConverterWidget() {
           <div className="mt-6 flex justify-center border-t border-zinc-200/60 dark:border-zinc-800/60 pt-4">
             <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
+
+          {/* Step-by-Step Explanation Accordion */}
+          <ExplainResultAccordion steps={explanationSteps} />
 
           <p className="text-[10px] text-zinc-400 dark:text-zinc-500 mt-4 italic">
             *This is an approximate equivalence. Academic institutions around the world utilize highly varying and custom grading conversions. Refer to your targeted university admissions page for exact scale conversions.

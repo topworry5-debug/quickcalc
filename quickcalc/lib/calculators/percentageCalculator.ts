@@ -115,3 +115,39 @@ export function calculateReversePercentage(finalValue: number, percent: number):
     formula: `Original Value = ${cleanFinal} / (${cleanPercent} / 100) = ${cleanOriginal}`
   };
 }
+
+export function getPercentageExplanationSteps(
+  mode: "a" | "b" | "c" | "d",
+  v1: number,
+  v2: number,
+  resA?: ModeAResult,
+  resB?: ModeBResult,
+  resC?: ModeCResult,
+  resD?: ModeDResult
+): string[] {
+  const steps: string[] = [];
+
+  if (mode === "a" && resA) {
+    steps.push(`Calculation mode: Find ${v1}% of ${v2}`);
+    steps.push(`Convert percentage to decimal fraction: ${v1}% ÷ 100 = ${(v1 / 100).toFixed(4)}`);
+    steps.push(`Multiply decimal by base number: ${(v1 / 100).toFixed(4)} × ${v2} = ${resA.result.toFixed(2)}`);
+    steps.push(`Final answer: ${v1}% of ${v2} is ${resA.result.toFixed(2)}`);
+  } else if (mode === "b" && resB) {
+    steps.push(`Calculation mode: Percentage change from ${v1} to ${v2}`);
+    steps.push(`Calculate absolute difference: ${v2} - ${v1} = ${resB.difference > 0 ? "+" : ""}${resB.difference}`);
+    steps.push(`Divide difference by original starting value: ${resB.difference} ÷ ${v1} = ${(resB.difference / (v1 || 1)).toFixed(4)}`);
+    steps.push(`Multiply by 100 for percentage: ${(resB.difference / (v1 || 1)).toFixed(4)} × 100 = ${resB.percentChange.toFixed(2)}% ${resB.direction}`);
+  } else if (mode === "c" && resC) {
+    steps.push(`Calculation mode: ${v2}% discount off $${v1}`);
+    steps.push(`Calculate discount savings: $${v1} × ${v2}% = $${resC.amountSaved.toFixed(2)} saved`);
+    steps.push(`Subtract savings from starting price: $${v1} - $${resC.amountSaved.toFixed(2)} = $${resC.finalPrice.toFixed(2)}`);
+    steps.push(`Final price after discount: $${resC.finalPrice.toFixed(2)}`);
+  } else if (mode === "d" && resD) {
+    steps.push(`Calculation mode: Reverse percentage (${v1} represents ${v2}% of the total)`);
+    steps.push(`Convert percentage to decimal: ${v2}% ÷ 100 = ${(v2 / 100).toFixed(4)}`);
+    steps.push(`Divide known value by decimal percentage: ${v1} ÷ ${(v2 / 100).toFixed(4)} = ${resD.originalValue.toFixed(2)}`);
+    steps.push(`Original 100% total value: ${resD.originalValue.toFixed(2)}`);
+  }
+
+  return steps;
+}

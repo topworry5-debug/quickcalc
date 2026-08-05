@@ -94,3 +94,27 @@ export function calculateDueDate({ method, dateString }: DueDateParams): DueDate
     progressPercent,
   };
 }
+
+export function getDueDateExplanationSteps(
+  params: DueDateParams,
+  result: DueDateResult
+): string[] {
+  const steps: string[] = [];
+  const { method, dateString } = params;
+
+  if (method === "lmp") {
+    steps.push(`Calculation basis: Last Menstrual Period (LMP) recorded as ${dateString}`);
+    steps.push(`Apply Naegele's Rule: Add 280 days (40 full gestational weeks) to LMP date`);
+    steps.push(`Estimated Due Date calculated: ${result.dueDate}`);
+    steps.push(`Calculate current gestational age: ${result.gestationalAgeDays} days elapsed since LMP = ${result.weeks} weeks and ${result.days} days`);
+    steps.push(`Trimester classification: Currently at week ${result.weeks} → '${result.trimester}' (${result.progressPercent.toFixed(1)}% through 40-week term)`);
+  } else {
+    steps.push(`Calculation basis: Estimated Conception Date recorded as ${dateString}`);
+    steps.push(`Add fetal development timeline: Add 266 days (38 weeks post-conception) to conception date`);
+    steps.push(`Estimated Due Date calculated: ${result.dueDate}`);
+    steps.push(`Calculate clinical gestational age (conception + 14 baseline days): ${result.gestationalAgeDays} days = ${result.weeks} weeks and ${result.days} days`);
+    steps.push(`Trimester classification: Currently at week ${result.weeks} → '${result.trimester}' (${result.progressPercent.toFixed(1)}% through 40-week term)`);
+  }
+
+  return steps;
+}

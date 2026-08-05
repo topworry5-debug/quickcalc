@@ -145,3 +145,27 @@ export function convertToGPA(system: GradingSystem, input: string): GPAConverter
     percentageEquivalent,
   };
 }
+
+export function getGpaExplanationSteps(
+  system: GradingSystem,
+  inputVal: string,
+  result: GPAConverterResult
+): string[] {
+  const steps: string[] = [];
+
+  const systemNames: Record<GradingSystem, string> = {
+    "us-percentage": "US Percentage System",
+    "us-letter": "US Letter Grade System",
+    "uk-letter": "UK Honours System (First, 2:1, 2:2, 3rd)",
+    "pakistan-india-percentage": "Pakistan / India Percentage System",
+    "canada-percentage": "Canada Percentage Scale",
+  };
+
+  steps.push(`Selected Grading Framework: ${systemNames[system] || system}`);
+  steps.push(`Input grade entered: '${inputVal}'`);
+  steps.push(`Map grade to percentage band: '${inputVal}' falls into the ${result.percentageEquivalent} range`);
+  steps.push(`Convert to US Letter Grade equivalent: Mapped to '${result.letterEquivalent}' grade`);
+  steps.push(`Calculate 4.0 Scale GPA equivalent: ${inputVal} → ${result.gpa.toFixed(2)} / 4.00 GPA`);
+
+  return steps;
+}

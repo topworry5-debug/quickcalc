@@ -3,6 +3,8 @@
 import { useState, useMemo } from "react";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import { getDiscountExplanationSteps } from "@/lib/calculators/discountCalculator";
 
 type ActiveMode = "sale" | "original";
 
@@ -208,6 +210,21 @@ export default function DiscountCalculatorWidget() {
       amountSaved,
     };
   }, [salePriceStr, reverseDiscountStr]);
+
+  const explanationSteps = useMemo(() => {
+    if (!salePriceResult.isValid) return [];
+    const orig = salePriceResult.originalPrice;
+    const d1 = parseFloat(discounts[0]) || 0;
+    const d2 = discounts.length > 1 ? parseFloat(discounts[1]) || 0 : 0;
+    return getDiscountExplanationSteps(
+      { originalPrice: orig, discount1: d1, discount2: d2, taxRate: 0 },
+      {
+        finalPrice: salePriceResult.finalPrice,
+        totalSaved: salePriceResult.totalSaved,
+        effectiveDiscountPercent: salePriceResult.effectiveDiscountPercent,
+      }
+    );
+  }, [salePriceResult, discounts]);
 
   // Handle adding stacked discount
   const addDiscount = () => {
@@ -475,6 +492,9 @@ Total Amount Saved: ${formatNumber(amountSaved)}
                     </div>
                   )}
                 </div>
+
+                {/* Step-by-Step Explanation Accordion */}
+                <ExplainResultAccordion steps={explanationSteps} />
               </div>
             )}
           </div>

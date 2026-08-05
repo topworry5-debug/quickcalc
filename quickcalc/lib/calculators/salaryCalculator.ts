@@ -281,3 +281,27 @@ export function calculateSalary(
     deductionsPercentage: Math.round(deductionsPercentage * 10) / 10
   };
 }
+
+export function getSalaryExplanationSteps(
+  country: string,
+  input: SalaryCalculatorInput,
+  result: SalaryCalculatorResult
+): string[] {
+  const steps: string[] = [];
+  const { grossSalary, salaryType, payFrequency } = input;
+
+  steps.push(`Gross earnings input: $${grossSalary.toLocaleString()} ${salaryType} (${country.toUpperCase()} tax model)`);
+  steps.push(`Annualize gross earnings: $${result.grossSalaryAnnual.toLocaleString()}/year baseline`);
+
+  steps.push(`Calculate total tax & payroll deductions: $${result.totalDeductionsAnnual.toLocaleString()}/year (${(100 - result.takeHomePercentage).toFixed(1)}% total effective deduction rate)`);
+
+  result.deductionsBreakdownAnnual.forEach((d) => {
+    steps.push(`• ${d.name}: $${d.amount.toLocaleString()}/year`);
+  });
+
+  steps.push(`Net take-home pay (Annual): $${result.grossSalaryAnnual.toLocaleString()} (gross) - $${result.totalDeductionsAnnual.toLocaleString()} (deductions) = $${result.netPayAnnual.toLocaleString()}/year`);
+
+  steps.push(`Net take-home pay (${payFrequency}): $${result.netPaySelected.toLocaleString()} per ${payFrequency === "annually" ? "year" : payFrequency.replace("ly", "")} (${result.takeHomePercentage.toFixed(1)}% net retention)`);
+
+  return steps;
+}

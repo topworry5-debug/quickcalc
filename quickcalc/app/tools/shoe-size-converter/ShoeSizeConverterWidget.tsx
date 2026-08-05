@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { convertShoeSize, SizingSystem, ShoeConversionResult } from "../../../lib/calculators/shoeSizeCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { convertShoeSize, getShoeSizeExplanationSteps, SizingSystem, ShoeConversionResult } from "../../../lib/calculators/shoeSizeCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function ShoeSizeConverterWidget() {
   const [gender, setGender] = useState<"mens" | "womens">("mens");
@@ -55,6 +56,17 @@ export default function ShoeSizeConverterWidget() {
       console.error("Failed to copy", err);
     }
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result || typeof result === "string") return [];
+    const sizeNum = parseFloat(sizeInput) || 0;
+    return getShoeSizeExplanationSteps(
+      gender === "mens" ? "men" : "women",
+      system,
+      sizeNum,
+      result
+    );
+  }, [gender, system, sizeInput, result]);
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8 transition-colors">
@@ -196,6 +208,9 @@ export default function ShoeSizeConverterWidget() {
                 Simultaneous 4-system cross conversion
               </span>
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         ) : (
           <div className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/10 p-8 rounded-xl text-center space-y-2">

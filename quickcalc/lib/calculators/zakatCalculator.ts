@@ -70,3 +70,37 @@ export function calculateZakat(config: ZakatConfig): ZakatResult {
     zakatDue: Number(zakatDue.toFixed(2)),
   };
 }
+
+export function getZakatExplanationSteps(config: ZakatConfig, result: ZakatResult): string[] {
+  const steps: string[] = [];
+
+  const goldValue = config.goldGrams * config.goldPricePerGram;
+  const silverValue = config.silverGrams * config.silverPricePerGram;
+
+  steps.push(`Step 1 — Calculate total Zakatable assets:`);
+  steps.push(`  Cash & bank savings: $${config.cash.toLocaleString()}`);
+  if (goldValue > 0) steps.push(`  Gold value: ${config.goldGrams}g × $${config.goldPricePerGram}/g = $${goldValue.toLocaleString()}`);
+  if (silverValue > 0) steps.push(`  Silver value: ${config.silverGrams}g × $${config.silverPricePerGram}/g = $${silverValue.toLocaleString()}`);
+  if (config.businessAssets > 0) steps.push(`  Business assets: $${config.businessAssets.toLocaleString()}`);
+  if (config.investments > 0) steps.push(`  Investments: $${config.investments.toLocaleString()}`);
+  if (config.moneyOwedToYou > 0) steps.push(`  Money owed to you (receivables): $${config.moneyOwedToYou.toLocaleString()}`);
+  steps.push(`  Total assets = $${result.totalAssets.toLocaleString()}`);
+
+  if (config.moneyOwedToOthers > 0) {
+    steps.push(`Step 2 — Deduct liabilities: $${result.totalAssets.toLocaleString()} - $${config.moneyOwedToOthers.toLocaleString()} = $${result.netWealth.toLocaleString()} net wealth`);
+  } else {
+    steps.push(`Step 2 — No liabilities entered. Net wealth = $${result.netWealth.toLocaleString()}`);
+  }
+
+  const nisabStandardLabel = config.nisabStandard === "gold" ? `Gold Nisab (${GOLD_NISAB_GRAMS}g × $${config.goldPricePerGram}/g)` : `Silver Nisab (${SILVER_NISAB_GRAMS}g × $${config.silverPricePerGram}/g)`;
+  steps.push(`Step 3 — Nisab threshold (${nisabStandardLabel}): $${result.nisabThreshold.toLocaleString()}`);
+
+  if (result.isAboveNisab) {
+    steps.push(`Step 4 — Net wealth ($${result.netWealth.toLocaleString()}) is above Nisab threshold. Zakat is obligatory.`);
+    steps.push(`Step 5 — Apply 2.5% Zakat rate: $${result.netWealth.toLocaleString()} × 2.5% = $${result.zakatDue.toLocaleString()} due`);
+  } else {
+    steps.push(`Step 4 — Net wealth ($${result.netWealth.toLocaleString()}) is below Nisab threshold ($${result.nisabThreshold.toLocaleString()}). No Zakat is due this year.`);
+  }
+
+  return steps;
+}

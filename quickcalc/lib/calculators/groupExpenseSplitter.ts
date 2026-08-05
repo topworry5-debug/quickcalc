@@ -94,3 +94,31 @@ export function calculateSplitExpenses(
     breakdowns: Object.values(breakdownsMap),
   };
 }
+
+export function getGroupExpenseExplanationSteps(
+  result: SplitterResult,
+  taxPct: number,
+  tipPct: number
+): string[] {
+  const steps: string[] = [];
+
+  steps.push(`Sum total item subtotals: $${result.totalSubtotal.toFixed(2)} across all group expenses`);
+
+  if (taxPct > 0) {
+    steps.push(`Calculate total sales tax (${taxPct}%): $${result.totalSubtotal.toFixed(2)} × ${taxPct}% = $${result.totalTax.toFixed(2)} tax`);
+  }
+  if (tipPct > 0) {
+    steps.push(`Calculate total tip (${tipPct}%): $${result.totalSubtotal.toFixed(2)} × ${tipPct}% = $${result.totalTip.toFixed(2)} tip`);
+  }
+
+  steps.push(`Calculate grand bill total: $${result.totalSubtotal.toFixed(2)} (items) + $${result.totalTax.toFixed(2)} (tax) + $${result.totalTip.toFixed(2)} (tip) = $${result.grandTotal.toFixed(2)}`);
+
+  steps.push(`Distribute costs fairly: Tax & tip are split proportionally based on each person's individual item subtotal proportion`);
+
+  if (result.breakdowns.length > 0) {
+    const p1 = result.breakdowns[0];
+    steps.push(`Example breakdown (${p1.personName}): Subtotal $${p1.subtotal.toFixed(2)} + Tax $${p1.taxShare.toFixed(2)} + Tip $${p1.tipShare.toFixed(2)} = $${p1.total.toFixed(2)} total owed`);
+  }
+
+  return steps;
+}

@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   calculatePregnancyWeightGain,
+  getPregnancyWeightExplanationSteps,
   PregnancyCalculatorResult,
 } from "../../../lib/calculators/pregnancyWeightCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function PregnancyWeightGainCalculatorWidget() {
   // Unit toggle state: "metric" (cm, kg) or "imperial" (ft/in, lb)
@@ -133,6 +135,29 @@ export default function PregnancyWeightGainCalculatorWidget() {
   };
 
   const visualData = getVisualPercentages();
+
+  const explanationSteps = useMemo(() => {
+    if (!result) return [];
+    const preWeight = parseFloat(prePregnancyWeight) || 0;
+    const currWeight = parseFloat(currentWeight) || 0;
+    const cm = parseFloat(heightCm) || 0;
+    const ft = parseFloat(heightFt) || 0;
+    const inch = parseFloat(heightIn) || 0;
+    return getPregnancyWeightExplanationSteps(
+      {
+        prePregnancyWeight: preWeight,
+        currentWeight: currWeight,
+        weightUnit: unitMode === "imperial" ? "lb" : "kg",
+        heightCm: cm,
+        heightFt: ft,
+        heightIn: inch,
+        heightUnit: unitMode === "imperial" ? "ft" : "cm",
+        currentWeek,
+        pregnancyType,
+      },
+      result
+    );
+  }, [result, prePregnancyWeight, currentWeight, unitMode, heightCm, heightFt, heightIn, currentWeek, pregnancyType]);
 
   return (
     <div className="w-full max-w-3xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8 transition-colors">
@@ -486,8 +511,12 @@ export default function PregnancyWeightGainCalculatorWidget() {
         )}
 
         {result && (
-          <div className="flex justify-center">
-            <DownloadPdfButton onClick={handleDownloadPdf} />
+          <div className="space-y-4">
+            <div className="flex justify-center">
+              <DownloadPdfButton onClick={handleDownloadPdf} />
+            </div>
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         )}
 

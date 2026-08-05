@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { calculateTip } from "../../../lib/calculators/tipCalculator";
+import { calculateTip, getTipExplanationSteps } from "../../../lib/calculators/tipCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function TipCalculatorWidget() {
   const [billInput, setBillInput] = useState<string>("");
@@ -47,6 +48,14 @@ export default function TipCalculatorWidget() {
       peopleCount,
     });
   }, [billAmount, tipPercentage, peopleCount]);
+
+  const explanationSteps = useMemo(() => {
+    if (billAmount <= 0) return [];
+    return getTipExplanationSteps(
+      { billAmount, tipPercentage, peopleCount },
+      results
+    );
+  }, [billAmount, tipPercentage, peopleCount, results]);
 
   const handleCopyBreakdown = async () => {
     if (billAmount <= 0) return;
@@ -254,6 +263,9 @@ export default function TipCalculatorWidget() {
                   </button>
                   <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
                 </div>
+
+                {/* Step-by-Step Explanation Accordion */}
+                <ExplainResultAccordion steps={explanationSteps} />
               </div>
             )}
           </div>

@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { calculateSalary, SalaryCalculatorResult, CANADA_TAX_CONFIG } from "../../../lib/calculators/salaryCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { calculateSalary, getSalaryExplanationSteps, SalaryCalculatorResult, CANADA_TAX_CONFIG } from "../../../lib/calculators/salaryCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 type CountryType = "US" | "Canada" | "Pakistan";
 type SalaryType = "annual" | "monthly";
@@ -45,6 +46,16 @@ export default function SalaryTakeHomeCalculatorWidget() {
         return "₨";
     }
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result) return [];
+    const salaryVal = parseFloat(grossSalary) || 0;
+    return getSalaryExplanationSteps(
+      country,
+      { grossSalary: salaryVal, salaryType, payFrequency },
+      result
+    );
+  }, [result, country, grossSalary, salaryType, payFrequency]);
 
   const getCurrencyCode = (cntry: CountryType) => {
     switch (cntry) {
@@ -361,6 +372,9 @@ export default function SalaryTakeHomeCalculatorWidget() {
                 </button>
                 <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
               </div>
+
+              {/* Step-by-Step Explanation Accordion */}
+              <ExplainResultAccordion steps={explanationSteps} />
             </div>
           )
         )}

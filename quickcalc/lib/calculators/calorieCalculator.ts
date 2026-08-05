@@ -74,3 +74,34 @@ export function calculateCalories({
     gainWeight: Math.round(tdee + 500),
   };
 }
+
+export function getCalorieExplanationSteps(
+  params: CalorieParams,
+  result: CalorieResult
+): string[] {
+  const steps: string[] = [];
+  const { sex, age, height, weight, activityLevel } = params;
+
+  const sexFormula = sex === "male"
+    ? `(10 × ${weight}kg) + (6.25 × ${height}cm) - (5 × ${age}y) + 5`
+    : `(10 × ${weight}kg) + (6.25 × ${height}cm) - (5 × ${age}y) - 161`;
+
+  steps.push(`Calculate Basal Metabolic Rate (BMR) using Mifflin-St Jeor formula: ${sexFormula} = ${result.bmr} kcal/day`);
+
+  const multMap: Record<string, { label: string; val: number }> = {
+    sedentary: { label: "Sedentary (little to no exercise)", val: 1.2 },
+    light: { label: "Lightly Active (1-3 days/wk)", val: 1.375 },
+    moderate: { label: "Moderately Active (3-5 days/wk)", val: 1.55 },
+    active: { label: "Very Active (6-7 days/wk)", val: 1.725 },
+    extreme: { label: "Extremely Active (hard physical job)", val: 1.9 },
+  };
+
+  const activityInfo = multMap[activityLevel] || { label: activityLevel, val: 1.2 };
+  steps.push(`Apply physical activity factor '${activityInfo.label}': BMR (${result.bmr}) × ${activityInfo.val} = ${result.tdee} kcal/day (Total Daily Energy Expenditure)`);
+
+  steps.push(`Maintenance Target: Eat ~${result.tdee} kcal/day to keep weight unchanged`);
+  steps.push(`Weight Loss Target (-1 lb / 0.45 kg per week): 500 kcal deficit → ${result.loseWeight} kcal/day`);
+  steps.push(`Weight Gain Target (+1 lb / 0.45 kg per week): 500 kcal surplus → ${result.gainWeight} kcal/day`);
+
+  return steps;
+}

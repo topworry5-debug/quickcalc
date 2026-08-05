@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import {
   calculateZakat,
+  getZakatExplanationSteps,
   GOLD_NISAB_GRAMS,
   SILVER_NISAB_GRAMS,
   ZakatConfig,
@@ -10,6 +11,7 @@ import {
 } from "../../../lib/calculators/zakatCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function ZakatCalculatorWidget() {
   // Input fields
@@ -62,6 +64,11 @@ export default function ZakatCalculatorWidget() {
   };
 
   const results: ZakatResult = calculateZakat(config);
+
+  const explanationSteps = useMemo(() => {
+    return getZakatExplanationSteps(config, results);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nCash, nGoldGrams, nSilverGrams, nBusinessAssets, nInvestments, nMoneyOwedToYou, nMoneyOwedToOthers, nGoldPrice, nSilverPrice, nisabStandard]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat("en-US", {
@@ -519,6 +526,9 @@ Calculated via QuickCalc Zakat Tool (https://quickcalc.cloud/tools/zakat-calcula
               </button>
               <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         </div>
       </div>

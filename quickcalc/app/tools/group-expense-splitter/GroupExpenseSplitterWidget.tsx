@@ -5,9 +5,11 @@ import {
   Person,
   ExpenseItem,
   calculateSplitExpenses,
+  getGroupExpenseExplanationSteps,
 } from "../../../lib/calculators/groupExpenseSplitter";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function GroupExpenseSplitterWidget() {
   const [people, setPeople] = useState<Person[]>([
@@ -152,10 +154,17 @@ export default function GroupExpenseSplitterWidget() {
 
   // Calculations
   const calculatedResults = useMemo(() => {
-    const tax = parseFloat(taxPercent) || 0;
-    const tip = parseFloat(tipPercent) || 0;
-    return calculateSplitExpenses(people, items, tax, tip);
+    const taxNum = parseFloat(taxPercent) || 0;
+    const tipNum = parseFloat(tipPercent) || 0;
+    return calculateSplitExpenses(people, items, taxNum, tipNum);
   }, [people, items, taxPercent, tipPercent]);
+
+  const explanationSteps = useMemo(() => {
+    if (!calculatedResults || items.length === 0) return [];
+    const taxNum = parseFloat(taxPercent) || 0;
+    const tipNum = parseFloat(tipPercent) || 0;
+    return getGroupExpenseExplanationSteps(calculatedResults, taxNum, tipNum);
+  }, [calculatedResults, items, taxPercent, tipPercent]);
 
   // Copy results summary
   const handleCopySummary = async () => {
@@ -572,6 +581,9 @@ export default function GroupExpenseSplitterWidget() {
                   Reset Calculator
                 </button>
               </div>
+
+              {/* Step-by-Step Explanation Accordion */}
+              <ExplainResultAccordion steps={explanationSteps} />
             </div>
 
           </div>

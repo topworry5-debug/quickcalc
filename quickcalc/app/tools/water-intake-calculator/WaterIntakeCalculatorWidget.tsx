@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { calculateWaterIntake, WaterIntakeResult } from "../../../lib/calculators/waterIntake";
+import { useState, useMemo } from "react";
+import { calculateWaterIntake, getWaterExplanationSteps, WaterIntakeResult } from "../../../lib/calculators/waterIntake";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function WaterIntakeCalculatorWidget() {
   const [weight, setWeight] = useState<string>("70");
@@ -50,6 +51,15 @@ export default function WaterIntakeCalculatorWidget() {
     });
     setResult(calculation);
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result) return [];
+    const weightNum = parseFloat(weight) || 0;
+    return getWaterExplanationSteps(
+      { weight: weightNum, weightUnit, activityLevel, climate },
+      result
+    );
+  }, [result, weight, weightUnit, activityLevel, climate]);
 
   return (
     <div className="w-full max-w-xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8">
@@ -167,6 +177,8 @@ export default function WaterIntakeCalculatorWidget() {
           <div className="mt-6 flex justify-center">
             <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
+          {/* Step-by-Step Explanation Accordion */}
+          <ExplainResultAccordion steps={explanationSteps} />
           <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-4 italic">
             *This estimation is a guideline. Factors like pregnancy, nursing, overall health, and illness can alter your personal requirement.
           </p>

@@ -59,3 +59,27 @@ export function paceToSeconds(paceStr: string): number {
   }
   return 0;
 }
+
+export function getPaceExplanationSteps(
+  distance: number,
+  unit: "km" | "mi",
+  totalSeconds: number,
+  result: PaceResult
+): string[] {
+  const steps: string[] = [];
+
+  const timeFormatted = formatSecondsToTime(totalSeconds);
+  steps.push(`Record workout metrics: Covered ${distance} ${unit} in ${timeFormatted} (${totalSeconds.toLocaleString()} total seconds)`);
+
+  const secPerUnit = totalSeconds / distance;
+  steps.push(`Calculate primary pace (${unit}): ${totalSeconds} seconds ÷ ${distance} ${unit} = ${secPerUnit.toFixed(1)} seconds/${unit} → ${unit === "km" ? result.pacePerKm : result.pacePerMile} / ${unit}`);
+
+  const kmDistance = unit === "mi" ? distance * 1.60934 : distance;
+  const miDistance = unit === "km" ? distance / 1.60934 : distance;
+
+  steps.push(`Convert distance across units: ${distance} ${unit} = ${kmDistance.toFixed(2)} km (${miDistance.toFixed(2)} miles)`);
+  steps.push(`Equivalent metric pace: ${result.pacePerKm} / km (${result.speedKph} km/h average speed)`);
+  steps.push(`Equivalent imperial pace: ${result.pacePerMile} / mi (${result.speedMph} mph average speed)`);
+
+  return steps;
+}

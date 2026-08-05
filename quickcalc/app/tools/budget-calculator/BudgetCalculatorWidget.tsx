@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import { getBudgetExplanationSteps } from "@/lib/calculators/budgetCalculator";
 
 interface BudgetSplit {
   needsPct: number;
@@ -94,6 +96,24 @@ export default function BudgetCalculatorWidget() {
   const idealNeeds = (currentIncome * selectedPreset.needsPct) / 100;
   const idealWants = (currentIncome * selectedPreset.wantsPct) / 100;
   const idealSavings = (currentIncome * selectedPreset.savingsPct) / 100;
+
+  const explanationSteps = useMemo(() => {
+    if (currentIncome <= 0) return [];
+    return getBudgetExplanationSteps(
+      {
+        income: currentIncome,
+        needsPct: selectedPreset.needsPct,
+        wantsPct: selectedPreset.wantsPct,
+        savingsPct: selectedPreset.savingsPct,
+      },
+      {
+        needsAmount: idealNeeds,
+        wantsAmount: idealWants,
+        savingsAmount: idealSavings,
+        totalIncome: currentIncome,
+      }
+    );
+  }, [currentIncome, selectedPreset, idealNeeds, idealWants, idealSavings]);
 
   // Comparison logic for Reality Check
   const realNeedsVal = actualNeeds === "" ? 0 : actualNeeds;
@@ -368,6 +388,9 @@ export default function BudgetCalculatorWidget() {
             <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
           </div>
         </div>
+
+        {/* Step-by-Step Explanation Accordion */}
+        <ExplainResultAccordion steps={explanationSteps} />
 
         {/* Optional Reality Check Toggle Button */}
         <div className="pt-2 text-center">

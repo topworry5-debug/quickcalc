@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { calculateDueDate, DueDateResult } from "../../../lib/calculators/dueDateCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { calculateDueDate, getDueDateExplanationSteps, DueDateResult } from "../../../lib/calculators/dueDateCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function DueDateCalculatorWidget() {
   const [method, setMethod] = useState<"lmp" | "conception">("lmp");
@@ -62,6 +63,11 @@ export default function DueDateCalculatorWidget() {
       console.error("Failed to copy", err);
     }
   };
+
+  const explanationSteps = useMemo(() => {
+    if (!result || typeof result === "string") return [];
+    return getDueDateExplanationSteps({ method, dateString }, result);
+  }, [method, dateString, result]);
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8 transition-colors">
@@ -194,6 +200,9 @@ export default function DueDateCalculatorWidget() {
                 Only ~5% of babies arrive precisely on their due date.
               </span>
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         ) : (
           <div className="border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/10 p-8 rounded-xl text-center space-y-2">

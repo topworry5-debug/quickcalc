@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { calculateSavingsGrowth, SavingsCalculationResult } from "@/lib/calculators/savingsGrowthCalculator";
+import { useState, useEffect, useMemo } from "react";
+import { calculateSavingsGrowth, getSavingsGrowthExplanationSteps, SavingsCalculationResult } from "@/lib/calculators/savingsGrowthCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function SavingsGrowthCalculatorWidget() {
   const [initialDeposit, setInitialDeposit] = useState<number>(5000);
@@ -84,6 +85,18 @@ Results:
 
   // Check if years is 0 or empty for placeholder state
   const isPlaceholderState = !years || years <= 0;
+
+  const explanationSteps = useMemo(() => {
+    if (isPlaceholderState || !result) return [];
+    return getSavingsGrowthExplanationSteps(
+      initialDeposit,
+      regularAmount,
+      frequency,
+      annualRate,
+      years,
+      result
+    );
+  }, [isPlaceholderState, result, initialDeposit, regularAmount, frequency, annualRate, years]);
 
   return (
     <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-xl overflow-hidden transition-colors">
@@ -327,6 +340,8 @@ Results:
                       💡 With 0% interest rate, your balance grows strictly based on contributions. Explore custom rates above to see how compound interest accelerates wealth creation!
                     </span>
                   )}
+                  {/* Step-by-Step Explanation Accordion */}
+                  <ExplainResultAccordion steps={explanationSteps} />
                 </div>
               </div>
             )}

@@ -3,6 +3,8 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import { getCurrencyExplanationSteps } from "@/lib/calculators/currencyConverter";
 
 interface Currency {
   code: string;
@@ -171,6 +173,7 @@ export default function CurrencyConverterWidget() {
     return rates[toCurrency] || null;
   }, [rates, toCurrency]);
 
+
   const convertedValue = useMemo(() => {
     if (rate === null) return 0;
     return numericAmount * rate;
@@ -190,6 +193,19 @@ export default function CurrencyConverterWidget() {
   const toObj = useMemo(() => {
     return SUPPORTED_CURRENCIES.find((c) => c.code === toCurrency) || SUPPORTED_CURRENCIES[1];
   }, [toCurrency]);
+
+  const explanationSteps = useMemo(() => {
+    if (numericAmount <= 0 || !rate) return [];
+    return getCurrencyExplanationSteps({
+      amount: numericAmount,
+      fromCode: fromObj.code,
+      fromSymbol: fromObj.symbol,
+      toCode: toObj.code,
+      toSymbol: toObj.symbol,
+      exchangeRate: rate,
+      convertedAmount: convertedValue,
+    });
+  }, [numericAmount, rate, fromObj, toObj, convertedValue]);
 
   // Swap currencies
   const handleSwap = () => {
@@ -427,6 +443,8 @@ export default function CurrencyConverterWidget() {
               </p>
             </div>
 
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
 
           {/* Rate History Context / Comparison Range Tables */}

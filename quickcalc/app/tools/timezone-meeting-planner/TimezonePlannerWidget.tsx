@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { BUSINESS_HUBS, calculateTimezoneOverlap, getSourceDate } from "../../../lib/calculators/timezonePlanner";
+import { BUSINESS_HUBS, calculateTimezoneOverlap, getTimezoneExplanationSteps, getSourceDate } from "../../../lib/calculators/timezonePlanner";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function TimezonePlannerWidget() {
   const [sourceTime, setSourceTime] = useState<string>("09:00");
@@ -78,6 +79,13 @@ export default function TimezonePlannerWidget() {
   const results = useMemo(() => {
     return calculateTimezoneOverlap(baseDate, sourceTimezone, selectedHubs);
   }, [baseDate, sourceTimezone, selectedHubs]);
+
+  const explanationSteps = useMemo(() => {
+    if (!results || results.rows.length === 0) return [];
+    const srcHub = BUSINESS_HUBS.find((h) => h.timezone === sourceTimezone);
+    const srcName = srcHub ? srcHub.name : sourceTimezone;
+    return getTimezoneExplanationSteps(srcName, sourceTime, results);
+  }, [results, sourceTimezone, sourceTime]);
 
   const toggleHub = (tz: string) => {
     setSelectedHubs(prev => {
@@ -339,6 +347,9 @@ export default function TimezonePlannerWidget() {
             *Working hours are defined as 8:00 AM – 7:00 PM local time.
           </span>
         </div>
+
+        {/* Step-by-Step Explanation Accordion */}
+        <ExplainResultAccordion steps={explanationSteps} />
       </div>
     </div>
   );

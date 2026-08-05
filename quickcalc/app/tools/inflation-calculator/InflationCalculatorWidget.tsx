@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { inflationData } from "@/lib/calculators/inflationData";
+import { inflationData, getInflationExplanationSteps } from "@/lib/calculators/inflationData";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 type Mode = "past-to-present" | "present-to-past";
 
@@ -85,6 +86,8 @@ export default function InflationCalculatorWidget() {
         cumulativeInflationPercent: cumulativeInflation,
         purchasingPowerText,
         rawText,
+        startCpi,
+        endCpi,
       };
     } else {
       // Present to Past: Value Past = Value Today * (CPI Past / CPI Today)
@@ -106,9 +109,31 @@ export default function InflationCalculatorWidget() {
         cumulativeInflationPercent: cumulativeInflation,
         purchasingPowerText,
         rawText,
+        startCpi,
+        endCpi,
       };
     }
   }, [amount, selectedYear, presentYear, mode, cpiHistory, currencySymbol]);
+
+  const explanationSteps = useMemo(() => {
+    if (!calculation.isValid || calculation.isIdentical) return [];
+    const amount = parseFloat(amountStr) || 0;
+    const startYr = mode === "past-to-present" ? selectedYear : presentYear;
+    const endYr = mode === "past-to-present" ? presentYear : selectedYear;
+    const startCPI = calculation.startCpi || 100;
+    const endCPI = calculation.endCpi || 100;
+
+    return getInflationExplanationSteps({
+      amount,
+      startYear: startYr,
+      endYear: endYr,
+      symbol: currencySymbol,
+      startCPI,
+      endCPI,
+      equivalentAmount: calculation.convertedAmount || 0,
+      totalPercent: calculation.cumulativeInflationPercent || 0,
+    });
+  }, [calculation, amountStr, mode, selectedYear, presentYear, currencySymbol]);
 
   const handleCopy = async () => {
     if (calculation.isValid && calculation.rawText) {
@@ -307,6 +332,9 @@ export default function InflationCalculatorWidget() {
               </button>
               <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
             </div>
+
+            {/* Step-by-Step Explanation Accordion */}
+            <ExplainResultAccordion steps={explanationSteps} />
           </div>
         ) : (
           <div className="p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/40 rounded-2xl text-red-800 dark:text-red-400 text-sm flex items-start gap-3">

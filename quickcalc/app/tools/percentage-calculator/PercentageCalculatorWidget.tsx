@@ -6,9 +6,11 @@ import {
   calculatePercentageChange,
   calculateDiscount,
   calculateReversePercentage,
+  getPercentageExplanationSteps,
 } from "../../../lib/calculators/percentageCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 type ActiveMode = "of" | "change" | "discount" | "reverse";
 
@@ -150,6 +152,20 @@ export default function PercentageCalculatorWidget() {
     modeDFinal,
     modeDPercent,
   ]);
+
+  const explanationSteps = useMemo(() => {
+    if (!calculatedData) return [];
+    if (calculatedData.type === "of") {
+      return getPercentageExplanationSteps("a", calculatedData.pct, calculatedData.tot, calculatedData);
+    } else if (calculatedData.type === "change") {
+      return getPercentageExplanationSteps("b", calculatedData.oldVal, calculatedData.newVal, undefined, calculatedData);
+    } else if (calculatedData.type === "discount") {
+      return getPercentageExplanationSteps("c", calculatedData.orig, calculatedData.disc, undefined, undefined, calculatedData);
+    } else if (calculatedData.type === "reverse") {
+      return getPercentageExplanationSteps("d", calculatedData.final, calculatedData.pct, undefined, undefined, undefined, calculatedData);
+    }
+    return [];
+  }, [calculatedData]);
 
   const handleCopyResult = async () => {
     if (!calculatedData) return;
@@ -575,6 +591,9 @@ export default function PercentageCalculatorWidget() {
                   </button>
                   <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
                 </div>
+
+                {/* Step-by-Step Explanation Accordion */}
+                <ExplainResultAccordion steps={explanationSteps} />
               </div>
             )}
           </div>

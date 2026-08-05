@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { getBedtimesForWakeUp, getWakeUpTimesForSleepNow, SleepTimeOption } from "../../../lib/calculators/sleepCycle";
+import { useState, useEffect, useMemo } from "react";
+import { getBedtimesForWakeUp, getWakeUpTimesForSleepNow, getSleepExplanationSteps, SleepTimeOption } from "../../../lib/calculators/sleepCycle";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function SleepCycleCalculatorWidget() {
   const [mode, setMode] = useState<"wake-up" | "sleep-now">("wake-up");
@@ -52,6 +53,15 @@ export default function SleepCycleCalculatorWidget() {
     handleCalculate();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mode]);
+
+  const explanationSteps = useMemo(() => {
+    if (!results || results.length === 0) return [];
+    return getSleepExplanationSteps(
+      mode === "wake-up" ? "wakeup" : "sleepnow",
+      wakeTime,
+      results
+    );
+  }, [mode, wakeTime, results]);
 
   return (
     <div className="w-full max-w-xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8">
@@ -166,6 +176,9 @@ export default function SleepCycleCalculatorWidget() {
           <div className="mt-6 flex justify-center">
             <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
+
+          {/* Step-by-Step Explanation Accordion */}
+          <ExplainResultAccordion steps={explanationSteps} />
 
           <p className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-4 text-center leading-relaxed">
             A standard sleep cycle is roughly 90 minutes. Waking up at the end of a cycle, rather than in the middle, prevents grogginess (sleep inertia).

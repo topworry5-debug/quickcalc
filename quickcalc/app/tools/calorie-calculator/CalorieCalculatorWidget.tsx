@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { calculateCalories, CalorieResult } from "@/lib/calculators/calorieCalculator";
+import { useState, useMemo } from "react";
+import { calculateCalories, getCalorieExplanationSteps, CalorieResult } from "@/lib/calculators/calorieCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
+import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 
 export default function CalorieCalculatorWidget() {
   const [sex, setSex] = useState<"male" | "female">("male");
@@ -58,6 +59,20 @@ export default function CalorieCalculatorWidget() {
       activityLevel,
     });
   }
+
+  const explanationSteps = useMemo(() => {
+    if (!calorieResult || hasValidationError) return [];
+    return getCalorieExplanationSteps(
+      {
+        sex,
+        age: parseInt(age, 10) || 0,
+        height: Math.round(resolvedHeightCm),
+        weight: Math.round(resolvedWeightKg),
+        activityLevel,
+      },
+      calorieResult
+    );
+  }, [calorieResult, hasValidationError, sex, age, resolvedHeightCm, resolvedWeightKg, activityLevel]);
 
   const handleCopy = () => {
     if (!calorieResult) return;
@@ -474,6 +489,8 @@ export default function CalorieCalculatorWidget() {
                   </div>
                 </div>
 
+                {/* Step-by-Step Explanation Accordion */}
+                <ExplainResultAccordion steps={explanationSteps} />
               </div>
 
             </div>
