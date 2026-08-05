@@ -10,6 +10,8 @@ import {
   calculateFlightDuration,
   calculateFuelCost,
 } from "@/lib/calculators/travelCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 type ActiveTab = "sdt" | "flight" | "fuel";
 
@@ -116,6 +118,53 @@ export default function TravelTimeFuelWidget() {
       setEfficiencyUnit("km/l");
       setFuelPrice("1.50");
       setPriceUnit("per_litre");
+    }
+  };
+
+  const handleDownloadPdf = () => {
+    if (activeTab === "sdt" && sdtResult) {
+      generatePdf({
+        toolName: "Speed Distance Time Calculator",
+        toolSlug: "travel-time-fuel-calculator",
+        inputs: [
+          { label: "Calculation Target", value: sdtType.toUpperCase() },
+        ],
+        results: [
+          { label: "Calculated Result", value: sdtResult.formatted, isHighlight: true },
+        ],
+        summaryNote: `Physics travel calculation using standard speed-distance-time formulas.`,
+        filename: `Travel-SDT-Report.pdf`,
+      });
+    } else if (activeTab === "flight" && flightResult) {
+      generatePdf({
+        toolName: "Flight Duration Calculator",
+        toolSlug: "travel-time-fuel-calculator",
+        inputs: [
+          { label: "Flight Distance", value: `${flightDistance} ${flightDistanceUnit}` },
+          { label: "Cruising Speed", value: `${flightSpeed} ${flightSpeedUnit}` },
+        ],
+        results: [
+          { label: "Estimated Flight Duration", value: flightResult.formatted, isHighlight: true },
+        ],
+        summaryNote: `Flight time estimation based on distance and average cruise speed.`,
+        filename: `Flight-Duration-Report.pdf`,
+      });
+    } else if (activeTab === "fuel" && fuelResult) {
+      generatePdf({
+        toolName: "Fuel Cost Calculator",
+        toolSlug: "travel-time-fuel-calculator",
+        inputs: [
+          { label: "Trip Distance", value: `${fuelDistance} ${fuelDistanceUnit}` },
+          { label: "Fuel Price", value: `$${fuelPrice} (${priceUnit})` },
+        ],
+        results: [
+          { label: "Estimated Fuel Cost", value: `$${fuelResult.totalCost.toFixed(2)}`, isHighlight: true },
+          { label: "Fuel Needed (Liters)", value: `${fuelResult.totalFuelLiters} L` },
+          { label: "Fuel Needed (US Gallons)", value: `${fuelResult.totalFuelGallonsUs} gal` },
+        ],
+        summaryNote: `Trip fuel cost and consumption estimation based on vehicle efficiency.`,
+        filename: `Fuel-Cost-Report.pdf`,
+      });
     }
   };
 
@@ -517,8 +566,9 @@ export default function TravelTimeFuelWidget() {
           </div>
         )}
 
-        {/* Global Reset Button */}
-        <div className="flex justify-end pt-2">
+        {/* Global Action Buttons */}
+        <div className="flex items-center justify-between pt-2">
+          <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
           <button
             type="button"
             onClick={handleReset}

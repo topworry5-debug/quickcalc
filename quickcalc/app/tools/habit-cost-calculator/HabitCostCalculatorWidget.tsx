@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo, useRef } from "react";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function HabitCostCalculatorWidget() {
   const [habitName, setHabitName] = useState<string>("");
@@ -132,6 +134,30 @@ export default function HabitCostCalculatorWidget() {
     } catch (err) {
       console.error("Failed to copy share text", err);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    const tenYearCalc = calculations.find((c) => c.key === "10y");
+    const lifetimeCalc = calculations.find((c) => c.key === "lifetime");
+
+    generatePdf({
+      toolName: "Habit Cost Calculator",
+      toolSlug: "habit-cost-calculator",
+      inputs: [
+        { label: "Habit Name", value: displayHabitName },
+        { label: "Time Per Day", value: `${parsedHours}h ${parsedMinutes}m` },
+        { label: "Daily Cost", value: `$${parsedDailyCost.toFixed(2)}` },
+        { label: "Current Age", value: `${parsedAge || "Not specified"} years` },
+      ],
+      results: [
+        { label: "10-Year Financial Outlay", value: `$${Math.round(tenYearCalc?.totalMoney || 0).toLocaleString()}`, isHighlight: true },
+        { label: "10-Year Time Spent", value: `${(tenYearCalc?.fullDays || 0).toFixed(0)} full days` },
+        { label: "10-Year Opportunity Cost (7% return)", value: `$${Math.round(tenYearCalc?.compoundedValue || 0).toLocaleString()}` },
+        { label: "Lifetime Opportunity Cost (Age 65)", value: `$${Math.round(lifetimeCalc?.compoundedValue || 0).toLocaleString()}` },
+      ],
+      summaryNote: `Financial and time breakdown of spending $${parsedDailyCost.toFixed(2)} and ${parsedHours}h ${parsedMinutes}m daily on "${displayHabitName}".`,
+      filename: `Habit-Cost-${displayHabitName.replace(/[^a-zA-Z0-9]/g, "-")}.pdf`,
+    });
   };
 
   // Determine the governing big card metric
@@ -457,15 +483,18 @@ export default function HabitCostCalculatorWidget() {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={handleCopyShareText}
-              className="w-full flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 font-extrabold py-3 px-4 rounded-xl transition shadow-md hover:shadow-lg text-sm"
-            >
-              <span>{copied ? "✅ Copied!" : "📋 Copy result as text"}</span>
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-2">
+              <button
+                type="button"
+                onClick={handleCopyShareText}
+                className="w-full flex-1 flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 font-extrabold py-3 px-4 rounded-xl transition shadow-md hover:shadow-lg text-sm"
+              >
+                <span>{copied ? "✅ Copied!" : "📋 Copy text"}</span>
+              </button>
+              <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+            </div>
             <p className="text-center text-xs text-zinc-500 dark:text-zinc-400 italic">
-              Click to copy a beautifully formatted summary to share on social media.
+              Click to copy or download your habit cost report.
             </p>
           </div>
         </div>

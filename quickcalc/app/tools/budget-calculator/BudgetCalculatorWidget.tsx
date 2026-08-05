@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 interface BudgetSplit {
   needsPct: number;
@@ -20,6 +22,29 @@ export default function BudgetCalculatorWidget() {
   const [income, setIncome] = useState<number | "">(3000);
   const [selectedPreset, setSelectedPreset] = useState<BudgetSplit>(PRESETS[0]);
   const [copied, setCopied] = useState(false);
+
+  const handleDownloadPdf = () => {
+    const incomeNum = typeof income === "number" ? income : 0;
+    const idealNeeds = (incomeNum * selectedPreset.needsPct) / 100;
+    const idealWants = (incomeNum * selectedPreset.wantsPct) / 100;
+    const idealSavings = (incomeNum * selectedPreset.savingsPct) / 100;
+
+    generatePdf({
+      toolName: "Budget Calculator",
+      toolSlug: "budget-calculator",
+      inputs: [
+        { label: "Monthly Income", value: `$${incomeNum.toLocaleString()}` },
+        { label: "Selected Budget Rule", value: selectedPreset.name },
+      ],
+      results: [
+        { label: `Needs (${selectedPreset.needsPct}%)`, value: `$${idealNeeds.toLocaleString(undefined, { minimumFractionDigits: 2 })}`, isHighlight: true },
+        { label: `Wants (${selectedPreset.wantsPct}%)`, value: `$${idealWants.toLocaleString(undefined, { minimumFractionDigits: 2 })}` },
+        { label: `Savings (${selectedPreset.savingsPct}%)`, value: `$${idealSavings.toLocaleString(undefined, { minimumFractionDigits: 2 })}` },
+      ],
+      summaryNote: `Recommended monthly budget allocation based on the ${selectedPreset.name} rule for $${incomeNum.toLocaleString()} monthly income.`,
+      filename: `Budget-Plan-${selectedPreset.name.split(" ")[0]}.pdf`,
+    });
+  };
 
   // Reality Check State
   const [showRealityCheck, setShowRealityCheck] = useState(false);
@@ -328,25 +353,20 @@ export default function BudgetCalculatorWidget() {
               Copy a perfectly-formatted text summary of your custom budget mapping to save in notes or share with family!
             </p>
           </div>
-          <button
-            type="button"
-            onClick={handleCopy}
-            className={`px-5 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all w-full sm:w-auto ${
-              copied
-                ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/10 scale-102"
-                : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/10 active:scale-98"
-            }`}
-          >
-            {copied ? (
-              <>
-                <span>✔️ Copied Strategy!</span>
-              </>
-            ) : (
-              <>
-                <span>🔗 Copy My Budget Plan</span>
-              </>
-            )}
-          </button>
+          <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={handleCopy}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all w-full sm:w-auto ${
+                copied
+                  ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/10 scale-102"
+                  : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/10 active:scale-98"
+              }`}
+            >
+              {copied ? "✔️ Copied Strategy!" : "🔗 Copy Plan"}
+            </button>
+            <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+          </div>
         </div>
 
         {/* Optional Reality Check Toggle Button */}

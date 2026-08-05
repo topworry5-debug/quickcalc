@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 type ActiveMode = "sale" | "original";
 
@@ -266,6 +268,40 @@ Total Amount Saved: ${formatNumber(amountSaved)}
       navigator.clipboard.writeText(copyText);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleDownloadPdf = () => {
+    if (activeMode === "sale" && salePriceResult.isValid) {
+      generatePdf({
+        toolName: "Discount Calculator",
+        toolSlug: "discount-calculator",
+        inputs: [
+          { label: "Original Price", value: formatNumber(salePriceResult.originalPrice) },
+          { label: "Effective Discount", value: `${formatNumber(salePriceResult.effectiveDiscountPercent)}%` },
+        ],
+        results: [
+          { label: "Final Sale Price", value: formatNumber(salePriceResult.finalPrice), isHighlight: true },
+          { label: "Total Amount Saved", value: formatNumber(salePriceResult.totalSaved) },
+        ],
+        summaryNote: `Discount calculation breakdown: ${salePriceResult.breakdownText}`,
+        filename: `Discount-Summary.pdf`,
+      });
+    } else if (activeMode === "original" && originalPriceResult.isValid) {
+      generatePdf({
+        toolName: "Discount Calculator (Reverse Mode)",
+        toolSlug: "discount-calculator",
+        inputs: [
+          { label: "Sale Price", value: formatNumber(originalPriceResult.salePrice) },
+          { label: "Discount Percentage", value: `${formatNumber(originalPriceResult.discPercent)}%` },
+        ],
+        results: [
+          { label: "Original Pre-Discount Price", value: formatNumber(originalPriceResult.originalPrice), isHighlight: true },
+          { label: "Total Amount Saved", value: formatNumber(originalPriceResult.amountSaved) },
+        ],
+        summaryNote: `Pre-discount original price calculation formula: Sale Price / (1 - Discount/100).`,
+        filename: `Original-Price-Summary.pdf`,
+      });
     }
   };
 
@@ -547,12 +583,15 @@ Total Amount Saved: ${formatNumber(amountSaved)}
           </button>
 
           {((activeMode === "sale" && salePriceResult.isValid) || (activeMode === "original" && originalPriceResult.isValid)) && (
-            <button
-              onClick={handleCopyToClipboard}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition-all shadow-sm shadow-blue-500/10 text-center flex items-center justify-center gap-2"
-            >
-              {copied ? "✅ Copied Breakdown!" : "📋 Copy Breakdown to Clipboard"}
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+              <button
+                onClick={handleCopyToClipboard}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 transition-all shadow-sm shadow-blue-500/10 text-center flex items-center justify-center gap-2"
+              >
+                {copied ? "✅ Copied Breakdown!" : "📋 Copy Breakdown"}
+              </button>
+              <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+            </div>
           )}
         </div>
       </div>

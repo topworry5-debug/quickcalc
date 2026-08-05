@@ -7,6 +7,8 @@ import {
   calculateDiscount,
   calculateReversePercentage,
 } from "../../../lib/calculators/percentageCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 type ActiveMode = "of" | "change" | "discount" | "reverse";
 
@@ -204,6 +206,23 @@ export default function PercentageCalculatorWidget() {
     } catch (err) {
       console.error("Failed to copy breakdown", err);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    if (!calculatedData) return;
+
+    generatePdf({
+      toolName: "Percentage Calculator",
+      toolSlug: "percentage-calculator",
+      inputs: [
+        { label: "Calculation Mode", value: activeMode.toUpperCase() },
+      ],
+      results: [
+        { label: "Calculation Result", value: calculatedData.formula, isHighlight: true },
+      ],
+      summaryNote: `Formula Used: ${calculatedData.formula}`,
+      filename: `Percentage-Report.pdf`,
+    });
   };
 
   return (
@@ -546,14 +565,15 @@ export default function PercentageCalculatorWidget() {
                 </div>
 
                 {/* Actions */}
-                <div className="pt-4 border-t border-zinc-200/50 dark:border-zinc-800/50">
+                <div className="pt-4 border-t border-zinc-200/50 dark:border-zinc-800/50 flex flex-col sm:flex-row items-center gap-2">
                   <button
                     type="button"
                     onClick={handleCopyResult}
-                    className="w-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition font-semibold text-xs px-5 py-3 rounded-lg shadow-sm focus:outline-none"
+                    className="w-full sm:w-auto flex-1 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition font-semibold text-xs px-5 py-3 rounded-lg shadow-sm focus:outline-none"
                   >
-                    {copied ? "✅ Result Copied!" : "📋 Copy Calculation Summary"}
+                    {copied ? "✅ Result Copied!" : "📋 Copy Summary"}
                   </button>
+                  <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
                 </div>
               </div>
             )}

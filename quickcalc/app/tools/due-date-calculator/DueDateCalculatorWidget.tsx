@@ -2,12 +2,35 @@
 
 import { useState, useEffect } from "react";
 import { calculateDueDate, DueDateResult } from "../../../lib/calculators/dueDateCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function DueDateCalculatorWidget() {
   const [method, setMethod] = useState<"lmp" | "conception">("lmp");
   const [dateString, setDateString] = useState<string>("");
   const [result, setResult] = useState<DueDateResult | string | null>(null);
   const [copied, setCopied] = useState(false);
+
+  const handleDownloadPdf = () => {
+    if (!result || typeof result === "string") return;
+
+    generatePdf({
+      toolName: "Pregnancy Due Date Calculator",
+      toolSlug: "due-date-calculator",
+      inputs: [
+        { label: "Calculation Basis", value: method === "lmp" ? "First Day of Last Period (LMP)" : "Conception Date" },
+        { label: "Input Date", value: dateString },
+      ],
+      results: [
+        { label: "Estimated Due Date", value: result.dueDate, isHighlight: true },
+        { label: "Gestational Age", value: `${result.weeks} weeks, ${result.days} days` },
+        { label: "Current Trimester", value: result.trimester },
+        { label: "Pregnancy Progress", value: `${result.progressPercent.toFixed(1)}%` },
+      ],
+      summaryNote: `Estimated due date based on ${method === "lmp" ? "Last Menstrual Period (LMP)" : "Conception Date"}.`,
+      filename: `Due-Date-Summary.pdf`,
+    });
+  };
 
   // Initialize with a past date (e.g., 2 months ago) to have a nice default state
   useEffect(() => {
@@ -156,13 +179,16 @@ export default function DueDateCalculatorWidget() {
 
             {/* Sharing & Clipboard action */}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-rose-500 focus:outline-none"
-              >
-                {copied ? "✅ Copied Summary!" : "📋 Copy Due Date Summary"}
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-rose-600 dark:hover:text-rose-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-rose-500 focus:outline-none"
+                >
+                  {copied ? "✅ Copied Summary!" : "📋 Copy Summary"}
+                </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} />
+              </div>
 
               <span className="text-2xs text-zinc-400 dark:text-zinc-500 italic">
                 Only ~5% of babies arrive precisely on their due date.

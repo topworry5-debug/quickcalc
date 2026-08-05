@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { calculateSavingsGrowth, SavingsCalculationResult } from "@/lib/calculators/savingsGrowthCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function SavingsGrowthCalculatorWidget() {
   const [initialDeposit, setInitialDeposit] = useState<number>(5000);
@@ -44,6 +46,40 @@ Results:
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+
+    generatePdf({
+      toolName: "Savings Growth Calculator",
+      toolSlug: "savings-growth-calculator",
+      inputs: [
+        { label: "Initial Deposit", value: `$${(initialDeposit || 0).toLocaleString()}` },
+        { label: "Regular Contribution", value: `$${(regularAmount || 0).toLocaleString()} (${frequency})` },
+        { label: "Annual Interest Rate", value: `${annualRate || 0}%` },
+        { label: "Compounding Frequency", value: compoundingFrequency },
+        { label: "Duration", value: `${years || 0} years` },
+      ],
+      results: [
+        { label: "Future Value (Final Balance)", value: `$${result.finalBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, isHighlight: true },
+        { label: "Total Contributions", value: `$${result.totalContributed.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` },
+        { label: "Total Interest Earned", value: `$${result.totalInterest.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` },
+      ],
+      summaryNote: `Compounding growth projection over ${years || 0} years at ${annualRate || 0}% annual interest.`,
+      table: result.yearlyData.length > 0 ? {
+        title: "Year-by-Year Compound Breakdown",
+        headers: ["Year", "Contributions", "Interest Earned", "Total Contributed", "Ending Balance"],
+        rows: result.yearlyData.map((row) => [
+          `Year ${row.year}`,
+          `$${row.contributionsThisYear.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          `$${row.interestThisYear.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          `$${row.cumulativeContributions.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          `$${row.endBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        ]),
+      } : undefined,
+      filename: `Savings-Growth-Report-${years}Years.pdf`,
+    });
   };
 
   // Check if years is 0 or empty for placeholder state
@@ -212,12 +248,15 @@ Results:
                   <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
                     Growth Projections
                   </h2>
-                  <button
-                    onClick={handleCopy}
-                    className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-750 text-zinc-700 dark:text-zinc-300 transition-colors"
-                  >
-                    {copied ? "✅ Copied!" : "📋 Copy Results"}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleCopy}
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-750 text-zinc-700 dark:text-zinc-300 transition-colors"
+                    >
+                      {copied ? "✅ Copied!" : "📋 Copy Results"}
+                    </button>
+                    <DownloadPdfButton onClick={handleDownloadPdf} className="py-1.5" />
+                  </div>
                 </div>
 
                 {/* Key Numbers Side-by-Side */}

@@ -6,6 +6,8 @@ import {
   ExpenseItem,
   calculateSplitExpenses,
 } from "../../../lib/calculators/groupExpenseSplitter";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function GroupExpenseSplitterWidget() {
   const [people, setPeople] = useState<Person[]>([
@@ -157,29 +159,16 @@ export default function GroupExpenseSplitterWidget() {
 
   // Copy results summary
   const handleCopySummary = async () => {
-    const { totalSubtotal, totalTax, totalTip, grandTotal, breakdowns } =
-      calculatedResults;
+    if (!calculatedResults) return;
 
-    let text = `--- Group Expense Splitter Summary ---\n`;
-    text += `Subtotal: $${totalSubtotal.toFixed(2)}\n`;
-    if (totalTax > 0) text += `Tax (${taxPercent}%): $${totalTax.toFixed(2)}\n`;
-    if (totalTip > 0) text += `Tip (${tipPercent}%): $${totalTip.toFixed(2)}\n`;
-    text += `Grand Total: $${grandTotal.toFixed(2)}\n\n`;
-    text += `Individual Breakdowns:\n`;
+    let text = `Bill Split Breakdown (${people.length} people, ${items.length} items):\n`;
+    text += `Total: $${calculatedResults.grandTotal.toFixed(2)} (Subtotal: $${calculatedResults.totalSubtotal.toFixed(2)}, Tax: $${calculatedResults.totalTax.toFixed(2)}, Tip: $${calculatedResults.totalTip.toFixed(2)})\n\n`;
 
-    breakdowns.forEach((b) => {
-      text += `- ${b.personName}: $${b.total.toFixed(2)}\n`;
-      text += `  (Subtotal: $${b.subtotal.toFixed(2)}, Tax/Tip share: $${(
-        b.taxShare + b.tipShare
-      ).toFixed(2)})\n`;
-      if (b.itemShares.length > 0) {
-        text += `  Items: ${b.itemShares
-          .map((is) => `${is.itemName} ($${is.shareAmount.toFixed(2)})`)
-          .join(", ")}\n`;
-      }
+    calculatedResults.breakdowns.forEach((b) => {
+      text += `• ${b.personName}: $${b.total.toFixed(2)} (Subtotal $${b.subtotal.toFixed(2)} + Tax/Tip $${(b.taxShare + b.tipShare).toFixed(2)})\n`;
     });
 
-    text += `\nShared via QuickCalc (https://quickcalc.cloud)`;
+    text += `\nCalculated with quickcalc.cloud/tools/group-expense-splitter`;
 
     try {
       await navigator.clipboard.writeText(text);
@@ -188,6 +177,39 @@ export default function GroupExpenseSplitterWidget() {
     } catch (err) {
       console.error("Failed to copy breakdown", err);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    if (!calculatedResults || items.length === 0) return;
+
+    generatePdf({
+      toolName: "Group Expense Splitter",
+      toolSlug: "group-expense-splitter",
+      inputs: [
+        { label: "Group Size", value: `${people.length} people` },
+        { label: "Total Items", value: `${items.length} items` },
+        { label: "Tax Percent", value: `${taxPercent || "0"}%` },
+        { label: "Tip Percent", value: `${tipPercent || "0"}%` },
+      ],
+      results: [
+        { label: "Subtotal", value: `$${calculatedResults.totalSubtotal.toFixed(2)}` },
+        { label: "Tax + Tip Total", value: `$${(calculatedResults.totalTax + calculatedResults.totalTip).toFixed(2)}` },
+        { label: "Grand Total", value: `$${calculatedResults.grandTotal.toFixed(2)}`, isHighlight: true },
+      ],
+      summaryNote: `Group expense breakdown split proportionally across ${people.length} people.`,
+      table: {
+        title: "Per Person Owed Breakdown",
+        headers: ["Person", "Subtotal", "Tax Share", "Tip Share", "Total Owed"],
+        rows: calculatedResults.breakdowns.map((b) => [
+          b.personName,
+          `$${b.subtotal.toFixed(2)}`,
+          `$${b.taxShare.toFixed(2)}`,
+          `$${b.tipShare.toFixed(2)}`,
+          `$${b.total.toFixed(2)}`,
+        ]),
+      },
+      filename: `Group-Expense-Split.pdf`,
+    });
   };
 
   const handleResetAll = () => {
@@ -539,8 +561,9 @@ export default function GroupExpenseSplitterWidget() {
                   disabled={items.length === 0}
                   className="flex-1 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 disabled:opacity-50 disabled:cursor-not-allowed transition font-semibold text-xs px-4 py-2.5 rounded-lg text-center"
                 >
-                  {copied ? "✅ Summary Copied!" : "📋 Copy Shareable Breakdown"}
+                  {copied ? "✅ Summary Copied!" : "📋 Copy Breakdown"}
                 </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
                 <button
                   type="button"
                   onClick={handleResetAll}

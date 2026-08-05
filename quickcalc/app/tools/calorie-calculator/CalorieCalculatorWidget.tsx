@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { calculateCalories, CalorieResult } from "@/lib/calculators/calorieCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function CalorieCalculatorWidget() {
   const [sex, setSex] = useState<"male" | "female">("male");
@@ -63,6 +65,30 @@ export default function CalorieCalculatorWidget() {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadPdf = () => {
+    if (!calorieResult || hasValidationError) return;
+
+    generatePdf({
+      toolName: "Calorie / TDEE Calculator",
+      toolSlug: "calorie-calculator",
+      inputs: [
+        { label: "Sex", value: sex.toUpperCase() },
+        { label: "Age", value: `${age} years` },
+        { label: "Height", value: heightUnit === "cm" ? `${heightCm} cm` : `${heightFt} ft ${heightIn} in` },
+        { label: "Weight", value: `${weight} ${weightUnit}` },
+        { label: "Activity Level", value: activityLevel.toUpperCase() },
+      ],
+      results: [
+        { label: "Daily BMR", value: `${calorieResult.bmr.toLocaleString()} kcal`, isHighlight: false },
+        { label: "TDEE (Maintain)", value: `${calorieResult.tdee.toLocaleString()} kcal`, isHighlight: true },
+        { label: "Weight Loss (-500 kcal)", value: `${calorieResult.loseWeight.toLocaleString()} kcal` },
+        { label: "Weight Gain (+500 kcal)", value: `${calorieResult.gainWeight.toLocaleString()} kcal` },
+      ],
+      summaryNote: `Your Total Daily Energy Expenditure (TDEE) is estimated at ${calorieResult.tdee.toLocaleString()} kcal/day based on the Mifflin-St Jeor equation.`,
+      filename: `Calorie-Report-${calorieResult.tdee}kcal.pdf`,
+    });
   };
 
   return (
@@ -436,13 +462,16 @@ export default function CalorieCalculatorWidget() {
                   <p className="text-xs text-zinc-500 dark:text-zinc-400">
                     Perfect for screenshots! Save this card to track your metrics.
                   </p>
-                  <button
-                    type="button"
-                    onClick={handleCopy}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-bold py-2 px-4 rounded-xl transition duration-150"
-                  >
-                    <span>{copied ? "✅ Copied!" : "📋 Copy result as text"}</span>
-                  </button>
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <button
+                      type="button"
+                      onClick={handleCopy}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 text-xs font-bold py-2 px-4 rounded-xl transition duration-150"
+                    >
+                      <span>{copied ? "✅ Copied!" : "📋 Copy result"}</span>
+                    </button>
+                    <DownloadPdfButton onClick={handleDownloadPdf} />
+                  </div>
                 </div>
 
               </div>

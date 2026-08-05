@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 interface Currency {
   code: string;
@@ -220,6 +222,24 @@ export default function CurrencyConverterWidget() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleDownloadPdf = () => {
+    if (!rate) return;
+    generatePdf({
+      toolName: "Currency Converter",
+      toolSlug: "currency-converter",
+      inputs: [
+        { label: "Original Amount", value: `${numericAmount} ${fromCurrency}` },
+        { label: "Converted Amount", value: `${convertedValue.toFixed(2)} ${toCurrency}` },
+      ],
+      results: [
+        { label: "Converted Value", value: `${convertedValue.toFixed(2)} ${toCurrency}`, isHighlight: true },
+        { label: "Exchange Rate", value: `1 ${fromCurrency} = ${rate.toFixed(4)} ${toCurrency}` },
+      ],
+      summaryNote: "Conversion result based on live exchange rates.",
+      filename: `Currency-Conversion-${fromCurrency}-to-${toCurrency}.pdf`,
+    });
+  };
+
   return (
     <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-sm transition-all duration-300">
       
@@ -390,15 +410,18 @@ export default function CurrencyConverterWidget() {
               </div>
             </div>
 
-            {/* Copy Button */}
+            {/* Copy & PDF Buttons */}
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="w-full py-3 px-4 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-all duration-200 active:scale-[0.98] shadow-sm"
-              >
-                <span>{copied ? "✅ Copied to Clipboard!" : "📋 Copy Shareable Result"}</span>
-              </button>
+              <div className="flex flex-col sm:flex-row items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="w-full sm:w-auto flex-1 py-3 px-4 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-semibold rounded-xl text-xs flex items-center justify-center gap-2 transition-all duration-200 active:scale-[0.98] shadow-sm"
+                >
+                  <span>{copied ? "✅ Copied!" : "📋 Copy Result"}</span>
+                </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+              </div>
               <p className="text-[10px] text-center text-zinc-400 dark:text-zinc-500 mt-2 italic">
                 Includes natural link attribution to share with colleagues and clients.
               </p>

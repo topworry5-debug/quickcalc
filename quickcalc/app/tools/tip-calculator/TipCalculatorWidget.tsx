@@ -2,12 +2,36 @@
 
 import { useState, useMemo } from "react";
 import { calculateTip } from "../../../lib/calculators/tipCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function TipCalculatorWidget() {
   const [billInput, setBillInput] = useState<string>("");
   const [tipPercentage, setTipPercentage] = useState<number>(15);
   const [peopleCount, setPeopleCount] = useState<number>(1);
   const [copied, setCopied] = useState<boolean>(false);
+
+  const handleDownloadPdf = () => {
+    if (!results || billAmount <= 0) return;
+
+    generatePdf({
+      toolName: "Tip & Bill Splitter Calculator",
+      toolSlug: "tip-calculator",
+      inputs: [
+        { label: "Bill Amount", value: `$${billAmount.toFixed(2)}` },
+        { label: "Tip Percentage", value: `${tipPercentage}%` },
+        { label: "Split Between", value: `${peopleCount} person(s)` },
+      ],
+      results: [
+        { label: "Total Tip", value: `$${results.tipAmount.toFixed(2)}` },
+        { label: "Grand Total", value: `$${results.totalBill.toFixed(2)}`, isHighlight: true },
+        { label: "Tip Per Person", value: `$${results.tipPerPerson.toFixed(2)}` },
+        { label: "Total Per Person", value: `$${results.totalPerPerson.toFixed(2)}` },
+      ],
+      summaryNote: `Tip calculation of ${tipPercentage}% on a $${billAmount.toFixed(2)} bill split among ${peopleCount} people.`,
+      filename: `Tip-Breakdown.pdf`,
+    });
+  };
 
   // Safely parse values
   const billAmount = useMemo(() => {
@@ -220,14 +244,15 @@ export default function TipCalculatorWidget() {
                 </div>
 
                 {/* Sharing Action */}
-                <div className="pt-4 border-t border-zinc-200/50 dark:border-zinc-800/50">
+                <div className="pt-4 border-t border-zinc-200/50 dark:border-zinc-800/50 flex flex-col sm:flex-row items-center gap-2">
                   <button
                     type="button"
                     onClick={handleCopyBreakdown}
-                    className="w-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition font-semibold text-xs px-5 py-3 rounded-lg shadow-sm focus:outline-none"
+                    className="w-full sm:w-auto flex-1 bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition font-semibold text-xs px-5 py-3 rounded-lg shadow-sm focus:outline-none"
                   >
-                    {copied ? "✅ Breakdown Copied!" : "📋 Copy Breakdown Summary"}
+                    {copied ? "✅ Breakdown Copied!" : "📋 Copy Summary"}
                   </button>
+                  <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
                 </div>
               </div>
             )}

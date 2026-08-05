@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { BUSINESS_HUBS, calculateTimezoneOverlap, getSourceDate } from "../../../lib/calculators/timezonePlanner";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function TimezonePlannerWidget() {
   const [sourceTime, setSourceTime] = useState<string>("09:00");
@@ -118,6 +120,36 @@ export default function TimezonePlannerWidget() {
     } catch (err) {
       console.error("Failed to copy share link", err);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    if (!results || results.rows.length === 0) return;
+
+    const sourceHub = BUSINESS_HUBS.find((h) => h.timezone === sourceTimezone);
+
+    generatePdf({
+      toolName: "Timezone Meeting Planner",
+      toolSlug: "timezone-meeting-planner",
+      inputs: [
+        { label: "Base Timezone", value: `${sourceHub?.name || sourceTimezone} (${sourceTimezone})` },
+        { label: "Base Date & Time", value: `${sourceDateStr} at ${sourceTime}` },
+      ],
+      results: [
+        { label: "Total Locations", value: `${results.rows.length} regions` },
+      ],
+      summaryNote: `Global meeting time synchronization for team members across different time zones.`,
+      table: {
+        title: "Synchronized Local Times Across Hubs",
+        headers: ["City / Region", "Timezone", "Local Date & Time", "Working Hours Status"],
+        rows: results.rows.map((row) => [
+          row.name,
+          row.timezone,
+          `${row.formattedDate} at ${row.formattedTime}`,
+          row.isWorkingHours ? "Inside Working Hours" : "Outside Working Hours",
+        ]),
+      },
+      filename: `Timezone-Meeting-Schedule.pdf`,
+    });
   };
 
   return (
@@ -299,6 +331,8 @@ export default function TimezonePlannerWidget() {
             >
               {copiedLink ? "🔗 Share Link Copied!" : "🔗 Copy Shareable Link"}
             </button>
+
+            <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
           </div>
 
           <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium italic">

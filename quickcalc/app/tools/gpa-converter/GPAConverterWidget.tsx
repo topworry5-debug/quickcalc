@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { convertToGPA, GradingSystem, GPAConverterResult } from "../../../lib/calculators/gpaConverter";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function GPAConverterWidget() {
   const [system, setSystem] = useState<GradingSystem>("us-percentage");
@@ -10,7 +12,27 @@ export default function GPAConverterWidget() {
     gpa: 3.0,
     letterEquivalent: "B",
     percentageEquivalent: "83-86%",
-  }); // default calculation for US Percentage 85%
+  });
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+
+    generatePdf({
+      toolName: "GPA Converter",
+      toolSlug: "gpa-converter",
+      inputs: [
+        { label: "Grading System", value: system },
+        { label: "Grade Entered", value: gradeInput },
+      ],
+      results: [
+        { label: "US GPA (4.0 Scale)", value: result.gpa.toFixed(2), isHighlight: true },
+        { label: "Letter Grade", value: result.letterEquivalent },
+        { label: "Percentage Band", value: result.percentageEquivalent },
+      ],
+      summaryNote: `Converted from ${system} format. Standard 4.0 scale equivalence.`,
+      filename: `GPA-Report-${result.gpa.toFixed(2)}.pdf`,
+    });
+  };
 
   const handleConvert = (e: React.FormEvent) => {
     e.preventDefault();
@@ -143,7 +165,11 @@ export default function GPAConverterWidget() {
             </div>
           </div>
 
-          <p className="text-[10px] text-zinc-400 dark:text-zinc-500 mt-6 italic">
+          <div className="mt-6 flex justify-center border-t border-zinc-200/60 dark:border-zinc-800/60 pt-4">
+            <DownloadPdfButton onClick={handleDownloadPdf} />
+          </div>
+
+          <p className="text-[10px] text-zinc-400 dark:text-zinc-500 mt-4 italic">
             *This is an approximate equivalence. Academic institutions around the world utilize highly varying and custom grading conversions. Refer to your targeted university admissions page for exact scale conversions.
           </p>
         </div>

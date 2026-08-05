@@ -2,11 +2,39 @@
 
 import { useState, useEffect } from "react";
 import { getBedtimesForWakeUp, getWakeUpTimesForSleepNow, SleepTimeOption } from "../../../lib/calculators/sleepCycle";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function SleepCycleCalculatorWidget() {
   const [mode, setMode] = useState<"wake-up" | "sleep-now">("wake-up");
   const [wakeTime, setWakeTime] = useState<string>("07:00");
   const [results, setResults] = useState<SleepTimeOption[]>([]);
+
+  const handleDownloadPdf = () => {
+    if (!results || results.length === 0) return;
+
+    const recommendedOpt = results.find((opt) => opt.cycles === 5 || opt.cycles === 6) || results[0];
+
+    generatePdf({
+      toolName: "Sleep Cycle Calculator",
+      toolSlug: "sleep-cycle-calculator",
+      inputs: [
+        { label: "Calculation Mode", value: mode === "wake-up" ? `Target Wake Time ${wakeTime}` : "Going to Bed Now" },
+      ],
+      results: [
+        { label: "Optimal Time Target", value: recommendedOpt.time, isHighlight: true },
+        { label: "Sleep Duration", value: `${recommendedOpt.hours} hours` },
+        { label: "Sleep Cycles Completed", value: `${recommendedOpt.cycles} cycles (90m each)` },
+      ],
+      summaryNote: `Waking up at the end of a 90-minute sleep cycle prevents morning sleep inertia and grogginess.`,
+      table: {
+        title: "All Calculated Sleep Options",
+        headers: ["Target Time", "Sleep Duration", "Sleep Cycles"],
+        rows: results.map((opt) => [opt.time, `${opt.hours} hrs`, `${opt.cycles} cycles`]),
+      },
+      filename: `Sleep-Cycle-Schedule.pdf`,
+    });
+  };
 
   const handleCalculate = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -133,6 +161,10 @@ export default function SleepCycleCalculatorWidget() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="mt-6 flex justify-center">
+            <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
 
           <p className="text-[11px] text-zinc-400 dark:text-zinc-500 mt-4 text-center leading-relaxed">

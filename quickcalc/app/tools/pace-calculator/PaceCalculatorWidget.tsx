@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { formatSecondsToTime, formatPace, timeToSeconds } from "../../../lib/calculators/paceCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 type Mode = "pace" | "time" | "distance";
 
@@ -222,6 +224,36 @@ export default function PaceCalculatorWidget() {
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const handleDownloadPdf = () => {
+    generatePdf({
+      toolName: "Running Pace Calculator",
+      toolSlug: "pace-calculator",
+      inputs: [
+        { label: "Calculation Mode", value: mode.toUpperCase() },
+        { label: "Distance", value: `${distance} ${distanceUnit}` },
+        { label: "Target Time", value: `${hours}h ${minutes}m ${seconds}s` },
+      ],
+      results: [
+        { label: "Pace per Kilometer", value: calculatedPaceKm ? `${calculatedPaceKm} /km` : "--", isHighlight: true },
+        { label: "Pace per Mile", value: calculatedPaceMile ? `${calculatedPaceMile} /mi` : "--" },
+        { label: "Speed (km/h)", value: `${speedKph || "--"} km/h` },
+        { label: "Speed (mph)", value: `${speedMph || "--"} mph` },
+      ],
+      summaryNote: `Pace breakdown and race predictions based on your target performance.`,
+      table: predictions ? {
+        title: "Race Time Predictions",
+        headers: ["Race Event", "Distance", "Estimated Finish Time"],
+        rows: [
+          ["5K", "5 km (3.1 mi)", predictions["5K"]],
+          ["10K", "10 km (6.2 mi)", predictions["10K"]],
+          ["Half Marathon", "21.1 km (13.1 mi)", predictions["Half Marathon"]],
+          ["Full Marathon", "42.2 km (26.2 mi)", predictions["Marathon"]],
+        ],
+      } : undefined,
+      filename: `Running-Pace-Report.pdf`,
     });
   };
 
@@ -467,12 +499,15 @@ export default function PaceCalculatorWidget() {
             <div className="text-sm text-zinc-500 dark:text-zinc-400 text-center sm:text-left">
               Speed: <span className="font-bold text-zinc-700 dark:text-zinc-300">{speedKph || "--"} km/h</span> ({speedMph || "--"} mph)
             </div>
-            <button
-              onClick={handleCopy}
-              className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-4 py-2 rounded-lg text-sm font-semibold transition"
-            >
-              {copied ? "✓ Copied!" : "📋 Copy Results"}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleCopy}
+                className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 px-4 py-2 rounded-lg text-sm font-semibold transition"
+              >
+                {copied ? "✓ Copied!" : "📋 Copy Results"}
+              </button>
+              <DownloadPdfButton onClick={handleDownloadPdf} />
+            </div>
           </div>
         </div>
 

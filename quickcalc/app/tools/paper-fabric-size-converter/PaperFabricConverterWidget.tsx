@@ -9,6 +9,8 @@ import {
   FabricConversionResult,
   PaperSizeResult,
 } from "../../../lib/calculators/paperFabricCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function PaperFabricConverterWidget() {
   const [mode, setMode] = useState<"paper" | "fabric">("paper");
@@ -53,6 +55,41 @@ export default function PaperFabricConverterWidget() {
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy", err);
+    }
+  };
+
+  const handleDownloadPdf = () => {
+    if (mode === "paper" && paperResult) {
+      generatePdf({
+        toolName: "Paper Size Converter",
+        toolSlug: "paper-fabric-size-converter",
+        inputs: [
+          { label: "Paper Format", value: paperResult.name },
+        ],
+        results: [
+          { label: "Millimeters (mm)", value: `${paperResult.mm.width} x ${paperResult.mm.height} mm`, isHighlight: true },
+          { label: "Centimeters (cm)", value: `${paperResult.cm.width} x ${paperResult.cm.height} cm` },
+          { label: "Inches (in)", value: `${paperResult.inches.width} x ${paperResult.inches.height} in` },
+        ],
+        summaryNote: `Standard dimension breakdown for ${paperResult.name} paper.`,
+        filename: `Paper-Size-${paperResult.name.replace(/\s+/g, "-")}.pdf`,
+      });
+    } else if (mode === "fabric" && fabricResult && typeof fabricResult !== "string") {
+      generatePdf({
+        toolName: "Fabric Size Converter",
+        toolSlug: "paper-fabric-size-converter",
+        inputs: [
+          { label: "Input Length", value: `${fabricValue} ${fabricUnit}` },
+        ],
+        results: [
+          { label: "Yards (yd)", value: `${fabricResult.yards} yd`, isHighlight: true },
+          { label: "Meters (m)", value: `${fabricResult.meters} m` },
+          { label: "Inches (in)", value: `${fabricResult.inches} in` },
+          { label: "Centimeters (cm)", value: `${fabricResult.cm} cm` },
+        ],
+        summaryNote: `Fabric length equivalence conversion for ${fabricValue} ${fabricUnit}.`,
+        filename: `Fabric-Length-Report.pdf`,
+      });
     }
   };
 
@@ -258,13 +295,16 @@ export default function PaperFabricConverterWidget() {
         {/* Copy Actions Footer */}
         {((mode === "paper" && paperResult) || (mode === "fabric" && fabricResult && typeof fabricResult !== "string")) && (
           <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
-            >
-              {copied ? "✅ Copied Conversion Table!" : "📋 Copy Results"}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
+              >
+                {copied ? "✅ Copied!" : "📋 Copy Results"}
+              </button>
+              <DownloadPdfButton onClick={handleDownloadPdf} />
+            </div>
 
             <span className="text-2xs text-zinc-400 dark:text-zinc-500 italic">
               Live simultaneous print & textile conversion

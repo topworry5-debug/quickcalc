@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { calculateWaterIntake, WaterIntakeResult } from "../../../lib/calculators/waterIntake";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function WaterIntakeCalculatorWidget() {
   const [weight, setWeight] = useState<string>("70");
@@ -11,7 +13,27 @@ export default function WaterIntakeCalculatorWidget() {
   const [result, setResult] = useState<WaterIntakeResult | null>({
     liters: 2.95,
     glasses: 11.8,
-  }); // Default calculation for 70kg, moderate, normal climate
+  });
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+
+    generatePdf({
+      toolName: "Daily Water Intake Calculator",
+      toolSlug: "water-intake-calculator",
+      inputs: [
+        { label: "Body Weight", value: `${weight} ${weightUnit}` },
+        { label: "Activity Level", value: activityLevel.toUpperCase() },
+        { label: "Climate", value: climate === "hot" ? "Hot / Humid" : "Normal / Temperate" },
+      ],
+      results: [
+        { label: "Recommended Daily Water", value: `${result.liters} Liters`, isHighlight: true },
+        { label: "Standard Glass Equiv. (250ml)", value: `${result.glasses} Glasses` },
+      ],
+      summaryNote: `Recommended daily fluid intake requirement tailored to your weight and activity level.`,
+      filename: `Water-Intake-Plan-${result.liters}L.pdf`,
+    });
+  };
 
   const handleCalculate = (e: React.FormEvent) => {
     e.preventDefault();
@@ -141,6 +163,9 @@ export default function WaterIntakeCalculatorWidget() {
               </span>
               <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400 mt-1">Glasses (250ml)</span>
             </div>
+          </div>
+          <div className="mt-6 flex justify-center">
+            <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
           <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-4 italic">
             *This estimation is a guideline. Factors like pregnancy, nursing, overall health, and illness can alter your personal requirement.

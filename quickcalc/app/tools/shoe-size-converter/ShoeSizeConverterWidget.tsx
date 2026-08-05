@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { convertShoeSize, SizingSystem, ShoeConversionResult } from "../../../lib/calculators/shoeSizeCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function ShoeSizeConverterWidget() {
   const [gender, setGender] = useState<"mens" | "womens">("mens");
@@ -9,6 +11,27 @@ export default function ShoeSizeConverterWidget() {
   const [system, setSystem] = useState<SizingSystem>("us");
   const [result, setResult] = useState<ShoeConversionResult | string | null>(null);
   const [copied, setCopied] = useState(false);
+
+  const handleDownloadPdf = () => {
+    if (!result || typeof result === "string") return;
+
+    generatePdf({
+      toolName: "Shoe Size Converter",
+      toolSlug: "shoe-size-converter",
+      inputs: [
+        { label: "Category", value: gender === "mens" ? "Men's Sizing" : "Women's Sizing" },
+        { label: "Input Size", value: `${sizeInput} (${system.toUpperCase()})` },
+      ],
+      results: [
+        { label: "US Size", value: `${result.us}`, isHighlight: system === "us" },
+        { label: "UK Size", value: `${result.uk}`, isHighlight: system === "uk" },
+        { label: "EU Size", value: `${result.eu}`, isHighlight: system === "eu" },
+        { label: "Japan Size (cm)", value: `${result.jp} cm`, isHighlight: system === "jp" },
+      ],
+      summaryNote: `International shoe size equivalencies for ${gender === "mens" ? "Men's" : "Women's"} footwear.`,
+      filename: `Shoe-Size-Conversion.pdf`,
+    });
+  };
 
   useEffect(() => {
     const sizeNum = parseFloat(sizeInput);
@@ -158,13 +181,16 @@ export default function ShoeSizeConverterWidget() {
 
             {/* Sharing & Copy Buttons */}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-              <button
-                type="button"
-                onClick={handleCopy}
-                className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-blue-500 focus:outline-none"
-              >
-                {copied ? "✅ Copied Sizing Table!" : "📋 Copy Size Conversion"}
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-blue-500 focus:outline-none"
+                >
+                  {copied ? "✅ Copied!" : "📋 Copy Size Conversion"}
+                </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} />
+              </div>
 
               <span className="text-2xs text-zinc-400 dark:text-zinc-500 italic">
                 Simultaneous 4-system cross conversion

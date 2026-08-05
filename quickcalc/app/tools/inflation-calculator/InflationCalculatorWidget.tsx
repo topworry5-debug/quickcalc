@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { inflationData } from "@/lib/calculators/inflationData";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 type Mode = "past-to-present" | "present-to-past";
 
@@ -118,6 +120,27 @@ export default function InflationCalculatorWidget() {
         console.error("Failed to copy", err);
       }
     }
+  };
+
+  const handleDownloadPdf = () => {
+    if (!calculation.isValid || calculation.convertedAmount === undefined) return;
+
+    generatePdf({
+      toolName: "Inflation Calculator",
+      toolSlug: "inflation-calculator",
+      inputs: [
+        { label: "Country", value: country === "US" ? "United States (USD)" : country === "CA" ? "Canada (CAD)" : "Pakistan (PKR)" },
+        { label: "Base Year", value: `${selectedYear}` },
+        { label: "Target Year", value: `${presentYear}` },
+        { label: "Original Amount", value: `${currencySymbol}${amount.toLocaleString()}` },
+      ],
+      results: [
+        { label: "Equivalent Value", value: `${currencySymbol}${calculation.convertedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`, isHighlight: true },
+        { label: "Cumulative Inflation", value: `${calculation.cumulativeInflationPercent?.toFixed(1)}%` },
+      ],
+      summaryNote: calculation.purchasingPowerText || "",
+      filename: `Inflation-Report-${selectedYear}-vs-${presentYear}.pdf`,
+    });
   };
 
   return (
@@ -272,16 +295,17 @@ export default function InflationCalculatorWidget() {
               </p>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-2">
               <button
                 type="button"
                 onClick={handleCopy}
                 className="w-full py-3 px-4 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm active:scale-[0.99]"
               >
                 <span>
-                  {copied ? "✅ Copied to Clipboard!" : "📋 Copy Shareable Result"}
+                  {copied ? "✅ Copied!" : "📋 Copy Shareable Result"}
                 </span>
               </button>
+              <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
             </div>
           </div>
         ) : (

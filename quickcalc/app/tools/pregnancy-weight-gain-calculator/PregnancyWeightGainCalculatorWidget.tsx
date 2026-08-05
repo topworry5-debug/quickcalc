@@ -5,6 +5,8 @@ import {
   calculatePregnancyWeightGain,
   PregnancyCalculatorResult,
 } from "../../../lib/calculators/pregnancyWeightCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function PregnancyWeightGainCalculatorWidget() {
   // Unit toggle state: "metric" (cm, kg) or "imperial" (ft/in, lb)
@@ -75,6 +77,27 @@ export default function PregnancyWeightGainCalculatorWidget() {
     currentWeek,
     pregnancyType,
   ]);
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+
+    generatePdf({
+      toolName: "Pregnancy Weight Gain Calculator",
+      toolSlug: "pregnancy-weight-gain-calculator",
+      inputs: [
+        { label: "Current Week", value: `Week ${currentWeek}` },
+        { label: "Pregnancy Type", value: pregnancyType === "single" ? "Single Baby" : "Twins" },
+        { label: "Pre-Pregnancy BMI", value: `${result.bmi.toFixed(1)} (${result.bmiCategory})` },
+      ],
+      results: [
+        { label: "Total Weight Gained", value: unitMode === "imperial" ? `${result.totalGainedLb.toFixed(1)} lbs` : `${result.totalGainedKg.toFixed(1)} kg`, isHighlight: true },
+        { label: "Recommended Total Target Range", value: unitMode === "imperial" ? `${result.totalRecommendedMinLb} - ${result.totalRecommendedMaxLb} lbs` : `${result.totalRecommendedMinKg} - ${result.totalRecommendedMaxKg} kg` },
+        { label: `Target Range for Week ${currentWeek}`, value: unitMode === "imperial" ? `${result.expectedMinLb.toFixed(1)} - ${result.expectedMaxLb.toFixed(1)} lbs` : `${result.expectedMinKg.toFixed(1)} - ${result.expectedMaxKg.toFixed(1)} kg` },
+      ],
+      summaryNote: `Based on Institute of Medicine (IOM) guidelines for pre-pregnancy BMI category: ${result.bmiCategory}.`,
+      filename: `Pregnancy-Weight-Report-Week${currentWeek}.pdf`,
+    });
+  };
 
   // Handle visual progress calculation
   // We want to map current weight gain, expected min, expected max, and total limits on a relative visual bar
@@ -459,6 +482,12 @@ export default function PregnancyWeightGainCalculatorWidget() {
             <p className="text-sm text-zinc-400 dark:text-zinc-500">
               Please fill in your pre-pregnancy weight, height, and current weight to see your personalized gestational weight gain guide.
             </p>
+          </div>
+        )}
+
+        {result && (
+          <div className="flex justify-center">
+            <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
         )}
 

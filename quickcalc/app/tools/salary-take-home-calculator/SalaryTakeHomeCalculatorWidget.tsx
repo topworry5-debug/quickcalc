@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { calculateSalary, SalaryCalculatorResult, CANADA_TAX_CONFIG } from "../../../lib/calculators/salaryCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 type CountryType = "US" | "Canada" | "Pakistan";
 type SalaryType = "annual" | "monthly";
@@ -86,6 +88,37 @@ export default function SalaryTakeHomeCalculatorWidget() {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadPdf = () => {
+    if (!result) return;
+
+    generatePdf({
+      toolName: `Salary Take-Home Calculator (${country})`,
+      toolSlug: "salary-take-home-calculator",
+      inputs: [
+        { label: "Country", value: country },
+        { label: "Gross Salary (Annual)", value: formatCurrency(result.grossSalaryAnnual) },
+        { label: "Pay Frequency", value: payFrequency },
+      ],
+      results: [
+        { label: `Net Take-Home (${payFrequency})`, value: formatCurrency(result.netPaySelected), isHighlight: true },
+        { label: "Take-Home Percentage", value: `${result.takeHomePercentage.toFixed(1)}%` },
+        { label: "Tax Percentage", value: `${result.taxPercentage.toFixed(1)}%` },
+        { label: "Annual Net Take-Home", value: formatCurrency(result.netPayAnnual) },
+      ],
+      summaryNote: `Tax & payroll breakdown calculated according to current ${country} tax tables.`,
+      table: {
+        title: `Deductions & Taxes Breakdown (${payFrequency})`,
+        headers: ["Deduction / Tax Item", "Amount"],
+        rows: [
+          ["Gross Pay", formatCurrency(result.grossSalarySelected)],
+          ...result.deductionsBreakdownSelected.map((d) => [d.name, `-${formatCurrency(d.amount)}`]),
+          ["Net Take-Home Pay", formatCurrency(result.netPaySelected)],
+        ],
+      },
+      filename: `Salary-Take-Home-Report.pdf`,
+    });
   };
 
   const inputNumber = parseFloat(grossSalary);
@@ -324,16 +357,9 @@ export default function SalaryTakeHomeCalculatorWidget() {
                   onClick={handleCopy}
                   className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-800 dark:text-zinc-200 transition-colors"
                 >
-                  {copied ? (
-                    <>
-                      <span>✓ Copied to clipboard!</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>📋 Copy Full Breakdown</span>
-                    </>
-                  )}
+                  {copied ? "✓ Copied!" : "📋 Copy Breakdown"}
                 </button>
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
               </div>
             </div>
           )

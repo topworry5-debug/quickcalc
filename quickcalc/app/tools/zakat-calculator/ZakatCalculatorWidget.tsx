@@ -8,6 +8,8 @@ import {
   ZakatConfig,
   ZakatResult
 } from "../../../lib/calculators/zakatCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function ZakatCalculatorWidget() {
   // Input fields
@@ -100,6 +102,26 @@ Calculated via QuickCalc Zakat Tool (https://quickcalc.cloud/tools/zakat-calcula
     navigator.clipboard.writeText(summaryText).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  const handleDownloadPdf = () => {
+    generatePdf({
+      toolName: "Zakat Calculator",
+      toolSlug: "zakat-calculator",
+      inputs: [
+        { label: "Nisab Basis", value: nisabStandard.toUpperCase() },
+        { label: "Nisab Threshold", value: formatCurrency(results.nisabThreshold) },
+        { label: "Gross Assets", value: formatCurrency(results.totalAssets) },
+        { label: "Deductible Liabilities", value: formatCurrency(nMoneyOwedToOthers) },
+      ],
+      results: [
+        { label: "Net Eligible Wealth", value: formatCurrency(Math.max(0, results.netWealth)) },
+        { label: "Zakat Due (2.5%)", value: formatCurrency(results.zakatDue), isHighlight: true },
+        { label: "Nisab Status", value: results.isAboveNisab ? "ABOVE Nisab (Zakat Obligatory)" : "BELOW Nisab (No Zakat Due)" },
+      ],
+      summaryNote: `Zakat calculation computed using 2.5% rate on net eligible wealth above Nisab (${nisabStandard}).`,
+      filename: `Zakat-Calculation-Report.pdf`,
     });
   };
 
@@ -487,7 +509,7 @@ Calculated via QuickCalc Zakat Tool (https://quickcalc.cloud/tools/zakat-calcula
               </p>
             )}
 
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <div className="mt-6 flex flex-wrap justify-center items-center gap-3">
               <button
                 type="button"
                 onClick={handleCopy}
@@ -495,6 +517,7 @@ Calculated via QuickCalc Zakat Tool (https://quickcalc.cloud/tools/zakat-calcula
               >
                 {copied ? "✓ Copied Breakdown!" : "📋 Copy Breakdown"}
               </button>
+              <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
             </div>
           </div>
         </div>

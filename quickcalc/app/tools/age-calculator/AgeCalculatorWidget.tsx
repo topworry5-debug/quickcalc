@@ -2,11 +2,31 @@
 
 import { useState, useEffect } from "react";
 import { calculateAge, AgeResult } from "@/lib/calculators/ageCalculator";
+import { generatePdf } from "@/lib/utils/downloadPdf";
+import DownloadPdfButton from "@/components/DownloadPdfButton";
 
 export default function AgeCalculatorWidget() {
   const [dateString, setDateString] = useState<string>("");
   const [result, setResult] = useState<AgeResult | string | null>(null);
   const [copied, setCopied] = useState(false);
+
+  const handleDownloadPdf = () => {
+    if (!result || typeof result === "string") return;
+
+    generatePdf({
+      toolName: "Age Calculator",
+      toolSlug: "age-calculator",
+      inputs: [{ label: "Date of Birth", value: dateString }],
+      results: [
+        { label: "Exact Age", value: `${result.years} yrs, ${result.months} mos, ${result.days} days`, isHighlight: true },
+        { label: "Day Born", value: result.dayOfWeekBorn },
+        { label: "Zodiac Sign", value: result.zodiacSign },
+        { label: "Generational Era", value: result.generation },
+      ],
+      summaryNote: `Exact age calculation report generated on quickcalc.cloud`,
+      filename: `Age-Report.pdf`,
+    });
+  };
 
   // Initialize with a past date (e.g., exactly 25 years and 3 months ago) to have a gorgeous default state
   useEffect(() => {
@@ -170,25 +190,28 @@ export default function AgeCalculatorWidget() {
                     Perfect to screenshot, send to friends, or share on WhatsApp and social media!
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className={`px-4 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-all self-start sm:self-center ${
-                    copied
-                      ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/10 scale-102"
-                      : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/10 active:scale-98"
-                  }`}
-                >
-                  {copied ? (
-                    <>
-                      <span>✔️ Copied Share Text!</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>🔗 Copy Share Text</span>
-                    </>
-                  )}
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={handleCopy}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-all self-start sm:self-center ${
+                      copied
+                        ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/10 scale-102"
+                        : "bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-600/10 active:scale-98"
+                    }`}
+                  >
+                    {copied ? (
+                      <>
+                        <span>✔️ Copied Share Text!</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>🔗 Copy Share Text</span>
+                      </>
+                    )}
+                  </button>
+                  <DownloadPdfButton onClick={handleDownloadPdf} className="py-2" />
+                </div>
               </div>
 
               {/* Preview Box */}
