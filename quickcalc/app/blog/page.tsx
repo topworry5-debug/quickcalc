@@ -13,6 +13,18 @@ export const metadata: Metadata = {
 
 export const articles = [
   {
+    slug: "why-starting-retirement-savings-early-matters-more-than-you-think",
+    title: "Why Starting Retirement Savings Early Matters More Than You Think",
+    description: "Discover why starting retirement savings early matters more than contributing higher amounts later. See worked compound growth examples and clear benchmarks.",
+    excerpt: "Discover why starting retirement savings early matters more than contributing higher amounts later. See worked compound growth examples and clear benchmarks.",
+    date: "August 4, 2026",
+    readTime: "9 min read",
+    category: "Finance & Math",
+    icon: "🏦",
+    color: "from-emerald-600 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+  },
+  {
     slug: "how-to-calculate-the-cost-of-daily-habits-financial-guide",
     title: "How to Calculate Cost of Daily Habits: Financial Guide",
     description: "Learn how to calculate the true cost of daily habits over 1, 5, and 10 years. Discover the Latte Factor, compound growth math, and free finance tools.",
