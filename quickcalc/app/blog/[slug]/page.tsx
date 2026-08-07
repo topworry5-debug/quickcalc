@@ -1,4 +1,5 @@
 import ReadingProgressBar from "@/components/ReadingProgressBar";
+import ToolIcon from "@/components/ToolIcon";
 import { Calculator, ArrowRight, Clock, Calendar, ChevronLeft, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import { articles } from "../articlesData";
@@ -95,211 +96,211 @@ const articleToolMap: Record<string, { title: string; href: string; description:
     title: "Retirement Calculator",
     href: "/tools/retirement-calculator",
     description: "Calculate your retirement nest egg with compound interest & monthly savings projection.",
-    icon: "📈",
+    icon: "retirement",
   },
   "how-to-calculate-the-cost-of-daily-habits-financial-guide": {
     title: "Habit Cost Calculator",
     href: "/tools/habit-cost-calculator",
     description: "See how small daily spending habits compound over 1, 5, 10, and 20 years.",
-    icon: "☕",
+    icon: "habit-cost",
   },
   "how-to-convert-paper-and-fabric-sizes-dimensions-guide": {
     title: "Paper & Fabric Converter",
     href: "/tools/paper-fabric-size-converter",
     description: "Convert paper dimensions (A4, Letter) and fabric length (yards, meters).",
-    icon: "📐",
+    icon: "paper-fabric",
   },
   "how-to-count-words-and-characters-writing-limits-guide": {
     title: "Word & Character Counter",
     href: "/tools/word-character-counter",
     description: "Instantly count words, characters, sentences, and social media post limits.",
-    icon: "📝",
+    icon: "word-counter",
   },
   "how-to-generate-color-palette-from-image-ui-design-guide": {
     title: "Color Palette Generator",
     href: "/tools/color-palette-generator",
     description: "Extract dominant color palettes from any uploaded image with WCAG contrast.",
-    icon: "🎨",
+    icon: "color-palette",
   },
   "how-to-convert-json-to-csv-flattening-guide": {
     title: "JSON to CSV Converter",
     href: "/tools/json-csv-converter",
     description: "Flatten nested JSON arrays into clean CSV spreadsheets instantly.",
-    icon: "🔄",
+    icon: "json-csv",
   },
   "how-to-calculate-travel-time-fuel-cost-road-trip-guide": {
     title: "Travel Time & Fuel Calculator",
     href: "/tools/travel-time-fuel-calculator",
     description: "Calculate driving trip duration, gas consumption, and shared fuel costs.",
-    icon: "🚗",
+    icon: "travel-time-fuel",
   },
   "how-to-calculate-running-pace-min-mile-speed-guide": {
     title: "Pace Calculator",
     href: "/tools/pace-calculator",
     description: "Calculate target running pace, split times, and race finish predictions.",
-    icon: "🏃",
+    icon: "pace",
   },
   "how-to-calculate-pregnancy-weight-gain-bmi-guide": {
     title: "Pregnancy Weight Gain Calculator",
     href: "/tools/pregnancy-weight-gain-calculator",
     description: "Track healthy week-by-week weight gain targets based on pre-pregnancy BMI.",
-    icon: "🤰",
+    icon: "pregnancy-weight",
   },
   "how-to-calculate-pregnancy-due-date-naegele-rule-guide": {
     title: "Due Date Calculator",
     href: "/tools/due-date-calculator",
     description: "Calculate estimated due date using Naegele's rule or conception date.",
-    icon: "📅",
+    icon: "due-date",
   },
   "how-to-calculate-inflation-rate-purchasing-power-guide": {
     title: "Inflation Calculator",
     href: "/tools/inflation-calculator",
     description: "Calculate historical inflation rates and future purchasing power changes.",
-    icon: "📈",
+    icon: "inflation",
   },
   "how-to-calculate-discount-percentage-sale-math-guide": {
     title: "Discount Calculator",
     href: "/tools/discount-calculator",
     description: "Calculate final sale prices, discount percentages, and double-coupon savings.",
-    icon: "🏷️",
+    icon: "discount",
   },
   "how-to-calculate-savings-growth-compound-interest-guide": {
     title: "Savings Growth Calculator",
     href: "/tools/savings-growth-calculator",
     description: "Model savings account growth with APY interest and recurring deposits.",
-    icon: "💰",
+    icon: "savings-growth",
   },
   "how-to-calculate-take-home-pay-net-salary-guide": {
     title: "Salary Take-Home Calculator",
     href: "/tools/salary-take-home-calculator",
     description: "Calculate net paycheck after federal, state, and 401(k) tax deductions.",
-    icon: "💵",
+    icon: "salary",
   },
   "how-to-calculate-sleep-cycles-wake-up-time-guide": {
     title: "Sleep Cycle Calculator",
     href: "/tools/sleep-cycle-calculator",
     description: "Calculate optimal bedtime and wake-up times based on 90-minute REM cycles.",
-    icon: "🌙",
+    icon: "sleep-cycle",
   },
   "how-to-convert-percentage-to-gpa-4-point-scale-guide": {
     title: "GPA Converter",
     href: "/tools/gpa-converter",
     description: "Convert percentage grades and international marks to standard 4.0 GPA.",
-    icon: "🎓",
+    icon: "gpa",
   },
   "how-to-calculate-calorie-deficit-step-by-step-guide": {
     title: "Calorie Deficit Calculator",
     href: "/tools/calorie-calculator",
     description: "Calculate daily calorie deficit targets for sustainable weight loss.",
-    icon: "🥗",
+    icon: "calorie",
   },
   "how-to-calculate-tip-easy-formulas-tipping-guide": {
     title: "Tip Calculator",
     href: "/tools/tip-calculator",
     description: "Calculate tip percentages and split restaurant bills fairly among friends.",
-    icon: "🍽️",
+    icon: "tip",
   },
   "how-to-calculate-daily-calorie-needs-for-weight-loss": {
     title: "Calorie Calculator",
     href: "/tools/calorie-calculator",
     description: "Determine daily TDEE and maintenance calorie requirements.",
-    icon: "🔥",
+    icon: "calorie",
   },
   "how-loan-emi-is-calculated-amortization-repayment-guide": {
     title: "Loan EMI Calculator",
     href: "/tools/loan-calculator",
     description: "Calculate monthly EMI loan repayments and amortization breakdown.",
-    icon: "🏠",
+    icon: "loan",
   },
   "running-pace-strategy-guide-calculate-target-race-pace": {
     title: "Pace Calculator",
     href: "/tools/pace-calculator",
     description: "Calculate target race splits and pacing strategy for 5K to marathon.",
-    icon: "⚡",
+    icon: "pace",
   },
   "how-to-write-and-test-regular-expressions-regex-tutorial-guide": {
     title: "Regex Tester & Debugger",
     href: "/tools/regex-tester",
     description: "Test and debug regular expressions live with instant pattern highlighting.",
-    icon: "⚡",
+    icon: "regex",
   },
   "is-the-8-glasses-a-day-water-rule-actually-true": {
     title: "Water Intake Calculator",
     href: "/tools/water-intake-calculator",
     description: "Calculate daily fluid intake targets based on body weight & activity level.",
-    icon: "💧",
+    icon: "water",
   },
   "how-to-calculate-exact-age-years-months-days": {
     title: "Age Calculator",
     href: "/tools/age-calculator",
     description: "Calculate exact age down to total years, months, days, and hours lived.",
-    icon: "🎂",
+    icon: "age",
   },
   "how-currency-conversion-actually-works-avoid-markup-fees": {
     title: "Currency Converter",
     href: "/tools/currency-converter",
     description: "Convert international currencies with live exchange rates & fee math.",
-    icon: "💱",
+    icon: "currency",
   },
   "how-to-calculate-zakat-nisab-gold-silver-savings-guide": {
     title: "Zakat Calculator",
     href: "/tools/zakat-calculator",
     description: "Calculate Zakat obligations on gold, silver, cash, and liquid assets.",
-    icon: "🌙",
+    icon: "zakat",
   },
   "50-30-20-budget-rule-explained-does-it-actually-work": {
     title: "Budget Calculator",
     href: "/tools/budget-calculator",
     description: "Organize monthly income into Needs (50%), Wants (30%), and Savings (20%).",
-    icon: "📊",
+    icon: "budget",
   },
   "usd-to-pkr-and-understanding-real-exchange-rates": {
     title: "Currency Converter",
     href: "/tools/currency-converter",
     description: "Convert USD to PKR with real-time interbank & open market exchange rates.",
-    icon: "💵",
+    icon: "currency",
   },
   "how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date": {
     title: "Age Calculator",
     href: "/tools/age-calculator",
     description: "Calculate your exact age and astronomical birth date trivia.",
-    icon: "🎉",
+    icon: "age",
   },
   "how-to-split-a-bill-fairly-when-everyone-orders-different-things": {
     title: "Group Expense Splitter",
     href: "/tools/group-expense-splitter",
     description: "Split group expenses, tax, tip, and shared items with friends.",
-    icon: "🧾",
+    icon: "group-expense",
   },
   "how-to-calculate-percentage-increase-decrease-discount": {
     title: "Percentage Calculator",
     href: "/tools/percentage-calculator",
     description: "Calculate percentage changes, markups, discounts, and proportions.",
-    icon: "🔢",
+    icon: "percentage",
   },
   "us-uk-eu-japan-shoe-size-conversion-guide": {
     title: "Shoe Size Converter",
     href: "/tools/shoe-size-converter",
     description: "Convert shoe sizes between US, UK, EU, and Japanese sizing charts.",
-    icon: "👟",
+    icon: "shoe-size",
   },
   "how-to-calculate-bmi-accurately-and-its-limitations": {
     title: "BMI Calculator",
     href: "/tools/bmi-calculator",
     description: "Calculate Body Mass Index and healthy weight ranges according to WHO.",
-    icon: "⚖️",
+    icon: "bmi",
   },
   "why-daylight-saving-time-breaks-simple-timezone-math": {
     title: "Timezone Meeting Planner",
     href: "/tools/timezone-meeting-planner",
     description: "Find overlapping work hours across multiple global timezones.",
-    icon: "🌐",
+    icon: "timezone",
   },
   "what-makes-a-password-actually-strong-understanding-entropy": {
     title: "Password Generator & Entropy Tester",
     href: "/tools/password-generator",
     description: "Generate secure passwords and measure cryptographic bit entropy.",
-    icon: "🔐",
+    icon: "password",
   },
 };
 
@@ -1614,7 +1615,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                         <span className="text-[11px] font-bold uppercase tracking-wider text-ink-muted">
                           {rel.category}
                         </span>
-                        <span className="text-xl">{rel.icon}</span>
+                        <ToolIcon icon={rel.icon} category={rel.category} size="sm" />
                       </div>
                       <h4 className="text-base font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2 leading-snug">
                         {rel.title}

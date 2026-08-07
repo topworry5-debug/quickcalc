@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ToolIcon from "@/components/ToolIcon";
 import { Article, articles as defaultArticles } from "./articlesData";
 import {
   Sparkles,
@@ -50,7 +51,7 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
     return allArticles.find((a) => a.featured) || allArticles[0];
   }, [allArticles]);
 
-  // Filter remaining articles
+  // Filter articles based on selected category & search query
   const filteredArticles = useMemo(() => {
     return allArticles.filter((article) => {
       const matchesCategory =
@@ -65,7 +66,7 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
     });
   }, [allArticles, selectedCategory, searchQuery]);
 
-  // Non-featured articles for grid layout when on "All" view with no active search
+  // Exclude featured article from standard grid if viewing "All" with no search query
   const gridArticles = useMemo(() => {
     if (selectedCategory === "All" && searchQuery.trim() === "" && featuredArticle) {
       return filteredArticles.filter((a) => a.slug !== featuredArticle.slug);
@@ -73,69 +74,65 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
     return filteredArticles;
   }, [filteredArticles, selectedCategory, searchQuery, featuredArticle]);
 
-  const showFeaturedHero =
-    selectedCategory === "All" && searchQuery.trim() === "" && featuredArticle;
-
   return (
     <div className="min-h-screen bg-base text-ink font-sans transition-colors flex flex-col justify-between">
       <div>
-        {/* Navigation Header */}
+        {/* Top Header Navigation */}
         <Navbar />
 
-        {/* Hero Section & Controls */}
-        <main className="max-w-5xl mx-auto px-4 pt-10 sm:pt-14 pb-4">
-          {/* Header Title */}
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 mb-4">
-              <BookOpen size={13} />
-              <span>QuickCalc Insights & Guides</span>
+        {/* Main Container */}
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12 pb-16 w-full flex-grow">
+          {/* Hero Header Section */}
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
+              <BookOpen size={14} />
+              <span>Guides & Science Deep Dives</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-heading font-extrabold text-ink tracking-tight leading-tight">
-              Engineering & Science Behind{" "}
-              <span className="text-teal-600 dark:text-teal-400">Everyday Math</span>
+            <h1 className="text-3xl sm:text-5xl font-heading font-extrabold text-ink tracking-tight">
+              QuickCalc Insights Hub
             </h1>
-            <p className="text-ink-muted text-sm sm:text-lg leading-relaxed mt-4">
-              In-depth research, scientific formulas, and practical breakdowns of our primary calculators.
+            <p className="text-ink-muted text-base sm:text-lg leading-relaxed font-medium">
+              Clear, well-researched math breakdowns, clinical models, and financial strategies behind everyday calculation formulas.
             </p>
 
-            {/* Search Input Bar */}
-            <div className="mt-8 max-w-xl mx-auto relative">
-              <div className="relative flex items-center">
-                <Search
-                  size={18}
-                  className="absolute left-4 text-ink-muted pointer-events-none"
-                />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search articles by title or topic..."
-                  className="w-full h-12 pl-11 pr-10 rounded-2xl bg-base-card border border-surface-border text-ink text-sm sm:text-base placeholder:text-ink-muted focus:outline-none focus:border-teal-500/80 focus:ring-2 focus:ring-teal-500/20 shadow-sm transition-all"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3.5 p-1 rounded-lg text-ink-muted hover:text-ink hover:bg-surface-muted transition-colors min-h-[36px] min-w-[36px] flex items-center justify-center"
-                    aria-label="Clear search"
-                  >
-                    <X size={16} />
-                  </button>
-                )}
-              </div>
+            {/* Client-Side Search Bar */}
+            <div className="relative max-w-md mx-auto mt-6">
+              <Search
+                size={18}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-muted pointer-events-none"
+              />
+              <input
+                type="text"
+                placeholder="Search articles by title, formula, or keyword..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-11 pr-10 py-3 rounded-2xl bg-base-card border border-surface-border text-ink placeholder-ink-muted text-sm font-medium focus:outline-none focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 shadow-sm transition-all min-h-[44px]"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-ink-muted hover:text-ink rounded-lg"
+                  title="Clear search"
+                >
+                  <X size={16} />
+                </button>
+              )}
             </div>
+          </div>
 
-            {/* Category Filter Pills (Mobile-First Scrollable Row) */}
-            <div className="mt-6 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+          {/* Category Filter Tabs / Pills */}
+          <div className="mb-10 overflow-x-auto pb-2 scrollbar-none">
+            <div className="flex items-center gap-2 min-w-max justify-start sm:justify-center px-1">
               {categories.map((cat) => {
                 const isActive = selectedCategory === cat;
                 return (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all min-h-[44px] ${
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all min-h-[44px] ${
                       isActive
-                        ? "bg-teal-600 text-white border border-teal-600 shadow-md shadow-teal-500/20"
-                        : "bg-base-card text-ink-muted border border-surface-border hover:border-teal-500/40 hover:text-ink"
+                        ? "bg-teal-600 text-white shadow-md shadow-teal-500/20 scale-105"
+                        : "bg-base-card text-ink-muted hover:text-ink border border-surface-border hover:border-teal-500/30"
                     }`}
                   >
                     {cat !== "All" && categoryIcons[cat]}
@@ -146,36 +143,38 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
             </div>
           </div>
 
-          {/* FEATURED POST HERO CARD */}
-          {showFeaturedHero && (
-            <div className="mb-10">
+          {/* FEATURED POST HERO CARD (Rendered on 'All' tab with no active search) */}
+          {selectedCategory === "All" && searchQuery.trim() === "" && featuredArticle && (
+            <div className="mb-12">
               <Link
                 href={`/blog/${featuredArticle.slug}`}
-                className="group block bg-base-card border border-teal-500/40 dark:border-teal-500/30 rounded-3xl p-6 sm:p-8 shadow-lg shadow-teal-500/5 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200"
+                className="group block bg-base-card border border-surface-border hover:border-teal-500/50 rounded-3xl p-6 sm:p-8 lg:p-10 shadow-lg shadow-black/5 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  {/* Left Column: Icon Badge & Content */}
-                  <div className="space-y-4 flex-grow max-w-3xl">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
-                        <Sparkles size={12} />
+                {/* Background Subtle Accent Gradient */}
+                <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+                  <div className="space-y-4 max-w-3xl">
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
+                        <Sparkles size={13} />
                         <span>Featured Guide</span>
                       </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-surface-muted/60 text-ink-muted border border-surface-border">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-surface-muted text-ink-muted border border-surface-border">
                         {categoryIcons[featuredArticle.category]}
                         <span>{featuredArticle.category}</span>
                       </span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
                       {featuredArticle.title}
                     </h2>
 
-                    <p className="text-ink-muted text-sm sm:text-base leading-relaxed">
+                    <p className="text-ink-muted text-sm sm:text-base leading-relaxed line-clamp-3 font-medium">
                       {featuredArticle.excerpt}
                     </p>
 
-                    <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-medium text-ink-muted pt-2">
+                    <div className="flex items-center gap-4 text-xs font-semibold text-ink-muted pt-2">
                       <span className="flex items-center gap-1">
                         <Calendar size={14} className="text-teal-600 dark:text-teal-400" />
                         <span>{featuredArticle.date}</span>
@@ -190,9 +189,7 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
 
                   {/* Right Column: Icon & Action */}
                   <div className="flex md:flex-col items-center md:items-end justify-between shrink-0 gap-4 pt-4 md:pt-0 border-t md:border-t-0 border-surface-border">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-teal-500/10 dark:bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-3xl sm:text-4xl shadow-inner">
-                      {featuredArticle.icon}
-                    </div>
+                    <ToolIcon icon={featuredArticle.icon} category={featuredArticle.category} size="lg" />
                     <div className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-600 dark:text-teal-400 group-hover:translate-x-1.5 transition-transform">
                       <span>Read Featured Guide</span>
                       <ArrowRight size={16} />
@@ -219,7 +216,7 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
                         {categoryIcons[article.category]}
                         <span>{article.category}</span>
                       </span>
-                      <span className="text-2xl">{article.icon}</span>
+                      <ToolIcon icon={article.icon} category={article.category} size="sm" />
                     </div>
 
                     {/* Title */}
