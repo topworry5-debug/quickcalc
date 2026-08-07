@@ -1,0 +1,21 @@
+{
+  "name": "QuickCalc - Ultimate Utility Calculator Suite",
+  "short_name": "QuickCalc",
+  "description": "Science-backed, client-side utility calculators for health, finance, and daily productivity.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAFA",
+  "theme_color": "#0D9488",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

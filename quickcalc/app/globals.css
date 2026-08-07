@@ -130,6 +130,22 @@ h1, h2, h3, h4, .font-heading {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
+/* Page Route Transition System */
+.page-transition-fade {
+  animation: pageFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -138,5 +154,28 @@ h1, h2, h3, h4, .font-heading {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Accessibility Safeguard: Keyboard Focus Ring System */
+:focus-visible {
+  outline: 2px solid #0D9488 !important;
+  outline-offset: 2px !important;
+  border-radius: 0.5rem;
+}
+
+.dark :focus-visible {
+  outline: 2px solid #2DD4BF !important;
+  outline-offset: 2px !important;
+  border-radius: 0.5rem;
+}
+
+/* Accessibility Safeguard: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

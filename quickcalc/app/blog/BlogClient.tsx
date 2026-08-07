@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ToolIcon from "@/components/ToolIcon";
+import ScrollReveal from "@/components/ScrollReveal";
 import { Article, articles as defaultArticles } from "./articlesData";
 import {
   Sparkles,
@@ -203,45 +204,46 @@ export default function BlogClient({ articles: initialArticles }: BlogClientProp
           {/* ARTICLES CARD GRID (1 col mobile, 2 col tablet, 3 col desktop) */}
           {gridArticles.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {gridArticles.map((article) => (
-                <Link
-                  key={article.slug}
-                  href={`/blog/${article.slug}`}
-                  className="group flex flex-col justify-between bg-base-card border border-surface-border hover:border-teal-500/40 rounded-2xl p-5 sm:p-6 shadow-sm shadow-black/5 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] active:bg-surface-muted/60 transition-all duration-200"
-                >
-                  <div className="space-y-3">
-                    {/* Header Row: Category Badge + Icon */}
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-surface-muted/80 text-ink-muted border border-surface-border">
-                        {categoryIcons[article.category]}
-                        <span>{article.category}</span>
-                      </span>
-                      <ToolIcon icon={article.icon} category={article.category} size="sm" />
+              {gridArticles.map((article, index) => (
+                <ScrollReveal key={article.slug} delayMs={(index % 3) * 60}>
+                  <Link
+                    href={`/blog/${article.slug}`}
+                    className="group flex flex-col justify-between h-full bg-base-card border border-surface-border hover:border-teal-500/40 rounded-2xl p-5 sm:p-6 shadow-sm shadow-black/5 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] active:bg-surface-muted/60 transition-all duration-200"
+                  >
+                    <div className="space-y-3">
+                      {/* Header Row: Category Badge + Icon */}
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-surface-muted/80 text-ink-muted border border-surface-border">
+                          {categoryIcons[article.category]}
+                          <span>{article.category}</span>
+                        </span>
+                        <ToolIcon icon={article.icon} category={article.category} size="sm" />
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-base sm:text-lg font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug line-clamp-2">
+                        {article.title}
+                      </h3>
+
+                      {/* Excerpt */}
+                      <p className="text-ink-muted text-xs sm:text-sm leading-relaxed line-clamp-3">
+                        {article.excerpt}
+                      </p>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-base sm:text-lg font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug line-clamp-2">
-                      {article.title}
-                    </h3>
-
-                    {/* Excerpt */}
-                    <p className="text-ink-muted text-xs sm:text-sm leading-relaxed line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                  </div>
-
-                  {/* Card Bottom Meta & CTA */}
-                  <div className="mt-5 pt-4 border-t border-surface-border/60 flex items-center justify-between text-xs font-medium text-ink-muted">
-                    <span className="flex items-center gap-1 text-ink-muted">
-                      <Clock size={12} />
-                      <span>{article.readTime}</span>
-                    </span>
-                    <span className="inline-flex items-center gap-1 font-bold text-teal-600 dark:text-teal-400 group-hover:translate-x-1 transition-transform">
-                      <span>Read</span>
-                      <ArrowRight size={13} />
-                    </span>
-                  </div>
-                </Link>
+                    {/* Card Bottom Meta & CTA */}
+                    <div className="mt-5 pt-4 border-t border-surface-border/60 flex items-center justify-between text-xs font-medium text-ink-muted">
+                      <span className="flex items-center gap-1 text-ink-muted">
+                        <Clock size={12} />
+                        <span>{article.readTime}</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1 font-bold text-teal-600 dark:text-teal-400 group-hover:translate-x-1 transition-transform">
+                        <span>Read</span>
+                        <ArrowRight size={13} />
+                      </span>
+                    </div>
+                  </Link>
+                </ScrollReveal>
               ))}
             </div>
           ) : (

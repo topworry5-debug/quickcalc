@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Percent, Scale, Sparkles } from "lucide-react";
+import AnimatedNumber from "@/components/AnimatedNumber";
 
 export default function HeroMiniDemo() {
   const [activeTab, setActiveTab] = useState<"tip" | "bmi">("tip");
@@ -20,8 +21,7 @@ export default function HeroMiniDemo() {
 
   // BMI Calculations
   const heightMeters = heightCm / 100;
-  const bmiValue = heightMeters > 0 ? (weightKg / (heightMeters * heightMeters)).toFixed(1) : "0.0";
-  const numBmi = parseFloat(bmiValue);
+  const bmiNumber = heightMeters > 0 ? weightKg / (heightMeters * heightMeters) : 0;
 
   const getBmiCategory = (bmi: number) => {
     if (bmi < 18.5) return { label: "Underweight", color: "text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/20" };
@@ -30,7 +30,7 @@ export default function HeroMiniDemo() {
     return { label: "Obese", color: "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/20" };
   };
 
-  const bmiCategory = getBmiCategory(numBmi);
+  const bmiCategory = getBmiCategory(bmiNumber);
 
   return (
     <div className="w-full bg-base-card border border-surface-border rounded-2xl p-4 sm:p-5 shadow-lg shadow-black/5 motion-reduce:transition-none transition-all duration-200">
@@ -43,7 +43,7 @@ export default function HeroMiniDemo() {
         <div className="flex bg-surface-muted p-1 rounded-xl gap-1">
           <button
             onClick={() => setActiveTab("tip")}
-            className={`min-h-[36px] px-3 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 ${
+            className={`min-h-[36px] px-3 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 active:scale-95 ${
               activeTab === "tip"
                 ? "bg-base-card text-ink shadow-sm"
                 : "text-ink-muted hover:text-ink"
@@ -54,7 +54,7 @@ export default function HeroMiniDemo() {
           </button>
           <button
             onClick={() => setActiveTab("bmi")}
-            className={`min-h-[36px] px-3 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 ${
+            className={`min-h-[36px] px-3 text-xs font-semibold rounded-lg transition-colors flex items-center gap-1.5 active:scale-95 ${
               activeTab === "bmi"
                 ? "bg-base-card text-ink shadow-sm"
                 : "text-ink-muted hover:text-ink"
@@ -79,7 +79,7 @@ export default function HeroMiniDemo() {
                 <button
                   key={preset}
                   onClick={() => setBillAmount(preset)}
-                  className={`flex-1 min-h-[40px] py-1.5 text-xs font-semibold rounded-lg border transition-colors ${
+                  className={`flex-1 min-h-[40px] py-1.5 text-xs font-semibold rounded-lg border transition-all active:scale-95 ${
                     billAmount === preset
                       ? "bg-teal-500/10 border-teal-500/30 text-teal-600 dark:text-teal-400"
                       : "bg-surface-muted/50 border-surface-border text-ink-muted hover:text-ink"
@@ -109,18 +109,18 @@ export default function HeroMiniDemo() {
             />
           </div>
 
-          {/* Live Result Display */}
+          {/* Live Result Display with Animated Numbers */}
           <div className="p-3 bg-surface-muted/70 rounded-xl border border-surface-border flex items-center justify-between">
             <div>
               <span className="text-[11px] text-ink-muted font-medium block">Total with Tip</span>
               <span className="font-numeric text-xl sm:text-2xl font-bold text-ink leading-tight">
-                ${totalAmount.toFixed(2)}
+                $<AnimatedNumber value={totalAmount} format={(n) => n.toFixed(2)} />
               </span>
             </div>
             <div className="text-right">
               <span className="text-[11px] text-ink-muted font-medium block">Tip Amount</span>
               <span className="font-numeric text-base sm:text-lg font-bold text-teal-600 dark:text-teal-400">
-                +${tipAmount.toFixed(2)}
+                +$<AnimatedNumber value={tipAmount} format={(n) => n.toFixed(2)} />
               </span>
             </div>
           </div>
@@ -164,12 +164,12 @@ export default function HeroMiniDemo() {
             />
           </div>
 
-          {/* Live Result Display */}
+          {/* Live Result Display with Animated Numbers */}
           <div className="p-3 bg-surface-muted/70 rounded-xl border border-surface-border flex items-center justify-between">
             <div>
               <span className="text-[11px] text-ink-muted font-medium block">Calculated BMI</span>
               <span className="font-numeric text-xl sm:text-2xl font-bold text-ink leading-tight">
-                {bmiValue}
+                <AnimatedNumber value={bmiNumber} format={(n) => n.toFixed(1)} />
               </span>
             </div>
             <div className="text-right">

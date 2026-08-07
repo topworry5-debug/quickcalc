@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Calculator, ShieldCheck, Heart, ArrowUpRight } from "lucide-react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 interface FooterProps {
   customText?: string;
@@ -17,7 +18,7 @@ export default function Footer({ customText }: FooterProps) {
         {/* Multi-Column Main Footer Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-surface-border">
           {/* Column 1: Brand & Blurb */}
-          <div className="space-y-4 sm:col-span-2 md:col-span-1">
+          <ScrollReveal delayMs={0} className="space-y-4 sm:col-span-2 md:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2.5 font-extrabold text-lg text-ink">
               <div className="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 border border-teal-500/20 flex items-center justify-center text-teal-600 dark:text-teal-400">
                 <Calculator size={18} strokeWidth={2.5} />
@@ -31,11 +32,17 @@ export default function Footer({ customText }: FooterProps) {
               <ShieldCheck size={14} className="text-teal-600 dark:text-teal-400" />
               <span>100% Client-Side & Private</span>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Column 2: Health & Wellness */}
-          <div className="space-y-3">
-            <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-ink">Health & Wellness</h3>
+          <ScrollReveal delayMs={100} className="space-y-3">
+            <Link
+              href="/category/health-fitness"
+              className="font-heading font-bold text-xs uppercase tracking-wider text-ink hover:text-teal-600 dark:hover:text-teal-400 transition-colors inline-flex items-center gap-1 group"
+            >
+              <span>Health & Wellness</span>
+              <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+            </Link>
             <ul className="space-y-2 text-xs text-ink-muted">
               <li>
                 <Link href="/tools/bmi-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
@@ -63,11 +70,17 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Column 3: Finance & Money */}
-          <div className="space-y-3">
-            <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-ink">Finance & Money</h3>
+          <ScrollReveal delayMs={200} className="space-y-3">
+            <Link
+              href="/category/finance-math"
+              className="font-heading font-bold text-xs uppercase tracking-wider text-ink hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors inline-flex items-center gap-1 group"
+            >
+              <span>Finance & Money</span>
+              <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+            </Link>
             <ul className="space-y-2 text-xs text-ink-muted">
               <li>
                 <Link href="/tools/loan-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
@@ -95,11 +108,17 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Column 4: Converters & Utilities / Legal */}
-          <div className="space-y-3">
-            <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-ink">Utilities & Company</h3>
+          <ScrollReveal delayMs={300} className="space-y-3">
+            <Link
+              href="/category/utility-programming"
+              className="font-heading font-bold text-xs uppercase tracking-wider text-ink hover:text-teal-600 dark:hover:text-teal-400 transition-colors inline-flex items-center gap-1 group"
+            >
+              <span>Utilities & Company</span>
+              <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+            </Link>
             <ul className="space-y-2 text-xs text-ink-muted">
               <li>
                 <Link href="/tools/gpa-converter" className="hover:text-ink transition-colors">
@@ -138,7 +157,7 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Bottom Bar */}

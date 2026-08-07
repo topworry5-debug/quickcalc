@@ -30,6 +30,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://quickcalc.cloud"),
+  manifest: "/manifest.json",
   other: {
     "p:domain_verify": "57be082e13457e878c19c2529f56fe64",
   },
