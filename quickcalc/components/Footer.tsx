@@ -12,7 +12,7 @@ export default function Footer({ customText }: FooterProps) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-surface-border bg-base-card text-ink mt-20 pt-12 pb-8 transition-colors">
+    <footer className="border-t border-surface-border bg-base-card text-ink mt-12 sm:mt-16 pt-10 pb-8 transition-colors">
       <div className="max-w-5xl mx-auto px-4">
         {/* Multi-Column Main Footer Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-surface-border">

@@ -4,13 +4,14 @@ import React from "react";
 
 interface AdSlotProps {
   slot: string;
+  className?: string;
 }
 
-export default function AdSlot({ slot }: AdSlotProps) {
+export default function AdSlot({ slot, className = "" }: AdSlotProps) {
   // Google AdSense policy requires no fake/placeholder ad content or misleading boxes before real ads are approved.
   // Rendered as an empty, invisible placeholder with no dimensions forced, no "Ad" text, and no borders.
   return (
-    <div id={slot}>
+    <div id={slot} className={`empty:hidden ${className}`}>
       {/* 
         PASTE YOUR GOOGLE ADSENSE CODE HERE ONCE APPROVED:
         

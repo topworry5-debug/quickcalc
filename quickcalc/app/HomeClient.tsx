@@ -210,11 +210,9 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
       </div>
 
       {/* Main Tools Container */}
-      <main id="all-tools" className="max-w-5xl mx-auto px-4 py-10 sm:py-14">
+      <main id="all-tools" className="max-w-5xl mx-auto px-4 pt-8 sm:pt-12 pb-0">
         {/* AdSense Placement Ad-Slot-Home-Top */}
-        <div className="mb-10">
-          <AdSlot slot="home-top" />
-        </div>
+        <AdSlot slot="home-top" className="mb-8" />
 
         {/* Tools Grid or Empty State */}
         {filteredTools.length > 0 ? (
@@ -268,9 +266,7 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
         )}
 
         {/* AdSense Placement Ad-Slot-Home-Bottom */}
-        <div className="mt-14">
-          <AdSlot slot="home-bottom" />
-        </div>
+        <AdSlot slot="home-bottom" className="mt-8" />
       </main>
 
       {/* Footer */}
