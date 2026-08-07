@@ -5,6 +5,8 @@ import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import { getDiscountExplanationSteps } from "@/lib/calculators/discountCalculator";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 type ActiveMode = "sale" | "original";
 
@@ -50,6 +52,7 @@ interface OriginalError {
 type OriginalResult = OriginalSuccess | OriginalError;
 
 export default function DiscountCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [activeMode, setActiveMode] = useState<ActiveMode>("sale");
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -610,11 +613,28 @@ Total Amount Saved: ${formatNumber(amountSaved)}
               >
                 {copied ? "✅ Copied Breakdown!" : "📋 Copy Breakdown"}
               </button>
-              <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
             </div>
           )}
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {salePriceResult.isValid && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Discount & Sale Calculator",
+            toolSlug: "discount-calculator",
+            category: "Converters & Shopping",
+            resultValue: `$${salePriceResult.finalPrice.toFixed(2)} Final Price`,
+            resultLabel: `You Save: $${salePriceResult.totalSaved.toFixed(2)} (${salePriceResult.effectiveDiscountPercent.toFixed(1)}% Off)`,
+            inputsSummary: [{ label: 'Original Price', value: `$${originalPriceStr}` }, { label: 'Discounts', value: discounts.join("% + ") + "%" }],
+          }}
+        />
+      )}
+</div>
   );
 }

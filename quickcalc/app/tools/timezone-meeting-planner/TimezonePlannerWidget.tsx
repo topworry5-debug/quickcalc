@@ -5,8 +5,11 @@ import { BUSINESS_HUBS, calculateTimezoneOverlap, getTimezoneExplanationSteps, g
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function TimezonePlannerWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [sourceTime, setSourceTime] = useState<string>("09:00");
   const [sourceDateStr, setSourceDateStr] = useState<string>("");
   const [sourceTimezone, setSourceTimezone] = useState<string>("America/New_York");
@@ -340,7 +343,8 @@ export default function TimezonePlannerWidget() {
               {copiedLink ? "🔗 Share Link Copied!" : "🔗 Copy Shareable Link"}
             </button>
 
-            <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
           </div>
 
           <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium italic">
@@ -351,6 +355,22 @@ export default function TimezonePlannerWidget() {
         {/* Step-by-Step Explanation Accordion */}
         <ExplainResultAccordion steps={explanationSteps} />
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {results.rows.length > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Timezone Meeting Planner",
+            toolSlug: "timezone-meeting-planner",
+            category: "Time & Productivity",
+            resultValue: `Meeting: ${sourceTime} (${sourceTimezone.split("/")[1] || sourceTimezone})`,
+            resultLabel: `Converted Across ${results.rows.length} Global Timezones`,
+            inputsSummary: [{ label: 'Source Time', value: `${sourceTime} ${sourceTimezone}` }, { label: 'Cities', value: `${results.rows.length} Selected` }],
+          }}
+        />
+      )}
+</div>
   );
 }

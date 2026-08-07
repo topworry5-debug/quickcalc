@@ -11,10 +11,13 @@ import {
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 type ActiveMode = "of" | "change" | "discount" | "reverse";
 
 export default function PercentageCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [activeMode, setActiveMode] = useState<ActiveMode>("of");
   const [copied, setCopied] = useState<boolean>(false);
 
@@ -589,7 +592,8 @@ export default function PercentageCalculatorWidget() {
                   >
                     {copied ? "✅ Result Copied!" : "📋 Copy Summary"}
                   </button>
-                  <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+                  <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
                 </div>
 
                 {/* Step-by-Step Explanation Accordion */}
@@ -599,6 +603,22 @@ export default function PercentageCalculatorWidget() {
           </div>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {modeAPercent !== "" && modeATotal !== "" && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Percentage Calculator",
+            toolSlug: "percentage-calculator",
+            category: "Finance & Math",
+            resultValue: `${modeAPercent}% of ${modeATotal} = ${((parseFloat(modeAPercent) || 0) * (parseFloat(modeATotal) || 0) / 100).toFixed(2)}`,
+            resultLabel: 'Percentage Math Calculation',
+            inputsSummary: [{ label: 'Percentage', value: `${modeAPercent}%` }, { label: 'Total Value', value: modeATotal }],
+          }}
+        />
+      )}
+</div>
   );
 }

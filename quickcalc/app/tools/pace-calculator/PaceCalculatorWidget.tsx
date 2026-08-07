@@ -5,10 +5,13 @@ import { formatSecondsToTime, formatPace, timeToSeconds, getPaceExplanationSteps
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 type Mode = "pace" | "time" | "distance";
 
 export default function PaceCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [mode, setMode] = useState<Mode>("pace");
 
   // General inputs
@@ -524,7 +527,8 @@ export default function PaceCalculatorWidget() {
               >
                 {copied ? "✓ Copied!" : "📋 Copy Results"}
               </button>
-              <DownloadPdfButton onClick={handleDownloadPdf} />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
             </div>
           </div>
         </div>
@@ -571,6 +575,22 @@ export default function PaceCalculatorWidget() {
         {/* Step-by-Step Explanation Accordion */}
         <ExplainResultAccordion steps={explanationSteps} />
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {calculatedPaceKm !== "" && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Running Pace Calculator",
+            toolSlug: "pace-calculator",
+            category: "Health & Fitness",
+            resultValue: `${calculatedPaceKm} / km (${calculatedPaceMile} / mi)`,
+            resultLabel: `Speed: ${speedKph} km/h (${speedMph} mph)`,
+            inputsSummary: [{ label: 'Distance', value: `${distance} ${distanceUnit}` }, { label: 'Time', value: `${hours}h ${minutes}m ${seconds}s` }],
+          }}
+        />
+      )}
+</div>
   );
 }

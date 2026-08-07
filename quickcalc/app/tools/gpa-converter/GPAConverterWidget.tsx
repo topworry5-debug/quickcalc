@@ -5,8 +5,11 @@ import { convertToGPA, getGpaExplanationSteps, GradingSystem, GPAConverterResult
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function GPAConverterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [system, setSystem] = useState<GradingSystem>("us-percentage");
   const [gradeInput, setGradeInput] = useState<string>("85");
   const [result, setResult] = useState<GPAConverterResult | null>({
@@ -172,7 +175,8 @@ export default function GPAConverterWidget() {
           </div>
 
           <div className="mt-6 flex justify-center border-t border-zinc-200/60 dark:border-zinc-800/60 pt-4">
-            <DownloadPdfButton onClick={handleDownloadPdf} />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
 
           {/* Step-by-Step Explanation Accordion */}
@@ -183,6 +187,22 @@ export default function GPAConverterWidget() {
           </p>
         </div>
       )}
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "GPA Converter",
+            toolSlug: "gpa-converter",
+            category: "Utility & Education",
+            resultValue: result ? `${result.gpa.toFixed(2)} / 4.0 GPA` : '',
+            resultLabel: result ? `Letter Grade: ${result.letterEquivalent} (${result.percentageEquivalent})` : '',
+            inputsSummary: [{ label: 'Grade Input', value: gradeInput }],
+          }}
+        />
+      )}
+</div>
   );
 }

@@ -4,7 +4,10 @@ import Navbar from "@/components/Navbar";
 import ToolIcon from "@/components/ToolIcon";
 import HeroMiniDemo from "@/components/HeroMiniDemo";
 import ScrollReveal from "@/components/ScrollReveal";
-import { Search, ArrowRight, X, Sparkles } from "lucide-react";
+import RecentlyUsedBar from "@/components/RecentlyUsedBar";
+import FavoriteButton from "@/components/FavoriteButton";
+import { usePersonalization } from "@/hooks/usePersonalization";
+import { Search, ArrowRight, X, Sparkles, Star } from "lucide-react";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -19,6 +22,7 @@ interface HomeClientProps {
 
 export default function HomeClient({ initialTools }: HomeClientProps) {
   const searchParams = useSearchParams();
+  const { isMounted, favoriteHrefs } = usePersonalization();
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -50,7 +54,7 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
     };
   }, []);
 
-  const categories = [
+  const baseCategories = [
     "All",
     "Health",
     "Finance",
@@ -59,10 +63,21 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
     "Planning",
   ];
 
+  // Include "Favorites" option if user has favorited any tools
+  const categories =
+    isMounted && favoriteHrefs.length > 0
+      ? ["All", "Favorites", ...baseCategories.slice(1)]
+      : baseCategories;
+
   // Filter tools based on category & search query
   const filteredTools = initialTools.filter((tool) => {
     const matchesCategory =
-      selectedCategory === "All" || tool.category === selectedCategory;
+      selectedCategory === "All"
+        ? true
+        : selectedCategory === "Favorites"
+        ? favoriteHrefs.includes(tool.href)
+        : tool.category === selectedCategory;
+
     const matchesSearch =
       tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       tool.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -184,21 +199,30 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
       </div>
 
       {/* Main Tools Container */}
-      <main id="all-tools" className="max-w-5xl mx-auto px-4 pt-8 sm:pt-12 pb-0">
+      <main id="all-tools" className="max-w-5xl mx-auto px-4 pt-8 sm:pt-12 pb-0 w-full">
+        {/* Lightweight Personalization Recently Used Row */}
+        <RecentlyUsedBar />
+
         {/* Category Filter Pills */}
         <div className="mb-8 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {categories.map((cat) => {
             const isActive = selectedCategory === cat;
+            const isFavTab = cat === "Favorites";
             return (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`inline-flex items-center px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all min-h-[44px] active:scale-95 ${
+                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold transition-all min-h-[44px] active:scale-95 ${
                   isActive
-                    ? "bg-teal-600 text-white shadow-md shadow-teal-500/20 scale-105"
+                    ? isFavTab
+                      ? "bg-amber-500 text-white shadow-md shadow-amber-500/20 scale-105"
+                      : "bg-teal-600 text-white shadow-md shadow-teal-500/20 scale-105"
+                    : isFavTab
+                    ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/30 hover:bg-amber-500/20"
                     : "bg-base-card text-ink-muted hover:text-ink border border-surface-border hover:border-teal-500/30"
                 }`}
               >
+                {isFavTab && <Star size={14} className="fill-current" />}
                 <span>{cat}</span>
               </button>
             );
@@ -215,7 +239,7 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
               <ScrollReveal key={tool.href} delayMs={(index % 4) * 60}>
                 <Link
                   href={tool.href}
-                  className={`group block bg-base-card border rounded-2xl p-5 sm:p-6 shadow-sm shadow-black/5 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] active:bg-surface-muted/60 transition-all duration-200 ${
+                  className={`group relative block bg-base-card border rounded-2xl p-5 sm:p-6 shadow-sm shadow-black/5 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] active:bg-surface-muted/60 transition-all duration-200 ${
                     tool.popular
                       ? "border-teal-500/40 dark:border-teal-500/30 shadow-teal-500/5"
                       : "border-surface-border hover:border-teal-500/40"
@@ -224,17 +248,20 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
                   <div className="flex flex-col h-full justify-between gap-4">
                     <div>
                       <div className="flex items-start justify-between gap-2 mb-3">
-                        <div className="flex items-center gap-3.5">
+                        <div className="flex items-center gap-3.5 min-w-0 pr-2">
                           <ToolIcon icon={tool.icon} category={tool.category} size="lg" />
-                          <h2 className="text-base sm:text-xl font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+                          <h2 className="text-base sm:text-xl font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight truncate">
                             {tool.title}
                           </h2>
                         </div>
-                        {tool.popular && (
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 flex-shrink-0">
-                            Popular
-                          </span>
-                        )}
+                        <div className="flex items-center gap-1.5 flex-shrink-0">
+                          {tool.popular && (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
+                              Popular
+                            </span>
+                          )}
+                          <FavoriteButton toolHref={tool.href} />
+                        </div>
                       </div>
                       <p className="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-2">
                         {tool.description}
@@ -258,7 +285,9 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
             <Search size={36} className="text-ink-muted mx-auto mb-3" />
             <p className="text-ink font-bold text-base sm:text-lg">No calculators found</p>
             <p className="text-ink-muted text-xs sm:text-sm mt-1">
-              No tools match &ldquo;{searchQuery}&rdquo; in {selectedCategory}. Try searching for another keyword or clearing your filter.
+              {selectedCategory === "Favorites"
+                ? "You haven't added any favorite calculators yet. Click the star icon on any tool to save it here!"
+                : `No tools match "${searchQuery}" in ${selectedCategory}. Try searching for another keyword or clearing your filter.`}
             </p>
             <button
               onClick={() => {

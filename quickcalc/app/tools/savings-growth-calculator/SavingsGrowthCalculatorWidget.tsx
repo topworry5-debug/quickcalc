@@ -5,8 +5,11 @@ import { calculateSavingsGrowth, getSavingsGrowthExplanationSteps, SavingsCalcul
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function SavingsGrowthCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [initialDeposit, setInitialDeposit] = useState<number>(5000);
   const [regularAmount, setRegularAmount] = useState<number>(200);
   const [frequency, setFrequency] = useState<"monthly" | "yearly">("monthly");
@@ -268,7 +271,8 @@ Results:
                     >
                       {copied ? "✅ Copied!" : "📋 Copy Results"}
                     </button>
-                    <DownloadPdfButton onClick={handleDownloadPdf} className="py-1.5" />
+                    <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-1.5" />
                   </div>
                 </div>
 
@@ -398,6 +402,22 @@ Results:
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Savings Compound Growth Calculator",
+            toolSlug: "savings-growth-calculator",
+            category: "Finance & Money",
+            resultValue: result ? `$${result.finalBalance.toLocaleString()} Total Savings` : '',
+            resultLabel: result ? `Interest Earned: $${result.totalInterest.toLocaleString()}` : '',
+            inputsSummary: [{ label: 'Initial Deposit', value: `$${initialDeposit}` }, { label: 'Regular Addition', value: `$${regularAmount} (${frequency})` }],
+          }}
+        />
+      )}
+</div>
   );
 }

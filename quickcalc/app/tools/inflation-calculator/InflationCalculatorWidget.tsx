@@ -5,10 +5,13 @@ import { inflationData, getInflationExplanationSteps } from "@/lib/calculators/i
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 type Mode = "past-to-present" | "present-to-past";
 
 export default function InflationCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [country, setCountry] = useState<"US" | "CA" | "PK">("US");
   const [mode, setMode] = useState<Mode>("past-to-present");
   const [amountStr, setAmountStr] = useState<string>("100");
@@ -330,7 +333,8 @@ export default function InflationCalculatorWidget() {
                   {copied ? "✅ Copied!" : "📋 Copy Shareable Result"}
                 </span>
               </button>
-              <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
             </div>
 
             {/* Step-by-Step Explanation Accordion */}
@@ -347,6 +351,22 @@ export default function InflationCalculatorWidget() {
           {countryInfo.generalSource}
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {calculation.isValid && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Inflation Calculator",
+            toolSlug: "inflation-calculator",
+            category: "Finance & Money",
+            resultValue: `$${amountStr} in ${selectedYear} = $${calculation.convertedAmount?.toFixed(2) ?? '0.00'} in ${presentYear}`,
+            resultLabel: `Cumulative Inflation Rate: ${calculation.cumulativeInflationPercent?.toFixed(1) ?? '0'}%`,
+            inputsSummary: [{ label: 'Selected Year', value: `${selectedYear}` }, { label: 'Present Year', value: `${presentYear}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

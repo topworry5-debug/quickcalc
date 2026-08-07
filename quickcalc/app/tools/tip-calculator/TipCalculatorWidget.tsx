@@ -5,8 +5,11 @@ import { calculateTip, getTipExplanationSteps } from "../../../lib/calculators/t
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function TipCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [billInput, setBillInput] = useState<string>("");
   const [tipPercentage, setTipPercentage] = useState<number>(15);
   const [peopleCount, setPeopleCount] = useState<number>(1);
@@ -261,7 +264,8 @@ export default function TipCalculatorWidget() {
                   >
                     {copied ? "✅ Breakdown Copied!" : "📋 Copy Summary"}
                   </button>
-                  <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+                  <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
                 </div>
 
                 {/* Step-by-Step Explanation Accordion */}
@@ -271,6 +275,22 @@ export default function TipCalculatorWidget() {
           </div>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {results && billAmount > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Tip & Bill Splitter",
+            toolSlug: "tip-calculator",
+            category: "Finance & Money",
+            resultValue: `$${results.tipAmount.toFixed(2)} Tip ($${results.totalBill.toFixed(2)} Total)`,
+            resultLabel: `$${results.totalPerPerson.toFixed(2)} Per Person (${peopleCount} People)`,
+            inputsSummary: [{ label: 'Bill', value: `$${billAmount.toFixed(2)}` }, { label: 'Tip %', value: `${tipPercentage}%` }, { label: 'People', value: `${peopleCount}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

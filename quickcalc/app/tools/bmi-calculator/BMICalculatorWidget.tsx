@@ -1,12 +1,17 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import { calculateBMI, getBMIExplanationSteps, BMICalculatorResult } from "../../../lib/calculators/bmiCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function BMICalculatorWidget() {
+  const searchParams = useSearchParams();
+
   const [weight, setWeight] = useState<string>("70");
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
   const [heightUnit, setHeightUnit] = useState<"cm" | "ft">("cm");
@@ -16,6 +21,24 @@ export default function BMICalculatorWidget() {
 
   const [result, setResult] = useState<BMICalculatorResult | null>(null);
   const [copied, setCopied] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+
+  // Hydrate inputs from URL parameters if present
+  useEffect(() => {
+    const w = searchParams.get("w");
+    const wu = searchParams.get("wu");
+    const hu = searchParams.get("hu");
+    const h = searchParams.get("h");
+    const ft = searchParams.get("ft");
+    const inc = searchParams.get("in");
+
+    if (w) setWeight(w);
+    if (wu === "kg" || wu === "lb") setWeightUnit(wu);
+    if (hu === "cm" || hu === "ft") setHeightUnit(hu);
+    if (h) setHeightCm(h);
+    if (ft) setHeightFt(ft);
+    if (inc) setHeightIn(inc);
+  }, [searchParams]);
 
   const handleDownloadPdf = () => {
     if (!result) return;
@@ -348,7 +371,8 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
                 {copied ? "✅ Copied Summary!" : "📋 Copy Result Summary"}
               </button>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <button
                   type="button"
                   onClick={handleExportTxt}
@@ -375,6 +399,34 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
           </div>
         )}
       </div>
+
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "BMI Calculator",
+            toolSlug: "bmi-calculator",
+            category: "Health & Fitness",
+            resultValue: `${result.bmi} BMI`,
+            resultLabel: `${result.category} Weight Range (18.5 – 24.9 Normal)`,
+            inputsSummary: [
+              { label: "Height", value: heightUnit === "cm" ? `${heightCm} cm` : `${heightFt} ft ${heightIn} in` },
+              { label: "Weight", value: `${weight} ${weightUnit}` },
+              { label: "System", value: heightUnit === "cm" ? "Metric" : "Imperial" },
+            ],
+            queryParams: {
+              w: weight,
+              wu: weightUnit,
+              hu: heightUnit,
+              h: heightCm,
+              ft: heightFt,
+              in: heightIn,
+            },
+          }}
+        />
+      )}
     </div>
   );
 }

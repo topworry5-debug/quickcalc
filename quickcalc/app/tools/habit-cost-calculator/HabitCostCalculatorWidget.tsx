@@ -5,8 +5,11 @@ import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import { getHabitExplanationSteps } from "@/lib/calculators/habitCalculator";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function HabitCostCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [habitName, setHabitName] = useState<string>("");
   const [hours, setHours] = useState<string>("");
   const [minutes, setMinutes] = useState<string>("");
@@ -519,7 +522,8 @@ export default function HabitCostCalculatorWidget() {
               >
                 <span>{copied ? "✅ Copied!" : "📋 Copy text"}</span>
               </button>
-              <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
             </div>
             <p className="text-center text-xs text-zinc-500 dark:text-zinc-400 italic">
               Click to copy or download your habit cost report.
@@ -530,6 +534,22 @@ export default function HabitCostCalculatorWidget() {
           </div>
         </div>
       )}
-    </div>
+    
+      {/* Share Result Modal */}
+      {parsedDailyCost > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Habit Cost Calculator",
+            toolSlug: "habit-cost-calculator",
+            category: "Finance & Money",
+            resultValue: `$${(parsedDailyCost * 365).toLocaleString()} Annual Cost`,
+            resultLabel: `10-Year Opportunity Cost: $${(parsedDailyCost * 3650).toLocaleString()}`,
+            inputsSummary: [{ label: 'Daily Expense', value: `$${dailyCost}` }, { label: 'Habit Name', value: habitName || 'Daily Habit' }],
+          }}
+        />
+      )}
+</div>
   );
 }

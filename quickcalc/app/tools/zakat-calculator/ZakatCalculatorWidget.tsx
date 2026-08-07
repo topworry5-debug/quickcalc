@@ -12,8 +12,11 @@ import {
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function ZakatCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   // Input fields
   const [cash, setCash] = useState<string>("");
   const [goldGrams, setGoldGrams] = useState<string>("");
@@ -524,7 +527,8 @@ Calculated via QuickCalc Zakat Tool (https://quickcalc.cloud/tools/zakat-calcula
               >
                 {copied ? "✓ Copied Breakdown!" : "📋 Copy Breakdown"}
               </button>
-              <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
             </div>
 
             {/* Step-by-Step Explanation Accordion */}
@@ -532,6 +536,22 @@ Calculated via QuickCalc Zakat Tool (https://quickcalc.cloud/tools/zakat-calcula
           </div>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {results && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Zakat Calculator",
+            toolSlug: "zakat-calculator",
+            category: "Finance & Money",
+            resultValue: `$${results.zakatDue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Zakat Due`,
+            resultLabel: `Net Wealth: $${results.netWealth.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (2.5% Rate)`,
+            inputsSummary: [{ label: 'Total Assets', value: `$${results.totalAssets.toLocaleString()}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

@@ -5,8 +5,11 @@ import { calculateRetirement, getRetirementExplanationSteps } from "@/lib/calcul
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function RetirementCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [currentAge, setCurrentAge] = useState<string>("30");
   const [retirementAge, setRetirementAge] = useState<string>("65");
   const [currentSavings, setCurrentSavings] = useState<string>("10000");
@@ -408,6 +411,7 @@ Calculated 100% free on QuickCalc.cloud`;
                 >
                   {copied ? "✓ Summary Copied!" : "📋 Copy Projection Summary"}
                 </button>
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5 px-4 text-sm rounded-xl" />
               </div>
 
@@ -467,6 +471,22 @@ Calculated 100% free on QuickCalc.cloud`;
           </>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {results && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Retirement Savings Calculator",
+            toolSlug: "retirement-calculator",
+            category: "Finance & Money",
+            resultValue: `$${results.currentPlan.projectedTotal.toLocaleString()} Projected Nest Egg`,
+            resultLabel: `Total Contributions: $${results.currentPlan.totalContributed.toLocaleString()} (Growth: $${results.currentPlan.totalGrowth.toLocaleString()})`,
+            inputsSummary: [{ label: 'Current Age', value: currentAge }, { label: 'Retire Age', value: retirementAge }],
+          }}
+        />
+      )}
+</div>
   );
 }

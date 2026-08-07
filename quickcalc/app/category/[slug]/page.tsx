@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ToolIcon from "@/components/ToolIcon";
 import ScrollReveal from "@/components/ScrollReveal";
+import FavoriteButton from "@/components/FavoriteButton";
 import { categoriesData } from "../categoryData";
 import { tools } from "@/lib/toolsData";
 import { articles } from "@/app/blog/articlesData";
@@ -164,17 +165,20 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                   >
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-2">
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 min-w-0 pr-2">
                           <ToolIcon icon={tool.icon} category={tool.category} size="md" />
-                          <h3 className="text-base sm:text-lg font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug">
+                          <h3 className="text-base sm:text-lg font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-snug truncate">
                             {tool.title}
                           </h3>
                         </div>
-                        {tool.popular && (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 shrink-0">
-                            Popular
-                          </span>
-                        )}
+                        <div className="flex items-center gap-1 flex-shrink-0">
+                          {tool.popular && (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 shrink-0">
+                              Popular
+                            </span>
+                          )}
+                          <FavoriteButton toolHref={tool.href} />
+                        </div>
                       </div>
                       <p className="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-2">
                         {tool.description}

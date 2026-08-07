@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { jsonToCsv, csvToJson } from "../../../lib/calculators/jsonCsvCalculator";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 const DEFAULT_JSON = `[
   {
@@ -29,6 +31,7 @@ const DEFAULT_CSV = `id,name,email,profile.role,profile.city
 2,Jordan Vance,jordan@example.com,Designer,Austin`;
 
 export default function JSONCSVConverterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [inputVal, setInputVal] = useState<string>(DEFAULT_JSON);
   const [outputVal, setOutputVal] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string>("");
@@ -195,20 +198,39 @@ export default function JSONCSVConverterWidget() {
             </button>
           </div>
 
-          <button
-            type="button"
-            onClick={handleCopy}
-            disabled={!outputVal}
-            className={`flex items-center gap-2 text-xs font-semibold px-4 py-3 rounded-lg transition-all focus:outline-none focus:ring-1 focus:ring-zinc-500 ${
-              outputVal
-                ? "bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 hover:shadow-sm"
-                : "bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-600 cursor-not-allowed"
-            }`}
-          >
-            {copied ? "✅ Copied!" : "📋 Copy translated output"}
-          </button>
+          <div className="flex flex-wrap items-center gap-2">
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+            <button
+              type="button"
+              onClick={handleCopy}
+              disabled={!outputVal}
+              className={`flex items-center gap-2 text-xs font-semibold px-4 py-3 rounded-lg transition-all focus:outline-none focus:ring-1 focus:ring-zinc-500 ${
+                outputVal
+                  ? "bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 hover:shadow-sm"
+                  : "bg-zinc-50 dark:bg-zinc-950/20 border border-zinc-200 dark:border-zinc-800 text-zinc-400 dark:text-zinc-600 cursor-not-allowed"
+              }`}
+            >
+              {copied ? "✅ Copied!" : "📋 Copy translated output"}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {outputVal && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "JSON to CSV Converter",
+            toolSlug: "json-csv-converter",
+            category: "Utility & Programming",
+            resultValue: "Data Converted Successfully",
+            resultLabel: "Client-Side Zero-Latency Translation",
+            inputsSummary: [{ label: 'Format', value: 'JSON / CSV' }],
+          }}
+        />
+      )}
+</div>
   );
 }

@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function WordCharacterCounterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [text, setText] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -143,7 +146,8 @@ export default function WordCharacterCounterWidget() {
           <label className="text-sm font-bold text-zinc-700 dark:text-zinc-300">
             Enter or Paste Your Text
           </label>
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
             <button
               onClick={handleCopy}
               disabled={!text}
@@ -308,6 +312,22 @@ export default function WordCharacterCounterWidget() {
           </div>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {text.trim().length > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Word & Character Counter",
+            toolSlug: "word-character-counter",
+            category: "Utility & Writing",
+            resultValue: `${counts.words.toLocaleString()} Words • ${counts.charsWithSpaces.toLocaleString()} Chars`,
+            resultLabel: `Reading Time: ~${counts.readingTime}`,
+            inputsSummary: [{ label: 'Paragraphs', value: `${counts.paragraphs}` }, { label: 'Sentences', value: `${counts.sentences}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

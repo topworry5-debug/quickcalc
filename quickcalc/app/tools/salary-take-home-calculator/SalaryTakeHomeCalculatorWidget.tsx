@@ -5,12 +5,15 @@ import { calculateSalary, getSalaryExplanationSteps, SalaryCalculatorResult, CAN
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 type CountryType = "US" | "Canada" | "Pakistan";
 type SalaryType = "annual" | "monthly";
 type PayFrequency = "annually" | "monthly" | "biweekly" | "weekly";
 
 export default function SalaryTakeHomeCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [country, setCountry] = useState<CountryType>("US");
   const [grossSalary, setGrossSalary] = useState<string>("75000");
   const [salaryType, setSalaryType] = useState<SalaryType>("annual");
@@ -370,6 +373,7 @@ export default function SalaryTakeHomeCalculatorWidget() {
                 >
                   {copied ? "✓ Copied!" : "📋 Copy Breakdown"}
                 </button>
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
               </div>
 
@@ -379,6 +383,22 @@ export default function SalaryTakeHomeCalculatorWidget() {
           )
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Salary Take-Home Pay Calculator",
+            toolSlug: "salary-take-home-calculator",
+            category: "Finance & Money",
+            resultValue: result ? `$${result.netPayAnnual.toLocaleString()} Net Annual Pay` : '',
+            resultLabel: result ? `Pay Per Period: $${result.netPaySelected.toLocaleString()} (Effective Tax: ${result.taxPercentage.toFixed(1)}%)` : '',
+            inputsSummary: [{ label: 'Gross Salary', value: `$${grossSalary}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

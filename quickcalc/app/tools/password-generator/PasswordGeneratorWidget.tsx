@@ -2,8 +2,11 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { generatePassword } from "../../../lib/calculators/passwordCalculator";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function PasswordGeneratorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [length, setLength] = useState<number>(16);
   const [useUpper, setUseUpper] = useState<boolean>(true);
   const [useLower, setUseLower] = useState<boolean>(true);
@@ -114,6 +117,7 @@ export default function PasswordGeneratorWidget() {
               placeholder="Select config options to generate..."
               className="flex-grow font-mono text-base sm:text-lg bg-transparent border-none outline-none focus:ring-0 text-zinc-900 dark:text-white pr-10 overflow-x-auto"
             />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
             <button
               type="button"
               onClick={handleCopy}
@@ -300,6 +304,22 @@ export default function PasswordGeneratorWidget() {
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Password Generator",
+            toolSlug: "password-generator",
+            category: "Security & Cryptography",
+            resultValue: result ? `${result.entropy}-bit Password Entropy` : '',
+            resultLabel: result ? `Strength Rating: ${result.strengthLabel}` : '',
+            inputsSummary: [{ label: 'Length', value: `${length} chars` }],
+          }}
+        />
+      )}
+</div>
   );
 }

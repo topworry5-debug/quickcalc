@@ -13,8 +13,11 @@ import {
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function PaperFabricConverterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [mode, setMode] = useState<"paper" | "fabric">("paper");
 
   // Paper Mode States
@@ -315,7 +318,8 @@ export default function PaperFabricConverterWidget() {
               >
                 {copied ? "✅ Copied!" : "📋 Copy Results"}
               </button>
-              <DownloadPdfButton onClick={handleDownloadPdf} />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
             </div>
 
             <span className="text-2xs text-zinc-400 dark:text-zinc-500 italic">
@@ -327,6 +331,22 @@ export default function PaperFabricConverterWidget() {
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {paperResult && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Paper & Fabric Size Converter",
+            toolSlug: "paper-fabric-size-converter",
+            category: "Converters & Shopping",
+            resultValue: `${paperResult.name}: ${paperResult.mm.width} x ${paperResult.mm.height} mm`,
+            resultLabel: `Inches: ${paperResult.inches.width.toFixed(2)} x ${paperResult.inches.height.toFixed(2)} in`,
+            inputsSummary: [{ label: 'Selected Standard', value: paperResult.name }],
+          }}
+        />
+      )}
+</div>
   );
 }

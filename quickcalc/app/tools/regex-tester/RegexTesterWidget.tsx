@@ -2,6 +2,8 @@
 
 import { useState, useMemo } from "react";
 import { testRegex, explainRegexPattern } from "../../../lib/calculators/regexCalculator";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 const COMMON_PATTERNS = [
   {
@@ -37,6 +39,7 @@ const COMMON_PATTERNS = [
 ];
 
 export default function RegexTesterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [pattern, setPattern] = useState<string>("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
   const [flags, setFlags] = useState<{ g: boolean; i: boolean; m: boolean }>({ g: true, i: true, m: false });
   const [testString, setTestString] = useState<string>("Contact us at support@quickcalc.cloud or hello-world@example.org today!");
@@ -274,6 +277,7 @@ export default function RegexTesterWidget() {
         {/* Sharing Actions Footer */}
         <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-zinc-200 dark:border-zinc-800">
           <div className="flex flex-wrap gap-3">
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
             <button
               type="button"
               onClick={handleCopyRegex}
@@ -300,6 +304,22 @@ export default function RegexTesterWidget() {
           </span>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {pattern !== "" && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Regex Tester & Builder",
+            toolSlug: "regex-tester",
+            category: "Utility & Programming",
+            resultValue: `${matches.length} Matches Found`,
+            resultLabel: 'Client-Side JavaScript Regex Evaluator',
+            inputsSummary: [{ label: 'Pattern', value: pattern }],
+          }}
+        />
+      )}
+</div>
   );
 }

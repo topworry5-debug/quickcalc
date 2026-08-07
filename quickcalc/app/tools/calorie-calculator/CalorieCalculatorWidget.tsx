@@ -5,8 +5,11 @@ import { calculateCalories, getCalorieExplanationSteps, CalorieResult } from "@/
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function CalorieCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [sex, setSex] = useState<"male" | "female">("male");
   const [age, setAge] = useState<string>("30");
   
@@ -485,7 +488,8 @@ export default function CalorieCalculatorWidget() {
                     >
                       <span>{copied ? "✅ Copied!" : "📋 Copy result"}</span>
                     </button>
-                    <DownloadPdfButton onClick={handleDownloadPdf} />
+                    <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
                   </div>
                 </div>
 
@@ -498,6 +502,22 @@ export default function CalorieCalculatorWidget() {
         </div>
 
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {calorieResult && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Calorie & TDEE Calculator",
+            toolSlug: "calorie-calculator",
+            category: "Health & Fitness",
+            resultValue: `${calorieResult.tdee.toLocaleString()} kcal/day`,
+            resultLabel: `BMR: ${calorieResult.bmr.toLocaleString()} kcal | Weight Loss: ${calorieResult.loseWeight.toLocaleString()} kcal`,
+            inputsSummary: [{ label: 'Weight', value: `${weight} kg` }, { label: 'Height', value: `${heightCm} cm` }],
+          }}
+        />
+      )}
+</div>
   );
 }

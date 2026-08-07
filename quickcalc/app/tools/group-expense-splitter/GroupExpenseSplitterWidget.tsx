@@ -10,8 +10,11 @@ import {
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function GroupExpenseSplitterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [people, setPeople] = useState<Person[]>([
     { id: "1", name: "Ali" },
     { id: "2", name: "Sarah" },
@@ -572,6 +575,7 @@ export default function GroupExpenseSplitterWidget() {
                 >
                   {copied ? "✅ Summary Copied!" : "📋 Copy Breakdown"}
                 </button>
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
                 <button
                   type="button"
@@ -590,6 +594,22 @@ export default function GroupExpenseSplitterWidget() {
         </div>
 
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {calculatedResults && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Group Expense Splitter",
+            toolSlug: "group-expense-splitter",
+            category: "Finance & Money",
+            resultValue: `$${calculatedResults.grandTotal.toFixed(2)} Total Bill Split`,
+            resultLabel: `Subtotal: $${calculatedResults.totalSubtotal.toFixed(2)} (${people.length} People)`,
+            inputsSummary: [{ label: 'People', value: `${people.length}` }, { label: 'Items', value: `${items.length}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

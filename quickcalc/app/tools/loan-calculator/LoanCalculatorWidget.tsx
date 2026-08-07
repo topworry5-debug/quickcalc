@@ -5,8 +5,11 @@ import { calculateLoan, getLoanExplanationSteps, LoanResult } from "../../../lib
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function LoanCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [principal, setPrincipal] = useState<string>("100000");
   const [annualRate, setAnnualRate] = useState<string>("7.5");
   const [tenure, setTenure] = useState<string>("5");
@@ -307,10 +310,27 @@ Calculated 100% free on QuickCalc.cloud`;
               {copied ? "✅ Copied Summary!" : "📋 Copy Loan Summary"}
             </button>
 
-            <DownloadPdfButton onClick={handleDownloadPdf} />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
         </div>
       )}
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Loan & EMI Calculator",
+            toolSlug: "loan-calculator",
+            category: "Finance & Money",
+            resultValue: result ? `$${result.monthlyEMI.toFixed(2)} Monthly EMI` : '',
+            resultLabel: result ? `Total Payment: $${result.totalPayment.toFixed(2)} (Interest: $${result.totalInterestPayable.toFixed(2)})` : '',
+            inputsSummary: [{ label: 'Principal', value: `$${principal}` }, { label: 'Rate', value: `${annualRate}%` }, { label: 'Tenure', value: `${tenure} ${tenureUnit}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

@@ -2,8 +2,11 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { extractDominantColors, getContrastRatio } from "@/lib/calculators/colorExtractor";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function ColorPaletteGeneratorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [imageSrc, setImageSrc] = useState<string | null>(null);
   const [colors, setColors] = useState<string[]>([]);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
@@ -250,7 +253,8 @@ export default function ColorPaletteGeneratorWidget() {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
             <button
               onClick={() => copyFormat("css")}
               className="px-3 py-1.5 text-xs font-semibold border border-zinc-200 dark:border-zinc-700 hover:border-emerald-500 dark:hover:border-emerald-500 rounded-lg bg-zinc-50 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition"
@@ -382,6 +386,22 @@ export default function ColorPaletteGeneratorWidget() {
           )}
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {colors.length > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Color Palette Generator",
+            toolSlug: "color-palette-generator",
+            category: "Utility & Programming",
+            resultValue: '5-Color Palette Generated',
+            resultLabel: 'WCAG Compliant Hex Scheme',
+            inputsSummary: [{ label: 'Primary Color', value: colors[0] || '#0D9488' }],
+          }}
+        />
+      )}
+</div>
   );
 }

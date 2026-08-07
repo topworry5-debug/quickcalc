@@ -5,8 +5,11 @@ import { calculateAge, getAgeExplanationSteps, AgeResult } from "@/lib/calculato
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function AgeCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [dateString, setDateString] = useState<string>("");
   const [result, setResult] = useState<AgeResult | string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -216,7 +219,8 @@ export default function AgeCalculatorWidget() {
                       </>
                     )}
                   </button>
-                  <DownloadPdfButton onClick={handleDownloadPdf} className="py-2" />
+                  <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2" />
                 </div>
               </div>
 
@@ -334,6 +338,22 @@ export default function AgeCalculatorWidget() {
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Age Calculator",
+            toolSlug: "age-calculator",
+            category: "Health & Fitness",
+            resultValue: typeof result === "object" && result !== null ? `${result.years} Years, ${result.months} Months` : '',
+            resultLabel: typeof result === "object" && result !== null ? `Total Days Lived: ${result.totalDays.toLocaleString()} days` : '',
+            inputsSummary: [{ label: 'Birth Date', value: dateString }],
+          }}
+        />
+      )}
+</div>
   );
 }

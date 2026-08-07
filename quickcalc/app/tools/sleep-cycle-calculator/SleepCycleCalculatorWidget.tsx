@@ -5,8 +5,11 @@ import { getBedtimesForWakeUp, getWakeUpTimesForSleepNow, getSleepExplanationSte
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function SleepCycleCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [mode, setMode] = useState<"wake-up" | "sleep-now">("wake-up");
   const [wakeTime, setWakeTime] = useState<string>("07:00");
   const [results, setResults] = useState<SleepTimeOption[]>([]);
@@ -174,7 +177,8 @@ export default function SleepCycleCalculatorWidget() {
           </div>
 
           <div className="mt-6 flex justify-center">
-            <DownloadPdfButton onClick={handleDownloadPdf} />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
 
           {/* Step-by-Step Explanation Accordion */}
@@ -185,6 +189,22 @@ export default function SleepCycleCalculatorWidget() {
           </p>
         </div>
       )}
-    </div>
+    
+      {/* Share Result Modal */}
+      {results.length > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Sleep Cycle Calculator",
+            toolSlug: "sleep-cycle-calculator",
+            category: "Health & Fitness",
+            resultValue: `Optimal Sleep Target: ${results[0].time}`,
+            resultLabel: `${results[0].hours} Hours (${results[0].cycles} Sleep Cycles)`,
+            inputsSummary: [{ label: 'Mode', value: mode === "wake-up" ? `Wake at ${wakeTime}` : 'Sleep Now' }],
+          }}
+        />
+      )}
+</div>
   );
 }

@@ -5,8 +5,11 @@ import { calculateWaterIntake, getWaterExplanationSteps, WaterIntakeResult } fro
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function WaterIntakeCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [weight, setWeight] = useState<string>("70");
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
   const [activityLevel, setActivityLevel] = useState<"sedentary" | "moderate" | "active">("moderate");
@@ -175,7 +178,8 @@ export default function WaterIntakeCalculatorWidget() {
             </div>
           </div>
           <div className="mt-6 flex justify-center">
-            <DownloadPdfButton onClick={handleDownloadPdf} />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
           </div>
           {/* Step-by-Step Explanation Accordion */}
           <ExplainResultAccordion steps={explanationSteps} />
@@ -184,6 +188,22 @@ export default function WaterIntakeCalculatorWidget() {
           </p>
         </div>
       )}
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Daily Water Intake Calculator",
+            toolSlug: "water-intake-calculator",
+            category: "Health & Fitness",
+            resultValue: result ? `Target Intake: ${result.liters.toFixed(1)} Liters / day` : '',
+            resultLabel: result ? `Equivalent to ${result.glasses.toFixed(1)} Standard Glasses (250ml)` : '',
+            inputsSummary: [{ label: 'Weight', value: `${weight} ${weightUnit}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

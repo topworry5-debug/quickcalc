@@ -14,10 +14,13 @@ import {
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 type ActiveTab = "sdt" | "flight" | "fuel";
 
 export default function TravelTimeFuelWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<ActiveTab>("sdt");
 
   // --- Speed, Distance, Time State ---
@@ -599,7 +602,8 @@ export default function TravelTimeFuelWidget() {
 
         {/* Global Action Buttons */}
         <div className="flex items-center justify-between pt-2">
-          <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+          <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
           <button
             type="button"
             onClick={handleReset}
@@ -609,6 +613,22 @@ export default function TravelTimeFuelWidget() {
           </button>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {sdtResult && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Travel Time & Fuel Calculator",
+            toolSlug: "travel-time-fuel-calculator",
+            category: "Time & Productivity",
+            resultValue: `Travel Time: ${sdtResult.formatted}`,
+            resultLabel: sdtResult.explanation,
+            inputsSummary: [{ label: 'Distance', value: `${distance} ${distanceUnit}` }, { label: 'Speed', value: `${speed} ${speedUnit}` }],
+          }}
+        />
+      )}
+</div>
   );
 }

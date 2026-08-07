@@ -9,8 +9,11 @@ import {
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function PregnancyWeightGainCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   // Unit toggle state: "metric" (cm, kg) or "imperial" (ft/in, lb)
   const [unitMode, setUnitMode] = useState<"metric" | "imperial">("imperial");
 
@@ -513,7 +516,8 @@ export default function PregnancyWeightGainCalculatorWidget() {
         {result && (
           <div className="space-y-4">
             <div className="flex justify-center">
-              <DownloadPdfButton onClick={handleDownloadPdf} />
+              <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} />
             </div>
             {/* Step-by-Step Explanation Accordion */}
             <ExplainResultAccordion steps={explanationSteps} />
@@ -527,6 +531,22 @@ export default function PregnancyWeightGainCalculatorWidget() {
           </p>
         </div>
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {result && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Pregnancy Weight Gain Calculator",
+            toolSlug: "pregnancy-weight-gain-calculator",
+            category: "Health & Fitness",
+            resultValue: result ? `Target Gain: ${result.totalRecommendedMinLb} - ${result.totalRecommendedMaxLb} lbs` : '',
+            resultLabel: result ? `Pre-pregnancy BMI: ${result.bmi.toFixed(1)} (${result.bmiCategory})` : '',
+            inputsSummary: [{ label: 'Pre-pregnancy Weight', value: `${prePregnancyWeight} lbs` }],
+          }}
+        />
+      )}
+</div>
   );
 }

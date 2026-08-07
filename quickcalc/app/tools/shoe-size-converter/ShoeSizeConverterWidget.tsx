@@ -5,8 +5,11 @@ import { convertShoeSize, getShoeSizeExplanationSteps, SizingSystem, ShoeConvers
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function ShoeSizeConverterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [gender, setGender] = useState<"mens" | "womens">("mens");
   const [sizeInput, setSizeInput] = useState<string>("9");
   const [system, setSystem] = useState<SizingSystem>("us");
@@ -201,6 +204,7 @@ export default function ShoeSizeConverterWidget() {
                 >
                   {copied ? "✅ Copied!" : "📋 Copy Size Conversion"}
                 </button>
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <DownloadPdfButton onClick={handleDownloadPdf} />
               </div>
 
@@ -224,6 +228,22 @@ export default function ShoeSizeConverterWidget() {
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {typeof result === "object" && result !== null && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Shoe Size Converter",
+            toolSlug: "shoe-size-converter",
+            category: "Converters & Shopping",
+            resultValue: `US ${result.us} = EU ${result.eu} / UK ${result.uk}`,
+            resultLabel: `Japan Size: ${result.jp} cm`,
+            inputsSummary: [{ label: 'Gender', value: gender }, { label: 'Input Size', value: sizeInput }],
+          }}
+        />
+      )}
+</div>
   );
 }

@@ -5,6 +5,8 @@ import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import { getBudgetExplanationSteps } from "@/lib/calculators/budgetCalculator";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 interface BudgetSplit {
   needsPct: number;
@@ -21,6 +23,7 @@ const PRESETS: BudgetSplit[] = [
 ];
 
 export default function BudgetCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [income, setIncome] = useState<number | "">(3000);
   const [selectedPreset, setSelectedPreset] = useState<BudgetSplit>(PRESETS[0]);
   const [copied, setCopied] = useState(false);
@@ -385,7 +388,8 @@ export default function BudgetCalculatorWidget() {
             >
               {copied ? "✔️ Copied Strategy!" : "🔗 Copy Plan"}
             </button>
-            <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
           </div>
         </div>
 
@@ -503,6 +507,22 @@ export default function BudgetCalculatorWidget() {
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {typeof income === "number" && income > 0 && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "50/30/20 Budget Calculator",
+            toolSlug: "budget-calculator",
+            category: "Finance & Money",
+            resultValue: `Needs: $${((income * selectedPreset.needsPct) / 100).toLocaleString()} | Savings: $${((income * selectedPreset.savingsPct) / 100).toLocaleString()}`,
+            resultLabel: `Wants Allocation: $${((income * selectedPreset.wantsPct) / 100).toLocaleString()}`,
+            inputsSummary: [{ label: 'Monthly Income', value: `$${income}` }, { label: 'Rule', value: selectedPreset.name }],
+          }}
+        />
+      )}
+</div>
   );
 }

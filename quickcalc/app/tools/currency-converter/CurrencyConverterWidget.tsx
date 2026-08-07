@@ -5,6 +5,8 @@ import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import { getCurrencyExplanationSteps } from "@/lib/calculators/currencyConverter";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 interface Currency {
   code: string;
@@ -97,6 +99,7 @@ const FALLBACK_RATES_TO_USD: Record<string, number> = {
 };
 
 export default function CurrencyConverterWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [amount, setAmount] = useState<string>("100");
   const [fromCurrency, setFromCurrency] = useState<string>("USD");
   const [toCurrency, setToCurrency] = useState<string>("PKR");
@@ -436,6 +439,7 @@ export default function CurrencyConverterWidget() {
                 >
                   <span>{copied ? "✅ Copied!" : "📋 Copy Result"}</span>
                 </button>
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <DownloadPdfButton onClick={handleDownloadPdf} className="py-3" />
               </div>
               <p className="text-[10px] text-center text-zinc-400 dark:text-zinc-500 mt-2 italic">
@@ -502,6 +506,22 @@ export default function CurrencyConverterWidget() {
         </div>
       )}
 
-    </div>
+    
+      {/* Share Result Modal */}
+      {rate !== null && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Live Currency Converter",
+            toolSlug: "currency-converter",
+            category: "Finance & Money",
+            resultValue: `${numericAmount} ${fromCurrency} = ${convertedValue.toFixed(2)} ${toCurrency}`,
+            resultLabel: `Exchange Rate: 1 ${fromCurrency} = ${rate.toFixed(4)} ${toCurrency}`,
+            inputsSummary: [{ label: 'From', value: fromCurrency }, { label: 'To', value: toCurrency }],
+          }}
+        />
+      )}
+</div>
   );
 }

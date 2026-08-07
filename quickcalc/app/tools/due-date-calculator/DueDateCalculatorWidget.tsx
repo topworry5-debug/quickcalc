@@ -5,8 +5,11 @@ import { calculateDueDate, getDueDateExplanationSteps, DueDateResult } from "../
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
+import ShareResultButton from "@/components/ShareResultButton";
+import ShareResultModal from "@/components/ShareResultModal";
 
 export default function DueDateCalculatorWidget() {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [method, setMethod] = useState<"lmp" | "conception">("lmp");
   const [dateString, setDateString] = useState<string>("");
   const [result, setResult] = useState<DueDateResult | string | null>(null);
@@ -193,6 +196,7 @@ export default function DueDateCalculatorWidget() {
                 >
                   {copied ? "✅ Copied Summary!" : "📋 Copy Summary"}
                 </button>
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
                 <DownloadPdfButton onClick={handleDownloadPdf} />
               </div>
 
@@ -216,6 +220,22 @@ export default function DueDateCalculatorWidget() {
           </div>
         )}
       </div>
-    </div>
+    
+      {/* Share Result Modal */}
+      {typeof result === "object" && result !== null && (
+        <ShareResultModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          data={{
+            toolName: "Pregnancy Due Date Calculator",
+            toolSlug: "due-date-calculator",
+            category: "Health & Fitness",
+            resultValue: `Due Date: ${result.dueDate}`,
+            resultLabel: `Current Progress: Week ${result.weeks} (${result.trimester})`,
+            inputsSummary: [{ label: 'Input Date', value: dateString }],
+          }}
+        />
+      )}
+</div>
   );
 }
