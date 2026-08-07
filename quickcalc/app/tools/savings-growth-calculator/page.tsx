@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Savings Growth Calculator - Free Compound Interest Tool",
     description: "Calculate compound interest savings growth with our free tool. Set regular monthly or yearly deposits and trace interest growth over time easily.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

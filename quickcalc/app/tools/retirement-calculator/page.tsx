@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Retirement Calculator: See Your Savings Grow (No Sign-Up)",
     description: "Calculate your retirement savings with compound growth. Model monthly deposits, return rates, and compare starting 5 years earlier vs later instantly.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

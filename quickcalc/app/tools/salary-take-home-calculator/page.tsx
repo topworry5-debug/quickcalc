@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Salary Take-Home Calculator - Net Income Pay After Tax",
     description: "Calculate your exact net take-home salary after income taxes and payroll deductions in the US, Canada, and Pakistan with a fast, free comparison.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

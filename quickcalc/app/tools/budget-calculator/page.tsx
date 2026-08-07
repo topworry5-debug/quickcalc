@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "50/30/20 Budget Calculator - Split Income & Plan Savings",
     description: "Plan your monthly budget with our free 50/30/20 income split calculator. Easily track your needs, wants, and savings goals with no sign-up required.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

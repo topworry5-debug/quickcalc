@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Discount Calculator - Find Sale Price & Stacked Promos",
     description: "Calculate shopping sale prices with single or stacked discounts instantly. Run reverse calculations to find the original price of discounted items.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

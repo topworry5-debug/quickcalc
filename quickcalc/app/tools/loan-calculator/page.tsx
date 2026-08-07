@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Loan EMI Calculator - Free Amortization Schedule Tool",
     description: "Calculate your monthly loan EMI, total interest, and total payments. View a detailed year-by-year amortization schedule for home, auto, or personal loans.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pregnancy Weight Gain Calculator - Week & BMI Tracker",
     description: "Calculate healthy weight gain ranges week-by-week during pregnancy. Get personalized, science-backed targets based on your pre-pregnancy BMI.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

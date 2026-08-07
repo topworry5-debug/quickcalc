@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inflation Calculator - Compare Past vs Present Value",
     description: "Calculate how inflation changes your purchasing power in the US, Canada, and Pakistan. Compare money value then vs now using official CPI historical data.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

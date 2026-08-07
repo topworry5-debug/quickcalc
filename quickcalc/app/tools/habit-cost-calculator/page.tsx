@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Habit Cost Calculator - Long-Term Time & Money Impact",
     description: "Calculate the true compounding financial and time cost of recurring daily habits. See how small daily expenses grow over years, decades, or by retirement.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

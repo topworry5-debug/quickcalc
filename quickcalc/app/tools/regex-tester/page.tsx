@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Live Regex Tester - Test Regular Expression Patterns",
     description: "Test and debug regular expressions (regex) in real-time with colored background highlighting, direct pattern explanations, and built-in templates.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

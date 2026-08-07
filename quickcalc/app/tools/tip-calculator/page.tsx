@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tip Calculator - Free Bill Splitter & Custom Tips",
     description: "Calculate tips instantly with an interactive slider. Split bills evenly with friends, find per-person costs, and copy the breakdown with no signup.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

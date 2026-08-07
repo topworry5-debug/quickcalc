@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Calorie Calculator - TDEE & Daily Calorie Needs Finder",
     description: "Calculate your daily calorie needs using the scientific Mifflin-St Jeor formula. Get custom weight loss or muscle gain targets with no signup needed.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

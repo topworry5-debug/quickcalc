@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Image Color Palette Generator - Free Hex Code Extractor",
     description: "Extract dominant colors from images instantly. Get copyable hex codes, CSS variables, Tailwind configs, and WCAG accessibility contrast scores.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

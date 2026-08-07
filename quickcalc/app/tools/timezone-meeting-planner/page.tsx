@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Timezone Meeting Planner - Global Team Work Overlap Tool",
     description: "Schedule global meetings across multiple timezones safely. Instantly find working hour overlaps and share setup links with no sign-in required.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

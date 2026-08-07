@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Secure Password Generator - Strong Local Password Tool",
     description: "Generate cryptographically secure random passwords locally. Calculate precise mathematical entropy, choose memorable options, with 100% browser privacy.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

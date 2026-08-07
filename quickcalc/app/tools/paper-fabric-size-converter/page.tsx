@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paper & Fabric Size Converter - Free Dimension Utility",
     description: "Convert paper sizes (A0-A10, Letter, Legal) and fabric lengths (yards, meters, inches, cm) simultaneously with no paywalls or sign-ups required.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

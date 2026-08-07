@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Zakat Calculator - Easy Gold, Silver & Savings Nisab Tool",
     description: "Calculate your Zakat cleanly with an itemized cash, gold, and silver breakdown. Compares savings to standard Nisab thresholds with live custom rates.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

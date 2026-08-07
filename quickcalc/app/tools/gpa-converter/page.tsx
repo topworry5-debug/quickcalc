@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GPA Converter - Convert Percentage to 4.0 Scale Easily",
     description: "Convert international percentage grades and letter grades from the US, UK, Canada, India, and Pakistan to the standard 4.0 GPA scale instantly.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

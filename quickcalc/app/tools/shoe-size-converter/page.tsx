@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Shoe Size Converter - US, UK, EU & Japan Size Conversions",
     description: "Convert shoe sizes instantly between US, UK, EU, and Japan (cm) systems simultaneously with helpful brand-specific sizing variance and fit guidance.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Live Currency Converter - Convert 35+ World Exchange Rates",
     description: "Convert 35+ global currencies instantly with real-time exchange rates. Check USD to PKR, EUR to USD, and GBP to EUR conversion tables with no markup fees.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

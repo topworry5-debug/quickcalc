@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Travel Time & Fuel Calculator - Estimate Gas Costs Online",
     description: "Calculate trip driving duration and estimate exact vehicle gas cost. Enter your route distance, vehicle mpg, and local fuel price for instant planning.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

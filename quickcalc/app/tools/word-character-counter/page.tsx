@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Word & Character Counter - Live Reading Time & Text Metrics",
     description: "Count words, characters, and paragraphs in real-time. Check writing targets and popular social media length limits instantly. 100% free online.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

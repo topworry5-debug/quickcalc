@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Private JSON to CSV Converter - Free Client-Side Tool",
     description: "Convert JSON arrays to CSV spreadsheets or CSV back to nested JSON structures. 100% private browser-local utility with no data collection or cookies.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Group Bill Splitter - Split Shared Expenses Unevenly",
     description: "Split group restaurant bills, travel costs, and rent unevenly by item. Assign custom splits, compute tax or tip proportionally, and copy breakdowns.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

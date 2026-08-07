@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Age Calculator - Find Your Exact Chronological Age Instantly",
     description: "Calculate your exact age in years, months, and days with our free online tool. Find your birth day of the week, next birthday countdown, and zodiac traits.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

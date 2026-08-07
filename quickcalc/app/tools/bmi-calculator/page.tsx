@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free BMI Calculator - Instant Body Mass Index Screener",
     description: "Calculate your body mass index (BMI) instantly. Check your healthy weight range with our live interactive gauge. No signup or email required.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

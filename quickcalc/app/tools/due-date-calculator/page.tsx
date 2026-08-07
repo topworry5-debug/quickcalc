@@ -37,7 +37,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pregnancy Due Date Calculator - Track Gestational Weeks",
     description: "Calculate your estimated pregnancy due date and track gestational milestones week-by-week. Free and private tracker with no sign-up or paywalls.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sleep Cycle Calculator - Bedtime & Waking Schedule Tool",
     description: "Calculate optimal bedtimes or wake-up times based on natural 90-minute REM sleep cycles. Wake up feeling refreshed and prevent morning fatigue instantly.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 

@@ -35,7 +35,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Percentage Calculator - Find % Increase, Decrease & Change",
     description: "Calculate percentage increase or decrease, fractions of numbers, discount values, and reverse percentages instantly with our live interactive formulas.",
-    images: ["https://quickcalc.cloud/og-image.png"],
   },
 };
 
