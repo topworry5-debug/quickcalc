@@ -2,35 +2,153 @@
 
 import React from "react";
 import Link from "next/link";
+import { Calculator, ShieldCheck, Heart, ArrowUpRight } from "lucide-react";
 
 interface FooterProps {
   customText?: string;
 }
 
 export default function Footer({ customText }: FooterProps) {
-  const defaultText = "Elegant, science-backed lifestyle modeling solutions.";
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800 mt-24 py-12 bg-white dark:bg-zinc-900 text-center text-xs text-zinc-500 dark:text-zinc-500">
-      <div className="max-w-5xl mx-auto px-4 space-y-4">
-        <p className="font-medium text-zinc-700 dark:text-zinc-400">✨ QuickCalc Suite</p>
-        
-        {/* Navigation Links */}
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-zinc-600 dark:text-zinc-400 font-medium">
-          <Link href="/about" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-            About
-          </Link>
-          <Link href="/privacy-policy" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-            Privacy Policy
-          </Link>
-          <Link href="/terms" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-            Terms of Use
-          </Link>
-          <Link href="/contact" className="hover:text-zinc-900 dark:hover:text-white transition-colors">
-            Contact
-          </Link>
+    <footer className="border-t border-surface-border bg-base-card text-ink mt-20 pt-12 pb-8 transition-colors">
+      <div className="max-w-5xl mx-auto px-4">
+        {/* Multi-Column Main Footer Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pb-10 border-b border-surface-border">
+          {/* Column 1: Brand & Blurb */}
+          <div className="space-y-4 sm:col-span-2 md:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2.5 font-extrabold text-lg text-ink">
+              <div className="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 border border-teal-500/20 flex items-center justify-center text-teal-600 dark:text-teal-400">
+                <Calculator size={18} strokeWidth={2.5} />
+              </div>
+              <span className="font-heading tracking-tight text-xl font-extrabold">Quick<span className="text-teal-600 dark:text-teal-400">Calc</span></span>
+            </Link>
+            <p className="text-xs text-ink-muted leading-relaxed">
+              QuickCalc offers science-backed, client-side calculators built for speed, privacy, and mathematical exactness. 100% free with zero sign-ups or paywalls.
+            </p>
+            <div className="inline-flex items-center gap-1.5 text-xs text-ink-muted font-medium">
+              <ShieldCheck size={14} className="text-teal-600 dark:text-teal-400" />
+              <span>100% Client-Side & Private</span>
+            </div>
+          </div>
+
+          {/* Column 2: Health & Wellness */}
+          <div className="space-y-3">
+            <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-ink">Health & Wellness</h3>
+            <ul className="space-y-2 text-xs text-ink-muted">
+              <li>
+                <Link href="/tools/bmi-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  BMI Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/calorie-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  Calorie & TDEE Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/water-intake-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  Water Intake Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/sleep-cycle-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  Sleep Cycle Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/due-date-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  Pregnancy Due Date
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Finance & Money */}
+          <div className="space-y-3">
+            <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-ink">Finance & Money</h3>
+            <ul className="space-y-2 text-xs text-ink-muted">
+              <li>
+                <Link href="/tools/loan-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Loan & EMI Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/salary-take-home-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Salary Take-Home Pay
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/currency-converter" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Live Currency Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/budget-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  50/30/20 Budget Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/savings-growth-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Savings Growth Calculator
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Converters & Utilities / Legal */}
+          <div className="space-y-3">
+            <h3 className="font-heading font-bold text-xs uppercase tracking-wider text-ink">Utilities & Company</h3>
+            <ul className="space-y-2 text-xs text-ink-muted">
+              <li>
+                <Link href="/tools/gpa-converter" className="hover:text-ink transition-colors">
+                  GPA Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/password-generator" className="hover:text-ink transition-colors">
+                  Password Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-ink transition-colors inline-flex items-center gap-1">
+                  <span>Guides & Blog</span>
+                  <ArrowUpRight size={12} />
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-ink transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-ink transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-ink transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-ink transition-colors">
+                  Contact Support
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <p>&copy; {new Date().getFullYear()} QuickCalc. All rights reserved. {customText || defaultText}</p>
+        {/* Bottom Bar */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ink-muted">
+          <p>&copy; {currentYear} QuickCalc. All rights reserved. {customText || "Precision science-backed calculation tools."}</p>
+          <div className="inline-flex items-center gap-1 text-[11px]">
+            <span>Designed for precision & privacy</span>
+            <Heart size={12} className="text-teal-600 dark:text-teal-400 fill-teal-600/20" />
+          </div>
+        </div>
       </div>
     </footer>
   );

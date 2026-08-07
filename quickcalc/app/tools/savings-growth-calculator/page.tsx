@@ -1,3 +1,5 @@
+import { generateSoftwareAppSchema } from "@/lib/schema";
+import HeaderLogo from "@/components/HeaderLogo";
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
 import EmbedWidget from "@/components/EmbedWidget";
@@ -39,10 +41,23 @@ export const metadata: Metadata = {
 };
 
 export default function SavingsGrowthCalculatorPage({ searchParams }: { searchParams?: { embed?: string } }) {
+  const softwareSchema = generateSoftwareAppSchema({
+    name: "Savings Growth Calculator - Free Compound Interest Tool",
+    description: "Calculate compound interest savings growth with our free tool. Set regular monthly or yearly deposits and trace interest growth over time easily.",
+    slug: "savings-growth-calculator",
+    category: "Utility"
+  });
+
   const isEmbed = searchParams?.embed === "true";
   if (isEmbed) {
     return (
       <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
+      {/* WebApplication JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+
         <main className="max-w-4xl mx-auto w-full">
           <SavingsGrowthCalculatorWidget />
         </main>
@@ -130,9 +145,7 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
       {/* Header */}
       <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg text-teal-600 dark:text-teal-400">
-            <span>💵 QuickCalc</span>
-          </Link>
+          <HeaderLogo />
           <nav className="flex items-center gap-2 sm:gap-4">
             <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
               Home

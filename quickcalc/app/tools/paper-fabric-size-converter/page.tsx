@@ -1,3 +1,5 @@
+import { generateSoftwareAppSchema } from "@/lib/schema";
+import HeaderLogo from "@/components/HeaderLogo";
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
 import EmbedWidget from "@/components/EmbedWidget";
@@ -42,10 +44,23 @@ export const metadata: Metadata = {
 };
 
 export default function PaperFabricConverterPage({ searchParams }: { searchParams?: { embed?: string } }) {
+  const softwareSchema = generateSoftwareAppSchema({
+    name: "Paper & Fabric Size Converter - Free Dimension Utility",
+    description: "Convert paper sizes (A0-A10, Letter, Legal) and fabric lengths (yards, meters, inches, cm) simultaneously with no paywalls or sign-ups required.",
+    slug: "paper-fabric-size-converter",
+    category: "Utility"
+  });
+
   const isEmbed = searchParams?.embed === "true";
   if (isEmbed) {
     return (
       <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
+      {/* WebApplication JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+
         <main className="max-w-4xl mx-auto w-full">
           <PaperFabricConverterWidget />
         </main>
@@ -137,9 +152,7 @@ export default function PaperFabricConverterPage({ searchParams }: { searchParam
       {/* Header */}
       <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg text-emerald-600 dark:text-emerald-400">
-            <span>⚖️ QuickCalc</span>
-          </Link>
+          <HeaderLogo />
           <nav className="flex items-center gap-2 sm:gap-4">
             <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
               Home

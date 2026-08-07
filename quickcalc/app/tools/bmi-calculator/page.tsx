@@ -1,3 +1,5 @@
+import { generateSoftwareAppSchema } from "@/lib/schema";
+import HeaderLogo from "@/components/HeaderLogo";
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
 import EmbedWidget from "@/components/EmbedWidget";
@@ -42,10 +44,23 @@ export const metadata: Metadata = {
 };
 
 export default function BMICalculatorPage({ searchParams }: { searchParams?: { embed?: string } }) {
+  const softwareSchema = generateSoftwareAppSchema({
+    name: "Free BMI Calculator - Instant Body Mass Index Screener",
+    description: "Calculate your body mass index (BMI) instantly. Check your healthy weight range with our live interactive gauge. No signup or email required.",
+    slug: "bmi-calculator",
+    category: "Utility"
+  });
+
   const isEmbed = searchParams?.embed === "true";
   if (isEmbed) {
     return (
       <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors p-2 flex flex-col justify-between">
+      {/* WebApplication JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+
         <main className="max-w-4xl mx-auto w-full">
           <BMICalculatorWidget />
         </main>
@@ -121,9 +136,7 @@ export default function BMICalculatorPage({ searchParams }: { searchParams?: { e
       {/* Header */}
       <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
         <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg text-emerald-600 dark:text-emerald-400">
-            <span>⚖️ QuickCalc</span>
-          </Link>
+          <HeaderLogo />
           <nav className="flex items-center gap-2 sm:gap-4">
             <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
               Home

@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { tools, Tool } from "@/lib/toolsData";
+import ToolIcon from "@/components/ToolIcon";
+import { ArrowRight } from "lucide-react";
 
 interface RelatedToolsProps {
   currentSlug: string;
@@ -67,28 +69,29 @@ export default function RelatedTools({ currentSlug }: RelatedToolsProps) {
   }
 
   return (
-    <section className="max-w-4xl mx-auto border-t border-zinc-200 dark:border-zinc-800 mt-16 pt-12">
-      <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6">
+    <section className="max-w-4xl mx-auto border-t border-surface-border mt-16 pt-12">
+      <h2 className="text-2xl font-heading font-bold text-ink mb-6">
         You Might Also Like
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {selected.map((tool) => (
           <Link
             key={tool.href}
             href={tool.href}
-            className="group block border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 transition duration-200"
+            className="group block border border-surface-border bg-base-card p-4 sm:p-5 rounded-xl shadow-sm hover:shadow-md hover:border-teal-500/40 transition duration-200"
           >
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-2xl">{tool.icon}</span>
-              <h3 className="font-bold text-zinc-900 dark:text-white text-base group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              <ToolIcon icon={tool.icon} category={tool.category} size="sm" />
+              <h3 className="font-heading font-bold text-ink text-sm sm:text-base group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors truncate">
                 {tool.title}
               </h3>
             </div>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
+            <p className="text-xs text-ink-muted leading-relaxed line-clamp-2 mb-3">
               {tool.description}
             </p>
-            <div className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 mt-4 group-hover:underline">
-              Open {tool.title} &rarr;
+            <div className="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 dark:text-teal-400 group-hover:translate-x-0.5 transition-transform">
+              <span>Open Tool</span>
+              <ArrowRight size={12} />
             </div>
           </Link>
         ))}
