@@ -1,89 +1,120 @@
 "use client";
 
 import React, { useState } from "react";
+import { Code, Copy, Check, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 interface EmbedWidgetProps {
-  url: string; // e.g., "https://quickcalc.cloud/tools/percentage-calculator"
-  title: string; // e.g., "Percentage Calculator"
+  url: string; // e.g., "https://quickcalc.cloud/tools/bmi-calculator"
+  title: string; // e.g., "BMI Calculator"
 }
 
 export default function EmbedWidget({ url, title }: EmbedWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // We append ?embed=true to the iframe source URL to trigger standalone mode
-  const embedUrl = url.includes("?") ? `${url}&embed=true` : `${url}?embed=true`;
+  // Extract slug from URL (e.g. /tools/bmi-calculator -> bmi-calculator)
+  const slug = url.split("/tools/")[1] || "bmi-calculator";
+  const embedUrl = `https://quickcalc.cloud/embed/${slug}`;
 
-  const iframeCode = `<iframe src="${embedUrl}" width="100%" height="500" style="border:1px solid #e4e4e7; border-radius:8px;" allowfullscreen></iframe>
-<div style="font-family:sans-serif; font-size:12px; color:#71717a; text-align:right; margin-top:4px;">
-  Powered by <a href="${url}" target="_blank" rel="noopener" style="color:#2563eb; text-decoration:underline; font-weight:600;">QuickCalc ${title}</a>
+  const iframeCode = `<iframe src="${embedUrl}" width="100%" height="520" frameborder="0" style="border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;" allowfullscreen></iframe>
+<div style="font-family:sans-serif; font-size:12px; color:#64748b; text-align:right; margin-top:4px;">
+  Powered by <a href="${url}" target="_blank" rel="noopener noreferrer" style="color:#0d9488; font-weight:600; text-decoration:underline;">QuickCalc ${title}</a>
 </div>`;
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(iframeCode);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 2500);
     } catch (err) {
       console.error("Failed to copy embed code", err);
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 mb-8">
+    <div className="w-full max-w-3xl mx-auto my-8 bg-base-card border border-surface-border rounded-2xl shadow-sm overflow-hidden transition-all">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors focus:outline-none"
+        className="w-full flex items-center justify-between p-4 sm:p-5 hover:bg-surface-muted/60 text-left transition-colors min-h-[48px]"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-        {isOpen ? "Hide Embed Options" : "</> Embed this tool"}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center">
+            <Code size={18} />
+          </div>
+          <div>
+            <h3 className="font-heading font-bold text-ink text-sm sm:text-base">
+              Embed This Calculator on Your Website
+            </h3>
+            <p className="text-xs text-ink-muted">
+              Get free responsive iframe code with built-in attribution for blogs & sites
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-1 text-xs font-bold text-teal-600 dark:text-teal-400">
+          <span>{isOpen ? "Hide Embed Code" : "</> Get Code"}</span>
+          {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        </div>
       </button>
 
       {isOpen && (
-        <div className="w-full max-w-md p-4 mt-2 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm text-left animate-in fade-in slide-in-from-top-2 duration-200">
-          <p className="text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-2">
-            Copy the HTML code below to embed this calculator on your website:
-          </p>
-          <div className="relative">
+        <div className="p-4 sm:p-6 border-t border-surface-border bg-surface-muted/30 space-y-5 animate-fade-in">
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="text-xs font-bold uppercase tracking-wider text-ink">
+                HTML Iframe Snippet
+              </label>
+              <button
+                onClick={handleCopy}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-sm transition active:scale-95 min-h-[36px]"
+              >
+                {copied ? (
+                  <>
+                    <Check size={14} />
+                    <span>Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={14} />
+                    <span>Copy Snippet</span>
+                  </>
+                )}
+              </button>
+            </div>
+
             <textarea
               readOnly
               value={iframeCode}
               rows={4}
-              className="w-full p-2.5 font-mono text-xs text-zinc-800 dark:text-zinc-200 bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none"
               onClick={(e) => (e.target as HTMLTextAreaElement).select()}
+              className="w-full p-3 font-mono text-xs text-ink bg-base-card border border-surface-border rounded-xl focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/20 resize-none shadow-inner"
             />
-            <button
-              onClick={handleCopy}
-              className="absolute right-2 bottom-3 px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 rounded-md shadow transition-colors flex items-center gap-1"
-            >
-              {copied ? (
-                <>
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                  Copied!
-                </>
-              ) : (
-                <>
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                  </svg>
-                  Copy Embed Code
-                </>
-              )}
-            </button>
           </div>
-          <div className="mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800 flex flex-col gap-1.5">
-            <p className="text-[10px] text-zinc-400 dark:text-zinc-500 font-medium">
-              Live Preview of Attribution Link:
-            </p>
-            <div className="text-right text-[11px] font-sans text-zinc-500">
-              Powered by{" "}
-              <a href={url} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline font-semibold">
-                QuickCalc {title}
+
+          {/* Live Preview Section */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-ink-muted">
+                Live Embed Preview (600px Width Standard)
+              </span>
+              <a
+                href={embedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-teal-600 dark:text-teal-400 font-bold hover:underline"
+              >
+                <span>Open Embed Route</span>
+                <ExternalLink size={12} />
               </a>
+            </div>
+
+            <div className="rounded-xl overflow-hidden border border-surface-border bg-base-card p-2 shadow-md">
+              <iframe
+                src={`/embed/${slug}`}
+                title={`QuickCalc ${title} Embed Preview`}
+                className="w-full h-[520px] rounded-lg border-0 bg-transparent"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { calculateSalary, getSalaryExplanationSteps, SalaryCalculatorResult, CANADA_TAX_CONFIG } from "../../../lib/calculators/salaryCalculator";
-import { generatePdf } from "@/lib/utils/downloadPdf";
+import { generatePdfAsync } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
@@ -20,6 +20,7 @@ export default function SalaryTakeHomeCalculatorWidget() {
   const [payFrequency, setPayFrequency] = useState<PayFrequency>("monthly");
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState<SalaryCalculatorResult | null>(null);
+  const [isPdfGenerating, setIsPdfGenerating] = useState(false);
 
   useEffect(() => {
     const salaryVal = parseFloat(grossSalary);
@@ -104,35 +105,40 @@ export default function SalaryTakeHomeCalculatorWidget() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleDownloadPdf = () => {
-    if (!result) return;
+  const handleDownloadPdf = async () => {
+    if (!result || isPdfGenerating) return;
 
-    generatePdf({
-      toolName: `Salary Take-Home Calculator (${country})`,
-      toolSlug: "salary-take-home-calculator",
-      inputs: [
-        { label: "Country", value: country },
-        { label: "Gross Salary (Annual)", value: formatCurrency(result.grossSalaryAnnual) },
-        { label: "Pay Frequency", value: payFrequency },
-      ],
-      results: [
-        { label: `Net Take-Home (${payFrequency})`, value: formatCurrency(result.netPaySelected), isHighlight: true },
-        { label: "Take-Home Percentage", value: `${result.takeHomePercentage.toFixed(1)}%` },
-        { label: "Tax Percentage", value: `${result.taxPercentage.toFixed(1)}%` },
-        { label: "Annual Net Take-Home", value: formatCurrency(result.netPayAnnual) },
-      ],
-      summaryNote: `Tax & payroll breakdown calculated according to current ${country} tax tables.`,
-      table: {
-        title: `Deductions & Taxes Breakdown (${payFrequency})`,
-        headers: ["Deduction / Tax Item", "Amount"],
-        rows: [
-          ["Gross Pay", formatCurrency(result.grossSalarySelected)],
-          ...result.deductionsBreakdownSelected.map((d) => [d.name, `-${formatCurrency(d.amount)}`]),
-          ["Net Take-Home Pay", formatCurrency(result.netPaySelected)],
+    setIsPdfGenerating(true);
+    try {
+      await generatePdfAsync({
+        toolName: `Salary Take-Home Calculator (${country})`,
+        toolSlug: "salary-take-home-calculator",
+        inputs: [
+          { label: "Country", value: country },
+          { label: "Gross Salary (Annual)", value: formatCurrency(result.grossSalaryAnnual) },
+          { label: "Pay Frequency", value: payFrequency },
         ],
-      },
-      filename: `Salary-Take-Home-Report.pdf`,
-    });
+        results: [
+          { label: `Net Take-Home (${payFrequency})`, value: formatCurrency(result.netPaySelected), isHighlight: true },
+          { label: "Take-Home Percentage", value: `${result.takeHomePercentage.toFixed(1)}%` },
+          { label: "Tax Percentage", value: `${result.taxPercentage.toFixed(1)}%` },
+          { label: "Annual Net Take-Home", value: formatCurrency(result.netPayAnnual) },
+        ],
+        summaryNote: `Tax & payroll breakdown calculated according to current ${country} tax tables. Net pay shown for the selected pay frequency (${payFrequency}).`,
+        table: {
+          title: `Deductions & Taxes Breakdown (${payFrequency})`,
+          headers: ["Deduction / Tax Item", "Amount"],
+          rows: [
+            ["Gross Pay", formatCurrency(result.grossSalarySelected)],
+            ...result.deductionsBreakdownSelected.map((d) => [d.name, `-${formatCurrency(d.amount)}`]),
+            ["Net Take-Home Pay", formatCurrency(result.netPaySelected)],
+          ],
+        },
+        filename: `Salary-Take-Home-Report.pdf`,
+      });
+    } finally {
+      setIsPdfGenerating(false);
+    }
   };
 
   const inputNumber = parseFloat(grossSalary);
@@ -374,7 +380,7 @@ export default function SalaryTakeHomeCalculatorWidget() {
                   {copied ? "✓ Copied!" : "📋 Copy Breakdown"}
                 </button>
                 <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
-                <DownloadPdfButton onClick={handleDownloadPdf} className="py-2.5" />
+                <DownloadPdfButton onClick={handleDownloadPdf} isGenerating={isPdfGenerating} label="Download PDF" className="py-2.5" />
               </div>
 
               {/* Step-by-Step Explanation Accordion */}

@@ -141,6 +141,11 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Inflation Calculator: What Money Was Worth Then vs. Now (US, Canada & Pakistan)
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates historical and projected purchasing power changes using official Consumer Price Index (CPI) datasets.
+          </p>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold">
             If you are looking for a reliable purchasing power over time calculator, our tool provides precise historical comparisons instantly. Inflation represents the steady decline in the purchasing power of money over time, meaning each unit of currency buys fewer goods and services. As prices rise, the real-world value of your cash decreases, directly impacting your cost of living. Calculating historical inflation helps you see exactly how much cash is needed today to match the buying power of the past.
           </p>

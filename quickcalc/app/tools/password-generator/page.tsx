@@ -138,9 +138,7 @@ export default function PasswordGeneratorPage({ searchParams }: { searchParams?:
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Secure Password Generator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you are looking for how to generate a strong password or need a random password generator with symbols to safeguard your personal accounts, our client-side utility provides the ideal solution. Discover how long should a password be to be secure, evaluate real-time Shannon entropy metrics, and manage your credentials privately.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool generates cryptographically secure random passwords and calculates password strength in bits of entropy. If you are looking for how to generate a strong password or need a random password generator with symbols to safeguard your personal accounts, our client-side utility provides the ideal solution. Discover how long should a password be to be secure, evaluate real-time Shannon entropy metrics, and manage your credentials privately.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/password-generator" title="Secure Password Generator" />

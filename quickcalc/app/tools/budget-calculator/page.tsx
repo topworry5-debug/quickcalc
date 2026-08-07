@@ -155,9 +155,7 @@ export default function BudgetCalculatorPage({ searchParams }: { searchParams?: 
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Budget Calculator (50/30/20 Rule)
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            The 50/30/20 rule is a popular starting framework for budgeting first popularized by Elizabeth Warren in her book <em>All Your Worth: The Ultimate Lifetime Money Plan</em>. Designed to be intuitive and stress-free, it divides your net take-home income into three broad categories: 50% for Needs (must-haves), 30% for Wants (nice-to-haves), and 20% for Savings and debt repayment. This free budget calculator goes beyond generic split-income tools by adding a customizable percentage slider, a side-by-side &ldquo;Reality Check&rdquo; actual-versus-ideal spending comparison, and projection savings tools.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates your monthly budget breakdown using the 50/30/20 allocation method into needs, wants, and savings goals. The 50/30/20 rule is a popular starting framework for budgeting first popularized by Elizabeth Warren in her book <em>All Your Worth: The Ultimate Lifetime Money Plan</em>. Designed to be intuitive and stress-free, it divides your net take-home income into three broad categories: 50% for Needs (must-haves), 30% for Wants (nice-to-haves), and 20% for Savings and debt repayment. This free budget calculator goes beyond generic split-income tools by adding a customizable percentage slider, a side-by-side &ldquo;Reality Check&rdquo; actual-versus-ideal spending comparison, and projection savings tools.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/budget-calculator" title="Budget Calculator" />

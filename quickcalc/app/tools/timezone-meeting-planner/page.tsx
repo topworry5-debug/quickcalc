@@ -138,9 +138,7 @@ export default function TimezonePlannerPage({ searchParams }: { searchParams?: {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Timezone Meeting Planner
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you need to know how to schedule a meeting across time zones or want to find the best time to meet UTC to EST with team members, our global team overlap tool is here to help. Easily convert meeting time to multiple time zones and see exact visual working hour highlights instantly.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates overlapping business hours and schedules cross-border team meetings across multiple timezones. If you need to know how to schedule a meeting across time zones or want to find the best time to meet UTC to EST with team members, our global team overlap tool is here to help. Easily convert meeting time to multiple time zones and see exact visual working hour highlights instantly.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/timezone-meeting-planner" title="Timezone Meeting Planner" />

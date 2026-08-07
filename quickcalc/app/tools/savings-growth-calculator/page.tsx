@@ -151,6 +151,11 @@ export default function SavingsGrowthCalculatorPage({ searchParams }: { searchPa
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Savings Growth Calculator: Compound Interest with Regular Contributions
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates compound interest savings growth over time with initial principal and monthly recurring deposits.
+          </p>
           {/* Direct-answer paragraph (50-70 words) immediately after H1 */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold max-w-2xl mx-auto border-l-4 border-teal-500 pl-4 text-left">
             If you want to know how much will my savings grow with compound interest, our free tool is here to help. Compound interest is the interest calculated on your initial savings deposit plus all previously accumulated interest. This process creates a powerful exponential growth loop because your interest continuously generates new earnings, causing your overall savings balance to accelerate dramatically over time compared to simple interest structures, which only calculate returns on the starting principal.

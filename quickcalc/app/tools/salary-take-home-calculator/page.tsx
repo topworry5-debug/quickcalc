@@ -140,6 +140,11 @@ export default function SalaryTakeHomeCalculatorPage({ searchParams }: { searchP
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Salary Calculator: Take-Home Pay After Tax (US, Canada & Pakistan)
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool estimates net take-home salary after federal income taxes, state taxes, and payroll deductions in the US, Canada, and Pakistan.
+          </p>
           {/* Tight 50-70 word stand-alone direct-answer paragraph */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
             If you are wondering how much is my salary after tax, this free tool provides the answers you need. Take-home pay is the net amount of earnings an employee receives in their paycheck after all mandatory deductions are subtracted from their gross salary. These standard reductions primarily include progressive federal income taxes, local provincial or state taxes, and essential payroll contributions such as social security, government pensions, and employment insurance.

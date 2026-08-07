@@ -1,39 +1,80 @@
 # QuickCalc
 
-> Elegant, Science-Backed Calculator Suite for your health, finance, and educational calculation needs.
+> QuickCalc is a 100% free, privacy-first, offline-capable suite of 31 science-backed calculators and 35 in-depth technical guides for health, finance, education, and daily productivity. All calculations run client-side in browser memory with zero ads and zero sign-up requirements.
 
-## Tools
-- [BMI Calculator](https://quickcalc.cloud/tools/bmi-calculator): Calculate your body mass index (BMI) instantly. Analyze clinical weight ranges with a live horizontal gauge.
-- [Calorie Calculator](https://quickcalc.cloud/tools/calorie-calculator): Calculate your BMR and TDEE using the modern Mifflin-St Jeor formula. Get tailored calorie targets for losing, maintaining, and gaining weight.
-- [Water Intake Calculator](https://quickcalc.cloud/tools/water-intake-calculator): Calculate your ideal daily hydration requirements based on your body weight, activity level, and climate.
-- [Pace Calculator](https://quickcalc.cloud/tools/pace-calculator): Calculate running pace, time, or distance with our 3-in-1 calculator. View live km/mile side-by-side conversions and instant race time predictions.
-- [Due Date Calculator](https://quickcalc.cloud/tools/due-date-calculator): Estimate your baby's arrival date, trace gestational milestones, and follow your week-by-week trimester timeline.
-- [Shoe Size Converter](https://quickcalc.cloud/tools/shoe-size-converter): Convert shoe sizes instantly between US, UK, EU, and Japan systems simultaneously with built-in brand variance guidance.
-- [Paper & Fabric Size Converter](https://quickcalc.cloud/tools/paper-fabric-size-converter): Convert standard print paper formats and fabric lengths simultaneously with two dedicated, live-updating modes.
-- [JSON & CSV Converter](https://quickcalc.cloud/tools/json-csv-converter): Convert JSON to CSV and CSV back to nested JSON structures securely in browser memory. 100% private client-side translation.
-- [Regex Tester](https://quickcalc.cloud/tools/regex-tester): Test and debug regular expressions instantly with live colored highlighting and plain-language pattern explanations.
-- [Sleep Cycle Calculator](https://quickcalc.cloud/tools/sleep-cycle-calculator): Optimize your bedtime and waking schedule using 90-minute sleep cycles to wake up refreshed and energetic.
-- [GPA Converter](https://quickcalc.cloud/tools/gpa-converter): Convert international grades and percentages from US, UK, Canada, India, and Pakistan to the standard 4.0 scale.
-- [Loan / EMI Calculator](https://quickcalc.cloud/tools/loan-calculator): Calculate monthly installments, interest payments, and view a comprehensive year-by-year amortization schedule.
-- [Color Palette Generator](https://quickcalc.cloud/tools/color-palette-generator): Extract up to 8 beautiful dominant colors from any image. Analyze WCAG contrast compliance and export custom CSS/Tailwind configurations.
-- [Word & Character Counter](https://quickcalc.cloud/tools/word-character-counter): Count words, characters, sentences, paragraphs, and estimated reading times. Get live warning notifications for popular social post limits.
-- [Secure Password Generator](https://quickcalc.cloud/tools/password-generator): Generate cryptographically secure passwords locally with precise entropy calculations and customizable pools.
-- [Timezone Meeting Planner](https://quickcalc.cloud/tools/timezone-meeting-planner): Schedule meetings across multiple timezones safely using geographical database options and overlap calculations.
-- [Tip Calculator](https://quickcalc.cloud/tools/tip-calculator): Calculate custom tipping values instantly, split bills evenly between groups, and copy detailed breakdowns locally.
-- [Percentage Calculator](https://quickcalc.cloud/tools/percentage-calculator): Calculate percentage changes, fractions, savings, discount values, and reverse percentages instantly with dynamic formulas.
-- [Group Expense Splitter](https://quickcalc.cloud/tools/group-expense-splitter): Split group bills, meals, and trip expenses unevenly. Allocate specific items and distribute tax/tip proportionally.
-- [Age Calculator](https://quickcalc.cloud/tools/age-calculator): Find your exact chronological age in years, months, and days. Uncover your zodiac traits, generational era, countdown to your next birthday, and share your personalized age card!
-- [Currency Converter](https://quickcalc.cloud/tools/currency-converter): Convert 35+ major world currencies instantly with live exchange rates. Compare ranges and copy formatted results with backlinks.
-- [Budget Calculator](https://quickcalc.cloud/tools/budget-calculator): Split your income using the 50/30/20 rule with customizable percentages and a real-spending comparison.
-- [Zakat Calculator](https://quickcalc.cloud/tools/zakat-calculator): Calculate your Zakat cleanly with a category-by-category breakdown. Support for custom gold/silver rates and Nisab standard selector.
-- [Salary Take-Home Calculator](https://quickcalc.cloud/tools/salary-take-home-calculator): Calculate your estimated net take-home salary after income taxes & payroll deductions in the US, Canada, and Pakistan side-by-side.
-- [Pregnancy Weight Gain Calculator](https://quickcalc.cloud/tools/pregnancy-weight-gain-calculator): Calculate personalized healthy pregnancy weight gain ranges week-by-week based on pre-pregnancy Body Mass Index and gestational timing.
-- [Habit Cost Calculator](https://quickcalc.cloud/tools/habit-cost-calculator): Calculate the combined compounding time and money cost of daily recurring habits over years, decades, and by retirement.
-- [Discount Calculator](https://quickcalc.cloud/tools/discount-calculator): Calculate sale prices with single or stacked discounts, visual step-by-step math, and reverse pre-discount calculations instantly.
-- [Inflation Calculator](https://quickcalc.cloud/tools/inflation-calculator): Calculate historical inflation and buying power changes in the US, Canada, and Pakistan. Compare money value then vs now instantly.
-- [Savings Growth Calculator](https://quickcalc.cloud/tools/savings-growth-calculator): Calculate your compound interest earnings over time with regular monthly or yearly contributions. Track total contributed vs interest.
-- [Travel Time & Fuel Cost Calculator](https://quickcalc.cloud/tools/travel-time-fuel-calculator): Calculate speed, distance, time, flight cruising durations, and estimated vehicle trip fuel costs in real-time.
+## Online Calculator Tools
 
-## About
-- [About](https://quickcalc.cloud/about)
-- [Contact](https://quickcalc.cloud/contact)
+- [BMI Calculator](https://quickcalc.cloud/tools/bmi-calculator): Calculates Body Mass Index (BMI) using height and weight according to World Health Organization (WHO) clinical classification standards.
+- [Calorie Calculator](https://quickcalc.cloud/tools/calorie-calculator): Calculates Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation.
+- [Water Intake Calculator](https://quickcalc.cloud/tools/water-intake-calculator): Calculates personalized daily hydration requirements based on body weight, exercise duration, and climate.
+- [Pace Calculator](https://quickcalc.cloud/tools/pace-calculator): Converts running speed, target race times, and distance between min/mile and min/km with split breakdowns.
+- [Due Date Calculator](https://quickcalc.cloud/tools/due-date-calculator): Estimates pregnancy due date and trimester milestones using Naegele's rule based on last menstrual period or conception date.
+- [Shoe Size Converter](https://quickcalc.cloud/tools/shoe-size-converter): Converts footwear sizing between US, UK, EU, and Japan international standards for men, women, and kids.
+- [Paper & Fabric Size Converter](https://quickcalc.cloud/tools/paper-fabric-size-converter): Converts ISO 216 paper dimensions (A4, A3, Letter) and fabric length/yardage measurements.
+- [JSON & CSV Converter](https://quickcalc.cloud/tools/json-csv-converter): Converts structured JSON data to CSV format and vice versa with automatic object flattening in local browser memory.
+- [Regex Tester](https://quickcalc.cloud/tools/regex-tester): Evaluates and debugs JavaScript regular expression patterns against test strings with real-time match highlighting.
+- [Sleep Cycle Calculator](https://quickcalc.cloud/tools/sleep-cycle-calculator): Calculates optimal bedtime and wake-up schedules based on 90-minute REM sleep cycle timing.
+- [GPA Converter](https://quickcalc.cloud/tools/gpa-converter): Converts percentage marks and letter grades from US, UK, Canada, India, and Pakistan to a standard 4.0 GPA scale.
+- [Loan / EMI Calculator](https://quickcalc.cloud/tools/loan-calculator): Calculates monthly Equated Monthly Installments (EMI), total interest payable, and full loan amortization schedules.
+- [Color Palette Generator](https://quickcalc.cloud/tools/color-palette-generator): Extracts dominant color palettes from uploaded images and evaluates WCAG AA/AAA contrast ratios.
+- [Word & Character Counter](https://quickcalc.cloud/tools/word-character-counter): Analyzes text length, word count, sentence count, reading time, and social media character limits.
+- [Secure Password Generator](https://quickcalc.cloud/tools/password-generator): Generates cryptographically secure random passwords and evaluates password strength in bits of entropy.
+- [Timezone Meeting Planner](https://quickcalc.cloud/tools/timezone-meeting-planner): Calculates overlapping business hours and schedules cross-border meetings across multiple international timezones.
+- [Tip Calculator](https://quickcalc.cloud/tools/tip-calculator): Calculates tip amounts by percentage and splits restaurant bills evenly across multiple guests.
+- [Percentage Calculator](https://quickcalc.cloud/tools/percentage-calculator): Calculates percentage values, percentage increases/decreases, sales discounts, and reverse percentages.
+- [Group Expense Splitter](https://quickcalc.cloud/tools/group-expense-splitter): Calculates itemized group bill splits, tax/tip proportions, and debt simplification between friends.
+- [Age Calculator](https://quickcalc.cloud/tools/age-calculator): Calculates exact chronological age in years, months, days, hours, and minutes with leap year adjustment.
+- [Currency Converter](https://quickcalc.cloud/tools/currency-converter): Converts values between 35+ global fiat currencies using real-time foreign exchange market rates.
+- [Budget Calculator](https://quickcalc.cloud/tools/budget-calculator): Allocates monthly net income using the 50/30/20 budget framework into needs, wants, and savings goals.
+- [Zakat Calculator](https://quickcalc.cloud/tools/zakat-calculator): Calculates Islamic Zakat obligations at 2.5% on qualifying wealth, gold, silver, and liquid savings against current Nisab thresholds.
+- [Salary Take-Home Calculator](https://quickcalc.cloud/tools/salary-take-home-calculator): Estimates net take-home pay after federal taxes, state taxes, and payroll deductions in the US, Canada, and Pakistan.
+- [Pregnancy Weight Gain Calculator](https://quickcalc.cloud/tools/pregnancy-weight-gain-calculator): Recommends week-by-week healthy gestational weight gain ranges based on pre-pregnancy BMI guidelines.
+- [Habit Cost Calculator](https://quickcalc.cloud/tools/habit-cost-calculator): Calculates the long-term compounding monetary and time costs of daily recurring habits over 1 to 30 years.
+- [Discount Calculator](https://quickcalc.cloud/tools/discount-calculator): Calculates final sale prices, single/stacked percentage discounts, and total savings on retail purchases.
+- [Inflation Calculator](https://quickcalc.cloud/tools/inflation-calculator): Calculates historical and projected purchasing power changes using Consumer Price Index (CPI) datasets.
+- [Savings Growth Calculator](https://quickcalc.cloud/tools/savings-growth-calculator): Calculates compound interest growth over time with customizable initial principal and monthly recurring deposits.
+- [Travel Time & Fuel Cost Calculator](https://quickcalc.cloud/tools/travel-time-fuel-calculator): Calculates vehicle driving duration, average speed requirements, and estimated gas fuel expense for road trips.
+
+## Articles & Educational Guides
+
+- [Why Starting Retirement Savings Early Matters More Than You Think](https://quickcalc.cloud/blog/why-starting-retirement-savings-early-matters-more-than-you-think): Guide explaining how compound interest and time horizon impact long-term wealth accumulation.
+- [How to Calculate the Cost of Daily Habits: Financial Guide](https://quickcalc.cloud/blog/how-to-calculate-the-cost-of-daily-habits-financial-guide): Step-by-step guide to calculating compounding financial and time costs of daily expenses.
+- [How to Convert Paper & Fabric Sizes: Dimensions Guide](https://quickcalc.cloud/blog/how-to-convert-paper-and-fabric-sizes-dimensions-guide): Comprehensive reference guide for ISO 216 paper formats and textile measurements.
+- [How to Generate Color Palette from Image: UI Design Guide](https://quickcalc.cloud/blog/how-to-generate-color-palette-from-image-ui-design-guide): Educational guide on color theory, image extraction, and WCAG accessibility standards.
+- [How to Convert JSON to CSV: Flattening & Conversion Guide](https://quickcalc.cloud/blog/how-to-convert-json-to-csv-flattening-guide): Developer guide covering dot-notation JSON flattening, array handling, and CSV formatting.
+- [How to Calculate Travel Time & Fuel Cost: Road Trip Guide](https://quickcalc.cloud/blog/how-to-calculate-travel-time-fuel-cost-road-trip-guide): Guide covering speed formulas, MPG fuel economy calculations, and trip budgeting.
+- [How to Calculate Running Pace: Min/Mile & Speed Guide](https://quickcalc.cloud/blog/how-to-calculate-running-pace-min-mile-speed-guide): Guide explaining running pace formulas, split time planning, and race target calculations.
+- [How to Calculate Pregnancy Weight Gain: BMI Guide](https://quickcalc.cloud/blog/how-to-calculate-pregnancy-weight-gain-bmi-guide): Clinical guide on gestational weight gain targets by trimester based on pre-pregnancy BMI.
+- [How to Calculate Pregnancy Due Date: Naegele's Rule Guide](https://quickcalc.cloud/blog/how-to-calculate-pregnancy-due-date-naegele-rule-guide): Obstetrics guide detailing Naegele's rule, ovulation timing, and ultrasound adjustments.
+- [How to Calculate Inflation Rate: Purchasing Power Guide](https://quickcalc.cloud/blog/how-to-calculate-inflation-rate-purchasing-power-guide): Economics guide explaining Consumer Price Index (CPI) formulas and purchasing power math.
+- [How to Calculate Discount Percentage: Sale Math Guide](https://quickcalc.cloud/blog/how-to-calculate-discount-percentage-sale-math-guide): Shopping math guide covering single discounts, double stacked coupons, and reverse pre-tax pricing.
+- [How to Calculate Savings Growth: Compound Interest Guide](https://quickcalc.cloud/blog/how-to-calculate-savings-growth-compound-interest-guide): Financial literacy guide explaining compound interest math, APY vs APR, and the Rule of 72.
+- [How to Calculate Take-Home Pay: Net Salary Guide](https://quickcalc.cloud/blog/how-to-calculate-take-home-pay-net-salary-guide): Payroll guide breaking down gross salary, federal/state income taxes, FICA, and 401(k) pre-tax contributions.
+- [How to Calculate Sleep Cycles: Optimal Wake-Up Guide](https://quickcalc.cloud/blog/how-to-calculate-sleep-cycles-wake-up-time-guide): Sleep hygiene guide explaining 90-minute ultradian REM cycles and circadian rhythm optimization.
+- [How to Convert Percentage to GPA: 4.0 Scale Guide](https://quickcalc.cloud/blog/how-to-convert-percentage-to-gpa-4-point-scale-guide): Academic guide covering percentage-to-GPA conversion tables for US, UK, and Asian grading scales.
+- [How to Calculate Calorie Deficit: Step-by-Step Guide](https://quickcalc.cloud/blog/how-to-calculate-calorie-deficit-step-by-step-guide): Nutrition guide covering BMR, TDEE, macronutrient ratios, and safe calorie deficit targets.
+- [How to Calculate Tip: Easy Mental Formulas & Tipping Guide](https://quickcalc.cloud/blog/how-to-calculate-tip-easy-formulas-tipping-guide): Practical guide providing mental math formulas for calculating 15%, 18%, and 20% tips instantly.
+- [How to Calculate Daily Calorie Needs for Weight Loss](https://quickcalc.cloud/blog/how-to-calculate-daily-calorie-needs-for-weight-loss): In-depth guide comparing Mifflin-St Jeor and Katch-McArdle metabolic formulas.
+- [How Loan EMI is Calculated: Amortization & Repayment Guide](https://quickcalc.cloud/blog/how-loan-emi-is-calculated-amortization-repayment-guide): Banking guide explaining loan amortization formulas and principal vs interest payment curves.
+- [Running Pace Strategy Guide: Calculate Target Race Pace](https://quickcalc.cloud/blog/running-pace-strategy-guide-calculate-target-race-pace): Athletic guide detailing 5K, 10K, half marathon, and full marathon pacing and negative split strategies.
+- [How to Write & Test Regular Expressions: Regex Guide](https://quickcalc.cloud/blog/how-to-write-and-test-regular-expressions-regex-tutorial-guide): Programming tutorial covering regex syntax, character classes, quantifiers, and lookaheads.
+- [How to Calculate Exact Age in Years, Months, & Days](https://quickcalc.cloud/blog/how-to-calculate-exact-age-years-months-days): Algorithm guide detailing date math, leap year rules, and timezone boundary conditions.
+- [How Currency Conversion Works & How to Avoid Hidden Fees](https://quickcalc.cloud/blog/how-currency-conversion-actually-works-avoid-markup-fees): Foreign exchange guide covering mid-market rates, credit card markup fees, and DCC traps.
+- [How to Calculate Zakat: Nisab, Gold & Savings Guide](https://quickcalc.cloud/blog/how-to-calculate-zakat-nisab-gold-silver-savings-guide): Islamic finance guide detailing Nisab calculations across gold, silver, cash, and business assets.
+- [50/30/20 Budget Rule Explained: Does It Actually Work?](https://quickcalc.cloud/blog/50-30-20-budget-rule-explained-does-it-actually-work): Personal finance analysis of the 50/30/20 budgeting model across various income levels.
+- [USD to PKR: Understanding Real Exchange Rates & Inflation](https://quickcalc.cloud/blog/usd-to-pkr-and-understanding-real-exchange-rates): Economic analysis of interbank vs open market exchange rates and inflation differentials.
+- [How to Calculate Your Exact Age & Fun Birth Date Facts](https://quickcalc.cloud/blog/how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date): Educational guide on calendar algorithms, day-of-week math, and astronomical milestones.
+- [How to Split a Bill Fairly When Everyone Orders Differently](https://quickcalc.cloud/blog/how-to-split-a-bill-fairly-when-everyone-orders-different-things): Etiquette and math guide for splitting group dining bills with proportional tax and tip.
+- [How to Calculate Percentage Increase, Decrease & Discount](https://quickcalc.cloud/blog/how-to-calculate-percentage-increase-decrease-discount): Mathematics guide covering percentage change formulas, margin markups, and relative difference.
+- [US, UK, EU & Japan Shoe Size Conversion Guide](https://quickcalc.cloud/blog/us-uk-eu-japan-shoe-size-conversion-guide): Sizing guide providing measurement conversion tables for international shoe standards.
+- [How to Calculate BMI Accurately & Understanding Limitations](https://quickcalc.cloud/blog/how-to-calculate-bmi-accurately-and-its-limitations): Health science guide explaining BMI formulas, WHO categories, and body composition nuances.
+- [Why Daylight Saving Time Breaks Simple Timezone Math](https://quickcalc.cloud/blog/why-daylight-saving-time-breaks-simple-timezone-math): Timezone guide explaining UTC offsets, half-hour offsets, and international scheduling math.
+- [What Makes a Password Strong: Understanding Entropy Math](https://quickcalc.cloud/blog/what-makes-a-password-actually-strong-understanding-entropy): Cybersecurity guide detailing information entropy bits, brute-force timelines, and passphrases.
+
+## Site Metadata & Embed Endpoints
+
+- [Homepage](https://quickcalc.cloud): Main directory of all QuickCalc calculators.
+- [Embed API](https://quickcalc.cloud/embed/[slug]): Responsive iframe embed endpoint for all 31 tools (e.g. `https://quickcalc.cloud/embed/bmi-calculator`).
+- [About Us](https://quickcalc.cloud/about): Mission, editorial principles, and calculation accuracy methodology.
+- [Contact](https://quickcalc.cloud/contact): User feedback and tool request channel.
+- [Sitemap](https://quickcalc.cloud/sitemap.xml): XML sitemap listing all site URLs.

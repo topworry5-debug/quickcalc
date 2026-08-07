@@ -173,6 +173,11 @@ export default function RetirementCalculatorPage({ searchParams }: { searchParam
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Retirement Calculator: See Your Savings Grow (No Sign-Up Required)
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates projected retirement savings growth and compound interest accumulation based on initial savings and monthly contributions.
+          </p>
           
           {/* Direct-answer paragraph (50-70 words) immediately after H1 */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold max-w-2xl mx-auto border-l-4 border-emerald-500 pl-4 text-left">

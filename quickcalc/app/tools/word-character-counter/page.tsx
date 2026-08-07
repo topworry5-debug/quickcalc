@@ -138,9 +138,7 @@ export default function WordCharacterCounterPage({ searchParams }: { searchParam
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Word & Character Counter
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Wondering how to count words in an essay or need to check the standard character limit for a tweet or X post? Our free interactive Word & Character Counter provides real-time tracking, serves as an excellent word counter for college application essays, and outputs deep readability analysis as you type.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates word count, character count, sentence count, reading time, and social media character limits. Wondering how to count words in an essay or need to check the standard character limit for a tweet or X post? Our free interactive Word & Character Counter provides real-time tracking, serves as an excellent word counter for college application essays, and outputs deep readability analysis as you type.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/word-character-counter" title="Word & Character Counter" />

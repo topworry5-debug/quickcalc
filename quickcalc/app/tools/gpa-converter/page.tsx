@@ -138,9 +138,7 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             GPA Converter
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you want to know how to calculate GPA from percentage grades or need a quick way explaining how to convert letter grades to GPA on a 4.0 scale, our free tool is here to help. Easily evaluate your academic performance and find out what is a good GPA for college applications across different regional school standards.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool converts percentage marks and letter grades from US, UK, Canada, India, and Pakistan to a standard 4.0 GPA scale. If you want to know how to calculate GPA from percentage grades or need a quick way explaining how to convert letter grades to GPA on a 4.0 scale, our free tool is here to help. Easily evaluate your academic performance and find out what is a good GPA for college applications across different regional school standards.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/gpa-converter" title="GPA Converter" />

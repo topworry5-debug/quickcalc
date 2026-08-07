@@ -157,6 +157,11 @@ export default function HabitCostCalculatorPage({ searchParams }: { searchParams
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Habit Cost Calculator: See the Real Time & Money Cost of Daily Habits
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates the compounding long-term financial and time cost of daily recurring habits over 1 to 30 years.
+          </p>
           {/* Direct Answer Paragraph - 50 to 70 words */}
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
             Small daily habits compound into massive costs of time and money over years. A brief daily routine or minor out-of-pocket expense can quietly claim months of your active life and tens of thousands of dollars over a decade. This calculator reveals these combined compounding impacts side-by-side, helping you analyze long-term patterns and prioritize your lifestyle choices.

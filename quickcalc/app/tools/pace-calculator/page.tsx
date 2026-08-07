@@ -119,6 +119,11 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Pace Calculator: Convert Running Pace, Time & Distance
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool converts running speed, target race times, and distance between min/mile and min/km with split breakdowns.
+          </p>
           
           {/* Tight 50-70 word direct-answer paragraph */}
           <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 font-medium leading-relaxed bg-blue-50/50 dark:bg-blue-950/10 p-4 rounded-xl border border-blue-100 dark:border-blue-950/50">

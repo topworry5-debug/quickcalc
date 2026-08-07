@@ -130,9 +130,7 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Tip & Bill Split Calculator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you are wondering how much should I tip at a restaurant or café, our free tool provides standard gratuity guidelines instantly. Use our Tip & Bill Split Calculator to determine standard gratuities, customize tip percentages in real time, and split group checks cleanly.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates tip amounts by percentage and splits restaurant check totals evenly across multiple guests. If you are wondering how much should I tip at a restaurant or café, our free tool provides standard gratuity guidelines instantly. Use our Tip & Bill Split Calculator to determine standard gratuities, customize tip percentages in real time, and split group checks cleanly.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/tip-calculator" title="Tip Calculator" />

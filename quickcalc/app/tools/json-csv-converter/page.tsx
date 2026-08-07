@@ -157,9 +157,7 @@ export default function JSONCSVConverterPage({ searchParams }: { searchParams?: 
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             JSON to CSV Converter
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you want to know how to convert JSON to CSV online free or are looking for a reliable csv to json converter without coding, our browser-local tool is here for you. Convert files securely in real-time, avoid issues where a CSV conversion breaks with commas, and manage developer payloads without uploading any of your private datasets.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool converts JSON data to CSV format and vice versa with automatic object flattening in local browser memory. If you want to know how to convert JSON to CSV online free or are looking for a reliable csv to json converter without coding, our browser-local tool is here for you. Convert files securely in real-time, avoid issues where a CSV conversion breaks with commas, and manage developer payloads without uploading any of your private datasets.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/json-csv-converter" title="JSON & CSV Converter" />

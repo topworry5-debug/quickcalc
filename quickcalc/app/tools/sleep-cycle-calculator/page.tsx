@@ -130,9 +130,7 @@ export default function SleepCycleCalculatorPage({ searchParams }: { searchParam
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Sleep Cycle Calculator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you are trying to figure out what time should I go to bed to wake up at a specific hour feeling completely refreshed, our free 90 minute sleep cycle calculator is the perfect bedtime planner. By analyzing standard human circadian rhythms, this interactive tool helps you pinpoint either the ideal bedtimes or the perfect waking hours to avoid morning grogginess.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates optimal bedtime and wake-up schedules based on 90-minute ultradian REM sleep cycles. If you are trying to figure out what time should I go to bed to wake up at a specific hour feeling completely refreshed, our free 90 minute sleep cycle calculator is the perfect bedtime planner. By analyzing standard human circadian rhythms, this interactive tool helps you pinpoint either the ideal bedtimes or the perfect waking hours to avoid morning grogginess.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/sleep-cycle-calculator" title="Sleep Cycle Calculator" />

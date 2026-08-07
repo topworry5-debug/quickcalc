@@ -138,9 +138,7 @@ export default function ColorPaletteGeneratorPage({ searchParams }: { searchPara
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Color Palette Generator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you are looking for how to create a color palette from an image or need a complementary color scheme generator free of paywalls, our interactive utility is here to help. Easily extract swatches using our hex code color palette generator and copy styling objects right to your clipboard.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool extracts dominant color palettes from any uploaded image and evaluates WCAG AA/AAA contrast ratios. If you are looking for how to create a color palette from an image or need a complementary color scheme generator free of paywalls, our interactive utility is here to help. Easily extract swatches using our hex code color palette generator and copy styling objects right to your clipboard.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/color-palette-generator" title="Color Palette Generator" />

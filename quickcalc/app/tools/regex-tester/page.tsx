@@ -157,9 +157,7 @@ export default function RegexTesterPage({ searchParams }: { searchParams?: { emb
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Regex Tester
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you want to know how to test a regex pattern online or need an accurate regex for email validation, our real-time visual debugger is the perfect utility. Learn how to match a pattern in JavaScript free tool right in your browser, test multiple flags, and obtain a plain-language analysis of your expressions.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool tests and debugs JavaScript regular expression patterns against test strings with real-time match highlighting. If you want to know how to test a regex pattern online or need an accurate regex for email validation, our real-time visual debugger is the perfect utility. Learn how to match a pattern in JavaScript free tool right in your browser, test multiple flags, and obtain a plain-language analysis of your expressions.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/regex-tester" title="Regex Tester" />

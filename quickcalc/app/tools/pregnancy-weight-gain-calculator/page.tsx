@@ -156,6 +156,11 @@ export default function PregnancyWeightGainCalculatorPage({ searchParams }: { se
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4 text-center">
             Pregnancy Weight Gain Calculator: Healthy Range by Week & BMI
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates recommended week-by-week gestational weight gain ranges based on pre-pregnancy BMI guidelines.
+          </p>
           
           {/* Direct Answer Paragraph - written to stand alone for AI Answer Engines */}
           <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed font-medium bg-teal-50/30 dark:bg-teal-950/10 p-5 rounded-2xl border border-teal-100/50 dark:border-teal-900/20 mb-6 text-center">

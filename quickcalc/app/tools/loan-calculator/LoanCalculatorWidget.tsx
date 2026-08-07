@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { calculateLoan, getLoanExplanationSteps, LoanResult } from "../../../lib/calculators/loanCalculator";
-import { generatePdf } from "@/lib/utils/downloadPdf";
+import { generatePdfAsync } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
@@ -15,6 +15,7 @@ export default function LoanCalculatorWidget() {
   const [tenure, setTenure] = useState<string>("5");
   const [tenureUnit, setTenureUnit] = useState<"years" | "months">("years");
   const [copied, setCopied] = useState<boolean>(false);
+  const [isPdfGenerating, setIsPdfGenerating] = useState(false);
 
   const [result, setResult] = useState<LoanResult | null>({
     monthlyEMI: 2003.79,
@@ -50,8 +51,8 @@ Calculated 100% free on QuickCalc.cloud`;
     }
   };
 
-  const handleDownloadPdf = () => {
-    if (!result) return;
+  const handleDownloadPdf = async () => {
+    if (!result || isPdfGenerating) return;
     const numAmount = parseFloat(principal) || 0;
     const numRate = parseFloat(annualRate) || 0;
     const numTenure = parseFloat(tenure) || 0;
@@ -60,33 +61,40 @@ Calculated 100% free on QuickCalc.cloud`;
     const interestStr = result.totalInterestPayable.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const totalStr = result.totalPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-    generatePdf({
-      toolName: "Loan / EMI Calculator",
-      toolSlug: "loan-calculator",
-      inputs: [
-        { label: "Loan Amount", value: `$${numAmount.toLocaleString()}` },
-        { label: "Annual Interest Rate", value: `${numRate}%` },
-        { label: "Loan Tenure", value: `${numTenure} ${tenureUnit}` },
-      ],
-      results: [
-        { label: "Monthly EMI", value: `$${emiStr}`, isHighlight: true },
-        { label: "Total Interest", value: `$${interestStr}` },
-        { label: "Total Payment", value: `$${totalStr}` },
-      ],
-      summaryNote: `Loan breakdown for $${numAmount.toLocaleString()} borrowed at ${numRate}% annual interest over ${numTenure} ${tenureUnit}.`,
-      table: {
-        title: "Year-by-Year Amortization Schedule",
-        headers: ["Year", "Starting Balance", "Principal Paid", "Interest Paid", "Ending Balance"],
-        rows: result.amortizationTable.map((row) => [
-          `Year ${row.yearNumber}`,
-          `$${row.startingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-          `$${row.principalPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-          `$${row.interestPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-          `$${row.endingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-        ]),
-      },
-      filename: `Loan-EMI-Summary-${numAmount}.pdf`,
-    });
+    // Show loading state immediately (paints before jsPDF work begins).
+    setIsPdfGenerating(true);
+    try {
+      await generatePdfAsync({
+        toolName: "Loan / EMI Calculator",
+        toolSlug: "loan-calculator",
+        inputs: [
+          { label: "Loan Amount", value: `$${numAmount.toLocaleString()}` },
+          { label: "Annual Interest Rate", value: `${numRate}%` },
+          { label: "Loan Tenure", value: `${numTenure} ${tenureUnit}` },
+        ],
+        results: [
+          { label: "Monthly EMI", value: `$${emiStr}`, isHighlight: true },
+          { label: "Total Interest", value: `$${interestStr}` },
+          { label: "Total Payment", value: `$${totalStr}` },
+        ],
+        summaryNote: `Loan breakdown for $${numAmount.toLocaleString()} borrowed at ${numRate}% annual interest over ${numTenure} ${tenureUnit}. All payments are fully amortized — each monthly EMI reduces both interest and outstanding principal.`,
+        table: {
+          title: "Year-by-Year Amortization Schedule",
+          headers: ["Year", "Starting Balance", "Principal Paid", "Interest Paid", "Ending Balance"],
+          // No row cap — all years are included, paginated automatically.
+          rows: result.amortizationTable.map((row) => [
+            `Year ${row.yearNumber}`,
+            `$${row.startingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+            `$${row.principalPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+            `$${row.interestPaid.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+            `$${row.endingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          ]),
+        },
+        filename: `Loan-EMI-Summary-${numAmount}.pdf`,
+      });
+    } finally {
+      setIsPdfGenerating(false);
+    }
   };
 
   const handleCalculate = (e: React.FormEvent) => {
@@ -311,7 +319,11 @@ Calculated 100% free on QuickCalc.cloud`;
             </button>
 
             <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
-                <DownloadPdfButton onClick={handleDownloadPdf} />
+            <DownloadPdfButton
+              onClick={handleDownloadPdf}
+              isGenerating={isPdfGenerating}
+              label="Download PDF"
+            />
           </div>
         </div>
       )}

@@ -121,9 +121,7 @@ export default function PercentageCalculatorPage({ searchParams }: { searchParam
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Percentage Calculator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Quickly calculate percentages, percentage increase or decrease, discounts, and reverse percentages. Enter your values below to see instant calculations and formula breakdowns in real time.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates percentage values, percentage increase or decrease, discount math, and reverse percentages. Quickly calculate percentages, percentage increase or decrease, discounts, and reverse percentages. Enter your values below to see instant calculations and formula breakdowns in real time.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/percentage-calculator" title="Percentage Calculator" />

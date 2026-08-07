@@ -156,6 +156,11 @@ export default function TravelTimeFuelCalculatorPage({ searchParams }: { searchP
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Travel Time & Fuel Cost Calculator
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates vehicle driving duration, average cruising speeds, and estimated gas fuel expenses for road trips.
+          </p>
           {/* DIRECT ANSWER - concise 40-60 word explanation immediately below the H1 */}
           <div className="mb-6 bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-950/40 rounded-xl px-5 py-4">
             <p className="text-base sm:text-lg font-semibold text-blue-600 dark:text-blue-400 leading-relaxed">

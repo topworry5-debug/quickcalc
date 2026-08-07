@@ -147,9 +147,7 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Loan / EMI Calculator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you are wondering how much will my monthly loan payment be, this free calculator helps you find the answer instantly. Our professional Loan / EMI Calculator is designed to help you accurately compute monthly installment payments, total interest liabilities, and overall repayment schedules.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates monthly loan EMI payments, total interest costs, and full year-by-year amortization schedules. If you are wondering how much will my monthly loan payment be, this free calculator helps you find the answer instantly. Our professional Loan / EMI Calculator is designed to help you accurately compute monthly installment payments, total interest liabilities, and overall repayment schedules.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/loan-calculator" title="Loan / EMI Calculator" />

@@ -148,6 +148,11 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Calorie Calculator: Find Your Daily Calorie Needs (TDEE & BMR)
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation.
+          </p>
           
           {/* Direct Answer Paragraph - 40-60 words (48 words total) */}
           <p className="text-base sm:text-lg font-medium text-zinc-800 dark:text-zinc-300 bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100 dark:border-orange-950/30 rounded-xl p-4 leading-relaxed mb-6">

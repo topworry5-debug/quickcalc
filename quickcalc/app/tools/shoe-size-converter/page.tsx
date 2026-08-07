@@ -157,9 +157,7 @@ export default function ShoeSizeConverterPage({ searchParams }: { searchParams?:
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Shoe Size Converter
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Wondering how to convert US shoe size to UK or get a precise EU to US shoe size conversion for women? Our interactive Shoe Size Converter makes it simple to translate sizes instantly across all 4 major global systems simultaneously, including finding the perfect fit using a kids shoe size chart by age or learning how to measure your shoe size at home.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool converts international shoe sizes across US, UK, EU, and Japan sizing standards for men, women, and kids. Wondering how to convert US shoe size to UK or get a precise EU to US shoe size conversion for women? Our interactive Shoe Size Converter makes it simple to translate sizes instantly across all 4 major global systems simultaneously, including finding the perfect fit using a kids shoe size chart by age or learning how to measure your shoe size at home.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/shoe-size-converter" title="Shoe Size Converter" />

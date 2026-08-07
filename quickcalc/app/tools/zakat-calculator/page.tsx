@@ -161,6 +161,11 @@ export default function ZakatCalculatorPage({ searchParams }: { searchParams?: {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Zakat Calculator: Calculate Your Zakat on Cash, Gold, Silver & Assets
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates Islamic Zakat obligations at 2.5% on qualifying wealth, gold, silver, and liquid cash against current Nisab thresholds.
+          </p>
           
           {/* Direct Answer Paragraph (40-60 words) */}
           <p className="text-base sm:text-lg text-emerald-700 dark:text-emerald-400 font-medium leading-relaxed max-w-xl mx-auto border-l-4 border-emerald-500 pl-4 py-2 bg-emerald-50/50 dark:bg-emerald-950/10 rounded-r-lg text-left">

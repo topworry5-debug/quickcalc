@@ -121,9 +121,7 @@ export default function WaterIntakeCalculatorPage({ searchParams }: { searchPara
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Water Intake Calculator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            If you are wondering how much water should I drink each day to stay fully hydrated and healthy, our science-backed Water Intake Calculator is here to help. By analyzing key factors such as your body weight, physical activity level, and local climate conditions, this free tool computes a personalized hydration plan tailored directly to your lifestyle, helping you optimize physical performance and brain function.
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates personalized daily fluid intake requirements based on body weight, daily exercise duration, and climate. If you are wondering how much water should I drink each day to stay fully hydrated and healthy, our science-backed Water Intake Calculator is here to help. By analyzing key factors such as your body weight, physical activity level, and local climate conditions, this free tool computes a personalized hydration plan tailored directly to your lifestyle, helping you optimize physical performance and brain function.</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/water-intake-calculator" title="Water Intake Calculator" />

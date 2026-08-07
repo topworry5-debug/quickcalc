@@ -138,6 +138,11 @@ export default function DiscountCalculatorPage({ searchParams }: { searchParams?
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Discount Calculator: Find Sale Price & Stacked Discounts
           </h1>
+
+          {/* AI-extractable direct answer summary */}
+          <p className="text-sm sm:text-base font-semibold text-teal-700 dark:text-teal-300 bg-teal-500/5 border border-teal-500/20 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
+            This free tool calculates final sale prices, single or stacked percentage discounts, and total monetary savings.
+          </p>
           <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-semibold">
             If you are looking for how to calculate percentage off or find the final sale price, this tool makes it effortless. To calculate a discounted sale price, you simply subtract the discount value from the original pre-discount price. First, calculate the exact saving amount by multiplying the original retail price by the discount percentage and dividing by 100. Finally, deduct this calculated savings value from the initial original price to determine the final discounted purchase price.
           </p>

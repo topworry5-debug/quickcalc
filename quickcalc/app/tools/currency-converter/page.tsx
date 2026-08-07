@@ -155,9 +155,7 @@ export default function CurrencyConverterPage({ searchParams }: { searchParams?:
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Live Currency Converter
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Exchanging currencies is highly critical for international travel, sending remittances to family, online shopping at global stores, and managing freelance payments. To protect your hard-earned funds, knowing the real interbank rates is absolutely essential. This interactive currency converter fetches real-time exchange rates to provide instant calculations as you type. Simply pick your currencies, enter an amount, compare common amounts, and copy clean, formatted results to share with friends, clients, or colleagues!
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool converts currency values between 35+ major world fiat currencies using real-time market exchange rates. Exchanging currencies is highly critical for international travel, sending remittances to family, online shopping at global stores, and managing freelance payments. To protect your hard-earned funds, knowing the real interbank rates is absolutely essential. This interactive currency converter fetches real-time exchange rates to provide instant calculations as you type. Simply pick your currencies, enter an amount, compare common amounts, and copy clean, formatted results to share with friends, clients, or colleagues!</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/currency-converter" title="Currency Converter" />

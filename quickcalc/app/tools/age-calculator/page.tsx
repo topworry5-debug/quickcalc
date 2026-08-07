@@ -155,9 +155,7 @@ export default function AgeCalculatorPage({ searchParams }: { searchParams?: { e
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-4">
             Exact Age Calculator
           </h1>
-          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-            Knowing your exact age in years, months, and days is highly valuable for a variety of official tasks. Whether you are filling out complex medical forms, verifying official documents, planning upcoming birthdays, or calculating legal age requirements, accuracy is essential. This exact age calculator simplifies the process by performing precise chronological math. Enter your birth date to instantly reveal your personalized life metrics, celestial traits, and a custom shareable age card!
-          </p>
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">This free tool calculates your exact chronological age in years, months, days, hours, and minutes with leap year adjustment. Knowing your exact age in years, months, and days is highly valuable for a variety of official tasks. Whether you are filling out complex medical forms, verifying official documents, planning upcoming birthdays, or calculating legal age requirements, accuracy is essential. This exact age calculator simplifies the process by performing precise chronological math. Enter your birth date to instantly reveal your personalized life metrics, celestial traits, and a custom shareable age card!</p>
         </div>
 
         <ShareButtons url="https://quickcalc.cloud/tools/age-calculator" title="Age Calculator" />

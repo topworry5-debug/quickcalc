@@ -19,9 +19,14 @@ export interface BreadcrumbItem {
   url: string;
 }
 
+export interface HowToStepInput {
+  name: string;
+  text: string;
+  url?: string;
+}
+
 /**
  * Maps QuickCalc category strings to valid Schema.org applicationCategory values.
- * Reference categories: HealthApplication, FinanceApplication, UtilitiesApplication, EducationApplication, etc.
  */
 function mapCategoryToSchema(category: string): string {
   const norm = category.trim().toLowerCase();
@@ -54,6 +59,25 @@ export function generateFAQSchema(faqs: FAQ[]) {
         "@type": "Answer",
         "text": faq.answer,
       },
+    })),
+  };
+}
+
+/**
+ * Generates a valid Schema.org HowTo JSON-LD object.
+ */
+export function generateHowToSchema(name: string, description: string, steps: HowToStepInput[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": name,
+    "description": description,
+    "step": steps.map((step, index) => ({
+      "@type": "HowToStep",
+      "position": index + 1,
+      "name": step.name,
+      "text": step.text,
+      ...(step.url ? { "url": step.url } : {}),
     })),
   };
 }
