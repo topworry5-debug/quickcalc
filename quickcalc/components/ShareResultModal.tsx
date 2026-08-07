@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { X, Download, Link as LinkIcon, Check, Share2 } from "lucide-react";
+import { X, Download, Link as LinkIcon, Check, Share2, Loader2 } from "lucide-react";
 
 export interface ShareResultData {
   toolName: string;
@@ -21,13 +21,43 @@ interface ShareResultModalProps {
 
 export default function ShareResultModal({ isOpen, onClose, data }: ShareResultModalProps) {
   const [copied, setCopied] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(true);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Generate 1200x630 HTML5 Canvas Image on open or data change
+  // Clean up object URLs on unmount or URL change to prevent memory leaks
   useEffect(() => {
-    if (!isOpen) return;
+    return () => {
+      if (previewUrl && previewUrl.startsWith("blob:")) {
+        URL.revokeObjectURL(previewUrl);
+      }
+    };
+  }, [previewUrl]);
 
+  // Generate 1200x630 Canvas Image non-blocking asynchronously
+  useEffect(() => {
+    if (!isOpen) {
+      setIsGenerating(true);
+      setPreviewUrl("");
+      return;
+    }
+
+    setIsGenerating(true);
+
+    // Yield execution to main thread so browser paints the loading modal state first (<16ms INP)
+    const animationFrameId = requestAnimationFrame(() => {
+      const timerId = setTimeout(() => {
+        generateCanvasCard();
+      }, 40);
+
+      return () => clearTimeout(timerId);
+    });
+
+    return () => cancelAnimationFrame(animationFrameId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, data]);
+
+  const generateCanvasCard = () => {
     const canvas = canvasRef.current || document.createElement("canvas");
     canvas.width = 1200;
     canvas.height = 630;
@@ -139,14 +169,30 @@ export default function ShareResultModal({ isOpen, onClose, data }: ShareResultM
     ctx.fillText("100% Client-Side Privacy • Science-Backed Tools", 1120, 565);
     ctx.textAlign = "left";
 
-    // Set preview image URL
-    try {
-      const url = canvas.toDataURL("image/png");
-      setPreviewUrl(url);
-    } catch (e) {
-      console.error("Failed to export canvas image", e);
+    // Use async canvas.toBlob to avoid blocking main thread with synchronous toDataURL
+    if (canvas.toBlob) {
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob);
+            setPreviewUrl(url);
+          }
+          setIsGenerating(false);
+        },
+        "image/png",
+        1.0
+      );
+    } else {
+      try {
+        const url = canvas.toDataURL("image/png");
+        setPreviewUrl(url);
+      } catch (e) {
+        console.error("Failed to export canvas image", e);
+      } finally {
+        setIsGenerating(false);
+      }
     }
-  }, [isOpen, data]);
+  };
 
   // Download image handler
   const handleDownload = () => {
@@ -219,18 +265,27 @@ export default function ShareResultModal({ isOpen, onClose, data }: ShareResultM
 
         {/* Modal Body Preview Card */}
         <div className="p-4 sm:p-6 overflow-y-auto space-y-4">
-          <div className="rounded-xl overflow-hidden border border-surface-border shadow-md bg-slate-950">
-            {previewUrl ? (
-              // Display live preview of generated 1200x630 share card
+          <div className="rounded-xl overflow-hidden border border-surface-border shadow-md bg-slate-950 min-h-[240px] flex items-center justify-center relative">
+            {isGenerating ? (
+              <div className="flex flex-col items-center justify-center gap-3 p-8 text-center text-ink-muted">
+                <Loader2 size={28} className="animate-spin text-teal-500" />
+                <span className="text-sm font-semibold text-ink">
+                  Generating high-res card...
+                </span>
+                <span className="text-xs text-ink-muted">
+                  Creating 1200x630 crisp canvas image
+                </span>
+              </div>
+            ) : previewUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={previewUrl}
                 alt={`${data.toolName} Result Card`}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover animate-fade-in"
               />
             ) : (
-              <div className="h-64 flex items-center justify-center text-ink-muted text-sm animate-pulse">
-                Generating high-res share card...
+              <div className="p-8 text-center text-ink-muted text-sm">
+                Failed to render preview. Click download below to save image.
               </div>
             )}
           </div>
@@ -257,10 +312,24 @@ export default function ShareResultModal({ isOpen, onClose, data }: ShareResultM
 
           <button
             onClick={handleDownload}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs shadow-md shadow-teal-500/20 transition active:scale-95 min-h-[44px]"
+            disabled={isGenerating || !previewUrl}
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-white font-bold text-xs shadow-md transition active:scale-95 min-h-[44px] ${
+              isGenerating || !previewUrl
+                ? "bg-teal-600/50 cursor-not-allowed"
+                : "bg-teal-600 hover:bg-teal-700 shadow-teal-500/20"
+            }`}
           >
-            <Download size={16} />
-            <span>Download Image Card (1200x630)</span>
+            {isGenerating ? (
+              <>
+                <Loader2 size={16} className="animate-spin" />
+                <span>Generating...</span>
+              </>
+            ) : (
+              <>
+                <Download size={16} />
+                <span>Download Image Card (1200x630)</span>
+              </>
+            )}
           </button>
         </div>
       </div>
