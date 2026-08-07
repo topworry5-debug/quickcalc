@@ -1,5 +1,7 @@
-import ThemeToggle from "@/components/ThemeToggle";
-import { articles } from "../page";
+import ReadingProgressBar from "@/components/ReadingProgressBar";
+import { Calculator, ArrowRight, Clock, Calendar, ChevronLeft, BookOpen } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import { articles } from "../articlesData";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Footer from "@/components/Footer";
@@ -85,6 +87,220 @@ const articleComponents: Record<string, React.ComponentType> = {
   "how-to-calculate-bmi-accurately-and-its-limitations": BmiArticle,
   "why-daylight-saving-time-breaks-simple-timezone-math": DstTimezoneArticle,
   "what-makes-a-password-actually-strong-understanding-entropy": PasswordEntropyArticle,
+};
+
+
+const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "why-starting-retirement-savings-early-matters-more-than-you-think": {
+    title: "Retirement Calculator",
+    href: "/tools/retirement-calculator",
+    description: "Calculate your retirement nest egg with compound interest & monthly savings projection.",
+    icon: "📈",
+  },
+  "how-to-calculate-the-cost-of-daily-habits-financial-guide": {
+    title: "Habit Cost Calculator",
+    href: "/tools/habit-cost-calculator",
+    description: "See how small daily spending habits compound over 1, 5, 10, and 20 years.",
+    icon: "☕",
+  },
+  "how-to-convert-paper-and-fabric-sizes-dimensions-guide": {
+    title: "Paper & Fabric Converter",
+    href: "/tools/paper-fabric-size-converter",
+    description: "Convert paper dimensions (A4, Letter) and fabric length (yards, meters).",
+    icon: "📐",
+  },
+  "how-to-count-words-and-characters-writing-limits-guide": {
+    title: "Word & Character Counter",
+    href: "/tools/word-character-counter",
+    description: "Instantly count words, characters, sentences, and social media post limits.",
+    icon: "📝",
+  },
+  "how-to-generate-color-palette-from-image-ui-design-guide": {
+    title: "Color Palette Generator",
+    href: "/tools/color-palette-generator",
+    description: "Extract dominant color palettes from any uploaded image with WCAG contrast.",
+    icon: "🎨",
+  },
+  "how-to-convert-json-to-csv-flattening-guide": {
+    title: "JSON to CSV Converter",
+    href: "/tools/json-csv-converter",
+    description: "Flatten nested JSON arrays into clean CSV spreadsheets instantly.",
+    icon: "🔄",
+  },
+  "how-to-calculate-travel-time-fuel-cost-road-trip-guide": {
+    title: "Travel Time & Fuel Calculator",
+    href: "/tools/travel-time-fuel-calculator",
+    description: "Calculate driving trip duration, gas consumption, and shared fuel costs.",
+    icon: "🚗",
+  },
+  "how-to-calculate-running-pace-min-mile-speed-guide": {
+    title: "Pace Calculator",
+    href: "/tools/pace-calculator",
+    description: "Calculate target running pace, split times, and race finish predictions.",
+    icon: "🏃",
+  },
+  "how-to-calculate-pregnancy-weight-gain-bmi-guide": {
+    title: "Pregnancy Weight Gain Calculator",
+    href: "/tools/pregnancy-weight-gain-calculator",
+    description: "Track healthy week-by-week weight gain targets based on pre-pregnancy BMI.",
+    icon: "🤰",
+  },
+  "how-to-calculate-pregnancy-due-date-naegele-rule-guide": {
+    title: "Due Date Calculator",
+    href: "/tools/due-date-calculator",
+    description: "Calculate estimated due date using Naegele's rule or conception date.",
+    icon: "📅",
+  },
+  "how-to-calculate-inflation-rate-purchasing-power-guide": {
+    title: "Inflation Calculator",
+    href: "/tools/inflation-calculator",
+    description: "Calculate historical inflation rates and future purchasing power changes.",
+    icon: "📈",
+  },
+  "how-to-calculate-discount-percentage-sale-math-guide": {
+    title: "Discount Calculator",
+    href: "/tools/discount-calculator",
+    description: "Calculate final sale prices, discount percentages, and double-coupon savings.",
+    icon: "🏷️",
+  },
+  "how-to-calculate-savings-growth-compound-interest-guide": {
+    title: "Savings Growth Calculator",
+    href: "/tools/savings-growth-calculator",
+    description: "Model savings account growth with APY interest and recurring deposits.",
+    icon: "💰",
+  },
+  "how-to-calculate-take-home-pay-net-salary-guide": {
+    title: "Salary Take-Home Calculator",
+    href: "/tools/salary-take-home-calculator",
+    description: "Calculate net paycheck after federal, state, and 401(k) tax deductions.",
+    icon: "💵",
+  },
+  "how-to-calculate-sleep-cycles-wake-up-time-guide": {
+    title: "Sleep Cycle Calculator",
+    href: "/tools/sleep-cycle-calculator",
+    description: "Calculate optimal bedtime and wake-up times based on 90-minute REM cycles.",
+    icon: "🌙",
+  },
+  "how-to-convert-percentage-to-gpa-4-point-scale-guide": {
+    title: "GPA Converter",
+    href: "/tools/gpa-converter",
+    description: "Convert percentage grades and international marks to standard 4.0 GPA.",
+    icon: "🎓",
+  },
+  "how-to-calculate-calorie-deficit-step-by-step-guide": {
+    title: "Calorie Deficit Calculator",
+    href: "/tools/calorie-calculator",
+    description: "Calculate daily calorie deficit targets for sustainable weight loss.",
+    icon: "🥗",
+  },
+  "how-to-calculate-tip-easy-formulas-tipping-guide": {
+    title: "Tip Calculator",
+    href: "/tools/tip-calculator",
+    description: "Calculate tip percentages and split restaurant bills fairly among friends.",
+    icon: "🍽️",
+  },
+  "how-to-calculate-daily-calorie-needs-for-weight-loss": {
+    title: "Calorie Calculator",
+    href: "/tools/calorie-calculator",
+    description: "Determine daily TDEE and maintenance calorie requirements.",
+    icon: "🔥",
+  },
+  "how-loan-emi-is-calculated-amortization-repayment-guide": {
+    title: "Loan EMI Calculator",
+    href: "/tools/loan-calculator",
+    description: "Calculate monthly EMI loan repayments and amortization breakdown.",
+    icon: "🏠",
+  },
+  "running-pace-strategy-guide-calculate-target-race-pace": {
+    title: "Pace Calculator",
+    href: "/tools/pace-calculator",
+    description: "Calculate target race splits and pacing strategy for 5K to marathon.",
+    icon: "⚡",
+  },
+  "how-to-write-and-test-regular-expressions-regex-tutorial-guide": {
+    title: "Regex Tester & Debugger",
+    href: "/tools/regex-tester",
+    description: "Test and debug regular expressions live with instant pattern highlighting.",
+    icon: "⚡",
+  },
+  "is-the-8-glasses-a-day-water-rule-actually-true": {
+    title: "Water Intake Calculator",
+    href: "/tools/water-intake-calculator",
+    description: "Calculate daily fluid intake targets based on body weight & activity level.",
+    icon: "💧",
+  },
+  "how-to-calculate-exact-age-years-months-days": {
+    title: "Age Calculator",
+    href: "/tools/age-calculator",
+    description: "Calculate exact age down to total years, months, days, and hours lived.",
+    icon: "🎂",
+  },
+  "how-currency-conversion-actually-works-avoid-markup-fees": {
+    title: "Currency Converter",
+    href: "/tools/currency-converter",
+    description: "Convert international currencies with live exchange rates & fee math.",
+    icon: "💱",
+  },
+  "how-to-calculate-zakat-nisab-gold-silver-savings-guide": {
+    title: "Zakat Calculator",
+    href: "/tools/zakat-calculator",
+    description: "Calculate Zakat obligations on gold, silver, cash, and liquid assets.",
+    icon: "🌙",
+  },
+  "50-30-20-budget-rule-explained-does-it-actually-work": {
+    title: "Budget Calculator",
+    href: "/tools/budget-calculator",
+    description: "Organize monthly income into Needs (50%), Wants (30%), and Savings (20%).",
+    icon: "📊",
+  },
+  "usd-to-pkr-and-understanding-real-exchange-rates": {
+    title: "Currency Converter",
+    href: "/tools/currency-converter",
+    description: "Convert USD to PKR with real-time interbank & open market exchange rates.",
+    icon: "💵",
+  },
+  "how-to-calculate-your-exact-age-and-fun-facts-about-your-birth-date": {
+    title: "Age Calculator",
+    href: "/tools/age-calculator",
+    description: "Calculate your exact age and astronomical birth date trivia.",
+    icon: "🎉",
+  },
+  "how-to-split-a-bill-fairly-when-everyone-orders-different-things": {
+    title: "Group Expense Splitter",
+    href: "/tools/group-expense-splitter",
+    description: "Split group expenses, tax, tip, and shared items with friends.",
+    icon: "🧾",
+  },
+  "how-to-calculate-percentage-increase-decrease-discount": {
+    title: "Percentage Calculator",
+    href: "/tools/percentage-calculator",
+    description: "Calculate percentage changes, markups, discounts, and proportions.",
+    icon: "🔢",
+  },
+  "us-uk-eu-japan-shoe-size-conversion-guide": {
+    title: "Shoe Size Converter",
+    href: "/tools/shoe-size-converter",
+    description: "Convert shoe sizes between US, UK, EU, and Japanese sizing charts.",
+    icon: "👟",
+  },
+  "how-to-calculate-bmi-accurately-and-its-limitations": {
+    title: "BMI Calculator",
+    href: "/tools/bmi-calculator",
+    description: "Calculate Body Mass Index and healthy weight ranges according to WHO.",
+    icon: "⚖️",
+  },
+  "why-daylight-saving-time-breaks-simple-timezone-math": {
+    title: "Timezone Meeting Planner",
+    href: "/tools/timezone-meeting-planner",
+    description: "Find overlapping work hours across multiple global timezones.",
+    icon: "🌐",
+  },
+  "what-makes-a-password-actually-strong-understanding-entropy": {
+    title: "Password Generator & Entropy Tester",
+    href: "/tools/password-generator",
+    description: "Generate secure passwords and measure cryptographic bit entropy.",
+    icon: "🔐",
+  },
 };
 
 export async function generateStaticParams() {
@@ -1275,15 +1491,20 @@ export default function BlogPostPage({ params }: BlogPostProps) {
     ]
   } : null;
 
+  const relatedTool = articleToolMap[params.slug];
+  const relatedArticles = articles
+    .filter((a) => a.category === article.category && a.slug !== article.slug)
+    .slice(0, 3);
+
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-[family-name:var(--font-geist-sans)] transition-colors">
+    <div className="min-h-screen bg-base text-ink font-sans transition-colors flex flex-col justify-between">
+      <ReadingProgressBar />
+
       {/* Article Schema Injection */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
-      {/* FAQ Schema Injection */}
       {faqJsonLd && (
         <script
           type="application/ld+json"
@@ -1292,92 +1513,152 @@ export default function BlogPostPage({ params }: BlogPostProps) {
       )}
 
       {/* Navigation Header */}
-      <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
-        <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg text-zinc-900 dark:text-white">
-            <span>✨ QuickCalc</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-              Home
+      <Navbar />
+
+      {/* Responsive Share Buttons (Desktop floating sidebar + Mobile inline bar) */}
+      <ShareButtons
+        url={`https://quickcalc.cloud/blog/${article.slug}`}
+        title={article.title}
+        variant="responsive"
+      />
+
+      {/* Main Content Container */}
+      <main className="max-w-5xl mx-auto px-4 pt-8 sm:pt-12 pb-16">
+        <div className="max-w-[720px] mx-auto">
+          {/* Back Link */}
+          <div className="mb-6">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline min-h-[44px]"
+            >
+              <ChevronLeft size={16} />
+              <span>Back to all guides</span>
             </Link>
-            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
-            <Link href="/blog" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-              Blog
-            </Link>
-            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
-            <div className="text-sm font-medium text-zinc-500 dark:text-zinc-400 max-w-[150px] truncate hidden sm:block">
-              {article.title}
+          </div>
+
+          {/* Article Header */}
+          <header className="mb-8 pb-8 border-b border-surface-border">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-semibold text-ink-muted mb-4">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 font-bold uppercase tracking-wider">
+                {article.category}
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1">
+                <Calendar size={12} className="text-teal-600 dark:text-teal-400" />
+                <span>{article.date}</span>
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1">
+                <Clock size={12} className="text-teal-600 dark:text-teal-400" />
+                <span>{article.readTime}</span>
+              </span>
             </div>
-            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal hidden sm:inline">|</span>
-            <ThemeToggle />
+
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-ink tracking-tight leading-tight mb-5">
+              {article.title}
+            </h1>
+
+            <p className="text-base sm:text-lg text-ink-muted leading-relaxed font-medium">
+              {article.description}
+            </p>
+          </header>
+
+          {/* Article Reading Body (Constrained 720px width, 16px-18px typography, 1.8 leading) */}
+          <article className="article-content text-ink leading-relaxed font-sans">
+            <ArticleBody />
+          </article>
+
+          {/* End of Article Related Tool CTA Card */}
+          {relatedTool && (
+            <div className="mt-12 bg-base-card border border-teal-500/40 dark:border-teal-500/30 rounded-3xl p-6 sm:p-8 shadow-lg shadow-teal-500/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="space-y-2 max-w-xl">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20">
+                  <Calculator size={13} />
+                  <span>Interactive Calculator</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-ink">
+                  Try the {relatedTool.title}
+                </h3>
+                <p className="text-ink-muted text-xs sm:text-sm leading-relaxed">
+                  {relatedTool.description}
+                </p>
+              </div>
+              <Link
+                href={relatedTool.href}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-md shadow-teal-500/20 transition-all shrink-0 min-h-[44px]"
+              >
+                <span>Open {relatedTool.title}</span>
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          )}
+
+          {/* Related Articles Section */}
+          {relatedArticles.length > 0 && (
+            <div className="mt-14 pt-10 border-t border-surface-border">
+              <div className="flex items-center gap-2 mb-6">
+                <BookOpen size={20} className="text-teal-600 dark:text-teal-400" />
+                <h3 className="text-xl sm:text-2xl font-heading font-extrabold text-ink">
+                  Related Guides in {article.category}
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                {relatedArticles.map((rel) => (
+                  <Link
+                    key={rel.slug}
+                    href={`/blog/${rel.slug}`}
+                    className="group flex flex-col justify-between bg-base-card border border-surface-border hover:border-teal-500/40 rounded-2xl p-5 shadow-sm shadow-black/5 hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] transition-all"
+                  >
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-ink-muted">
+                          {rel.category}
+                        </span>
+                        <span className="text-xl">{rel.icon}</span>
+                      </div>
+                      <h4 className="text-base font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors line-clamp-2 leading-snug">
+                        {rel.title}
+                      </h4>
+                      <p className="text-ink-muted text-xs line-clamp-2 leading-relaxed">
+                        {rel.excerpt}
+                      </p>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-surface-border/60 flex items-center justify-between text-xs font-medium text-ink-muted">
+                      <span>{rel.readTime}</span>
+                      <span className="inline-flex items-center gap-1 font-bold text-teal-600 dark:text-teal-400 group-hover:translate-x-1 transition-transform">
+                        <span>Read</span>
+                        <ArrowRight size={12} />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Action Bottom Nav */}
+          <div className="border-t border-surface-border mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-ink-muted hover:text-ink transition-colors min-h-[44px]"
+            >
+              <ChevronLeft size={16} />
+              <span>Back to all guides</span>
+            </Link>
+
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline min-h-[44px]"
+            >
+              <span>Explore all 31+ calculators</span>
+              <ArrowRight size={16} />
+            </Link>
           </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 py-12 sm:py-16">
-        {/* Back Link */}
-        <div className="mb-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
-          >
-            &larr; Back to all articles
-          </Link>
-        </div>
-
-        {/* Article Meta Header */}
-        <header className="mb-12 border-b border-zinc-200 dark:border-zinc-800 pb-8">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-4">
-            <span className={`${article.textColor} uppercase tracking-wider`}>{article.category}</span>
-            <span className="text-zinc-300 dark:text-zinc-700">•</span>
-            <span>Published: {article.date}</span>
-            <span className="text-zinc-300 dark:text-zinc-700">•</span>
-            <span className="font-semibold text-zinc-700 dark:text-zinc-300">Last updated: July 24, 2026</span>
-            <span className="text-zinc-300 dark:text-zinc-700">•</span>
-            <span>{article.readTime}</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight mb-6">
-            {article.title}
-          </h1>
-
-          <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-medium">
-            {article.description}
-          </p>
-        </header>
-
-        {/* Article Body */}
-        <article className="prose prose-zinc dark:prose-invert max-w-none space-y-6 text-zinc-700 dark:text-zinc-300 leading-relaxed">
-          <ArticleBody />
-        </article>
-
-        {/* Share Buttons Component */}
-        <div className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-          <ShareButtons url={`https://quickcalc.cloud/blog/${article.slug}`} title={article.title} />
-        </div>
-
-        {/* Action Bottom Nav */}
-        <div className="border-t border-zinc-200 dark:border-zinc-800 mt-16 pt-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
-          <Link
-            href="/blog"
-            className="text-sm font-semibold text-zinc-500 hover:text-zinc-900 dark:hover:text-white"
-          >
-            &larr; Back to all articles
-          </Link>
-
-          <Link
-            href="/"
-            className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
-          >
-            Explore our clinical and financial tools &rarr;
-          </Link>
         </div>
       </main>
 
       {/* Footer */}
-      <Footer customText="Practical science breakdowns, mathematical modeling." />
+      <Footer customText="Practical science breakdowns, mathematical modeling, and practical engineering guides." />
     </div>
   );
 }

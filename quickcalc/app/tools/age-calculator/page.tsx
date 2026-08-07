@@ -1,11 +1,10 @@
+import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
-import HeaderLogo from "@/components/HeaderLogo";
 import RelatedTools from "@/components/RelatedTools";
 import ShareButtons from "@/components/ShareButtons";
 import EmbedWidget from "@/components/EmbedWidget";
 
 
-import ThemeToggle from "@/components/ThemeToggle";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -146,23 +145,7 @@ export default function AgeCalculatorPage({ searchParams }: { searchParams?: { e
       />
 
       {/* Header */}
-      <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50 transition-colors">
-        <div className="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
-          <HeaderLogo />
-          <nav className="flex items-center gap-2 sm:gap-4">
-            <Link href="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              Home
-            </Link>
-            <Link href="/blog" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              Blog
-            </Link>
-            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700">|</span>
-            <span className="text-sm font-medium text-zinc-400 dark:text-zinc-600">Age Calculator</span>
-            <span className="text-sm font-medium text-zinc-300 dark:text-zinc-700 font-normal">|</span>
-            <ThemeToggle />
-          </nav>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
