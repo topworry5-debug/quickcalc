@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickCalc Extension</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans w-[380px] h-[560px] flex flex-col justify-between overflow-hidden select-none">
+  
+  <!-- Header Bar -->
+  <header className="px-4 py-3 border-b border-zinc-800 bg-zinc-900 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-teal-600 flex items-center justify-center text-white font-extrabold text-xs shadow-sm">
+        QC
+      </div>
+      <div>
+        <h1 class="text-sm font-extrabold tracking-tight text-white leading-none">QuickCalc</h1>
+        <span class="text-[10px] text-teal-400 font-medium">100% Private & Instant</span>
+      </div>
+    </div>
+
+    <a href="https://quickcalc.cloud" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold text-teal-400 hover:text-teal-300 transition flex items-center gap-1">
+      <span>Open Full Site</span>
+      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+    </a>
+  </header>
+
+  <!-- Navigation Tab Bar -->
+  <nav class="flex items-center justify-around border-b border-zinc-800 bg-zinc-900/60 p-1.5 text-xs font-bold">
+    <button id="tab-bmi" class="tab-btn active px-2.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition flex items-center gap-1">
+      <span>⚖️ BMI</span>
+    </button>
+    <button id="tab-loan" class="tab-btn px-2.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition flex items-center gap-1">
+      <span>💰 Loan</span>
+    </button>
+    <button id="tab-percent" class="tab-btn px-2.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition flex items-center gap-1">
+      <span>% Change</span>
+    </button>
+    <button id="tab-currency" class="tab-btn px-2.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition flex items-center gap-1">
+      <span>💵 Forex</span>
+    </button>
+    <button id="tab-tip" class="tab-btn px-2.5 py-1.5 rounded-lg text-zinc-400 hover:text-white transition flex items-center gap-1">
+      <span>🍽️ Tip</span>
+    </button>
+  </nav>
+
+  <!-- Main Active Content Panel -->
+  <main class="flex-1 p-4 overflow-y-auto space-y-4">
+    
+    <!-- View 1: BMI Calculator -->
+    <section id="view-bmi" class="view-panel space-y-3">
+      <div class="flex items-center justify-between">
+        <label class="text-xs font-bold text-zinc-300">Unit System</label>
+        <select id="bmi-unit" class="bg-zinc-800 border border-zinc-700 text-xs text-zinc-200 rounded-lg px-2 py-1">
+          <option value="metric">Metric (kg, cm)</option>
+          <option value="imperial">Imperial (lb, ft/in)</option>
+        </select>
+      </div>
+
+      <div class="space-y-2">
+        <label class="text-xs text-zinc-400 block">Weight</label>
+        <input type="number" id="bmi-weight" value="70" placeholder="e.g. 70" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-teal-500" />
+      </div>
+
+      <div id="bmi-metric-height" class="space-y-2">
+        <label class="text-xs text-zinc-400 block">Height (cm)</label>
+        <input type="number" id="bmi-height-cm" value="175" placeholder="e.g. 175" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-teal-500" />
+      </div>
+
+      <div id="bmi-imperial-height" class="hidden grid grid-cols-2 gap-2">
+        <div>
+          <label class="text-xs text-zinc-400 block">Height (ft)</label>
+          <input type="number" id="bmi-height-ft" value="5" placeholder="ft" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-teal-500" />
+        </div>
+        <div>
+          <label class="text-xs text-zinc-400 block">Height (in)</label>
+          <input type="number" id="bmi-height-in" value="9" placeholder="in" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-teal-500" />
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="p-3.5 rounded-xl bg-teal-950/40 border border-teal-800/50 space-y-1 text-center">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-teal-400">Body Mass Index</span>
+        <div id="bmi-val" class="text-2xl font-extrabold text-white">22.9</div>
+        <div id="bmi-cat" class="text-xs font-bold text-teal-300">Normal Weight</div>
+      </div>
+    </section>
+
+    <!-- View 2: Loan Calculator -->
+    <section id="view-loan" class="view-panel hidden space-y-3">
+      <div class="space-y-2">
+        <label class="text-xs text-zinc-400 block">Loan Principal ($)</label>
+        <input type="number" id="loan-principal" value="250000" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="text-xs text-zinc-400 block">Annual Rate (%)</label>
+          <input type="number" id="loan-rate" value="6.5" step="0.1" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500" />
+        </div>
+        <div>
+          <label class="text-xs text-zinc-400 block">Tenure (Years)</label>
+          <input type="number" id="loan-tenure" value="30" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500" />
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-indigo-950/40 border border-indigo-800/50 space-y-2 text-center">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-indigo-400">Monthly EMI</span>
+        <div id="loan-emi" class="text-2xl font-extrabold text-white">$1,579.99</div>
+        <div class="text-[11px] text-zinc-400 flex justify-between px-2 pt-1 border-t border-indigo-800/30">
+          <span>Total Interest: <strong id="loan-interest" class="text-indigo-300">$318,797.87</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 3: Percentage Calculator -->
+    <section id="view-percent" class="view-panel hidden space-y-3">
+      <div class="space-y-2">
+        <label class="text-xs text-zinc-400 block">Percentage Change (From → To)</label>
+        <div class="grid grid-cols-2 gap-2">
+          <input type="number" id="pct-v1" value="100" placeholder="Initial" class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" />
+          <input type="number" id="pct-v2" value="125" placeholder="Final" class="bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500" />
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-amber-950/40 border border-amber-800/50 text-center space-y-1">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-amber-400">Percentage Difference</span>
+        <div id="pct-res" class="text-2xl font-extrabold text-white">+25.0%</div>
+        <div id="pct-dir" class="text-xs font-bold text-amber-300">Increase</div>
+      </div>
+    </section>
+
+    <!-- View 4: Currency Converter -->
+    <section id="view-currency" class="view-panel hidden space-y-3">
+      <div class="space-y-2">
+        <label class="text-xs text-zinc-400 block">Amount</label>
+        <input type="number" id="curr-amount" value="100" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-sky-500" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="text-xs text-zinc-400 block">From</label>
+          <select id="curr-from" class="w-full bg-zinc-800 border border-zinc-700 text-xs text-zinc-200 rounded-xl px-2.5 py-2">
+            <option value="USD" selected>USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="CAD">CAD ($)</option>
+            <option value="AUD">AUD ($)</option>
+            <option value="JPY">JPY (¥)</option>
+            <option value="INR">INR (₹)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs text-zinc-400 block">To</label>
+          <select id="curr-to" class="w-full bg-zinc-800 border border-zinc-700 text-xs text-zinc-200 rounded-xl px-2.5 py-2">
+            <option value="USD">USD ($)</option>
+            <option value="EUR" selected>EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="CAD">CAD ($)</option>
+            <option value="AUD">AUD ($)</option>
+            <option value="JPY">JPY (¥)</option>
+            <option value="INR">INR (₹)</option>
+          </select>
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-sky-950/40 border border-sky-800/50 text-center space-y-1">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-sky-400">Converted Amount</span>
+        <div id="curr-result" class="text-2xl font-extrabold text-white">€91.74</div>
+        <div id="curr-rate" class="text-[11px] text-sky-300">1 USD = 0.9174 EUR</div>
+      </div>
+    </section>
+
+    <!-- View 5: Tip Splitter -->
+    <section id="view-tip" class="view-panel hidden space-y-3">
+      <div class="space-y-2">
+        <label class="text-xs text-zinc-400 block">Bill Amount ($)</label>
+        <input type="number" id="tip-bill" value="100" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-rose-500" />
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <div>
+          <label class="text-xs text-zinc-400 block">Tip %</label>
+          <input type="number" id="tip-pct" value="18" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-rose-500" />
+        </div>
+        <div>
+          <label class="text-xs text-zinc-400 block">People</label>
+          <input type="number" id="tip-people" value="4" min="1" class="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-rose-500" />
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-rose-950/40 border border-rose-800/50 text-center space-y-1">
+        <span class="text-[10px] uppercase font-bold tracking-wider text-rose-400">Total Per Person</span>
+        <div id="tip-per-person" class="text-2xl font-extrabold text-white">$29.50</div>
+        <div id="tip-total" class="text-xs text-rose-300">Grand Total: $118.00 (Tip: $18.00)</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="p-2.5 text-center bg-zinc-900 border-t border-zinc-800 text-[11px] text-zinc-400">
+    <span>Calculations powered by </span>
+    <a href="https://quickcalc.cloud" target="_blank" rel="noopener noreferrer" class="font-bold text-teal-400 hover:underline">QuickCalc.cloud</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

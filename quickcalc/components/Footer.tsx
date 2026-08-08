@@ -147,6 +147,16 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/api-docs" className="hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold transition-colors flex items-center gap-1 text-indigo-600 dark:text-indigo-400">
+                  <span>Developer REST API</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/compare/best-free-online-calculators" className="hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                  <span>Best Calculators Guide</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" className="hover:text-ink transition-colors">
                   Privacy Policy
                 </Link>

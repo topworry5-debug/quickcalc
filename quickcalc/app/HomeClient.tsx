@@ -3,6 +3,7 @@
 import Navbar from "@/components/Navbar";
 import ToolIcon from "@/components/ToolIcon";
 import HeroMiniDemo from "@/components/HeroMiniDemo";
+import TrustDifferentiationBar from "@/components/TrustDifferentiationBar";
 import ScrollReveal from "@/components/ScrollReveal";
 import RecentlyUsedBar from "@/components/RecentlyUsedBar";
 import FavoriteButton from "@/components/FavoriteButton";
@@ -200,6 +201,9 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
 
       {/* Main Tools Container */}
       <main id="all-tools" className="max-w-5xl mx-auto px-4 pt-8 sm:pt-12 pb-0 w-full">
+        {/* Confident Differentiation Trust Stat-Cards */}
+        <TrustDifferentiationBar />
+
         {/* Lightweight Personalization Recently Used Row */}
         <RecentlyUsedBar />
 
