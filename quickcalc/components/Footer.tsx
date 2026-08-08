@@ -142,6 +142,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/methodology" className="hover:text-teal-600 dark:hover:text-teal-400 font-semibold transition-colors flex items-center gap-1 text-teal-600 dark:text-teal-400">
+                  <span>Methodology & Sources</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy-policy" className="hover:text-ink transition-colors">
                   Privacy Policy
                 </Link>

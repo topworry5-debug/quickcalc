@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { calculateTip, getTipExplanationSteps } from "../../../lib/calculators/tipCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
+import { useCalculatorUrlState } from "@/hooks/useCalculatorUrlState";
 
 export default function TipCalculatorWidget() {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
@@ -14,6 +15,35 @@ export default function TipCalculatorWidget() {
   const [tipPercentage, setTipPercentage] = useState<number>(15);
   const [peopleCount, setPeopleCount] = useState<number>(1);
   const [copied, setCopied] = useState<boolean>(false);
+
+  const onHydrate = useCallback((sp: URLSearchParams) => {
+    const bill = sp.get("bill");
+    const tip = sp.get("tip");
+    const people = sp.get("people");
+
+    if (bill !== null) setBillInput(bill);
+    if (tip !== null) {
+      const parsedTip = parseInt(tip, 10);
+      if (!isNaN(parsedTip) && parsedTip >= 0 && parsedTip <= 100) {
+        setTipPercentage(parsedTip);
+      }
+    }
+    if (people !== null) {
+      const parsedPeople = parseInt(people, 10);
+      if (!isNaN(parsedPeople) && parsedPeople >= 1) {
+        setPeopleCount(parsedPeople);
+      }
+    }
+  }, []);
+
+  useCalculatorUrlState(
+    {
+      bill: billInput ? billInput : undefined,
+      tip: billInput ? tipPercentage : undefined,
+      people: billInput && peopleCount > 1 ? peopleCount : undefined,
+    },
+    onHydrate
+  );
 
   const handleDownloadPdf = () => {
     if (!results || billAmount <= 0) return;
@@ -288,6 +318,11 @@ export default function TipCalculatorWidget() {
             resultValue: `$${results.tipAmount.toFixed(2)} Tip ($${results.totalBill.toFixed(2)} Total)`,
             resultLabel: `$${results.totalPerPerson.toFixed(2)} Per Person (${peopleCount} People)`,
             inputsSummary: [{ label: 'Bill', value: `$${billAmount.toFixed(2)}` }, { label: 'Tip %', value: `${tipPercentage}%` }, { label: 'People', value: `${peopleCount}` }],
+            queryParams: {
+              bill: billInput,
+              tip: tipPercentage.toString(),
+              people: peopleCount.toString(),
+            },
           }}
         />
       )}

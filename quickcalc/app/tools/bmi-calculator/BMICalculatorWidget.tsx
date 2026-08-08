@@ -1,17 +1,15 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { calculateBMI, getBMIExplanationSteps, BMICalculatorResult } from "../../../lib/calculators/bmiCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
+import { useCalculatorUrlState } from "@/hooks/useCalculatorUrlState";
 
 export default function BMICalculatorWidget() {
-  const searchParams = useSearchParams();
-
   const [weight, setWeight] = useState<string>("70");
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
   const [heightUnit, setHeightUnit] = useState<"cm" | "ft">("cm");
@@ -23,22 +21,34 @@ export default function BMICalculatorWidget() {
   const [copied, setCopied] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
-  // Hydrate inputs from URL parameters if present
-  useEffect(() => {
-    const w = searchParams.get("w");
-    const wu = searchParams.get("wu");
-    const hu = searchParams.get("hu");
-    const h = searchParams.get("h");
-    const ft = searchParams.get("ft");
-    const inc = searchParams.get("in");
+  // Hydrate inputs from URL parameters if present & sync live changes
+  const onHydrate = useCallback((sp: URLSearchParams) => {
+    const w = sp.get("w");
+    const wu = sp.get("wu");
+    const hu = sp.get("hu");
+    const h = sp.get("h");
+    const ft = sp.get("ft");
+    const inc = sp.get("in");
 
     if (w) setWeight(w);
-    if (wu === "kg" || wu === "lb") setWeightUnit(wu);
-    if (hu === "cm" || hu === "ft") setHeightUnit(hu);
+    if (wu === "kg" || wu === "lb") setWeightUnit(wu as "kg" | "lb");
+    if (hu === "cm" || hu === "ft") setHeightUnit(hu as "cm" | "ft");
     if (h) setHeightCm(h);
     if (ft) setHeightFt(ft);
     if (inc) setHeightIn(inc);
-  }, [searchParams]);
+  }, []);
+
+  useCalculatorUrlState(
+    {
+      w: weight,
+      wu: weightUnit,
+      hu: heightUnit,
+      h: heightUnit === "cm" ? heightCm : undefined,
+      ft: heightUnit === "ft" ? heightFt : undefined,
+      in: heightUnit === "ft" ? heightIn : undefined,
+    },
+    onHydrate
+  );
 
   const handleDownloadPdf = () => {
     if (!result) return;

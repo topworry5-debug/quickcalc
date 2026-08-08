@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -131,6 +133,9 @@ export default function WaterIntakeCalculatorPage({ searchParams }: { searchPara
         <section className="my-8">
           <WaterIntakeCalculatorWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="water-intake-calculator" />
 
         {/* AdSense Placement Ad-Slot-Inline */}
         <AdSlot slot="water-intake-inline" />

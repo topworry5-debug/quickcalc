@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -156,6 +158,9 @@ export default function InflationCalculatorPage({ searchParams }: { searchParams
         <section className="my-8">
           <InflationCalculatorWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="inflation-calculator" />
 
         {/* Ad Slot */}
         <div className="ad-slot ad-slot--inline my-8 animate-pulse" data-ad-position="in-content-1">

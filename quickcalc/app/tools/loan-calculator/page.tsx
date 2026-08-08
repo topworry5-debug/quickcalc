@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -156,6 +158,9 @@ export default function LoanCalculatorPage({ searchParams }: { searchParams?: { 
         <section className="my-8">
           <LoanCalculatorWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="loan-calculator" />
 
         {/* Ad Placement 1 */}
         <div className="ad-slot ad-slot--inline" data-ad-position="in-content-1">

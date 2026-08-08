@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -142,6 +144,9 @@ export default function DueDateCalculatorPage({ searchParams }: { searchParams?:
         <section className="my-8">
           <DueDateCalculatorWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="due-date-calculator" />
 
         {/* Medical Disclaimer */}
         <div className="max-w-2xl mx-auto bg-amber-50 dark:bg-amber-950/20 border border-amber-200/50 dark:border-amber-900/40 rounded-xl p-4 text-xs text-amber-800 dark:text-amber-300 mb-8 leading-relaxed">

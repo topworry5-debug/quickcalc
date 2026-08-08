@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -147,6 +149,9 @@ export default function GPAConverterPage({ searchParams }: { searchParams?: { em
         <section className="my-8">
           <GPAConverterWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="gpa-converter" />
 
         {/* Ad Placement 1 */}
         <div className="ad-slot ad-slot--inline" data-ad-position="in-content-1">

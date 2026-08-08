@@ -1,3 +1,7 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
+import { Suspense } from "react";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -137,8 +141,13 @@ export default function TipCalculatorPage({ searchParams }: { searchParams?: { e
 
         {/* The interactive widget */}
         <section className="my-8">
-          <TipCalculatorWidget />
+          <Suspense fallback={<div className="p-8 text-center text-zinc-500 animate-pulse">Loading calculator...</div>}>
+            <TipCalculatorWidget />
+          </Suspense>
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="tip-calculator" />
 
         {/* Ad Placement 1 */}
         <div className="ad-slot ad-slot--inline" data-ad-position="in-content-1">

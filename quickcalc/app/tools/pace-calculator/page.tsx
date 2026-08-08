@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -138,6 +140,9 @@ export default function PaceCalculatorPage({ searchParams }: { searchParams?: { 
         <section className="my-8">
           <PaceCalculatorWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="pace-calculator" />
 
         {/* AdSense Placement Ad-Slot-Inline */}
         <AdSlot slot="pace-calculator-inline" />

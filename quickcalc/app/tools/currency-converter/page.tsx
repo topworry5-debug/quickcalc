@@ -1,3 +1,5 @@
+import MethodologyAccordion from "@/components/MethodologyAccordion";
+
 import Navbar from "@/components/Navbar";
 import { generateSoftwareAppSchema } from "@/lib/schema";
 import RelatedTools from "@/components/RelatedTools";
@@ -164,6 +166,9 @@ export default function CurrencyConverterPage({ searchParams }: { searchParams?:
         <section className="my-8">
           <CurrencyConverterWidget />
         </section>
+
+        {/* Collapsible Scientific & Mathematical Methodology */}
+        <MethodologyAccordion slug="currency-converter" />
 
         {/* Ad Placement 1 */}
         <div className="ad-slot ad-slot--inline my-8 animate-pulse" data-ad-position="in-content-1">
