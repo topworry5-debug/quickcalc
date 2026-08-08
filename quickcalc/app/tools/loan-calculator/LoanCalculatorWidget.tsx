@@ -7,8 +7,11 @@ import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
+import LoanCompareMode from "./LoanCompareMode";
+import { GitCompare, Calculator } from "lucide-react";
 
 export default function LoanCalculatorWidget() {
+  const [mode, setMode] = useState<"single" | "compare">("single");
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [principal, setPrincipal] = useState<string>("100000");
   const [annualRate, setAnnualRate] = useState<string>("7.5");
@@ -61,7 +64,6 @@ Calculated 100% free on QuickCalc.cloud`;
     const interestStr = result.totalInterestPayable.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     const totalStr = result.totalPayment.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-    // Show loading state immediately (paints before jsPDF work begins).
     setIsPdfGenerating(true);
     try {
       await generatePdfAsync({
@@ -81,7 +83,6 @@ Calculated 100% free on QuickCalc.cloud`;
         table: {
           title: "Year-by-Year Amortization Schedule",
           headers: ["Year", "Starting Balance", "Principal Paid", "Interest Paid", "Ending Balance"],
-          // No row cap — all years are included, paginated automatically.
           rows: result.amortizationTable.map((row) => [
             `Year ${row.yearNumber}`,
             `$${row.startingBalance.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
@@ -145,204 +146,254 @@ Calculated 100% free on QuickCalc.cloud`;
   }, [result, principal, annualRate, tenure, tenureUnit]);
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8">
-      <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-6 text-white text-center">
-        <h3 className="text-xl font-bold">Loan / EMI Calculator</h3>
-        <p className="text-xs text-teal-100 mt-1">Calculate monthly payments, total interest, and view amortization schedule</p>
+    <div className={`w-full mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-xl overflow-hidden my-8 transition-all ${mode === "compare" ? "max-w-4xl" : "max-w-2xl"}`}>
+
+      {/* ── Header with mode toggle ── */}
+      <div className="bg-gradient-to-r from-teal-500 to-cyan-600 p-5 text-white">
+        <div className="flex items-center justify-between gap-4 flex-wrap">
+          <div>
+            <h3 className="text-xl font-bold">Loan / EMI Calculator</h3>
+            <p className="text-xs text-teal-100 mt-0.5">
+              {mode === "single"
+                ? "Calculate monthly payments, total interest, and amortization schedule"
+                : "Compare two loan offers side-by-side and see exactly how much you save"}
+            </p>
+          </div>
+
+          {/* Single / Compare pill toggle */}
+          <div className="flex items-center gap-1 bg-white/10 rounded-xl p-1 shrink-0">
+            <button
+              type="button"
+              onClick={() => setMode("single")}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                mode === "single"
+                  ? "bg-white text-teal-700 shadow-sm"
+                  : "text-teal-100 hover:text-white"
+              }`}
+            >
+              <Calculator size={13} />
+              <span>Single</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode("compare")}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                mode === "compare"
+                  ? "bg-white text-teal-700 shadow-sm"
+                  : "text-teal-100 hover:text-white"
+              }`}
+            >
+              <GitCompare size={13} />
+              <span>Compare</span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <form onSubmit={handleCalculate} className="p-6 space-y-6">
-        {/* Principal Amount */}
-        <div>
-          <label htmlFor="principal" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            Loan Amount (Principal)
-          </label>
-          <div className="relative rounded-lg shadow-sm">
-            <span className="absolute inset-y-0 left-0 pl-4 flex items-center text-zinc-500">$</span>
-            <input
-              id="principal"
-              type="number"
-              min="1"
-              value={principal}
-              onChange={(e) => setPrincipal(e.target.value)}
-              className="w-full pl-8 pr-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
-              placeholder="e.g. 250000"
-            />
-          </div>
+      {/* ── COMPARE MODE ── */}
+      {mode === "compare" && (
+        <div className="p-6">
+          <LoanCompareMode />
         </div>
+      )}
 
-        {/* Interest Rate */}
-        <div>
-          <label htmlFor="rate" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            Annual Interest Rate (%)
-          </label>
-          <div className="relative rounded-lg shadow-sm">
-            <input
-              id="rate"
-              type="number"
-              step="0.01"
-              min="0"
-              value={annualRate}
-              onChange={(e) => setAnnualRate(e.target.value)}
-              className="w-full pl-4 pr-8 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
-              placeholder="e.g. 6.5"
-            />
-            <span className="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-500">%</span>
-          </div>
-        </div>
-
-        {/* Tenure */}
-        <div>
-          <label htmlFor="tenure" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-            Loan Duration (Tenure)
-          </label>
-          <div className="flex rounded-lg shadow-sm">
-            <input
-              id="tenure"
-              type="number"
-              min="1"
-              value={tenure}
-              onChange={(e) => setTenure(e.target.value)}
-              className="w-full pl-4 pr-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-y border-l border-zinc-300 dark:border-zinc-700 rounded-l-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
-              placeholder="e.g. 30"
-            />
-            <div className="flex">
-              <button
-                type="button"
-                onClick={() => setTenureUnit("years")}
-                className={`px-3 py-3 border-y border-zinc-300 dark:border-zinc-700 font-medium text-xs transition-colors ${
-                  tenureUnit === "years"
-                    ? "bg-teal-50 border-teal-500 text-teal-600 dark:bg-teal-950/40 dark:text-teal-400"
-                    : "bg-zinc-50 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-100"
-                }`}
-              >
-                years
-              </button>
-              <button
-                type="button"
-                onClick={() => setTenureUnit("months")}
-                className={`px-3 py-3 border-r border-y rounded-r-lg border-zinc-300 dark:border-zinc-700 font-medium text-xs transition-colors ${
-                  tenureUnit === "months"
-                    ? "bg-teal-50 border-teal-500 text-teal-600 dark:bg-teal-950/40 dark:text-teal-400"
-                    : "bg-zinc-50 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-100"
-                }`}
-              >
-                months
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-semibold py-3.5 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-950"
-        >
-          Calculate Loan Payments
-        </button>
-      </form>
-
-      {/* Result Display */}
-      {result && (
-        <div className="border-t border-zinc-200 dark:border-zinc-800 bg-teal-50/10 dark:bg-teal-950/5">
-          {/* Main figures */}
-          <div className="p-6 text-center">
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium uppercase tracking-wider">
-              Your Estimated Monthly Payment
-            </p>
-            <div className="mt-4 flex flex-col items-center">
-              <span className="text-4xl sm:text-5xl font-extrabold text-teal-600 dark:text-teal-400">
-                {formatCurrency(result.monthlyEMI)}
-              </span>
-              <span className="text-xs text-zinc-400 dark:text-zinc-500 mt-2">Monthly EMI principal + interest</span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 mt-6 border-t border-zinc-200 dark:border-zinc-800 pt-6">
-              <div className="flex flex-col items-center">
-                <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Total Interest Payable</span>
-                <span className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mt-1">
-                  {formatCurrency(result.totalInterestPayable)}
-                </span>
-              </div>
-              <div className="flex flex-col items-center">
-                <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Total Payment (Principal + Int)</span>
-                <span className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mt-1">
-                  {formatCurrency(result.totalPayment)}
-                </span>
+      {/* ── SINGLE MODE ── */}
+      {mode === "single" && (
+        <>
+          <form onSubmit={handleCalculate} className="p-6 space-y-6">
+            {/* Principal Amount */}
+            <div>
+              <label htmlFor="principal" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                Loan Amount (Principal)
+              </label>
+              <div className="relative rounded-lg shadow-sm">
+                <span className="absolute inset-y-0 left-0 pl-4 flex items-center text-zinc-500">$</span>
+                <input
+                  id="principal"
+                  type="number"
+                  min="1"
+                  value={principal}
+                  onChange={(e) => setPrincipal(e.target.value)}
+                  className="w-full pl-8 pr-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                  placeholder="e.g. 250000"
+                />
               </div>
             </div>
 
-            {/* Step-by-Step Explanation Accordion */}
-            <ExplainResultAccordion steps={explanationSteps} />
-          </div>
+            {/* Interest Rate */}
+            <div>
+              <label htmlFor="rate" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                Annual Interest Rate (%)
+              </label>
+              <div className="relative rounded-lg shadow-sm">
+                <input
+                  id="rate"
+                  type="number"
+                  step="0.01"
+                  min="0"
+                  value={annualRate}
+                  onChange={(e) => setAnnualRate(e.target.value)}
+                  className="w-full pl-4 pr-8 py-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                  placeholder="e.g. 6.5"
+                />
+                <span className="absolute inset-y-0 right-0 pr-4 flex items-center text-zinc-500">%</span>
+              </div>
+            </div>
 
-          {/* Amortization Table */}
-          {result.amortizationTable.length > 0 && (
-            <div className="p-6 border-t border-zinc-200 dark:border-zinc-800">
-              <h4 className="text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-4 uppercase tracking-wider">
-                Year-by-Year Amortization Schedule
-              </h4>
-              <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
-                <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-xs text-left">
-                  <thead className="bg-zinc-50 dark:bg-zinc-800/40 text-zinc-500 dark:text-zinc-400 font-semibold">
-                    <tr>
-                      <th className="px-4 py-3">Year</th>
-                      <th className="px-4 py-3">Starting Balance</th>
-                      <th className="px-4 py-3">Principal Paid</th>
-                      <th className="px-4 py-3">Interest Paid</th>
-                      <th className="px-4 py-3 font-medium">Ending Balance</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-zinc-600 dark:text-zinc-300">
-                    {result.amortizationTable.map((year) => (
-                      <tr key={year.yearNumber} className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition">
-                        <td className="px-4 py-3 font-semibold text-zinc-800 dark:text-zinc-100">Year {year.yearNumber}</td>
-                        <td className="px-4 py-3">{formatCurrency(year.startingBalance)}</td>
-                        <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">-{formatCurrency(year.principalPaid)}</td>
-                        <td className="px-4 py-3 text-amber-600 dark:text-amber-400">-{formatCurrency(year.interestPaid)}</td>
-                        <td className="px-4 py-3 font-semibold text-zinc-900 dark:text-white">{formatCurrency(year.endingBalance)}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+            {/* Tenure */}
+            <div>
+              <label htmlFor="tenure" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                Loan Duration (Tenure)
+              </label>
+              <div className="flex rounded-lg shadow-sm">
+                <input
+                  id="tenure"
+                  type="number"
+                  min="1"
+                  value={tenure}
+                  onChange={(e) => setTenure(e.target.value)}
+                  className="w-full pl-4 pr-4 py-3 bg-zinc-50 dark:bg-zinc-800 border border-y border-l border-zinc-300 dark:border-zinc-700 rounded-l-lg text-zinc-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none"
+                  placeholder="e.g. 30"
+                />
+                <div className="flex">
+                  <button
+                    type="button"
+                    onClick={() => setTenureUnit("years")}
+                    className={`px-3 py-3 border-y border-zinc-300 dark:border-zinc-700 font-medium text-xs transition-colors ${
+                      tenureUnit === "years"
+                        ? "bg-teal-50 border-teal-500 text-teal-600 dark:bg-teal-950/40 dark:text-teal-400"
+                        : "bg-zinc-50 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-100"
+                    }`}
+                  >
+                    years
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTenureUnit("months")}
+                    className={`px-3 py-3 border-r border-y rounded-r-lg border-zinc-300 dark:border-zinc-700 font-medium text-xs transition-colors ${
+                      tenureUnit === "months"
+                        ? "bg-teal-50 border-teal-500 text-teal-600 dark:bg-teal-950/40 dark:text-teal-400"
+                        : "bg-zinc-50 dark:bg-zinc-800 text-zinc-500 hover:bg-zinc-100"
+                    }`}
+                  >
+                    months
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-teal-600 to-cyan-500 hover:from-teal-700 hover:to-cyan-600 text-white font-semibold py-3.5 px-6 rounded-lg transition duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 dark:focus:ring-offset-zinc-950"
+            >
+              Calculate Loan Payments
+            </button>
+          </form>
+
+          {/* Result Display */}
+          {result && (
+            <div className="border-t border-zinc-200 dark:border-zinc-800 bg-teal-50/10 dark:bg-teal-950/5">
+              {/* Main figures */}
+              <div className="p-6 text-center">
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium uppercase tracking-wider">
+                  Your Estimated Monthly Payment
+                </p>
+                <div className="mt-4 flex flex-col items-center">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-teal-600 dark:text-teal-400">
+                    {formatCurrency(result.monthlyEMI)}
+                  </span>
+                  <span className="text-xs text-zinc-400 dark:text-zinc-500 mt-2">Monthly EMI principal + interest</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 mt-6 border-t border-zinc-200 dark:border-zinc-800 pt-6">
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Total Interest Payable</span>
+                    <span className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mt-1">
+                      {formatCurrency(result.totalInterestPayable)}
+                    </span>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Total Payment (Principal + Int)</span>
+                    <span className="text-lg font-bold text-zinc-800 dark:text-zinc-200 mt-1">
+                      {formatCurrency(result.totalPayment)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Step-by-Step Explanation Accordion */}
+                <ExplainResultAccordion steps={explanationSteps} />
+              </div>
+
+              {/* Amortization Table */}
+              {result.amortizationTable.length > 0 && (
+                <div className="p-6 border-t border-zinc-200 dark:border-zinc-800">
+                  <h4 className="text-sm font-bold text-zinc-700 dark:text-zinc-300 mb-4 uppercase tracking-wider">
+                    Year-by-Year Amortization Schedule
+                  </h4>
+                  <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
+                    <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800 text-xs text-left">
+                      <thead className="bg-zinc-50 dark:bg-zinc-800/40 text-zinc-500 dark:text-zinc-400 font-semibold">
+                        <tr>
+                          <th className="px-4 py-3">Year</th>
+                          <th className="px-4 py-3">Starting Balance</th>
+                          <th className="px-4 py-3">Principal Paid</th>
+                          <th className="px-4 py-3">Interest Paid</th>
+                          <th className="px-4 py-3 font-medium">Ending Balance</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800 text-zinc-600 dark:text-zinc-300">
+                        {result.amortizationTable.map((year) => (
+                          <tr key={year.yearNumber} className="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition">
+                            <td className="px-4 py-3 font-semibold text-zinc-800 dark:text-zinc-100">Year {year.yearNumber}</td>
+                            <td className="px-4 py-3">{formatCurrency(year.startingBalance)}</td>
+                            <td className="px-4 py-3 text-emerald-600 dark:text-emerald-400 font-medium">-{formatCurrency(year.principalPaid)}</td>
+                            <td className="px-4 py-3 text-amber-600 dark:text-amber-400">-{formatCurrency(year.interestPaid)}</td>
+                            <td className="px-4 py-3 font-semibold text-zinc-900 dark:text-white">{formatCurrency(year.endingBalance)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* Actions Bar */}
+              <div className="flex flex-wrap items-center justify-between gap-3 p-6 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 hover:scale-[1.02] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
+                >
+                  {copied ? "✅ Copied Summary!" : "📋 Copy Loan Summary"}
+                </button>
+
+                <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
+                <DownloadPdfButton
+                  onClick={handleDownloadPdf}
+                  isGenerating={isPdfGenerating}
+                  label="Download PDF"
+                />
               </div>
             </div>
           )}
 
-          {/* Actions Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 p-6 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50">
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="flex items-center gap-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-200 hover:scale-[1.02] bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 px-3.5 py-2 rounded-lg hover:shadow-sm focus:ring-1 focus:ring-teal-500 focus:outline-none"
-            >
-              {copied ? "✅ Copied Summary!" : "📋 Copy Loan Summary"}
-            </button>
-
-            <ShareResultButton onClick={() => setIsShareModalOpen(true)} />
-            <DownloadPdfButton
-              onClick={handleDownloadPdf}
-              isGenerating={isPdfGenerating}
-              label="Download PDF"
+          {/* Share Result Modal */}
+          {result && (
+            <ShareResultModal
+              isOpen={isShareModalOpen}
+              onClose={() => setIsShareModalOpen(false)}
+              data={{
+                toolName: "Loan & EMI Calculator",
+                toolSlug: "loan-calculator",
+                category: "Finance & Money",
+                resultValue: result ? `$${result.monthlyEMI.toFixed(2)} Monthly EMI` : '',
+                resultLabel: result ? `Total Payment: $${result.totalPayment.toFixed(2)} (Interest: $${result.totalInterestPayable.toFixed(2)})` : '',
+                inputsSummary: [{ label: 'Principal', value: `$${principal}` }, { label: 'Rate', value: `${annualRate}%` }, { label: 'Tenure', value: `${tenure} ${tenureUnit}` }],
+              }}
             />
-          </div>
-        </div>
+          )}
+        </>
       )}
-    
-      {/* Share Result Modal */}
-      {result && (
-        <ShareResultModal
-          isOpen={isShareModalOpen}
-          onClose={() => setIsShareModalOpen(false)}
-          data={{
-            toolName: "Loan & EMI Calculator",
-            toolSlug: "loan-calculator",
-            category: "Finance & Money",
-            resultValue: result ? `$${result.monthlyEMI.toFixed(2)} Monthly EMI` : '',
-            resultLabel: result ? `Total Payment: $${result.totalPayment.toFixed(2)} (Interest: $${result.totalInterestPayable.toFixed(2)})` : '',
-            inputsSummary: [{ label: 'Principal', value: `$${principal}` }, { label: 'Rate', value: `${annualRate}%` }, { label: 'Tenure', value: `${tenure} ${tenureUnit}` }],
-          }}
-        />
-      )}
-</div>
+    </div>
   );
 }

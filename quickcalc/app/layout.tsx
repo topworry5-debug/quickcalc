@@ -35,6 +35,8 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   other: {
     "p:domain_verify": "57be082e13457e878c19c2529f56fe64",
+    // Replace the value below with the token from Google Search Console → Settings → Ownership verification → HTML tag method
+    "google-site-verification": "REPLACE_WITH_YOUR_GSC_VERIFICATION_TOKEN",
   },
   title: {
     default: "QuickCalc - Elegant Ultimate Calculator Suite",

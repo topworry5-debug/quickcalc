@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import ToolIcon from "@/components/ToolIcon";
 import HeroMiniDemo from "@/components/HeroMiniDemo";
 import TrustDifferentiationBar from "@/components/TrustDifferentiationBar";
+import FactualPlatformProof from "@/components/FactualPlatformProof";
 import ScrollReveal from "@/components/ScrollReveal";
 import RecentlyUsedBar from "@/components/RecentlyUsedBar";
 import FavoriteButton from "@/components/FavoriteButton";
@@ -304,6 +305,9 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
             </button>
           </div>
         )}
+
+        {/* Factual Platform Metrics & Proof */}
+        <FactualPlatformProof />
       </main>
 
       {/* Footer Component */}

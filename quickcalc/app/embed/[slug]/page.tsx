@@ -29,11 +29,12 @@ export async function generateMetadata({ params }: EmbedPageProps): Promise<Meta
     title: `Embed ${tool.title} | QuickCalc`,
     description: `Lightweight embedded version of ${tool.title}. Powered by QuickCalc.`,
     alternates: {
+      // Canonical points search engines to the authoritative /tools/[slug] page
       canonical: `/tools/${slug}`,
     },
     robots: {
-      index: true,
-      follow: true,
+      index: false,   // noindex — embed pages must not compete with main tool pages
+      follow: true,   // still allow link equity to flow
     },
   };
 }
