@@ -40,12 +40,19 @@ module.exports = {
       "zakat-calculator"
     ];
 
-    return toolSlugs.map((slug) => ({
-      loc: `/tools/${slug}`,
-      changefreq: "daily",
-      priority: 0.8,
-      lastmod: new Date().toISOString(),
-    }));
+    const staticPages = [
+      { loc: "/changelog", changefreq: "monthly", priority: 0.6, lastmod: new Date().toISOString() },
+    ];
+
+    return [
+      ...staticPages,
+      ...toolSlugs.map((slug) => ({
+        loc: `/tools/${slug}`,
+        changefreq: "daily",
+        priority: 0.8,
+        lastmod: new Date().toISOString(),
+      })),
+    ];
   },
   robotsTxtOptions: {
     policies: [

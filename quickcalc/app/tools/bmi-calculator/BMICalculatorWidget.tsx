@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { calculateBMI, getBMIExplanationSteps, BMICalculatorResult } from "../../../lib/calculators/bmiCalculator";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
@@ -8,9 +8,11 @@ import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
 import { useCalculatorUrlState } from "@/hooks/useCalculatorUrlState";
+import { useLocaleDetection } from "@/hooks/useLocaleDetection";
 
 export default function BMICalculatorWidget() {
   const [weight, setWeight] = useState<string>("70");
+  // Default to metric; locale detection updates to imperial for US visitors after first paint
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
   const [heightUnit, setHeightUnit] = useState<"cm" | "ft">("cm");
   const [heightCm, setHeightCm] = useState<string>("175");
@@ -20,6 +22,10 @@ export default function BMICalculatorWidget() {
   const [result, setResult] = useState<BMICalculatorResult | null>(null);
   const [copied, setCopied] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+
+  // Once the user manually clicks a unit toggle, stop locale auto-detection
+  const userOverrodeUnits = useRef(false);
+  const locale = useLocaleDetection();
 
   // Hydrate inputs from URL parameters if present & sync live changes
   const onHydrate = useCallback((sp: URLSearchParams) => {
@@ -31,8 +37,8 @@ export default function BMICalculatorWidget() {
     const inc = sp.get("in");
 
     if (w) setWeight(w);
-    if (wu === "kg" || wu === "lb") setWeightUnit(wu as "kg" | "lb");
-    if (hu === "cm" || hu === "ft") setHeightUnit(hu as "cm" | "ft");
+    if (wu === "kg" || wu === "lb") { userOverrodeUnits.current = true; setWeightUnit(wu as "kg" | "lb"); }
+    if (hu === "cm" || hu === "ft") { userOverrodeUnits.current = true; setHeightUnit(hu as "cm" | "ft"); }
     if (h) setHeightCm(h);
     if (ft) setHeightFt(ft);
     if (inc) setHeightIn(inc);
@@ -49,6 +55,22 @@ export default function BMICalculatorWidget() {
     },
     onHydrate
   );
+
+  // Apply locale-detected unit system once on mount — no layout shift.
+  // URL state (above) marks userOverrodeUnits, so shared links are respected.
+  useEffect(() => {
+    if (!locale) return;
+    if (userOverrodeUnits.current) return;
+    if (locale.unitSystem === "imperial") {
+      setWeightUnit("lb");
+      setHeightUnit("ft");
+      // Provide sensible imperial defaults so the empty state looks right
+      setWeight("154");     // ~70 kg
+      setHeightFt("5");
+      setHeightIn("9");     // ~175 cm
+    }
+    // metric is already the default — nothing to do
+  }, [locale]);
 
   const handleDownloadPdf = () => {
     if (!result) return;
@@ -178,6 +200,7 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
           <button
             type="button"
             onClick={() => {
+              userOverrodeUnits.current = true;
               setHeightUnit("cm");
               setWeightUnit("kg");
             }}
@@ -192,6 +215,7 @@ Calculated 100% free with zero sign-ins at QuickCalc (https://quickcalc.cloud)`;
           <button
             type="button"
             onClick={() => {
+              userOverrodeUnits.current = true;
               setHeightUnit("ft");
               setWeightUnit("lb");
             }}

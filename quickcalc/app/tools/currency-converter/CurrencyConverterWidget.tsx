@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { generatePdf } from "@/lib/utils/downloadPdf";
 import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import { getCurrencyExplanationSteps } from "@/lib/calculators/currencyConverter";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
+import { useLocaleDetection } from "@/hooks/useLocaleDetection";
 
 interface Currency {
   code: string;
@@ -101,14 +102,32 @@ const FALLBACK_RATES_TO_USD: Record<string, number> = {
 export default function CurrencyConverterWidget() {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [amount, setAmount] = useState<string>("100");
+  // Default to USD; locale detection will silently update this after first paint
   const [fromCurrency, setFromCurrency] = useState<string>("USD");
-  const [toCurrency, setToCurrency] = useState<string>("PKR");
+  const [toCurrency, setToCurrency] = useState<string>("EUR");
   const [rates, setRates] = useState<Record<string, number> | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<string>("");
   const [copied, setCopied] = useState<boolean>(false);
   const [usingFallback, setUsingFallback] = useState<boolean>(false);
+
+  // Track whether the user has manually changed the currency — if so, we
+  // never override their choice with locale detection.
+  const userOverrodeCurrency = useRef(false);
+  const locale = useLocaleDetection();
+
+  // Apply locale-detected currency once on mount — silently, no jarring shift.
+  // Only fires if: detection succeeded AND currency differs from default AND
+  // the user hasn't already made a manual selection.
+  useEffect(() => {
+    if (!locale) return;
+    if (userOverrodeCurrency.current) return;
+    const detected = locale.currencyCode;
+    // Only update the "from" currency; keep "to" at EUR unless from IS EUR
+    setFromCurrency(detected);
+    if (detected === "EUR") setToCurrency("USD"); // avoid EUR→EUR
+  }, [locale]);
 
   // Fetch exchange rates
   const fetchRates = useCallback(async (base: string) => {
@@ -212,9 +231,20 @@ export default function CurrencyConverterWidget() {
 
   // Swap currencies
   const handleSwap = () => {
+    userOverrodeCurrency.current = true;
     const temp = fromCurrency;
     setFromCurrency(toCurrency);
     setToCurrency(temp);
+  };
+
+  // Wrap the from/to setters so manual changes mark the override flag
+  const handleFromChange = (val: string) => {
+    userOverrodeCurrency.current = true;
+    setFromCurrency(val);
+  };
+  const handleToChange = (val: string) => {
+    userOverrodeCurrency.current = true;
+    setToCurrency(val);
   };
 
   // Format currency helpers
@@ -330,7 +360,7 @@ export default function CurrencyConverterWidget() {
               <select
                 id="from-currency"
                 value={fromCurrency}
-                onChange={(e) => setFromCurrency(e.target.value)}
+                onChange={(e) => handleFromChange(e.target.value)}
                 className="w-full px-3 py-3 bg-zinc-50 dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-base font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent cursor-pointer transition"
               >
                 {SUPPORTED_CURRENCIES.map((c) => (
@@ -361,7 +391,7 @@ export default function CurrencyConverterWidget() {
               <select
                 id="to-currency"
                 value={toCurrency}
-                onChange={(e) => setToCurrency(e.target.value)}
+                onChange={(e) => handleToChange(e.target.value)}
                 className="w-full px-3 py-3 bg-zinc-50 dark:bg-zinc-950/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl text-base font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent cursor-pointer transition"
               >
                 {SUPPORTED_CURRENCIES.map((c) => (

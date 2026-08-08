@@ -137,6 +137,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/changelog" className="hover:text-ink transition-colors inline-flex items-center gap-1">
+                  <span>Changelog</span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/about" className="hover:text-ink transition-colors">
                   About Us
                 </Link>
