@@ -33,6 +33,8 @@ import {
   PiggyBank,
   LineChart,
   Fuel,
+  Briefcase,
+  PieChart,
   Calculator,
   LucideIcon,
 } from "lucide-react";
@@ -69,6 +71,8 @@ export type IconName =
   | "retirement"
   | "savings-growth"
   | "travel-time-fuel"
+  | "freelance-rate"
+  | "macro"
   | string;
 
 const iconMap: Record<string, LucideIcon> = {
@@ -103,6 +107,8 @@ const iconMap: Record<string, LucideIcon> = {
   retirement: PiggyBank,
   "savings-growth": LineChart,
   "travel-time-fuel": Fuel,
+  "freelance-rate": Briefcase,
+  macro: PieChart,
 };
 
 // Also map raw emoji or legacy icon names to icons

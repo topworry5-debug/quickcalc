@@ -173,6 +173,25 @@ export default function CalorieCalculatorPage({ searchParams }: { searchParams?:
           <CalorieCalculatorWidget />
         </section>
 
+        {/* Reciprocal CTA Banner to Macro Calculator */}
+        <div className="my-6 p-4 bg-orange-500/5 dark:bg-orange-500/10 border border-orange-500/20 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <div className="space-y-0.5">
+            <h4 className="text-xs font-bold text-zinc-900 dark:text-white">
+              Ready to split your calories into protein, carbs & fats?
+            </h4>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400">
+              Calculate your exact daily macronutrient gram targets for fitness, fat loss, or muscle gain.
+            </p>
+          </div>
+          <Link
+            href="/tools/macro-calculator"
+            className="py-2 px-3.5 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-xs font-semibold transition-colors flex-shrink-0 inline-flex items-center gap-1 group"
+          >
+            <span>Try Macro Calculator</span>
+            <span className="group-hover:translate-x-0.5 transition-transform">→</span>
+          </Link>
+        </div>
+
         {/* Collapsible Scientific & Mathematical Methodology */}
         <MethodologyAccordion slug="calorie-calculator" />
 

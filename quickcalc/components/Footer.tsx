@@ -69,6 +69,11 @@ export default function Footer({ customText }: FooterProps) {
                   Pregnancy Due Date
                 </Link>
               </li>
+              <li>
+                <Link href="/tools/macro-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  Macro Calculator
+                </Link>
+              </li>
             </ul>
           </ScrollReveal>
 
@@ -105,6 +110,11 @@ export default function Footer({ customText }: FooterProps) {
               <li>
                 <Link href="/tools/savings-growth-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                   Savings Growth Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/freelance-rate-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Freelance Rate Calculator
                 </Link>
               </li>
             </ul>

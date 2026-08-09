@@ -295,5 +295,25 @@ export const tools: Tool[] = [
     color: "from-blue-600 via-indigo-600 to-sky-600",
     textColor: "text-blue-600 dark:text-blue-400",
     category: "Planning"
+  },
+  {
+    title: "Freelance Rate Calculator",
+    description: "Calculate your minimum billable hourly rate, daily target, and monthly revenue goal based on target income, business overhead, and billable ratio.",
+    icon: "freelance-rate",
+    href: "/tools/freelance-rate-calculator",
+    color: "from-teal-500 via-emerald-500 to-indigo-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true
+  },
+  {
+    title: "Macro Calculator",
+    description: "Calculate your daily macronutrient gram targets (protein, carbs, fats) based on your TDEE, fitness goals, and customizable macro splits.",
+    icon: "macro",
+    href: "/tools/macro-calculator",
+    color: "from-orange-500 via-amber-500 to-emerald-600",
+    textColor: "text-orange-600 dark:text-orange-400",
+    category: "Health",
+    popular: true
   }
 ];

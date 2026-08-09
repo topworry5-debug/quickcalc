@@ -28,6 +28,15 @@ export const methodologyData: ToolMethodology[] = [
     detailedParagraph: "We calculate Basal Metabolic Rate (BMR) using the Mifflin-St Jeor equation, proven in clinical trials to estimate baseline caloric expenditure within ±10% for modern adults. Total Daily Energy Expenditure (TDEE) is calculated by multiplying BMR by physical activity level (PAL) coefficients ranging from 1.2 (sedentary) to 1.9 (intense daily training).",
   },
   {
+    slug: "macro-calculator",
+    toolName: "Macro Calculator",
+    category: "Health & Fitness",
+    standardName: "Atwater Energy Coefficients & Macronutrient Gram Distribution Model",
+    formulaText: "Protein (g) = (kcal × P%) / 4 | Carbs (g) = (kcal × C%) / 4 | Fat (g) = (kcal × F%) / 9",
+    summary: "Converts Total Daily Energy Expenditure (TDEE) and goal caloric targets into daily macronutrient gram requirements (protein, carbs, fat).",
+    detailedParagraph: "Macronutrient calculations convert daily target calories into specific gram targets using standard Atwater energy coefficients: 4 calories per gram for protein and carbohydrates, and 9 calories per gram for dietary fat. Target calories are derived from Mifflin-St Jeor TDEE math adjusted for fitness goal deficits (-500 kcal for fat loss) or surpluses (+500 kcal for muscle gain).",
+  },
+  {
     slug: "water-intake-calculator",
     toolName: "Water Intake Calculator",
     category: "Health & Fitness",
@@ -98,6 +107,15 @@ export const methodologyData: ToolMethodology[] = [
     formulaText: "Needs = Income × 0.50 | Wants = Income × 0.30 | Savings = Income × 0.20",
     summary: "Splits net monthly income into 50% essential needs, 30% discretionary wants, and 20% savings & debt reduction.",
     detailedParagraph: "Budgets are generated according to the 50/30/20 financial planning rule popularized by Senator Elizabeth Warren. Net take-home income is allocated into 50% essential needs (housing, utilities, food), 30% discretionary wants, and 20% savings and high-interest debt repayment.",
+  },
+  {
+    slug: "freelance-rate-calculator",
+    toolName: "Freelance Rate Calculator",
+    category: "Finance & Math",
+    standardName: "Billable Utilization & Overhead Revenue Cost Model",
+    formulaText: "Minimum Rate = (Desired Net Income + Annual Expenses) / (Work Weeks × Weekly Hours × Billable %)",
+    summary: "Calculates baseline billable hourly and daily rates to cover target net income, operating expenses, taxes, and non-billable overhead hours.",
+    detailedParagraph: "Freelance hourly rate calculations divide total required gross annual revenue (desired personal net income plus annual business operating expenses) by total annual billable hours. Billable hours account for annual active work weeks (excluding vacation and holidays) and the billable time ratio (typically 70%), ensuring that unbilled administrative, marketing, and sales hours are fully subsidized by billable client work.",
   },
   {
     slug: "savings-growth-calculator",
