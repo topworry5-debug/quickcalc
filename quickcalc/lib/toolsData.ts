@@ -58,6 +58,16 @@ export const tools: Tool[] = [
     category: "Health"
   },
   {
+    title: "Intermittent Fasting Calculator",
+    description: "Calculate your 16:8, 18:6, 20:4, or OMAD fasting windows with a live real-time ticking countdown timer and visual 24h timeline.",
+    icon: "timer",
+    href: "/tools/intermittent-fasting-calculator",
+    color: "from-teal-500 to-emerald-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Health",
+    popular: true
+  },
+  {
     title: "Shoe Size Converter",
     description: "Convert shoe sizes instantly between US, UK, EU, and Japan systems simultaneously with built-in brand variance guidance.",
     icon: "shoe-size",
@@ -92,6 +102,16 @@ export const tools: Tool[] = [
     color: "from-blue-500 to-indigo-600",
     textColor: "text-blue-600 dark:text-blue-400",
     category: "Utility/Dev"
+  },
+  {
+    title: "AI Token Cost Calculator",
+    description: "Calculate LLM API costs for GPT-4o, Claude 3.5, Gemini 1.5, DeepSeek and custom models with side-by-side cost comparison.",
+    icon: "cpu",
+    href: "/tools/ai-token-cost-calculator",
+    color: "from-teal-600 to-cyan-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Utility/Dev",
+    popular: true
   },
   {
     title: "Sleep Cycle Calculator",

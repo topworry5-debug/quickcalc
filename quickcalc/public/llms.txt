@@ -13,7 +13,9 @@
 - [Paper & Fabric Size Converter](https://quickcalc.cloud/tools/paper-fabric-size-converter): Converts ISO 216 paper dimensions (A4, A3, Letter) and fabric length/yardage measurements.
 - [JSON & CSV Converter](https://quickcalc.cloud/tools/json-csv-converter): Converts structured JSON data to CSV format and vice versa with automatic object flattening in local browser memory.
 - [Regex Tester](https://quickcalc.cloud/tools/regex-tester): Evaluates and debugs JavaScript regular expression patterns against test strings with real-time match highlighting.
+- [AI Token Cost Calculator](https://quickcalc.cloud/tools/ai-token-cost-calculator): Calculates LLM API prompt and completion costs for GPT-4o, Claude 3.5, Gemini 1.5, and DeepSeek with side-by-side model comparison.
 - [Sleep Cycle Calculator](https://quickcalc.cloud/tools/sleep-cycle-calculator): Calculates optimal bedtime and wake-up schedules based on 90-minute REM sleep cycle timing.
+- [Intermittent Fasting Calculator](https://quickcalc.cloud/tools/intermittent-fasting-calculator): Calculates 16:8, 18:6, 20:4, and OMAD fasting windows with real-time ticking phase countdown timers and 24h timeline visuals.
 - [GPA Converter](https://quickcalc.cloud/tools/gpa-converter): Converts percentage marks and letter grades from US, UK, Canada, India, and Pakistan to a standard 4.0 GPA scale.
 - [Loan / EMI Calculator](https://quickcalc.cloud/tools/loan-calculator): Calculates monthly Equated Monthly Installments (EMI), total interest payable, and full loan amortization schedules.
 - [Color Palette Generator](https://quickcalc.cloud/tools/color-palette-generator): Extracts dominant color palettes from uploaded images and evaluates WCAG AA/AAA contrast ratios.

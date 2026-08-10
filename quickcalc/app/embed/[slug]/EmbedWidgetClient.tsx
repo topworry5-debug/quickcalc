@@ -43,6 +43,7 @@ const GPAConverterWidget = dynamic(() => import("@/app/tools/gpa-converter/GPACo
 const HabitCostCalculatorWidget = dynamic(() => import("@/app/tools/habit-cost-calculator/HabitCostCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const PregnancyWeightGainCalculatorWidget = dynamic(() => import("@/app/tools/pregnancy-weight-gain-calculator/PregnancyWeightGainCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const SleepCycleCalculatorWidget = dynamic(() => import("@/app/tools/sleep-cycle-calculator/SleepCycleCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const IntermittentFastingWidget = dynamic(() => import("@/app/tools/intermittent-fasting-calculator/IntermittentFastingWidget"), { loading: () => <WidgetSkeleton /> });
 const TimezonePlannerWidget = dynamic(() => import("@/app/tools/timezone-meeting-planner/TimezonePlannerWidget"), { loading: () => <WidgetSkeleton /> });
 const ShoeSizeConverterWidget = dynamic(() => import("@/app/tools/shoe-size-converter/ShoeSizeConverterWidget"), { loading: () => <WidgetSkeleton /> });
 const PaperFabricConverterWidget = dynamic(() => import("@/app/tools/paper-fabric-size-converter/PaperFabricConverterWidget"), { loading: () => <WidgetSkeleton /> });
@@ -52,6 +53,7 @@ const ColorPaletteGeneratorWidget = dynamic(() => import("@/app/tools/color-pale
 const TravelTimeFuelWidget = dynamic(() => import("@/app/tools/travel-time-fuel-calculator/TravelTimeFuelWidget"), { loading: () => <WidgetSkeleton /> });
 const ZakatCalculatorWidget = dynamic(() => import("@/app/tools/zakat-calculator/ZakatCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const BudgetCalculatorWidget = dynamic(() => import("@/app/tools/budget-calculator/BudgetCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const AITokenCostWidget = dynamic(() => import("@/app/tools/ai-token-cost-calculator/AITokenCostWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -105,6 +107,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <PregnancyWeightGainCalculatorWidget />;
       case "sleep-cycle-calculator":
         return <SleepCycleCalculatorWidget />;
+      case "intermittent-fasting-calculator":
+        return <IntermittentFastingWidget />;
       case "timezone-meeting-planner":
         return <TimezonePlannerWidget />;
       case "shoe-size-converter":
@@ -123,6 +127,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <ZakatCalculatorWidget />;
       case "budget-calculator":
         return <BudgetCalculatorWidget />;
+      case "ai-token-cost-calculator":
+        return <AITokenCostWidget />;
       default:
         return <WidgetSkeleton />;
     }

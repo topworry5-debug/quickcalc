@@ -8,6 +8,7 @@ module.exports = {
   additionalPaths: async (config) => {
     const toolSlugs = [
       "age-calculator",
+      "ai-token-cost-calculator",
       "bmi-calculator",
       "budget-calculator",
       "calorie-calculator",
@@ -20,6 +21,7 @@ module.exports = {
       "group-expense-splitter",
       "habit-cost-calculator",
       "inflation-calculator",
+      "intermittent-fasting-calculator",
       "json-csv-converter",
       "loan-calculator",
       "macro-calculator",

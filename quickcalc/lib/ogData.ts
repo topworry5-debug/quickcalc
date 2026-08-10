@@ -28,6 +28,14 @@ export const toolOGData: Record<string, ToolOGData> = {
     accent: "#ecfdf5",
     category: "Health & Wellness",
   },
+  "intermittent-fasting-calculator": {
+    name: "Intermittent Fasting Calculator",
+    tagline: "Live fasting & eating window countdown timer",
+    example: "16:8 Protocol → Fasting 🌙 (04:15:22 left)",
+    gradient: ["#0d9488", "#4f46e5"],
+    accent: "#ecfdf5",
+    category: "Health & Wellness",
+  },
   "calorie-calculator": {
     name: "Calorie Calculator",
     tagline: "Find your daily energy targets (TDEE & BMR)",
@@ -219,6 +227,14 @@ export const toolOGData: Record<string, ToolOGData> = {
     gradient: ["#059669", "#0d9488"],
     accent: "#ecfdf5",
     category: "Converter",
+  },
+  "ai-token-cost-calculator": {
+    name: "AI Token Cost Calculator",
+    tagline: "LLM API cost & monthly volume comparison",
+    example: "GPT-4o ($0.0075/call) vs Gemini Flash ($0.0002/call)",
+    gradient: ["#0d9488", "#0891b2"],
+    accent: "#ecfdf5",
+    category: "Utilities & Dev",
   },
   "json-csv-converter": {
     name: "JSON ↔ CSV Converter",

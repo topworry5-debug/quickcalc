@@ -64,6 +64,15 @@ export const methodologyData: ToolMethodology[] = [
     detailedParagraph: "Estimated Date of Delivery (EDD) is calculated using Naegele’s Rule, the gold standard in clinical obstetrics. The formula adds 280 days (40 weeks) to the first day of the last menstrual period (LMP) assuming a standard 28-day menstrual cycle, providing trimester milestones and gestational progress.",
   },
   {
+    slug: "intermittent-fasting-calculator",
+    toolName: "Intermittent Fasting Calculator",
+    category: "Health & Fitness",
+    standardName: "Circadian Rhythm & Fasting-State Time Partitioning Model",
+    formulaText: "Fasting Window = 24 - Eating Window (Hours) | Live Countdown = Target Phase Time - Current Time",
+    summary: "Calculates precise daily fasting and eating window boundaries with real-time ticking phase countdown timers.",
+    detailedParagraph: "Our intermittent fasting engine computes exact time boundaries for popular schedules (16:8, 18:6, 20:4, OMAD) based on user-designated meal anchor times. It evaluates current local device time every second to calculate phase transitions, progress percentages, and real-time remaining countdowns.",
+  },
+  {
     slug: "pregnancy-weight-gain-calculator",
     toolName: "Pregnancy Weight Gain Calculator",
     category: "Health & Fitness",
@@ -197,6 +206,15 @@ export const methodologyData: ToolMethodology[] = [
     formulaText: "Exact Age = Target Date - Birth Date (in Years, Months, Days)",
     summary: "Calculates exact chronological age in years, months, days, total hours, and minutes accounting for leap years.",
     detailedParagraph: "Chronological age is calculated by computing the exact delta between birth date and target date in UTC time. The algorithm accounts for variable month lengths (28 to 31 days) and leap years (February 29th insertions) to return precise breakdowns.",
+  },
+  {
+    slug: "ai-token-cost-calculator",
+    toolName: "AI Token Cost Calculator",
+    category: "Utilities & Programming",
+    standardName: "Byte-Pair Encoding (BPE) & Autoregressive Inference Cost Model",
+    formulaText: "Total Cost = (Input Tokens / 1M × Input Rate) + (Output Tokens / 1M × Output Rate)",
+    summary: "Calculates LLM API call costs and projected monthly volume budgets across top AI models (GPT-4o, Claude 3.5, Gemini 1.5, DeepSeek).",
+    detailedParagraph: "Our token cost model applies provider-specific per-million-token input and output rates against user prompt volumes. For text inputs, it applies the standard ~0.75 words-per-token ratio to approximate token usage, projecting daily, monthly, and annual API budgets with real-time side-by-side model comparison.",
   },
   {
     slug: "gpa-converter",

@@ -70,6 +70,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/intermittent-fasting-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  Intermittent Fasting
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/macro-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
                   Macro Calculator
                 </Link>
@@ -130,6 +135,11 @@ export default function Footer({ customText }: FooterProps) {
               <ArrowUpRight size={12} className="opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
             </Link>
             <ul className="space-y-2 text-xs text-ink-muted">
+              <li>
+                <Link href="/tools/ai-token-cost-calculator" className="hover:text-ink transition-colors">
+                  AI Token Cost Calculator
+                </Link>
+              </li>
               <li>
                 <Link href="/tools/gpa-converter" className="hover:text-ink transition-colors">
                   GPA Converter
