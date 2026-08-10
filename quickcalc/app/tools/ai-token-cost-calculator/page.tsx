@@ -9,7 +9,7 @@ import MethodologyAccordion from "@/components/MethodologyAccordion";
 import RelatedTools from "@/components/RelatedTools";
 import AITokenCostWidget from "./AITokenCostWidget";
 import { generateSoftwareAppSchema } from "@/lib/schema";
-import { Cpu, Zap, Calculator } from "lucide-react";
+import { Cpu } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Free AI Token Cost Calculator - LLM API Pricing & Monthly Projection",

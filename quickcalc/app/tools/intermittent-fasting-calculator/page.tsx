@@ -9,7 +9,7 @@ import MethodologyAccordion from "@/components/MethodologyAccordion";
 import RelatedTools from "@/components/RelatedTools";
 import IntermittentFastingWidget from "./IntermittentFastingWidget";
 import { generateSoftwareAppSchema } from "@/lib/schema";
-import { Timer, Clock, Flame } from "lucide-react";
+import { Timer } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Free Intermittent Fasting Calculator - Live Fasting & Eating Timer",

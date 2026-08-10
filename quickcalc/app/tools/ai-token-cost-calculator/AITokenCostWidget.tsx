@@ -16,7 +16,7 @@ import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
-import { Cpu, Zap, Calculator, ArrowRightLeft, DollarSign, Layers, Check, Info, FileText } from "lucide-react";
+import { ArrowRightLeft, Info } from "lucide-react";
 
 export default function AITokenCostWidget() {
   const [modelId, setModelId] = useState<string>("gpt-4o");

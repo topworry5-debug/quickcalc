@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo } from "react";
 import {
   FastingProtocolId,
   AnchorType,
@@ -14,7 +14,7 @@ import DownloadPdfButton from "@/components/DownloadPdfButton";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
 import ShareResultButton from "@/components/ShareResultButton";
 import ShareResultModal from "@/components/ShareResultModal";
-import { Clock, Timer, Sparkles, Moon, Utensils, AlertCircle, Info, RefreshCw } from "lucide-react";
+import { Timer, Moon, Utensils, AlertCircle } from "lucide-react";
 
 export default function IntermittentFastingWidget() {
   const [protocolId, setProtocolId] = useState<FastingProtocolId>("16-8");
