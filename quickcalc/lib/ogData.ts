@@ -68,6 +68,22 @@ export const toolOGData: Record<string, ToolOGData> = {
     accent: "#e0f2fe",
     category: "Converters & Utilities",
   },
+  "work-hours-calculator": {
+    name: "Work Hours Calculator",
+    tagline: "Calculate shift hours, break deductions, overnight work & gross pay",
+    example: "40 Net Hrs @ $25/hr → $1,000 Total Gross Pay",
+    gradient: ["#059669", "#0d9488"],
+    accent: "#ecfdf5",
+    category: "Finance & Math",
+  },
+  "qr-code-generator": {
+    name: "QR Code Generator",
+    tagline: "Custom QR codes for URLs, WiFi & vCards with PNG and SVG exports",
+    example: "URL / WiFi / vCard Payload → 100% Free PNG & SVG Vectors",
+    gradient: ["#0d9488", "#059669"],
+    accent: "#ccfbf1",
+    category: "Converters & Utilities",
+  },
   "intermittent-fasting-calculator": {
     name: "Intermittent Fasting Calculator",
     tagline: "Live fasting & eating window countdown timer",

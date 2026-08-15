@@ -108,6 +108,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/work-hours-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Work Hours Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/currency-converter" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                   Live Currency Converter
                 </Link>
@@ -163,6 +168,11 @@ export default function Footer({ customText }: FooterProps) {
               <li>
                 <Link href="/tools/readability-score-calculator" className="hover:text-ink transition-colors">
                   Readability Score Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/qr-code-generator" className="hover:text-ink transition-colors">
+                  QR Code Generator
                 </Link>
               </li>
               <li>

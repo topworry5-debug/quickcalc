@@ -8,6 +8,7 @@ import EmbedWidget from "@/components/EmbedWidget";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 import type { Metadata } from "next";
+import Link from "next/link";
 import PasswordGeneratorWidget from "./PasswordGeneratorWidget";
 import Footer from "@/components/Footer";
 
@@ -212,6 +213,9 @@ export default function PasswordGeneratorPage({ searchParams }: { searchParams?:
                 </ul>
               </li>
             </ul>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed pt-2">
+              Need to share guest WiFi passwords securely without typing long keys? Use our free <Link href="/tools/qr-code-generator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline hover:text-emerald-700">QR Code Generator</Link> to create instant 1-tap connection barcodes for your home or office network.
+            </p>
           </section>
 
           {/* Ad Placement 2 */}

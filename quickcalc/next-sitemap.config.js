@@ -33,6 +33,7 @@ module.exports = {
       "password-generator",
       "percentage-calculator",
       "pregnancy-weight-gain-calculator",
+      "qr-code-generator",
       "readability-score-calculator",
       "regex-tester",
       "retirement-calculator",
@@ -46,6 +47,7 @@ module.exports = {
       "travel-time-fuel-calculator",
       "water-intake-calculator",
       "word-character-counter",
+      "work-hours-calculator",
       "zakat-calculator"
     ];
 

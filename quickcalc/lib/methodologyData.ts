@@ -298,6 +298,15 @@ export const methodologyData: ToolMethodology[] = [
     detailedParagraph: "Our ATS resume engine tokenizes job description text, strips common English stop-words, and ranks domain terms by frequency. It performs suffix stemming (e.g. 'manage/managing/managed') to match candidate experience against position requirements while auditing essential section headers and formatting constraints.",
   },
   {
+    slug: "work-hours-calculator",
+    toolName: "Work Hours / Timesheet Calculator",
+    category: "Finance & Math",
+    standardName: "FLSA Weekly Hour Summation & Overtime Math Model",
+    formulaText: "Net Shift Hours = (End Time - Start Time) - Break Mins | Overtime Pay = OT Hours × (Rate × 1.5)",
+    summary: "Calculates total shift hours, unpaid break deductions, overnight shift spans across midnight, and gross earnings with 1.5x overtime threshold rules.",
+    detailedParagraph: "Our timesheet calculation engine converts clock-in and clock-out time strings into minutes from midnight, applying 24-hour (+1440 mins) modulo adjustments for overnight shifts. It subtracts unpaid break durations and applies 1.5x overtime multipliers for hours exceeding weekly thresholds.",
+  },
+  {
     slug: "readability-score-calculator",
     toolName: "Readability Score Calculator",
     category: "Utilities & Programming",
@@ -305,6 +314,15 @@ export const methodologyData: ToolMethodology[] = [
     formulaText: "Flesch Ease = 206.835 - 1.015(W/S) - 84.6(Syl/W) | Kincaid Grade = 0.39(W/S) + 11.8(Syl/W) - 15.59",
     summary: "Audits text readability in real-time across Flesch Reading Ease, Flesch-Kincaid Grade Level, and Gunning Fog Index using English syllable counting algorithms.",
     detailedParagraph: "Our readability engine parses text into sentences, words, and syllables. It evaluates Flesch Reading Ease (0-100 scale), Flesch-Kincaid Grade Level (US school grades), and Gunning Fog Index (years of formal education needed) while providing detailed lexical statistics.",
+  },
+  {
+    slug: "qr-code-generator",
+    toolName: "QR Code Generator",
+    category: "Utilities & Programming",
+    standardName: "ISO/IEC 18004 QR Code Matrix & Reed-Solomon Error Correction Model",
+    formulaText: "Error Correction Capability: L (~7%), M (~15%), Q (~25%), H (~30%)",
+    summary: "Encodes website URLs, WiFi network credentials, and vCard contact cards into two-dimensional matrix QR codes with custom color palettes and high-resolution PNG/SVG vector exports.",
+    detailedParagraph: "Our QR code generation engine formats structured payload strings (URL, WiFi, vCard 3.0) and renders matrix modules using Reed-Solomon error correction algorithms. It supports custom foreground/background colors and automatic High Error Correction (H - 30%) when embedding center logo overlays.",
   },
   {
     slug: "digital-storage-converter",

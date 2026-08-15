@@ -39,6 +39,8 @@ import {
   Mic,
   FileCheck,
   BookOpen,
+  Clock,
+  QrCode,
   Calculator,
   LucideIcon,
 } from "lucide-react";
@@ -123,6 +125,10 @@ const iconMap: Record<string, LucideIcon> = {
   "file-check": FileCheck,
   readability: BookOpen,
   "book-open": BookOpen,
+  "work-hours": Clock,
+  clock: Clock,
+  "qr-code": QrCode,
+  "scan-line": QrCode,
 };
 
 // Also map raw emoji or legacy icon names to icons

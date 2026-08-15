@@ -59,6 +59,8 @@ const DigitalStorageWidget = dynamic(() => import("@/app/tools/digital-storage-c
 const SpeechTimeWidget = dynamic(() => import("@/app/tools/speech-time-calculator/SpeechTimeWidget"), { loading: () => <WidgetSkeleton /> });
 const AtsResumeWidget = dynamic(() => import("@/app/tools/ats-resume-checker/AtsResumeWidget"), { loading: () => <WidgetSkeleton /> });
 const ReadabilityWidget = dynamic(() => import("@/app/tools/readability-score-calculator/ReadabilityWidget"), { loading: () => <WidgetSkeleton /> });
+const WorkHoursWidget = dynamic(() => import("@/app/tools/work-hours-calculator/WorkHoursWidget"), { loading: () => <WidgetSkeleton /> });
+const QrCodeWidget = dynamic(() => import("@/app/tools/qr-code-generator/QrCodeWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -144,6 +146,10 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <AtsResumeWidget />;
       case "readability-score-calculator":
         return <ReadabilityWidget />;
+      case "work-hours-calculator":
+        return <WorkHoursWidget />;
+      case "qr-code-generator":
+        return <QrCodeWidget />;
       default:
         return <WidgetSkeleton />;
     }

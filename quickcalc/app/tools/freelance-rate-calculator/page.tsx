@@ -193,7 +193,7 @@ export default function FreelanceRateCalculatorPage({
               Our calculator accounts for working week availability (typically 48 weeks per year after accounting for 4 weeks of vacation, holidays, and sick days) as well as the <strong className="text-zinc-800 dark:text-zinc-200">Billable Hours Ratio</strong>. On average, self-employed professionals only spend 60% to 75% of their working hours on billable client work. The remaining hours are spent on marketing, proposal drafting, administrative accounting, and professional development.
             </p>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              You can also use our <Link href="/tools/salary-take-home-calculator" className="text-teal-600 dark:text-teal-400 underline hover:text-teal-700">Salary Take-Home Calculator</Link> to cross-reference corporate net salaries or our <Link href="/tools/budget-calculator" className="text-teal-600 dark:text-teal-400 underline hover:text-teal-700">50/30/20 Budget Calculator</Link> to structure your personal living expenses.
+              You can also use our <Link href="/tools/salary-take-home-calculator" className="text-teal-600 dark:text-teal-400 underline hover:text-teal-700">Salary Take-Home Calculator</Link> to cross-reference corporate net salaries, our <Link href="/tools/work-hours-calculator" className="text-emerald-600 dark:text-emerald-400 font-semibold underline hover:text-emerald-700">Work Hours / Timesheet Calculator</Link> to log billable client hours, or our <Link href="/tools/budget-calculator" className="text-teal-600 dark:text-teal-400 underline hover:text-teal-700">50/30/20 Budget Calculator</Link> to structure your personal living expenses.
             </p>
           </section>
 

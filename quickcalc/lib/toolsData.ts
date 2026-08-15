@@ -140,6 +140,15 @@ export const tools: Tool[] = [
     category: "Utility/Dev"
   },
   {
+    title: "QR Code Generator",
+    description: "Generate custom high-resolution QR codes for URLs, WiFi networks, and vCard contacts with PNG and SVG vector downloads.",
+    icon: "qr-code",
+    href: "/tools/qr-code-generator",
+    color: "from-emerald-600 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Utility/Dev"
+  },
+  {
     title: "Regex Tester",
     description: "Test and debug regular expressions instantly with live colored highlighting and plain-language pattern explanations.",
     icon: "regex",
@@ -186,6 +195,15 @@ export const tools: Tool[] = [
     textColor: "text-teal-600 dark:text-teal-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Work Hours / Timesheet Calculator",
+    description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
+    icon: "work-hours",
+    href: "/tools/work-hours-calculator",
+    color: "from-emerald-600 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance"
   },
   {
     title: "Color Palette Generator",
