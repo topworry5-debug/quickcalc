@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "404 - Page Not Found | QuickCalc",
-  description: "The page or calculator tool you requested could not be found. Explore our 31+ precision calculators.",
+  description: "The page or calculator tool you requested could not be found. Explore our 44+ precision calculators.",
 };
 
 const popularTools = [

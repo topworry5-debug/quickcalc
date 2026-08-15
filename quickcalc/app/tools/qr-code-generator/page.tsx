@@ -220,6 +220,13 @@ export default function QrCodePage({
                 className="text-emerald-600 dark:text-emerald-400 font-semibold underline hover:text-emerald-700"
               >
                 Secure Password Generator
+              </Link>{" "}
+              or extract custom brand hex colors for your QR design using our{" "}
+              <Link
+                href="/tools/color-palette-generator"
+                className="text-teal-600 dark:text-teal-400 font-semibold underline hover:text-teal-700"
+              >
+                Color Palette Generator
               </Link>.
             </p>
           </section>

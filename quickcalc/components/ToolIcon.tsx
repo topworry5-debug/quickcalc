@@ -42,6 +42,7 @@ import {
   Clock,
   QrCode,
   Gauge,
+  Cpu,
   Calculator,
   LucideIcon,
 } from "lucide-react";
@@ -87,6 +88,8 @@ const iconMap: Record<string, LucideIcon> = {
   calorie: Flame,
   water: Droplet,
   pace: Timer,
+  timer: Timer,
+  cpu: Cpu,
   "due-date": Baby,
   "shoe-size": Ruler,
   "paper-fabric": FileText,

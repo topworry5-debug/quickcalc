@@ -83,7 +83,7 @@ export default function InstallPwaPrompt() {
               </span>
             </div>
             <p className="text-xs text-ink-muted leading-relaxed mt-0.5">
-              Add to home screen for instant, 100% offline access to 31+ calculators with zero ads.
+              Add to home screen for instant, 100% offline access to 44+ calculators with zero ads.
             </p>
           </div>
         </div>

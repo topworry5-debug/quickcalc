@@ -214,6 +214,13 @@ export default function ReadabilityScorePage({
                 className="text-teal-600 dark:text-teal-400 font-semibold underline hover:text-teal-700"
               >
                 Word &amp; Character Counter
+              </Link>{" "}
+              or scan job descriptions for keyword match rates using our{" "}
+              <Link
+                href="/tools/ats-resume-checker"
+                className="text-emerald-600 dark:text-emerald-400 font-semibold underline hover:text-emerald-700"
+              >
+                ATS Resume Score Checker
               </Link>.
             </p>
           </section>

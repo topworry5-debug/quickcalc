@@ -1659,7 +1659,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
               href="/"
               className="inline-flex items-center gap-1.5 text-sm font-bold text-teal-600 dark:text-teal-400 hover:underline min-h-[44px]"
             >
-              <span>Explore all 31+ calculators</span>
+              <span>Explore all 44+ calculators</span>
               <ArrowRight size={16} />
             </Link>
           </div>

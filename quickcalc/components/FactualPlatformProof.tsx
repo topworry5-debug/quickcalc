@@ -7,7 +7,7 @@ export default function FactualPlatformProof() {
   const stats = [
     {
       icon: Cpu,
-      value: "31+",
+      value: "44+",
       label: "Precision Calculators",
       subtext: "Across Health, Finance, Utility & Planning",
     },
