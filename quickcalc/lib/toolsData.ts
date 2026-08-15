@@ -7,6 +7,7 @@ export interface Tool {
   textColor: string;
   category: "Health" | "Finance" | "Converter" | "Utility/Dev" | "Planning";
   popular?: boolean;
+  badge?: string;
 }
 
 export const tools: Tool[] = [
@@ -222,6 +223,16 @@ export const tools: Tool[] = [
     color: "from-emerald-500 to-teal-600",
     textColor: "text-emerald-600 dark:text-emerald-400",
     category: "Utility/Dev"
+  },
+  {
+    title: "Internet Speed Test",
+    description: "Measure real-time download Mbps, upload Mbps, ping latency, and jitter free with no ads or tracking.",
+    icon: "gauge",
+    href: "/tools/internet-speed-test",
+    color: "from-blue-600 to-indigo-600",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Utility/Dev",
+    badge: "New"
   },
   {
     title: "Word & Character Counter",

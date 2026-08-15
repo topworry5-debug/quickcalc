@@ -325,6 +325,15 @@ export const methodologyData: ToolMethodology[] = [
     detailedParagraph: "Our readability engine parses text into sentences, words, and syllables. It evaluates Flesch Reading Ease (0-100 scale), Flesch-Kincaid Grade Level (US school grades), and Gunning Fog Index (years of formal education needed) while providing detailed lexical statistics.",
   },
   {
+    slug: "internet-speed-test",
+    toolName: "Internet Speed Test",
+    category: "Utilities & Programming",
+    standardName: "Streaming HTTP Chunk Bandwidth & Latency Sampling Model",
+    formulaText: "Mbps = (Bytes × 8) / (1,000,000 × Seconds) | Jitter = Mean(|Ping_{i+1} - Ping_i|)",
+    summary: "Measures real-time download Mbps, upload Mbps, ping latency, and jitter using streaming HTTP binary chunk payloads with TCP slow-start window filtering.",
+    detailedParagraph: "Our internet speed test engine streams uncompressible binary chunks between the browser and our server API endpoints over 4.5-second sampling windows. It discards initial 300ms TCP slow-start warmup intervals to calculate uncompressed throughput, ping latency, and jitter.",
+  },
+  {
     slug: "qr-code-generator",
     toolName: "QR Code Generator",
     category: "Utilities & Programming",

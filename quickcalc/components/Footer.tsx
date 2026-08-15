@@ -181,6 +181,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/internet-speed-test" className="hover:text-ink transition-colors">
+                  Internet Speed Test
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/gpa-converter" className="hover:text-ink transition-colors">
                   GPA Converter
                 </Link>

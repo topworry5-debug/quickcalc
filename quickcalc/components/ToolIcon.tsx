@@ -41,6 +41,7 @@ import {
   BookOpen,
   Clock,
   QrCode,
+  Gauge,
   Calculator,
   LucideIcon,
 } from "lucide-react";
@@ -130,6 +131,8 @@ const iconMap: Record<string, LucideIcon> = {
   "qr-code": QrCode,
   "scan-line": QrCode,
   "retirement-withdrawal": TrendingUp,
+  gauge: Gauge,
+  "speed-test": Gauge,
 };
 
 // Also map raw emoji or legacy icon names to icons

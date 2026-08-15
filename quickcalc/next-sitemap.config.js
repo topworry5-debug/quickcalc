@@ -25,6 +25,7 @@ module.exports = {
       "habit-cost-calculator",
       "inflation-calculator",
       "intermittent-fasting-calculator",
+      "internet-speed-test",
       "json-csv-converter",
       "loan-calculator",
       "macro-calculator",

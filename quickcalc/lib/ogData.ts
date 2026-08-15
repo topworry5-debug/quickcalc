@@ -92,6 +92,14 @@ export const toolOGData: Record<string, ToolOGData> = {
     accent: "#ccfbf1",
     category: "Converters & Utilities",
   },
+  "internet-speed-test": {
+    name: "Internet Speed Test",
+    tagline: "Test real-time download Mbps, upload Mbps, ping & jitter — no ads",
+    example: "Download: 125.4 Mbps | Upload: 28.5 Mbps | Ping: 18 ms",
+    gradient: ["#2563eb", "#4f46e5"],
+    accent: "#dbeafe",
+    category: "Converters & Utilities",
+  },
   "intermittent-fasting-calculator": {
     name: "Intermittent Fasting Calculator",
     tagline: "Live fasting & eating window countdown timer",
