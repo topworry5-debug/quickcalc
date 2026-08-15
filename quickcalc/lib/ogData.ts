@@ -76,6 +76,14 @@ export const toolOGData: Record<string, ToolOGData> = {
     accent: "#ecfdf5",
     category: "Finance & Math",
   },
+  "retirement-withdrawal-simulator": {
+    name: "Retirement Withdrawal Simulator",
+    tagline: "Backtest withdrawal rates across 96 years of US stock, bond & CPI data",
+    example: "4% Withdrawal Rate → 92.5% Historical Survival Rate",
+    gradient: ["#047857", "#4338ca"],
+    accent: "#e0e7ff",
+    category: "Finance & Math",
+  },
   "qr-code-generator": {
     name: "QR Code Generator",
     tagline: "Custom QR codes for URLs, WiFi & vCards with PNG and SVG exports",

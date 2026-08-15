@@ -61,6 +61,7 @@ const AtsResumeWidget = dynamic(() => import("@/app/tools/ats-resume-checker/Ats
 const ReadabilityWidget = dynamic(() => import("@/app/tools/readability-score-calculator/ReadabilityWidget"), { loading: () => <WidgetSkeleton /> });
 const WorkHoursWidget = dynamic(() => import("@/app/tools/work-hours-calculator/WorkHoursWidget"), { loading: () => <WidgetSkeleton /> });
 const QrCodeWidget = dynamic(() => import("@/app/tools/qr-code-generator/QrCodeWidget"), { loading: () => <WidgetSkeleton /> });
+const RetirementWithdrawalWidget = dynamic(() => import("@/app/tools/retirement-withdrawal-simulator/RetirementWithdrawalWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -150,6 +151,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <WorkHoursWidget />;
       case "qr-code-generator":
         return <QrCodeWidget />;
+      case "retirement-withdrawal-simulator":
+        return <RetirementWithdrawalWidget />;
       default:
         return <WidgetSkeleton />;
     }

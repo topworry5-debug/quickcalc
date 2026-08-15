@@ -113,6 +113,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/retirement-withdrawal-simulator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                  Retirement Withdrawal Simulator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/currency-converter" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                   Live Currency Converter
                 </Link>

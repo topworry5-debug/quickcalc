@@ -206,6 +206,15 @@ export const tools: Tool[] = [
     category: "Finance"
   },
   {
+    title: "Retirement Safe Withdrawal Rate Simulator",
+    description: "Backtest portfolio withdrawal rates across 96 years of US stock, bond, and CPI inflation data to calculate portfolio survival probability.",
+    icon: "retirement-withdrawal",
+    href: "/tools/retirement-withdrawal-simulator",
+    color: "from-emerald-700 to-indigo-800",
+    textColor: "text-emerald-700 dark:text-emerald-400",
+    category: "Finance"
+  },
+  {
     title: "Color Palette Generator",
     description: "Extract up to 8 beautiful dominant colors from any image. Analyze WCAG contrast compliance and export custom CSS/Tailwind configurations.",
     icon: "color-palette",

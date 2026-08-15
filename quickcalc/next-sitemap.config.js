@@ -37,6 +37,7 @@ module.exports = {
       "readability-score-calculator",
       "regex-tester",
       "retirement-calculator",
+      "retirement-withdrawal-simulator",
       "salary-take-home-calculator",
       "savings-growth-calculator",
       "shoe-size-converter",

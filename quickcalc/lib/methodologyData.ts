@@ -307,6 +307,15 @@ export const methodologyData: ToolMethodology[] = [
     detailedParagraph: "Our timesheet calculation engine converts clock-in and clock-out time strings into minutes from midnight, applying 24-hour (+1440 mins) modulo adjustments for overnight shifts. It subtracts unpaid break durations and applies 1.5x overtime multipliers for hours exceeding weekly thresholds.",
   },
   {
+    slug: "retirement-withdrawal-simulator",
+    toolName: "Retirement Safe Withdrawal Rate Simulator",
+    category: "Finance & Math",
+    standardName: "Bengen 4% Rule & Trinity Study Historical Backtesting Model",
+    formulaText: "Annual Withdrawal_t = Annual Withdrawal_{t-1} × (1 + CPI_t) | Portfolio Growth = Balance × (1 + R_weighted)",
+    summary: "Backtests retirement withdrawal sustainability across 96 years of US historical stock, bond, and CPI market data (1928-2023) to compute sequence survival probability.",
+    detailedParagraph: "Our retirement safe withdrawal rate engine evaluates rolling N-year distribution sequences starting from every possible year in our 96-year US market dataset. It applies user-defined stock/bond allocation weighting (S&P 500 total return vs 10-Year Treasury bonds) and annual CPI inflation adjustments to test portfolio longevity and sequence-of-returns risk.",
+  },
+  {
     slug: "readability-score-calculator",
     toolName: "Readability Score Calculator",
     category: "Utilities & Programming",

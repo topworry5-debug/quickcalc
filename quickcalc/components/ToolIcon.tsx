@@ -129,6 +129,7 @@ const iconMap: Record<string, LucideIcon> = {
   clock: Clock,
   "qr-code": QrCode,
   "scan-line": QrCode,
+  "retirement-withdrawal": TrendingUp,
 };
 
 // Also map raw emoji or legacy icon names to icons
