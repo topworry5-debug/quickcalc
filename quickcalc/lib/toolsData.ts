@@ -122,6 +122,24 @@ export const tools: Tool[] = [
     category: "Utility/Dev"
   },
   {
+    title: "ATS Resume Score Checker",
+    description: "Compare your resume against job postings to find missing keywords and calculate ATS match scores 100% privately in browser memory.",
+    icon: "ats-resume",
+    href: "/tools/ats-resume-checker",
+    color: "from-emerald-600 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Utility/Dev"
+  },
+  {
+    title: "Readability Score Calculator",
+    description: "Audit text readability live with Flesch Reading Ease, Flesch-Kincaid Grade Level, and Gunning Fog Index.",
+    icon: "readability",
+    href: "/tools/readability-score-calculator",
+    color: "from-teal-600 to-cyan-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Utility/Dev"
+  },
+  {
     title: "Regex Tester",
     description: "Test and debug regular expressions instantly with live colored highlighting and plain-language pattern explanations.",
     icon: "regex",

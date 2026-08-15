@@ -37,6 +37,8 @@ import {
   PieChart,
   HardDrive,
   Mic,
+  FileCheck,
+  BookOpen,
   Calculator,
   LucideIcon,
 } from "lucide-react";
@@ -117,6 +119,10 @@ const iconMap: Record<string, LucideIcon> = {
   "hard-drive": HardDrive,
   "speech-time": Mic,
   mic: Mic,
+  "ats-resume": FileCheck,
+  "file-check": FileCheck,
+  readability: BookOpen,
+  "book-open": BookOpen,
 };
 
 // Also map raw emoji or legacy icon names to icons

@@ -57,6 +57,8 @@ const AITokenCostWidget = dynamic(() => import("@/app/tools/ai-token-cost-calcul
 const GFRCalculatorWidget = dynamic(() => import("@/app/tools/gfr-kidney-function-calculator/GFRCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const DigitalStorageWidget = dynamic(() => import("@/app/tools/digital-storage-converter/DigitalStorageWidget"), { loading: () => <WidgetSkeleton /> });
 const SpeechTimeWidget = dynamic(() => import("@/app/tools/speech-time-calculator/SpeechTimeWidget"), { loading: () => <WidgetSkeleton /> });
+const AtsResumeWidget = dynamic(() => import("@/app/tools/ats-resume-checker/AtsResumeWidget"), { loading: () => <WidgetSkeleton /> });
+const ReadabilityWidget = dynamic(() => import("@/app/tools/readability-score-calculator/ReadabilityWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -138,6 +140,10 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <DigitalStorageWidget />;
       case "speech-time-calculator":
         return <SpeechTimeWidget />;
+      case "ats-resume-checker":
+        return <AtsResumeWidget />;
+      case "readability-score-calculator":
+        return <ReadabilityWidget />;
       default:
         return <WidgetSkeleton />;
     }

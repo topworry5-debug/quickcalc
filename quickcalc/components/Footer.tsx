@@ -156,6 +156,16 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/ats-resume-checker" className="hover:text-ink transition-colors">
+                  ATS Resume Checker
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/readability-score-calculator" className="hover:text-ink transition-colors">
+                  Readability Score Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/gpa-converter" className="hover:text-ink transition-colors">
                   GPA Converter
                 </Link>

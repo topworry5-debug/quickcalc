@@ -9,6 +9,7 @@ module.exports = {
     const toolSlugs = [
       "age-calculator",
       "ai-token-cost-calculator",
+      "ats-resume-checker",
       "bmi-calculator",
       "budget-calculator",
       "calorie-calculator",
@@ -32,6 +33,7 @@ module.exports = {
       "password-generator",
       "percentage-calculator",
       "pregnancy-weight-gain-calculator",
+      "readability-score-calculator",
       "regex-tester",
       "retirement-calculator",
       "salary-take-home-calculator",

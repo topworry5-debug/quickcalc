@@ -52,6 +52,22 @@ export const toolOGData: Record<string, ToolOGData> = {
     accent: "#ccfbf1",
     category: "Converters & Utilities",
   },
+  "ats-resume-checker": {
+    name: "ATS Resume Score Checker",
+    tagline: "Instant keyword match score & ATS formatting audit — 100% private",
+    example: "ATS Score 82% → 18 Matched, 4 Missing Terms",
+    gradient: ["#059669", "#0d9488"],
+    accent: "#ecfdf5",
+    category: "Converters & Utilities",
+  },
+  "readability-score-calculator": {
+    name: "Readability Score Calculator",
+    tagline: "Audit text readability live with Flesch Reading Ease & Grade Level",
+    example: "Flesch Reading Ease 68.4 → 7th Grade Plain English",
+    gradient: ["#0d9488", "#0284c7"],
+    accent: "#e0f2fe",
+    category: "Converters & Utilities",
+  },
   "intermittent-fasting-calculator": {
     name: "Intermittent Fasting Calculator",
     tagline: "Live fasting & eating window countdown timer",
