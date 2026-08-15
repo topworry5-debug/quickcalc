@@ -44,6 +44,7 @@ import WordCharacterCounterGuideArticle from "../data/word-character-counter-gui
 import PaperFabricGuideArticle from "../data/paper-fabric-guide-article";
 import HabitCostGuideArticle from "../data/habit-cost-guide-article";
 import RetirementSavingsStartingEarlyArticle from "../data/retirement-savings-starting-early-article";
+import IntermittentFastingScheduleGuideArticle from "../data/intermittent-fasting-schedule-guide-article";
 import ShareButtons from "@/components/ShareButtons";
 
 interface BlogPostProps {
@@ -53,6 +54,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "intermittent-fasting-schedule-guide-16-8-18-6-omad": IntermittentFastingScheduleGuideArticle,
   "why-starting-retirement-savings-early-matters-more-than-you-think": RetirementSavingsStartingEarlyArticle,
   "how-to-calculate-the-cost-of-daily-habits-financial-guide": HabitCostGuideArticle,
   "how-to-convert-paper-and-fabric-sizes-dimensions-guide": PaperFabricGuideArticle,
@@ -92,6 +94,12 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "intermittent-fasting-schedule-guide-16-8-18-6-omad": {
+    title: "Intermittent Fasting Calculator",
+    href: "/tools/intermittent-fasting-calculator",
+    description: "Calculate 16:8, 18:6, and OMAD fasting windows with a live real-time ticking countdown timer.",
+    icon: "timer",
+  },
   "why-starting-retirement-savings-early-matters-more-than-you-think": {
     title: "Retirement Calculator",
     href: "/tools/retirement-calculator",

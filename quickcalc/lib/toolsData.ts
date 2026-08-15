@@ -68,6 +68,15 @@ export const tools: Tool[] = [
     popular: true
   },
   {
+    title: "GFR & Kidney Function Calculator",
+    description: "Calculate estimated GFR (eGFR) using the 2021 race-free CKD-EPI creatinine equation and evaluate clinical CKD stage bands instantly.",
+    icon: "gfr",
+    href: "/tools/gfr-kidney-function-calculator",
+    color: "from-emerald-600 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Health"
+  },
+  {
     title: "Shoe Size Converter",
     description: "Convert shoe sizes instantly between US, UK, EU, and Japan systems simultaneously with built-in brand variance guidance.",
     icon: "shoe-size",
@@ -86,12 +95,30 @@ export const tools: Tool[] = [
     category: "Converter"
   },
   {
+    title: "Digital Storage Converter",
+    description: "Convert bits, Bytes, KB, MB, GB, TB, and PB simultaneously with binary 1024 vs decimal 1000 precision and OS capacity insight.",
+    icon: "digital-storage",
+    href: "/tools/digital-storage-converter",
+    color: "from-blue-600 to-indigo-600",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Converter"
+  },
+  {
     title: "JSON & CSV Converter",
     description: "Convert JSON to CSV and CSV back to nested JSON structures securely in browser memory. 100% private client-side translation.",
     icon: "json-csv",
     href: "/tools/json-csv-converter",
     color: "from-zinc-700 to-zinc-900",
     textColor: "text-zinc-700 dark:text-zinc-300",
+    category: "Utility/Dev"
+  },
+  {
+    title: "Words-to-Minutes / Speech Time Calculator",
+    description: "Convert text script word counts into estimated speech duration, or calculate target word counts for time-capped presentations.",
+    icon: "speech-time",
+    href: "/tools/speech-time-calculator",
+    color: "from-teal-600 to-emerald-600",
+    textColor: "text-teal-600 dark:text-teal-400",
     category: "Utility/Dev"
   },
   {

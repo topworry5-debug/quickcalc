@@ -35,6 +35,8 @@ import {
   Fuel,
   Briefcase,
   PieChart,
+  HardDrive,
+  Mic,
   Calculator,
   LucideIcon,
 } from "lucide-react";
@@ -109,6 +111,12 @@ const iconMap: Record<string, LucideIcon> = {
   "travel-time-fuel": Fuel,
   "freelance-rate": Briefcase,
   macro: PieChart,
+  gfr: Activity,
+  "gfr-kidney-function": Activity,
+  "digital-storage": HardDrive,
+  "hard-drive": HardDrive,
+  "speech-time": Mic,
+  mic: Mic,
 };
 
 // Also map raw emoji or legacy icon names to icons

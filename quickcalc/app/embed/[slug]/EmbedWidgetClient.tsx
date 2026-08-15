@@ -54,6 +54,9 @@ const TravelTimeFuelWidget = dynamic(() => import("@/app/tools/travel-time-fuel-
 const ZakatCalculatorWidget = dynamic(() => import("@/app/tools/zakat-calculator/ZakatCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const BudgetCalculatorWidget = dynamic(() => import("@/app/tools/budget-calculator/BudgetCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const AITokenCostWidget = dynamic(() => import("@/app/tools/ai-token-cost-calculator/AITokenCostWidget"), { loading: () => <WidgetSkeleton /> });
+const GFRCalculatorWidget = dynamic(() => import("@/app/tools/gfr-kidney-function-calculator/GFRCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const DigitalStorageWidget = dynamic(() => import("@/app/tools/digital-storage-converter/DigitalStorageWidget"), { loading: () => <WidgetSkeleton /> });
+const SpeechTimeWidget = dynamic(() => import("@/app/tools/speech-time-calculator/SpeechTimeWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -129,6 +132,12 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <BudgetCalculatorWidget />;
       case "ai-token-cost-calculator":
         return <AITokenCostWidget />;
+      case "gfr-kidney-function-calculator":
+        return <GFRCalculatorWidget />;
+      case "digital-storage-converter":
+        return <DigitalStorageWidget />;
+      case "speech-time-calculator":
+        return <SpeechTimeWidget />;
       default:
         return <WidgetSkeleton />;
     }

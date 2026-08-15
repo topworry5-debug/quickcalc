@@ -39,6 +39,7 @@
 
 ## Articles & Educational Guides
 
+- [Intermittent Fasting Schedule Guide: How to Choose & Time 16:8, 18:6, and OMAD](https://quickcalc.cloud/blog/intermittent-fasting-schedule-guide-16-8-18-6-omad): Comprehensive guide explaining fasting window protocols, hydration rules, and meal timing math.
 - [Why Starting Retirement Savings Early Matters More Than You Think](https://quickcalc.cloud/blog/why-starting-retirement-savings-early-matters-more-than-you-think): Guide explaining how compound interest and time horizon impact long-term wealth accumulation.
 - [How to Calculate the Cost of Daily Habits: Financial Guide](https://quickcalc.cloud/blog/how-to-calculate-the-cost-of-daily-habits-financial-guide): Step-by-step guide to calculating compounding financial and time costs of daily expenses.
 - [How to Convert Paper & Fabric Sizes: Dimensions Guide](https://quickcalc.cloud/blog/how-to-convert-paper-and-fabric-sizes-dimensions-guide): Comprehensive reference guide for ISO 216 paper formats and textile measurements.

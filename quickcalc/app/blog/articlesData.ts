@@ -14,6 +14,19 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "intermittent-fasting-schedule-guide-16-8-18-6-omad",
+    title: "Intermittent Fasting Schedule Guide: How to Choose & Time 16:8, 18:6, and OMAD",
+    description: "Learn how to structure and time intermittent fasting windows (16:8, 18:6, OMAD). Discover meal timing, hydration rules, and live calculation tools.",
+    excerpt: "Learn how to structure and time intermittent fasting windows (16:8, 18:6, OMAD). Discover meal timing, hydration rules, and live calculation tools.",
+    date: "August 10, 2026",
+    readTime: "9 min read",
+    category: "Health & Fitness",
+    icon: "timer",
+    color: "from-teal-500 to-emerald-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    featured: true,
+  },
+  {
     slug: "why-starting-retirement-savings-early-matters-more-than-you-think",
     title: "Why Starting Retirement Savings Early Matters More Than You Think",
     description: "Discover why starting retirement savings early matters more than contributing higher amounts later. See worked compound growth examples and clear benchmarks.",
@@ -24,7 +37,6 @@ export const articles: Article[] = [
     icon: "retirement",
     color: "from-emerald-600 to-teal-600",
     textColor: "text-emerald-600 dark:text-emerald-400",
-    featured: true,
   },
   {
     slug: "how-to-calculate-the-cost-of-daily-habits-financial-guide",

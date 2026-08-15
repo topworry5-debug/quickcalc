@@ -79,6 +79,11 @@ export default function Footer({ customText }: FooterProps) {
                   Macro Calculator
                 </Link>
               </li>
+              <li>
+                <Link href="/tools/gfr-kidney-function-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">
+                  GFR / Kidney Function
+                </Link>
+              </li>
             </ul>
           </ScrollReveal>
 
@@ -138,6 +143,16 @@ export default function Footer({ customText }: FooterProps) {
               <li>
                 <Link href="/tools/ai-token-cost-calculator" className="hover:text-ink transition-colors">
                   AI Token Cost Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/digital-storage-converter" className="hover:text-ink transition-colors">
+                  Digital Storage Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/speech-time-calculator" className="hover:text-ink transition-colors">
+                  Speech Time Calculator
                 </Link>
               </li>
               <li>
