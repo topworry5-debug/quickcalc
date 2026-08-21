@@ -63,6 +63,7 @@ const WorkHoursWidget = dynamic(() => import("@/app/tools/work-hours-calculator/
 const QrCodeWidget = dynamic(() => import("@/app/tools/qr-code-generator/QrCodeWidget"), { loading: () => <WidgetSkeleton /> });
 const RetirementWithdrawalWidget = dynamic(() => import("@/app/tools/retirement-withdrawal-simulator/RetirementWithdrawalWidget"), { loading: () => <WidgetSkeleton /> });
 const SpeedTestWidget = dynamic(() => import("@/app/tools/internet-speed-test/SpeedTestWidget"), { loading: () => <WidgetSkeleton /> });
+const EtsyFeeCalculatorWidget = dynamic(() => import("@/app/tools/etsy-fee-calculator/EtsyFeeCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -156,6 +157,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <RetirementWithdrawalWidget />;
       case "internet-speed-test":
         return <SpeedTestWidget />;
+      case "etsy-fee-calculator":
+        return <EtsyFeeCalculatorWidget />;
       default:
         return <WidgetSkeleton />;
     }

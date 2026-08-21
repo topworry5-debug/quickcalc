@@ -137,6 +137,11 @@ export default function Footer({ customText }: FooterProps) {
                   Freelance Rate Calculator
                 </Link>
               </li>
+              <li>
+                <Link href="/tools/etsy-fee-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
+                  Etsy Fee & Net Profit
+                </Link>
+              </li>
             </ul>
           </ScrollReveal>
 

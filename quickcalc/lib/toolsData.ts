@@ -418,5 +418,15 @@ export const tools: Tool[] = [
     textColor: "text-orange-600 dark:text-orange-400",
     category: "Health",
     popular: true
+  },
+  {
+    title: "Etsy Fee & Net Profit Calculator",
+    description: "Calculate exact 2026 Etsy seller fees (6.5% transaction, listing, country processing, regulatory, offsite ads) and net profit margins instantly.",
+    icon: "etsy",
+    href: "/tools/etsy-fee-calculator",
+    color: "from-orange-500 via-rose-500 to-teal-500",
+    textColor: "text-rose-600 dark:text-rose-400",
+    category: "Finance",
+    popular: true
   }
 ];

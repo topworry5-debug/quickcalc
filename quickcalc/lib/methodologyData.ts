@@ -405,6 +405,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Estimates driving duration, total fuel volume needed, and trip cost based on MPG and fuel price.",
     detailedParagraph: "Trip durations are calculated by dividing route distance by average travel speed. Required fuel volume is determined by dividing total distance by vehicle fuel efficiency (MPG or L/100km) and multiplying by current local fuel prices.",
   },
+  {
+    slug: "etsy-fee-calculator",
+    toolName: "Etsy Fee & Net Profit Calculator",
+    category: "Finance & Math",
+    standardName: "Etsy 2026 Seller Fee Policy & Multi-Tier Payment Processing Structure",
+    formulaText: "Net Profit = (Price + Shipping) - [Listing ($0.20) + 6.5% Transaction + (Processing% × Total + Fixed) + Regulatory% + Ads% + COGS + Actual Shipping]",
+    summary: "Calculates itemized Etsy seller commissions, 6.5% transaction cut, country payment processing slabs, regulatory fees, and breakeven pricing.",
+    detailedParagraph: "Fee computations adhere to Etsy's official 2026 seller policy schedule. Transaction commissions (6.5%) and payment processing fees apply to gross customer payments including item price and shipping collected. Breakeven item prices are calculated algebraically by solving for the exact listing price where gross margin minus total variable and fixed deductions equals zero.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {
