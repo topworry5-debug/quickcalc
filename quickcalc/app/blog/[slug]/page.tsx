@@ -45,6 +45,12 @@ import PaperFabricGuideArticle from "../data/paper-fabric-guide-article";
 import HabitCostGuideArticle from "../data/habit-cost-guide-article";
 import RetirementSavingsStartingEarlyArticle from "../data/retirement-savings-starting-early-article";
 import IntermittentFastingScheduleGuideArticle from "../data/intermittent-fasting-schedule-guide-article";
+import EtsyFeeAndProfitCalculatorGuide2026Article from "../data/etsy-fee-and-profit-calculator-guide-2026-article";
+import SolarPanelPaybackPeriodAndRoiGuideArticle from "../data/solar-panel-payback-period-and-roi-guide-article";
+import AmazonKDPRoyaltyAndPrintingCostGuideArticle from "../data/amazon-kdp-royalty-and-printing-cost-guide-article";
+import PakistanIncomeTaxSlabsGuide20262027Article from "../data/pakistan-income-tax-slabs-guide-2026-2027-article";
+import EtsyVsAmazonKdpProfitComparisonGuideArticle from "../data/etsy-vs-amazon-kdp-profit-comparison-guide-article";
+import CreatineDailyIntakeAndMacroCalculatorGuideArticle from "../data/creatine-daily-intake-and-macro-calculator-guide-article";
 import ShareButtons from "@/components/ShareButtons";
 
 interface BlogPostProps {
@@ -54,6 +60,12 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "etsy-fee-and-profit-calculator-guide-2026": EtsyFeeAndProfitCalculatorGuide2026Article,
+  "solar-panel-payback-period-and-roi-guide": SolarPanelPaybackPeriodAndRoiGuideArticle,
+  "amazon-kdp-royalty-and-printing-cost-guide": AmazonKDPRoyaltyAndPrintingCostGuideArticle,
+  "pakistan-income-tax-slabs-guide-2026-2027": PakistanIncomeTaxSlabsGuide20262027Article,
+  "etsy-vs-amazon-kdp-profit-comparison-guide": EtsyVsAmazonKdpProfitComparisonGuideArticle,
+  "creatine-daily-intake-and-macro-calculator-guide": CreatineDailyIntakeAndMacroCalculatorGuideArticle,
   "intermittent-fasting-schedule-guide-16-8-18-6-omad": IntermittentFastingScheduleGuideArticle,
   "why-starting-retirement-savings-early-matters-more-than-you-think": RetirementSavingsStartingEarlyArticle,
   "how-to-calculate-the-cost-of-daily-habits-financial-guide": HabitCostGuideArticle,
@@ -94,6 +106,42 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "etsy-fee-and-profit-calculator-guide-2026": {
+    title: "Etsy Fee & Net Profit Calculator",
+    href: "/tools/etsy-fee-calculator",
+    description: "Calculate Etsy listing fees, 6.5% transaction commission, payment processing, and net profit margins.",
+    icon: "etsy",
+  },
+  "solar-panel-payback-period-and-roi-guide": {
+    title: "Solar Panel ROI & Payback Calculator",
+    href: "/tools/solar-payback-calculator",
+    description: "Calculate residential solar break-even years, 25-year lifetime energy savings, and carbon offset.",
+    icon: "solar",
+  },
+  "amazon-kdp-royalty-and-printing-cost-guide": {
+    title: "Amazon KDP Royalty Calculator",
+    href: "/tools/kdp-royalty-calculator",
+    description: "Calculate Amazon KDP paperback printing costs, author royalties, and breakeven list prices.",
+    icon: "kdp",
+  },
+  "pakistan-income-tax-slabs-guide-2026-2027": {
+    title: "Pakistan Income Tax Calculator",
+    href: "/tools/pakistan-income-tax-calculator",
+    description: "Calculate FBR salary tax deductions, Zakat credits, and net monthly take-home salary for FY 2026-2027.",
+    icon: "pakistan-tax",
+  },
+  "etsy-vs-amazon-kdp-profit-comparison-guide": {
+    title: "Etsy vs Amazon KDP Profit Calculator",
+    href: "/tools/etsy-vs-kdp-calculator",
+    description: "Compare net profits, seller fees, POD print costs, and monthly volume earnings between Etsy and KDP.",
+    icon: "etsy-vs-kdp",
+  },
+  "creatine-daily-intake-and-macro-calculator-guide": {
+    title: "Creatine & Fitness Macro Calculator",
+    href: "/tools/creatine-calculator",
+    description: "Calculate daily creatine dosages (loading vs maintenance), hydration water needs, and macro splits.",
+    icon: "creatine",
+  },
   "intermittent-fasting-schedule-guide-16-8-18-6-omad": {
     title: "Intermittent Fasting Calculator",
     href: "/tools/intermittent-fasting-calculator",
@@ -463,7 +511,229 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "why-starting-retirement-savings-early-matters-more-than-you-think" ? {
+  const faqJsonLd = article.slug === "etsy-fee-and-profit-calculator-guide-2026" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Etsy charge transaction fees on shipping?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Etsy applies its 6.5% transaction commission and payment processing fee to the total order amount, which includes the delivery cost charged to the customer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I opt out of Etsy Offsite Ads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Shops that have generated less than $10,000 USD in trailing 12-month sales can opt out at any time. Once your shop crosses $10,000 in gross revenue, participation becomes mandatory at a reduced 12% fee rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum recommended profit margin for Etsy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For physical handmade and print-on-demand goods, aim for a minimum 40% to 50% net profit margin after all platform fees and COGS to absorb marketing costs, returns, and business overhead."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does Etsy deposit seller funds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Available funds in your Etsy Payments account can be disbursed on a daily, weekly, bi-weekly, or monthly schedule directly to your linked bank account once initial security holds are satisfied."
+        }
+      }
+    ]
+  } : article.slug === "solar-panel-payback-period-and-roi-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a good payback period for solar panels?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A payback period under 8 years is considered an excellent return on investment for residential solar, delivering an internal rate of return (IRR) between 12% and 18% per year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the 30% Federal Solar Tax Credit work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Residential Clean Energy Credit (Section 25D) allows homeowners to deduct 30% of total equipment, labor, and battery installation costs directly from their federal income tax liability with zero cap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do solar panels increase home property taxes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most US states and international jurisdictions, solar energy systems are explicitly exempt from property tax assessments, meaning your home equity increases without raising your property taxes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to solar savings when electricity rates rise?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When utility tariffs increase, your solar savings increase proportionally because every kilowatt-hour your roof generates offsets a more expensive utility charge, accelerating your break-even timeline."
+        }
+      }
+    ]
+  } : article.slug === "amazon-kdp-royalty-and-printing-cost-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Amazon KDP charge any upfront listing fees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Amazon KDP allows authors to publish unlimited paperback, hardcover, and Kindle eBook titles with zero upfront fees, monthly subscriptions, or listing renewal charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Standard Color and Premium Color on KDP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard color uses inkjet printing on 50 lb white paper ($0.027/page), perfect for recipe books and simple charts. Premium color uses high-density saturated ink on 70 lb paper ($0.070/page), ideal for children's picture books and photography."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does Amazon pay author royalties?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon KDP pays royalties approximately 60 days after the end of the calendar month in which the sales occurred via direct deposit or wire transfer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I enable Expanded Distribution on KDP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, as long as your list price is high enough to generate positive royalties at the 40% rate. It makes your book discoverable in Ingram book catalogs for zero added cost."
+        }
+      }
+    ]
+  } : article.slug === "pakistan-income-tax-slabs-guide-2026-2027" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the minimum taxable salary in Pakistan for 2026–2027?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tax-free threshold is PKR 600,000 per year (PKR 50,000 per month). Any salaried income below this threshold has a 0% income tax liability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I claim advance tax paid on mobile phone bills?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can download your annual withholding tax certificate from your telecom network and claim the 15% advance tax under Section 236 in your annual Iris tax return to receive a refund or tax adjustment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the tax rate for IT freelancers in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Registered IT and software export freelancers registered with PSEB generally qualify for a concessionary 0.25% or 1.0% final tax regime on foreign remittance proceeds under Section 154A."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When is the deadline to file individual income tax returns with FBR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The statutory deadline for individual salaried taxpayers to file their annual income tax return on the FBR Iris portal is September 30th following the close of the financial year on June 30th."
+        }
+      }
+    ]
+  } : article.slug === "etsy-vs-amazon-kdp-profit-comparison-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I sell the same book or planner on both Etsy and Amazon KDP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, provided you own the copyright. Many creators publish physical paperbacks via Amazon KDP while selling printable digital PDF versions on Etsy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why are printing costs lower on Amazon KDP than Printify on Etsy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon owns its automated internal print manufacturing facilities and charges authors wholesale printing fees, whereas third-party POD providers on Etsy add markup to cover their own profit margins and separate shipping fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which platform is better for complete beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon KDP has a lower barrier to entry for beginners because there are $0 listing fees and zero fulfillment or customer return responsibilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does customer discovery differ between Etsy and Amazon?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Etsy buyers search primarily for aesthetic design, giftability, and craft quality, while Amazon buyers search based on fast Prime delivery, reviews, and specific functional utility."
+        }
+      }
+    ]
+  } : article.slug === "creatine-daily-intake-and-macro-calculator-guide" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When is the best time of day to take creatine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Research indicates slightly superior absorption when taken immediately post-workout alongside a meal containing carbohydrates and protein, though daily consistency is far more important than exact timing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does creatine cause hair loss or kidney damage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Extensive peer-reviewed clinical trials have repeatedly demonstrated that standard creatine monohydrate supplementation (3g–5g daily) is safe for healthy adults with normal renal function and does not cause hair loss."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to cycle off creatine periodically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Creatine does not downregulate your body's natural endogenous production enzymes permanently. Continuous long-term supplementation without cycling maintains steady peak muscle saturation safely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which form of creatine is the most effective?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pure 100% Creatine Monohydrate (Creapure or standard micronized) remains the gold standard in scientific literature, outperforming more expensive forms like Creatine HCL, Ethyl Ester, or Liquid Creatine."
+        }
+      }
+    ]
+  } : article.slug === "why-starting-retirement-savings-early-matters-more-than-you-think" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

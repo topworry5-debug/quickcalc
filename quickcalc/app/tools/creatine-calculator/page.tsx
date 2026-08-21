@@ -324,6 +324,24 @@ export default function CreatineCalculatorPage({
             </div>
           </section>
 
+          {/* Read Full In-Depth Guide Banner */}
+          <section className="my-6 not-prose">
+            <div className="p-5 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider">Clinical Nutrition Guide</span>
+                <h3 className="text-base font-bold text-zinc-900 dark:text-white">Evidence-Based Creatine Dosage & Fitness Macro Master Guide</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400">Explore ISSN position stand protocols, cellular phosphocreatine mechanics, hydration science, and optimal carbohydrate-protein synergy.</p>
+              </div>
+              <Link
+                href="/blog/creatine-daily-intake-and-macro-calculator-guide"
+                className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap shrink-0 shadow-sm flex items-center gap-1.5"
+              >
+                <span>Read Full Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </section>
+
           {/* Related Tools Cross-Linking */}
           <section className="space-y-3 border-t border-zinc-200 dark:border-zinc-800 pt-8 not-prose">
             <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">

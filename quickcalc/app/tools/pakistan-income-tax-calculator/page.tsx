@@ -357,6 +357,24 @@ export default function PakistanTaxCalculatorPage({
             </div>
           </section>
 
+          {/* Read Full In-Depth Guide Banner */}
+          <section className="my-6 not-prose">
+            <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wider">FBR Tax Guide</span>
+                <h3 className="text-base font-bold text-zinc-900 dark:text-white">Pakistan Income Tax & Salary Slabs Guide FY 2026-2027</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400">Complete breakdown of salaried vs. business tax slabs, monthly payroll withholding, Section 60 Zakat offsets, and mobile bill advance tax adjustments.</p>
+              </div>
+              <Link
+                href="/blog/pakistan-income-tax-slabs-guide-2026-2027"
+                className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap shrink-0 shadow-sm flex items-center gap-1.5"
+              >
+                <span>Read Full Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </section>
+
           {/* Related Tools Cross-Linking */}
           <section className="space-y-3 border-t border-zinc-200 dark:border-zinc-800 pt-8 not-prose">
             <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">

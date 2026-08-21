@@ -379,6 +379,24 @@ export default function EtsyFeeCalculatorPage({
             </div>
           </section>
 
+          {/* Read Full In-Depth Guide Banner */}
+          <section className="my-6 not-prose">
+            <div className="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-amber-700 dark:text-amber-300 uppercase tracking-wider">Expert Financial Guide</span>
+                <h3 className="text-base font-bold text-zinc-900 dark:text-white">Etsy Fee & Net Profit Master Guide (2026 Slabs & Strategies)</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400">Read our comprehensive walkthrough of transaction cuts, payment processing, Offsite Ads math, and margin optimization.</p>
+              </div>
+              <Link
+                href="/blog/etsy-fee-and-profit-calculator-guide-2026"
+                className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap shrink-0 shadow-sm flex items-center gap-1.5"
+              >
+                <span>Read Full Guide</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </section>
+
           {/* Internal Cross-Linking Section */}
           <section className="space-y-3 border-t border-zinc-200 dark:border-zinc-800 pt-8 not-prose">
             <h3 className="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
