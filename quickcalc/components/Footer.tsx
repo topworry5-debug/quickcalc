@@ -84,6 +84,11 @@ export default function Footer({ customText }: FooterProps) {
                   GFR / Kidney Function
                 </Link>
               </li>
+              <li>
+                <Link href="/tools/creatine-calculator" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium text-purple-600 dark:text-purple-400">
+                  Creatine & Fitness Macro
+                </Link>
+              </li>
             </ul>
           </ScrollReveal>
 

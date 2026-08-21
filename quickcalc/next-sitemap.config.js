@@ -14,6 +14,7 @@ module.exports = {
       "budget-calculator",
       "calorie-calculator",
       "color-palette-generator",
+      "creatine-calculator",
       "currency-converter",
       "discount-calculator",
       "digital-storage-converter",

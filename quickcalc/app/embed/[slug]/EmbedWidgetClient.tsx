@@ -68,6 +68,7 @@ const SolarPaybackCalculatorWidget = dynamic(() => import("@/app/tools/solar-pay
 const KDPRoyaltyCalculatorWidget = dynamic(() => import("@/app/tools/kdp-royalty-calculator/KDPRoyaltyCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const PakistanTaxCalculatorWidget = dynamic(() => import("@/app/tools/pakistan-income-tax-calculator/PakistanTaxCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const EtsyVsKdpCalculatorWidget = dynamic(() => import("@/app/tools/etsy-vs-kdp-calculator/EtsyVsKdpCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const CreatineMacroCalculatorWidget = dynamic(() => import("@/app/tools/creatine-calculator/CreatineMacroCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -171,6 +172,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <PakistanTaxCalculatorWidget />;
       case "etsy-vs-kdp-calculator":
         return <EtsyVsKdpCalculatorWidget />;
+      case "creatine-calculator":
+        return <CreatineMacroCalculatorWidget />;
       default:
         return <WidgetSkeleton />;
     }

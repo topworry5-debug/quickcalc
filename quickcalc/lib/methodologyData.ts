@@ -450,6 +450,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates and compares side-by-side net profits, platform fee cuts, and monthly earnings between Etsy and Amazon KDP.",
     detailedParagraph: "The comparative engine models Etsy's comprehensive 2026 fee structure (listing fee, 6.5% transaction commission, country payment processing, and optional offsite ads) against Amazon KDP's 60% gross royalty minus wholesale page-count printing costs to evaluate unit profitability, margin differentials, and monthly sales volume earnings.",
   },
+  {
+    slug: "creatine-calculator",
+    toolName: "Creatine & Fitness Macro Calculator",
+    category: "Health & Fitness",
+    standardName: "International Society of Sports Nutrition (ISSN) & Mifflin-St Jeor Energy Protocol",
+    formulaText: "Loading = 0.3g/kg/day | Maint = 0.04g/kg/day | Protein = 2.2g/kg | Extra Water = 10ml/kg",
+    summary: "Calculates creatine monohydrate loading/maintenance dosages, hydration volume, BMR, TDEE, and macro splits.",
+    detailedParagraph: "Creatine dosing follows the evidence-based International Society of Sports Nutrition (ISSN) position stand: a rapid loading protocol (0.3g/kg/day divided into 4 doses for 5–7 days) or gradual maintenance (0.04g/kg/day). Caloric targets implement Mifflin-St Jeor and Katch-McArdle equations with activity multipliers and customized macronutrient distributions (2.2g/kg protein, 25% fats, remainder carbohydrates).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

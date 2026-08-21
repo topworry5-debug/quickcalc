@@ -468,5 +468,15 @@ export const tools: Tool[] = [
     textColor: "text-amber-600 dark:text-amber-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Creatine & Fitness Macro Calculator",
+    description: "Calculate daily creatine dosage (loading vs maintenance), hydration needs, BMR, TDEE, and fitness macronutrient splits based on ISSN guidelines.",
+    icon: "creatine",
+    href: "/tools/creatine-calculator",
+    color: "from-purple-500 via-indigo-500 to-sky-500",
+    textColor: "text-purple-600 dark:text-purple-400",
+    category: "Health",
+    popular: true
   }
 ];
