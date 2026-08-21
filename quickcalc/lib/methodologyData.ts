@@ -414,6 +414,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates itemized Etsy seller commissions, 6.5% transaction cut, country payment processing slabs, regulatory fees, and breakeven pricing.",
     detailedParagraph: "Fee computations adhere to Etsy's official 2026 seller policy schedule. Transaction commissions (6.5%) and payment processing fees apply to gross customer payments including item price and shipping collected. Breakeven item prices are calculated algebraically by solving for the exact listing price where gross margin minus total variable and fixed deductions equals zero.",
   },
+  {
+    slug: "solar-payback-calculator",
+    toolName: "Solar Panel ROI & Payback Calculator",
+    category: "Finance & Math",
+    standardName: "NREL PVWatts Solar Performance Derating & Compound Discounted Cash Flow Model",
+    formulaText: "Annual Gen = kW × Sun Hours × 365 × 0.85 PR | Payback Year = Net Inv / Compound Annual Savings",
+    summary: "Calculates solar panel payback period, 25-year cumulative cash flows, LCOE per kWh, and carbon offset.",
+    detailedParagraph: "Solar production modeling utilizes the standard National Renewable Energy Laboratory (NREL) PVWatts performance ratio (0.85 derating factor) accounting for inverter, wiring, dust, and temperature losses. Financial returns simulate a dynamic 25-year cash flow combining compound utility rate inflation with 0.5%/year photovoltaic degradation to calculate precise breakeven payback years and Levelized Cost of Energy (LCOE).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

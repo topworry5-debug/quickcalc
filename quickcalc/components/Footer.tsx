@@ -138,8 +138,13 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/etsy-fee-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
+                <Link href="/tools/etsy-fee-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                   Etsy Fee & Net Profit
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/solar-payback-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-amber-600 dark:text-amber-400">
+                  Solar ROI & Payback
                 </Link>
               </li>
             </ul>

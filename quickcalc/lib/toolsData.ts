@@ -428,5 +428,15 @@ export const tools: Tool[] = [
     textColor: "text-rose-600 dark:text-rose-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Solar Panel ROI & Payback Calculator",
+    description: "Calculate solar panel payback years, 25-year cumulative energy savings, battery storage returns, and carbon offset with 2026 tax credits.",
+    icon: "solar",
+    href: "/tools/solar-payback-calculator",
+    color: "from-amber-500 via-emerald-500 to-sky-500",
+    textColor: "text-amber-600 dark:text-amber-400",
+    category: "Finance",
+    popular: true
   }
 ];

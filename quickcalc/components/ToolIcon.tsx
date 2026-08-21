@@ -45,6 +45,7 @@ import {
   Cpu,
   Calculator,
   ShoppingBag,
+  Sun,
   LucideIcon,
 } from "lucide-react";
 
@@ -139,6 +140,8 @@ const iconMap: Record<string, LucideIcon> = {
   "speed-test": Gauge,
   etsy: ShoppingBag,
   "etsy-fee": ShoppingBag,
+  solar: Sun,
+  "solar-payback": Sun,
 };
 
 // Also map raw emoji or legacy icon names to icons

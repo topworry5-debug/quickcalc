@@ -44,6 +44,7 @@ module.exports = {
       "savings-growth-calculator",
       "shoe-size-converter",
       "sleep-cycle-calculator",
+      "solar-payback-calculator",
       "speech-time-calculator",
       "timezone-meeting-planner",
       "tip-calculator",
