@@ -143,8 +143,13 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/solar-payback-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-amber-600 dark:text-amber-400">
+                <Link href="/tools/solar-payback-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                   Solar ROI & Payback
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/kdp-royalty-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-emerald-600 dark:text-emerald-400">
+                  Amazon KDP Royalty
                 </Link>
               </li>
             </ul>

@@ -28,6 +28,7 @@ module.exports = {
       "intermittent-fasting-calculator",
       "internet-speed-test",
       "json-csv-converter",
+      "kdp-royalty-calculator",
       "loan-calculator",
       "macro-calculator",
       "pace-calculator",

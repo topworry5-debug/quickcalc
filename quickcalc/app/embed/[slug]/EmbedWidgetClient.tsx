@@ -65,6 +65,7 @@ const RetirementWithdrawalWidget = dynamic(() => import("@/app/tools/retirement-
 const SpeedTestWidget = dynamic(() => import("@/app/tools/internet-speed-test/SpeedTestWidget"), { loading: () => <WidgetSkeleton /> });
 const EtsyFeeCalculatorWidget = dynamic(() => import("@/app/tools/etsy-fee-calculator/EtsyFeeCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const SolarPaybackCalculatorWidget = dynamic(() => import("@/app/tools/solar-payback-calculator/SolarPaybackCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const KDPRoyaltyCalculatorWidget = dynamic(() => import("@/app/tools/kdp-royalty-calculator/KDPRoyaltyCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -162,6 +163,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <EtsyFeeCalculatorWidget />;
       case "solar-payback-calculator":
         return <SolarPaybackCalculatorWidget />;
+      case "kdp-royalty-calculator":
+        return <KDPRoyaltyCalculatorWidget />;
       default:
         return <WidgetSkeleton />;
     }

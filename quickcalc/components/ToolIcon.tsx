@@ -142,6 +142,8 @@ const iconMap: Record<string, LucideIcon> = {
   "etsy-fee": ShoppingBag,
   solar: Sun,
   "solar-payback": Sun,
+  kdp: BookOpen,
+  "kdp-royalty": BookOpen,
 };
 
 // Also map raw emoji or legacy icon names to icons

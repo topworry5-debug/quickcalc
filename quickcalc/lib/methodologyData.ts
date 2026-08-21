@@ -423,6 +423,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates solar panel payback period, 25-year cumulative cash flows, LCOE per kWh, and carbon offset.",
     detailedParagraph: "Solar production modeling utilizes the standard National Renewable Energy Laboratory (NREL) PVWatts performance ratio (0.85 derating factor) accounting for inverter, wiring, dust, and temperature losses. Financial returns simulate a dynamic 25-year cash flow combining compound utility rate inflation with 0.5%/year photovoltaic degradation to calculate precise breakeven payback years and Levelized Cost of Energy (LCOE).",
   },
+  {
+    slug: "kdp-royalty-calculator",
+    toolName: "Amazon KDP Royalty Calculator",
+    category: "Finance & Math",
+    standardName: "Amazon Kindle Direct Publishing (KDP) Print-on-Demand Rate Structure",
+    formulaText: "Net Royalty = (List Price × Royalty Rate 60%/40%) - [Fixed Cost + (Page Count × Per-Page Rate)]",
+    summary: "Calculates Amazon KDP print-on-demand manufacturing costs, author royalties, profit margins, and breakeven list prices.",
+    detailedParagraph: "Printing cost calculations implement Amazon KDP's official 2026 global marketplace rate slabs for standard and large trim paperbacks and hardcovers across black & white, standard color, and premium color interiors. Royalty math models the 60% Amazon direct and 40% expanded distribution channels to derive exact per-book net author earnings and minimum retail price thresholds.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

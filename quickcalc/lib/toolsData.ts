@@ -438,5 +438,15 @@ export const tools: Tool[] = [
     textColor: "text-amber-600 dark:text-amber-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Amazon KDP Royalty Calculator",
+    description: "Calculate exact Amazon KDP print-on-demand printing costs, 60% and 40% author royalties, profit margins, and minimum breakeven list prices.",
+    icon: "kdp",
+    href: "/tools/kdp-royalty-calculator",
+    color: "from-emerald-500 via-teal-500 to-indigo-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true
   }
 ];
