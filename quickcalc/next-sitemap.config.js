@@ -19,6 +19,7 @@ module.exports = {
       "digital-storage-converter",
       "due-date-calculator",
       "etsy-fee-calculator",
+      "etsy-vs-kdp-calculator",
       "freelance-rate-calculator",
       "gfr-kidney-function-calculator",
       "gpa-converter",

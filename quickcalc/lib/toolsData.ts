@@ -458,5 +458,15 @@ export const tools: Tool[] = [
     textColor: "text-emerald-600 dark:text-emerald-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Etsy vs Amazon KDP Profit Calculator",
+    description: "Compare side-by-side net profits, platform transaction cuts, POD printing costs, and monthly income between Etsy and Amazon KDP.",
+    icon: "etsy-vs-kdp",
+    href: "/tools/etsy-vs-kdp-calculator",
+    color: "from-amber-500 via-orange-500 to-indigo-600",
+    textColor: "text-amber-600 dark:text-amber-400",
+    category: "Finance",
+    popular: true
   }
 ];

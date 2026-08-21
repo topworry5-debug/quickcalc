@@ -147,6 +147,8 @@ const iconMap: Record<string, LucideIcon> = {
   "pakistan-tax": Receipt,
   fbr: Receipt,
   "pakistan-income-tax": Receipt,
+  "etsy-vs-kdp": Scale,
+  "compare-profit": Scale,
 };
 
 // Also map raw emoji or legacy icon names to icons

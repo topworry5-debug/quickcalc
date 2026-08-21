@@ -441,6 +441,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates Pakistan FBR income tax, monthly salary deductions, Zakat offsets, and net take-home pay.",
     detailedParagraph: "Tax computations apply the official statutory tax brackets outlined in the Finance Act for salaried individuals (where salary exceeds 75% of total income) and non-salaried business persons. The algorithm accounts for allowable Zakat deductions under Section 60, Voluntary Pension Scheme credits under Section 63, and direct advance withholding tax (WHT) adjustments under Section 236 to compute net monthly payroll withholding and effective tax rates.",
   },
+  {
+    slug: "etsy-vs-kdp-calculator",
+    toolName: "Etsy vs Amazon KDP Profit Calculator",
+    category: "Finance & Math",
+    standardName: "Comparative Marketplace E-Commerce & Print-on-Demand Economics Framework",
+    formulaText: "Etsy Net = Price + Ship - Fees - COGS | KDP Net = (Price × 60%) - Print Cost",
+    summary: "Calculates and compares side-by-side net profits, platform fee cuts, and monthly earnings between Etsy and Amazon KDP.",
+    detailedParagraph: "The comparative engine models Etsy's comprehensive 2026 fee structure (listing fee, 6.5% transaction commission, country payment processing, and optional offsite ads) against Amazon KDP's 60% gross royalty minus wholesale page-count printing costs to evaluate unit profitability, margin differentials, and monthly sales volume earnings.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {
