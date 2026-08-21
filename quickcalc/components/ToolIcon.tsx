@@ -144,6 +144,9 @@ const iconMap: Record<string, LucideIcon> = {
   "solar-payback": Sun,
   kdp: BookOpen,
   "kdp-royalty": BookOpen,
+  "pakistan-tax": Receipt,
+  fbr: Receipt,
+  "pakistan-income-tax": Receipt,
 };
 
 // Also map raw emoji or legacy icon names to icons

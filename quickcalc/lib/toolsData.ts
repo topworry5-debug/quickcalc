@@ -448,5 +448,15 @@ export const tools: Tool[] = [
     textColor: "text-emerald-600 dark:text-emerald-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Pakistan Income Tax Calculator",
+    description: "Calculate exact FBR income tax, monthly salary deductions, and net take-home pay for salaried & business individuals for FY 2026-2027.",
+    icon: "pakistan-tax",
+    href: "/tools/pakistan-income-tax-calculator",
+    color: "from-emerald-600 via-teal-600 to-green-500",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true
   }
 ];

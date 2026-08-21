@@ -66,6 +66,7 @@ const SpeedTestWidget = dynamic(() => import("@/app/tools/internet-speed-test/Sp
 const EtsyFeeCalculatorWidget = dynamic(() => import("@/app/tools/etsy-fee-calculator/EtsyFeeCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const SolarPaybackCalculatorWidget = dynamic(() => import("@/app/tools/solar-payback-calculator/SolarPaybackCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const KDPRoyaltyCalculatorWidget = dynamic(() => import("@/app/tools/kdp-royalty-calculator/KDPRoyaltyCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const PakistanTaxCalculatorWidget = dynamic(() => import("@/app/tools/pakistan-income-tax-calculator/PakistanTaxCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -165,6 +166,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <SolarPaybackCalculatorWidget />;
       case "kdp-royalty-calculator":
         return <KDPRoyaltyCalculatorWidget />;
+      case "pakistan-income-tax-calculator":
+        return <PakistanTaxCalculatorWidget />;
       default:
         return <WidgetSkeleton />;
     }

@@ -432,6 +432,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates Amazon KDP print-on-demand manufacturing costs, author royalties, profit margins, and breakeven list prices.",
     detailedParagraph: "Printing cost calculations implement Amazon KDP's official 2026 global marketplace rate slabs for standard and large trim paperbacks and hardcovers across black & white, standard color, and premium color interiors. Royalty math models the 60% Amazon direct and 40% expanded distribution channels to derive exact per-book net author earnings and minimum retail price thresholds.",
   },
+  {
+    slug: "pakistan-income-tax-calculator",
+    toolName: "Pakistan Income Tax Calculator",
+    category: "Finance & Math",
+    standardName: "Federal Board of Revenue (FBR) Finance Act 2026-2027 Schedule",
+    formulaText: "Annual Tax = Base Slab Tax + [Marginal% × (Taxable Income - Slab Min)] - Advance WHT Credits",
+    summary: "Calculates Pakistan FBR income tax, monthly salary deductions, Zakat offsets, and net take-home pay.",
+    detailedParagraph: "Tax computations apply the official statutory tax brackets outlined in the Finance Act for salaried individuals (where salary exceeds 75% of total income) and non-salaried business persons. The algorithm accounts for allowable Zakat deductions under Section 60, Voluntary Pension Scheme credits under Section 63, and direct advance withholding tax (WHT) adjustments under Section 236 to compute net monthly payroll withholding and effective tax rates.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {
