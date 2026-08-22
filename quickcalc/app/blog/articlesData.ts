@@ -14,6 +14,19 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "pakistan-gold-tola-masha-ratti-guide-2026",
+    title: "Pakistani Gold Tola, Masha, Ratti & Making Charges Master Guide (2026)",
+    description: "Complete guide to Sarafa market gold units (1 Tola = 11.6638g), 22K/24K price conversions, making charges (Jorai), and wastage (Kass).",
+    excerpt: "Complete guide to Sarafa market gold units (1 Tola = 11.6638g), 22K/24K price conversions, making charges (Jorai), and wastage (Kass).",
+    date: "August 22, 2026",
+    readTime: "9 min read",
+    category: "Finance & Math",
+    icon: "gold",
+    color: "from-amber-500 to-yellow-600",
+    textColor: "text-amber-600 dark:text-amber-400",
+    featured: true,
+  },
+  {
     slug: "pakistan-property-transfer-tax-guide-2026-2027",
     title: "Pakistan Property Transfer Tax & Filer vs Non-Filer Guide (2026-2027)",
     description: "Complete guide to FBR Section 236K (Buyer) & Section 236C (Seller) taxes, provincial e-stamping, mutation fees, and Non-Filer penalties.",

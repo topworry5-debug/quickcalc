@@ -477,6 +477,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates Pakistan real estate transfer taxes, FBR advance withholding, provincial e-stamping, and Non-Filer penalties.",
     detailedParagraph: "Calculates statutory real estate registration taxes across Punjab, Sindh, KPK, Balochistan, and ICT Islamabad under the updated Finance Act. The calculation applies FBR Section 236K (Buyer Advance Tax), Section 236C (Seller Advance Gain Tax), Provincial e-Stamp Duty, Local Government TMA fees, Capital Value Tax (CVT), and mutation charges, contrasting Active Filer rates against punitive Non-Filer surcharges.",
   },
+  {
+    slug: "pakistan-gold-calculator",
+    toolName: "Pakistani Gold Calculator (Tola, Masha, Ratti)",
+    category: "Finance & Math",
+    standardName: "All-Pakistan Sarafa Gems and Jewellers Association Metric Standards & Purity Proportions",
+    formulaText: "1 Tola = 11.6638g = 12 Masha = 96 Ratti | Purity Rate = 24K × (Karat/24) | Net Price = Gold Cost + Wastage + Making",
+    summary: "Converts traditional Pakistani gold weights into grams, calculates 22K/21K/18K rates, and computes making charges.",
+    detailedParagraph: "Calculates bullion and retail jewelry prices based on traditional South Asian measurement standards (1 Tola = 11.6638 grams = 12 Masha = 96 Ratti). The algorithm computes karat purity discounts (24K bullion benchmark to 22K/21K/18K jewelry), accounts for casting wastage (Kass in Ratti or percentage), and calculates artisan making charges (Jorai) per tola, percentage, or lump-sum.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

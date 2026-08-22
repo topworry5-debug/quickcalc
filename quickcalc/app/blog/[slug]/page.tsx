@@ -50,6 +50,7 @@ import SolarPanelPaybackPeriodAndRoiGuideArticle from "../data/solar-panel-payba
 import AmazonKDPRoyaltyAndPrintingCostGuideArticle from "../data/amazon-kdp-royalty-and-printing-cost-guide-article";
 import PakistanIncomeTaxSlabsGuide20262027Article from "../data/pakistan-income-tax-slabs-guide-2026-2027-article";
 import EtsyVsAmazonKdpProfitComparisonGuideArticle from "../data/etsy-vs-amazon-kdp-profit-comparison-guide-article";
+import PakistanGoldTolaMashaRattiGuide2026Article from "../data/pakistan-gold-tola-masha-ratti-guide-2026-article";
 import PakistanPropertyTransferTaxGuide20262027Article from "../data/pakistan-property-transfer-tax-guide-2026-2027-article";
 import PakistanElectricityBillSlabsGuide20262027Article from "../data/pakistan-electricity-bill-slabs-guide-2026-2027-article";
 import CreatineDailyIntakeAndMacroCalculatorGuideArticle from "../data/creatine-daily-intake-and-macro-calculator-guide-article";
@@ -62,6 +63,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "pakistan-gold-tola-masha-ratti-guide-2026": PakistanGoldTolaMashaRattiGuide2026Article,
   "pakistan-property-transfer-tax-guide-2026-2027": PakistanPropertyTransferTaxGuide20262027Article,
   "pakistan-electricity-bill-slabs-guide-2026-2027": PakistanElectricityBillSlabsGuide20262027Article,
   "etsy-fee-and-profit-calculator-guide-2026": EtsyFeeAndProfitCalculatorGuide2026Article,
@@ -110,6 +112,12 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "pakistan-gold-tola-masha-ratti-guide-2026": {
+    title: "Pakistani Gold Calculator (Tola, Masha, Ratti)",
+    href: "/tools/pakistan-gold-calculator",
+    description: "Convert gold weights between Tolas and Grams, calculate 22K/24K rates, and compute making charges (Jorai) & wastage.",
+    icon: "gold",
+  },
   "pakistan-property-transfer-tax-guide-2026-2027": {
     title: "Pakistan Property Transfer Tax Calculator",
     href: "/tools/pakistan-property-tax-calculator",
@@ -527,7 +535,44 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "pakistan-property-transfer-tax-guide-2026-2027" ? {
+  const faqJsonLd = article.slug === "pakistan-gold-tola-masha-ratti-guide-2026" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many grams are in 1 Tola gold in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In Pakistan, 1 Tola equals exactly 11.6638 grams. It is subdivided into 12 Masha and 96 Ratti."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate 22K gold rate from 24K rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Multiply the 24K rate by (22 / 24). For example, if 24K is PKR 285,000, 22K is PKR 285,000 × (22 / 24) = PKR 261,250 per Tola."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many Masha and Ratti make one Tola?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 Tola contains 12 Masha. 1 Masha contains 8 Ratti. Therefore, 1 Tola equals 96 Ratti (12 × 8 = 96)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a fair making charge (Jorai) per Tola in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard jewelry making charges typically range between PKR 3,500 to PKR 8,000 per Tola depending on the intricacy of the craftsmanship."
+        }
+      }
+    ]
+  } : article.slug === "pakistan-property-transfer-tax-guide-2026-2027" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

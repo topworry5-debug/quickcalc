@@ -498,5 +498,15 @@ export const tools: Tool[] = [
     textColor: "text-emerald-600 dark:text-emerald-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Pakistani Gold Calculator (Tola, Masha, Ratti)",
+    description: "Convert gold weights between Tola, Masha, Ratti, and Grams, calculate 22K/24K rates, and compute making charges (Jorai) & wastage.",
+    icon: "gold",
+    href: "/tools/pakistan-gold-calculator",
+    color: "from-amber-500 via-yellow-500 to-emerald-500",
+    textColor: "text-amber-600 dark:text-amber-400",
+    category: "Finance",
+    popular: true
   }
 ];

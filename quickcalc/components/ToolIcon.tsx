@@ -162,6 +162,10 @@ const iconMap: Record<string, LucideIcon> = {
   "pakistan-property-tax": Building2,
   "real-estate": Building2,
   zameen: Landmark,
+  gold: Coins,
+  "pakistan-gold": Coins,
+  sarafa: Coins,
+  tola: Coins,
 };
 
 // Also map raw emoji or legacy icon names to icons
