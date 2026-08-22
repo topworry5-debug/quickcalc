@@ -486,6 +486,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Converts traditional Pakistani gold weights into grams, calculates 22K/21K/18K rates, and computes making charges.",
     detailedParagraph: "Calculates bullion and retail jewelry prices based on traditional South Asian measurement standards (1 Tola = 11.6638 grams = 12 Masha = 96 Ratti). The algorithm computes karat purity discounts (24K bullion benchmark to 22K/21K/18K jewelry), accounts for casting wastage (Kass in Ratti or percentage), and calculates artisan making charges (Jorai) per tola, percentage, or lump-sum.",
   },
+  {
+    slug: "pakistan-vehicle-tax-calculator",
+    toolName: "Pakistan Vehicle Token Tax Calculator",
+    category: "Finance & Math",
+    standardName: "Provincial Motor Vehicle Taxation Acts (Punjab/Sindh/ICT) & FBR Sections 231B/234 (FY 2026-2027)",
+    formulaText: "Total Fee = Base Token Tax (CC/Value) + Motor Vehicle Tax + Professional Tax + FBR WHT (234/231B) + Registration",
+    summary: "Calculates Pakistan motor vehicle token tax, registration charges, and FBR withholding tax for Filers vs Non-Filers.",
+    detailedParagraph: "Computes motor vehicle taxation across Punjab, Sindh, KPK, and ICT Islamabad under statutory excise schedules and Finance Act provisions. The engine evaluates engine capacity slabs (660cc to 3000cc+), models 1.5%–2% luxury valuation assessments for 2000cc+ vehicles, applies vehicle age rebates (10+ years), and computes FBR Advance Withholding Taxes under Section 234 (annual token) and Section 231B (new registration).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

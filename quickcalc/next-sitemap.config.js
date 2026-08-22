@@ -38,6 +38,7 @@ module.exports = {
       "pakistan-gold-calculator",
       "pakistan-income-tax-calculator",
       "pakistan-property-tax-calculator",
+      "pakistan-vehicle-tax-calculator",
       "paper-fabric-size-converter",
       "password-generator",
       "percentage-calculator",

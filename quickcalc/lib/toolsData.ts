@@ -508,5 +508,15 @@ export const tools: Tool[] = [
     textColor: "text-amber-600 dark:text-amber-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Pakistan Vehicle Token Tax Calculator",
+    description: "Calculate annual vehicle token tax, new car registration fees, and FBR Section 231B/234 withholding taxes for Punjab, Sindh & Islamabad.",
+    icon: "car-tax",
+    href: "/tools/pakistan-vehicle-tax-calculator",
+    color: "from-blue-600 via-teal-600 to-emerald-600",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Finance",
+    popular: true
   }
 ];

@@ -72,6 +72,7 @@ const CreatineMacroCalculatorWidget = dynamic(() => import("@/app/tools/creatine
 const PakistanElectricityCalculatorWidget = dynamic(() => import("@/app/tools/pakistan-electricity-bill-calculator/PakistanElectricityCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const PakistanPropertyTaxWidget = dynamic(() => import("@/app/tools/pakistan-property-tax-calculator/PakistanPropertyTaxWidget"), { loading: () => <WidgetSkeleton /> });
 const PakistanGoldWidget = dynamic(() => import("@/app/tools/pakistan-gold-calculator/PakistanGoldWidget"), { loading: () => <WidgetSkeleton /> });
+const PakistanVehicleTaxWidget = dynamic(() => import("@/app/tools/pakistan-vehicle-tax-calculator/PakistanVehicleTaxWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -183,6 +184,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <PakistanPropertyTaxWidget />;
       case "pakistan-gold-calculator":
         return <PakistanGoldWidget />;
+      case "pakistan-vehicle-tax-calculator":
+        return <PakistanVehicleTaxWidget />;
       default:
         return <WidgetSkeleton />;
     }

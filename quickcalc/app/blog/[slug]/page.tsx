@@ -50,6 +50,7 @@ import SolarPanelPaybackPeriodAndRoiGuideArticle from "../data/solar-panel-payba
 import AmazonKDPRoyaltyAndPrintingCostGuideArticle from "../data/amazon-kdp-royalty-and-printing-cost-guide-article";
 import PakistanIncomeTaxSlabsGuide20262027Article from "../data/pakistan-income-tax-slabs-guide-2026-2027-article";
 import EtsyVsAmazonKdpProfitComparisonGuideArticle from "../data/etsy-vs-amazon-kdp-profit-comparison-guide-article";
+import PakistanVehicleTokenTaxGuide20262027Article from "../data/pakistan-vehicle-token-tax-guide-2026-2027-article";
 import PakistanGoldTolaMashaRattiGuide2026Article from "../data/pakistan-gold-tola-masha-ratti-guide-2026-article";
 import PakistanPropertyTransferTaxGuide20262027Article from "../data/pakistan-property-transfer-tax-guide-2026-2027-article";
 import PakistanElectricityBillSlabsGuide20262027Article from "../data/pakistan-electricity-bill-slabs-guide-2026-2027-article";
@@ -63,6 +64,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "pakistan-vehicle-token-tax-guide-2026-2027": PakistanVehicleTokenTaxGuide20262027Article,
   "pakistan-gold-tola-masha-ratti-guide-2026": PakistanGoldTolaMashaRattiGuide2026Article,
   "pakistan-property-transfer-tax-guide-2026-2027": PakistanPropertyTransferTaxGuide20262027Article,
   "pakistan-electricity-bill-slabs-guide-2026-2027": PakistanElectricityBillSlabsGuide20262027Article,
@@ -112,6 +114,12 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "pakistan-vehicle-token-tax-guide-2026-2027": {
+    title: "Pakistan Vehicle Token Tax Calculator",
+    href: "/tools/pakistan-vehicle-tax-calculator",
+    description: "Calculate motor vehicle token tax, registration fees, and Section 231B/234 withholding taxes for Punjab, Sindh & Islamabad.",
+    icon: "car-tax",
+  },
   "pakistan-gold-tola-masha-ratti-guide-2026": {
     title: "Pakistani Gold Calculator (Tola, Masha, Ratti)",
     href: "/tools/pakistan-gold-calculator",
@@ -535,7 +543,44 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "pakistan-gold-tola-masha-ratti-guide-2026" ? {
+  const faqJsonLd = article.slug === "pakistan-vehicle-token-tax-guide-2026-2027" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the token tax on a 1300cc car in Punjab for 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a 1300cc private car in Punjab (such as a Toyota Yaris or Honda City), an Active Tax Filer pays Rs. 3,000 base excise token + Rs. 500 motor vehicle tax + Rs. 200 professional tax + Rs. 1,750 FBR Section 234 advance tax, totaling PKR 5,450 annually. A Non-Filer pays PKR 8,950 due to a Rs. 5,250 withholding tax surcharge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is lifetime token tax available for cars above 1000cc in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Lifetime token tax is exclusively available for vehicles with engine capacity up to 1000cc (e.g. Suzuki Alto, Cultus, Wagon R). Cars with engine capacity of 1001cc and above are subject to mandatory annual token tax renewal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much extra tax does a Non-Filer pay on new car registration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Under FBR Section 231B, Non-Filers pay up to 3x higher advance withholding tax upon registration. For example, on a 1300cc car, an Active Filer pays Rs. 25,000 while a Non-Filer pays Rs. 75,000 (Rs. 50,000 extra penalty). On 2000cc+ luxury vehicles, Non-Filers pay 9% to 15% of invoice value compared to 3% to 5% for Filers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if I pay vehicle token tax after the due date?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Provincial Excise departments impose late payment surcharges ranging from 10% to 100% of the base token tax if paid after the June 30 / August 31 statutory deadlines. Paying early via ePay Punjab or online portals often provides a 5% to 10% prompt payment rebate."
+        }
+      }
+    ]
+  } : article.slug === "pakistan-gold-tola-masha-ratti-guide-2026" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

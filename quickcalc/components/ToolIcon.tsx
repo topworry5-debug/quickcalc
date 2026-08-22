@@ -48,6 +48,7 @@ import {
   Sun,
   Zap,
   Building2,
+  Car,
   LucideIcon,
 } from "lucide-react";
 
@@ -166,6 +167,11 @@ const iconMap: Record<string, LucideIcon> = {
   "pakistan-gold": Coins,
   sarafa: Coins,
   tola: Coins,
+  "car-tax": Car,
+  "vehicle-tax": Car,
+  "pakistan-vehicle-tax": Car,
+  "token-tax": Car,
+  excise: Car,
 };
 
 // Also map raw emoji or legacy icon names to icons

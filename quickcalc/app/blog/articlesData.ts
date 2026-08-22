@@ -14,6 +14,19 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "pakistan-vehicle-token-tax-guide-2026-2027",
+    title: "Pakistan Vehicle Token Tax & Registration Slabs Master Guide (2026-2027)",
+    description: "Complete guide to Punjab, Sindh, and Islamabad Excise token tax rates, FBR Section 231B/234 withholding taxes, and ePay payment steps.",
+    excerpt: "Complete guide to Punjab, Sindh, and Islamabad Excise token tax rates, FBR Section 231B/234 withholding taxes, and ePay payment steps.",
+    date: "August 22, 2026",
+    readTime: "9 min read",
+    category: "Finance & Math",
+    icon: "car-tax",
+    color: "from-blue-600 to-teal-600",
+    textColor: "text-blue-600 dark:text-blue-400",
+    featured: true,
+  },
+  {
     slug: "pakistan-gold-tola-masha-ratti-guide-2026",
     title: "Pakistani Gold Tola, Masha, Ratti & Making Charges Master Guide (2026)",
     description: "Complete guide to Sarafa market gold units (1 Tola = 11.6638g), 22K/24K price conversions, making charges (Jorai), and wastage (Kass).",
