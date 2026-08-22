@@ -14,6 +14,19 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "pakistan-property-transfer-tax-guide-2026-2027",
+    title: "Pakistan Property Transfer Tax & Filer vs Non-Filer Guide (2026-2027)",
+    description: "Complete guide to FBR Section 236K (Buyer) & Section 236C (Seller) taxes, provincial e-stamping, mutation fees, and Non-Filer penalties.",
+    excerpt: "Complete guide to FBR Section 236K (Buyer) & Section 236C (Seller) taxes, provincial e-stamping, mutation fees, and Non-Filer penalties.",
+    date: "August 22, 2026",
+    readTime: "10 min read",
+    category: "Finance & Math",
+    icon: "property-tax",
+    color: "from-emerald-600 to-indigo-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    featured: true,
+  },
+  {
     slug: "pakistan-electricity-bill-slabs-guide-2026-2027",
     title: "Pakistan Electricity Bill & Unit Slabs Master Guide (FY 2026-2027)",
     description: "Complete breakdown of NEPRA domestic tariff slabs, Protected vs Unprotected consumer status, 18% GST, FPA, and WAPDA/K-Electric bill math.",

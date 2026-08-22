@@ -158,6 +158,10 @@ const iconMap: Record<string, LucideIcon> = {
   "pakistan-electricity-bill": Zap,
   "electricity-bill": Zap,
   disco: Building2,
+  "property-tax": Building2,
+  "pakistan-property-tax": Building2,
+  "real-estate": Building2,
+  zameen: Landmark,
 };
 
 // Also map raw emoji or legacy icon names to icons

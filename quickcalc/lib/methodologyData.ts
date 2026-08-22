@@ -468,6 +468,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Estimates WAPDA and K-Electric domestic electricity bills across all DISCOs with protected vs unprotected slabs.",
     detailedParagraph: "Implements NEPRA's statutory progressive domestic electricity tariff slabs for Protected (≤200 units for 6 consecutive months) and Unprotected consumers across LESCO, IESCO, FESCO, MEPCO, GEPCO, and K-Electric. The engine itemizes base variable energy rates, tier-based fixed charges, Fuel Price Adjustment (FPA), Financing Cost (FC) surcharges, 1.5% Electricity Duty, and 18% General Sales Tax (GST).",
   },
+  {
+    slug: "pakistan-property-tax-calculator",
+    toolName: "Pakistan Property Transfer Tax Calculator",
+    category: "Finance & Math",
+    standardName: "Federal Board of Revenue (FBR) Income Tax Ordinance 2001 & Provincial Stamp Act 2026-2027",
+    formulaText: "Tax Base = MAX(Price, FBR Rate) | Buyer Tax = 236K(3%-15%) + Stamp(1%-2%) + TMA(1%) + Mutation | Seller Tax = 236C(1.5%-15%)",
+    summary: "Calculates Pakistan real estate transfer taxes, FBR advance withholding, provincial e-stamping, and Non-Filer penalties.",
+    detailedParagraph: "Calculates statutory real estate registration taxes across Punjab, Sindh, KPK, Balochistan, and ICT Islamabad under the updated Finance Act. The calculation applies FBR Section 236K (Buyer Advance Tax), Section 236C (Seller Advance Gain Tax), Provincial e-Stamp Duty, Local Government TMA fees, Capital Value Tax (CVT), and mutation charges, contrasting Active Filer rates against punitive Non-Filer surcharges.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

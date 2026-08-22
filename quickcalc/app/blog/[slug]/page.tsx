@@ -50,6 +50,7 @@ import SolarPanelPaybackPeriodAndRoiGuideArticle from "../data/solar-panel-payba
 import AmazonKDPRoyaltyAndPrintingCostGuideArticle from "../data/amazon-kdp-royalty-and-printing-cost-guide-article";
 import PakistanIncomeTaxSlabsGuide20262027Article from "../data/pakistan-income-tax-slabs-guide-2026-2027-article";
 import EtsyVsAmazonKdpProfitComparisonGuideArticle from "../data/etsy-vs-amazon-kdp-profit-comparison-guide-article";
+import PakistanPropertyTransferTaxGuide20262027Article from "../data/pakistan-property-transfer-tax-guide-2026-2027-article";
 import PakistanElectricityBillSlabsGuide20262027Article from "../data/pakistan-electricity-bill-slabs-guide-2026-2027-article";
 import CreatineDailyIntakeAndMacroCalculatorGuideArticle from "../data/creatine-daily-intake-and-macro-calculator-guide-article";
 import ShareButtons from "@/components/ShareButtons";
@@ -61,6 +62,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "pakistan-property-transfer-tax-guide-2026-2027": PakistanPropertyTransferTaxGuide20262027Article,
   "pakistan-electricity-bill-slabs-guide-2026-2027": PakistanElectricityBillSlabsGuide20262027Article,
   "etsy-fee-and-profit-calculator-guide-2026": EtsyFeeAndProfitCalculatorGuide2026Article,
   "solar-panel-payback-period-and-roi-guide": SolarPanelPaybackPeriodAndRoiGuideArticle,
@@ -108,6 +110,12 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "pakistan-property-transfer-tax-guide-2026-2027": {
+    title: "Pakistan Property Transfer Tax Calculator",
+    href: "/tools/pakistan-property-tax-calculator",
+    description: "Calculate real estate registration taxes, Section 236K (Buyer) and Section 236C (Seller) taxes, and Non-Filer penalties.",
+    icon: "property-tax",
+  },
   "pakistan-electricity-bill-slabs-guide-2026-2027": {
     title: "Pakistan Electricity Bill Calculator",
     href: "/tools/pakistan-electricity-bill-calculator",
@@ -519,7 +527,44 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "pakistan-electricity-bill-slabs-guide-2026-2027" ? {
+  const faqJsonLd = article.slug === "pakistan-property-transfer-tax-guide-2026-2027" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Advance Tax on property adjustable against annual income tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Both Section 236K (Buyer) and Section 236C (Seller) taxes are adjustable. When filing your annual FBR income tax return on Iris, you can enter CPR numbers to deduct this amount directly from your annual tax liability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does property holding period affect seller tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For active filers, properties held for more than 6 years qualify for a reduced concessionary advance tax rate of 1.5% under Section 236C instead of the standard 3% rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Capital Value Tax (CVT)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Capital Value Tax (CVT) is a 1% tax levied in ICT Islamabad and on select high-value commercial properties in provincial jurisdictions collected at the time of property transfer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if Declared Price is lower than FBR Valuation Table?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By law, if the declared sale price is lower than the official FBR valuation table rate, all withholding taxes (236K, 236C) and stamp duties are calculated using the higher FBR rate as the tax base."
+        }
+      }
+    ]
+  } : article.slug === "pakistan-electricity-bill-slabs-guide-2026-2027" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

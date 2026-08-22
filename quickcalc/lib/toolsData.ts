@@ -488,5 +488,15 @@ export const tools: Tool[] = [
     textColor: "text-emerald-600 dark:text-emerald-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Pakistan Property Transfer Tax Calculator",
+    description: "Calculate property registration taxes, FBR advance tax Section 236K (Buyer) & Section 236C (Seller), stamp duty, and Non-Filer penalties.",
+    icon: "property-tax",
+    href: "/tools/pakistan-property-tax-calculator",
+    color: "from-emerald-600 via-teal-600 to-indigo-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true
   }
 ];
