@@ -69,6 +69,7 @@ const KDPRoyaltyCalculatorWidget = dynamic(() => import("@/app/tools/kdp-royalty
 const PakistanTaxCalculatorWidget = dynamic(() => import("@/app/tools/pakistan-income-tax-calculator/PakistanTaxCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const EtsyVsKdpCalculatorWidget = dynamic(() => import("@/app/tools/etsy-vs-kdp-calculator/EtsyVsKdpCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 const CreatineMacroCalculatorWidget = dynamic(() => import("@/app/tools/creatine-calculator/CreatineMacroCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
+const PakistanElectricityCalculatorWidget = dynamic(() => import("@/app/tools/pakistan-electricity-bill-calculator/PakistanElectricityCalculatorWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -174,6 +175,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <EtsyVsKdpCalculatorWidget />;
       case "creatine-calculator":
         return <CreatineMacroCalculatorWidget />;
+      case "pakistan-electricity-bill-calculator":
+        return <PakistanElectricityCalculatorWidget />;
       default:
         return <WidgetSkeleton />;
     }

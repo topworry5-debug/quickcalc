@@ -47,6 +47,7 @@ import {
   ShoppingBag,
   Sun,
   Zap,
+  Building2,
   LucideIcon,
 } from "lucide-react";
 
@@ -153,6 +154,10 @@ const iconMap: Record<string, LucideIcon> = {
   creatine: Zap,
   "creatine-calculator": Zap,
   "fitness-macro": Zap,
+  "pakistan-electricity": Zap,
+  "pakistan-electricity-bill": Zap,
+  "electricity-bill": Zap,
+  disco: Building2,
 };
 
 // Also map raw emoji or legacy icon names to icons

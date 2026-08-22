@@ -50,6 +50,7 @@ import SolarPanelPaybackPeriodAndRoiGuideArticle from "../data/solar-panel-payba
 import AmazonKDPRoyaltyAndPrintingCostGuideArticle from "../data/amazon-kdp-royalty-and-printing-cost-guide-article";
 import PakistanIncomeTaxSlabsGuide20262027Article from "../data/pakistan-income-tax-slabs-guide-2026-2027-article";
 import EtsyVsAmazonKdpProfitComparisonGuideArticle from "../data/etsy-vs-amazon-kdp-profit-comparison-guide-article";
+import PakistanElectricityBillSlabsGuide20262027Article from "../data/pakistan-electricity-bill-slabs-guide-2026-2027-article";
 import CreatineDailyIntakeAndMacroCalculatorGuideArticle from "../data/creatine-daily-intake-and-macro-calculator-guide-article";
 import ShareButtons from "@/components/ShareButtons";
 
@@ -60,6 +61,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "pakistan-electricity-bill-slabs-guide-2026-2027": PakistanElectricityBillSlabsGuide20262027Article,
   "etsy-fee-and-profit-calculator-guide-2026": EtsyFeeAndProfitCalculatorGuide2026Article,
   "solar-panel-payback-period-and-roi-guide": SolarPanelPaybackPeriodAndRoiGuideArticle,
   "amazon-kdp-royalty-and-printing-cost-guide": AmazonKDPRoyaltyAndPrintingCostGuideArticle,
@@ -106,6 +108,12 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "pakistan-electricity-bill-slabs-guide-2026-2027": {
+    title: "Pakistan Electricity Bill Calculator",
+    href: "/tools/pakistan-electricity-bill-calculator",
+    description: "Calculate domestic electricity bills for LESCO, IESCO, FESCO, MEPCO, K-Electric with 2026 NEPRA slabs, GST, and FPA.",
+    icon: "pakistan-electricity",
+  },
   "etsy-fee-and-profit-calculator-guide-2026": {
     title: "Etsy Fee & Net Profit Calculator",
     href: "/tools/etsy-fee-calculator",
@@ -511,7 +519,44 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "etsy-fee-and-profit-calculator-guide-2026" ? {
+  const faqJsonLd = article.slug === "pakistan-electricity-bill-slabs-guide-2026-2027" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How can I regain Protected Consumer status in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To regain protected status, your electricity meter consumption must remain at or below 200 units for 6 continuous billing months. On the 7th month, NEPRA systems automatically restore subsidized billing rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Financing Cost (FC) Surcharge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Financing Cost surcharge is a statutory fee of Rs. 3.23 per unit collected across all domestic electricity consumers to service debt in the national power transmission grid."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does K-Electric use the same slabs as WAPDA DISCOs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. NEPRA enforces a uniform national base tariff across K-Electric (Karachi) and all WAPDA power distribution companies (LESCO, IESCO, FESCO, MEPCO, GEPCO)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does 1 inverter AC add to a monthly bill in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A 1.5-ton DC inverter AC running 8 hours daily at 26°C consumes approximately 160 to 200 units monthly, adding roughly PKR 8,000 to 11,000 to your total monthly electricity bill."
+        }
+      }
+    ]
+  } : article.slug === "etsy-fee-and-profit-calculator-guide-2026" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

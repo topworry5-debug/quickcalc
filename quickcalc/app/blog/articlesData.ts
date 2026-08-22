@@ -14,6 +14,19 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "pakistan-electricity-bill-slabs-guide-2026-2027",
+    title: "Pakistan Electricity Bill & Unit Slabs Master Guide (FY 2026-2027)",
+    description: "Complete breakdown of NEPRA domestic tariff slabs, Protected vs Unprotected consumer status, 18% GST, FPA, and WAPDA/K-Electric bill math.",
+    excerpt: "Complete breakdown of NEPRA domestic tariff slabs, Protected vs Unprotected consumer status, 18% GST, FPA, and WAPDA/K-Electric bill math.",
+    date: "August 21, 2026",
+    readTime: "10 min read",
+    category: "Finance & Math",
+    icon: "pakistan-electricity",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    featured: true,
+  },
+  {
     slug: "etsy-fee-and-profit-calculator-guide-2026",
     title: "Etsy Fee & Net Profit Master Guide (2026 Slabs & Strategies)",
     description: "Complete breakdown of Etsy's 6.5% transaction commission, $0.20 listing fees, regional payment processing rates, and Offsite Ads profit math.",

@@ -34,6 +34,7 @@ module.exports = {
       "loan-calculator",
       "macro-calculator",
       "pace-calculator",
+      "pakistan-electricity-bill-calculator",
       "pakistan-income-tax-calculator",
       "paper-fabric-size-converter",
       "password-generator",

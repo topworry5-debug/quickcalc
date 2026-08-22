@@ -478,5 +478,15 @@ export const tools: Tool[] = [
     textColor: "text-purple-600 dark:text-purple-400",
     category: "Health",
     popular: true
+  },
+  {
+    title: "Pakistan Electricity Bill Calculator",
+    description: "Calculate exact domestic electricity bills across all DISCOs (LESCO, IESCO, FESCO, MEPCO, K-Electric) with 2026 NEPRA slabs, GST, and FPA.",
+    icon: "pakistan-electricity",
+    href: "/tools/pakistan-electricity-bill-calculator",
+    color: "from-emerald-500 via-teal-500 to-amber-500",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true
   }
 ];

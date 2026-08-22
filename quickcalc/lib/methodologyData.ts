@@ -459,6 +459,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates creatine monohydrate loading/maintenance dosages, hydration volume, BMR, TDEE, and macro splits.",
     detailedParagraph: "Creatine dosing follows the evidence-based International Society of Sports Nutrition (ISSN) position stand: a rapid loading protocol (0.3g/kg/day divided into 4 doses for 5–7 days) or gradual maintenance (0.04g/kg/day). Caloric targets implement Mifflin-St Jeor and Katch-McArdle equations with activity multipliers and customized macronutrient distributions (2.2g/kg protein, 25% fats, remainder carbohydrates).",
   },
+  {
+    slug: "pakistan-electricity-bill-calculator",
+    toolName: "Pakistan Electricity Bill Calculator",
+    category: "Finance & Math",
+    standardName: "National Electric Power Regulatory Authority (NEPRA) Domestic Tariff Schedule 2026-2027",
+    formulaText: "Total Bill = Base Slab Cost + Fixed Charges + FPA + ED(1.5%) + FC Surcharge + GST(18%) + TV Fee(35)",
+    summary: "Estimates WAPDA and K-Electric domestic electricity bills across all DISCOs with protected vs unprotected slabs.",
+    detailedParagraph: "Implements NEPRA's statutory progressive domestic electricity tariff slabs for Protected (≤200 units for 6 consecutive months) and Unprotected consumers across LESCO, IESCO, FESCO, MEPCO, GEPCO, and K-Electric. The engine itemizes base variable energy rates, tier-based fixed charges, Fuel Price Adjustment (FPA), Financing Cost (FC) surcharges, 1.5% Electricity Duty, and 18% General Sales Tax (GST).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {
