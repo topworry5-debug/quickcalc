@@ -37,9 +37,9 @@ export default function PakistanVehicleTokenTaxGuide20262027Article() {
             <tr>
               <td className="p-3 font-semibold">Under 1000 CC (Alto, Cultus)</td>
               <td className="p-3">Lifetime / Annual</td>
-              <td className="p-3">Rs. 1,500 / Lifetime</td>
-              <td className="p-3 text-emerald-600 font-bold">Rs. 1,700 (or Rs. 0 if Lifetime)</td>
-              <td className="p-3 text-rose-600 font-bold">Rs. 2,700</td>
+              <td className="p-3">Rs. 1,500 / Lifetime Rs. 18,000</td>
+              <td className="p-3 text-emerald-600 font-bold">Rs. 2,500 (Annual) / Lifetime</td>
+              <td className="p-3 text-rose-600 font-bold">Rs. 4,100 (Annual)</td>
             </tr>
             <tr>
               <td className="p-3 font-semibold">1001 CC to 1300 CC (Yaris, City)</td>
@@ -52,15 +52,15 @@ export default function PakistanVehicleTokenTaxGuide20262027Article() {
               <td className="p-3 font-semibold">1301 CC to 1500 CC (Civic, Corolla)</td>
               <td className="p-3">Annual Renewal</td>
               <td className="p-3">Rs. 6,000</td>
-              <td className="p-3 text-emerald-600 font-bold">Rs. 10,950</td>
-              <td className="p-3 text-rose-600 font-bold">Rs. 18,450</td>
+              <td className="p-3 text-emerald-600 font-bold">Rs. 9,700</td>
+              <td className="p-3 text-rose-600 font-bold">Rs. 14,700</td>
             </tr>
             <tr>
               <td className="p-3 font-semibold">1501 CC to 2000 CC (Sportage, Tucson)</td>
               <td className="p-3">Annual Renewal</td>
               <td className="p-3">Rs. 15,000</td>
-              <td className="p-3 text-emerald-600 font-bold">Rs. 25,200</td>
-              <td className="p-3 text-rose-600 font-bold">Rs. 40,200</td>
+              <td className="p-3 text-emerald-600 font-bold">Rs. 21,450</td>
+              <td className="p-3 text-rose-600 font-bold">Rs. 28,950</td>
             </tr>
             <tr>
               <td className="p-3 font-semibold">2001 CC to 2500 CC (Fortuner, Haval)</td>
@@ -73,8 +73,8 @@ export default function PakistanVehicleTokenTaxGuide20262027Article() {
               <td className="p-3 font-semibold">Above 2500 CC (Prado, Land Cruiser)</td>
               <td className="p-3">Annual Renewal</td>
               <td className="p-3">2.0% of Depreciated Value</td>
-              <td className="p-3 text-emerald-600 font-bold">2.0% + Rs. 24,500</td>
-              <td className="p-3 text-rose-600 font-bold">2.0% + Rs. 64,500</td>
+              <td className="p-3 text-emerald-600 font-bold">2.0% + Rs. 14,500</td>
+              <td className="p-3 text-rose-600 font-bold">2.0% + Rs. 34,500</td>
             </tr>
           </tbody>
         </table>
@@ -98,7 +98,7 @@ export default function PakistanVehicleTokenTaxGuide20262027Article() {
         2. Section 231B: Advance Tax on New Registration & Title Transfer
       </h3>
       <p>
-        Levied by FBR at the time of registering a brand new vehicle or transferring ownership. For vehicles under 2000cc, fixed slabs apply (Rs. 10,000 up to Rs. 100,000 for Filers; Rs. 30,000 to Rs. 300,000 for Non-Filers). For vehicles exceeding 2000cc, advance tax is charged as 3% to 5% of invoice value for Filers and 9% to 15% for Non-Filers.
+        Levied by FBR at the time of registering a brand new vehicle or transferring ownership. For vehicles under 2000cc, percentage rates on invoice value apply (0.5% up to 4% for Filers; 1.5% to 12% for Non-Filers).
       </p>
 
       <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white mt-10 mb-4">
@@ -137,20 +137,20 @@ export default function PakistanVehicleTokenTaxGuide20262027Article() {
       </h2>
       <div className="space-y-4 my-6">
         <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-          <h3 className="font-bold text-zinc-900 dark:text-white text-base">What is the token tax on a 1300cc car in Punjab for 2026?</h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">An Active Filer pays PKR 5,450 (Rs. 3,000 base + Rs. 500 MV + Rs. 200 prof tax + Rs. 1,750 FBR WHT). A Non-Filer pays PKR 8,950.</p>
+          <h3 className="font-bold text-zinc-900 dark:text-white text-base">What is the lifetime token tax limit for cars in Punjab and Islamabad?</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">In Punjab, Sindh, and Islamabad, lifetime token tax is statutory only for vehicles with engine capacity up to 1000cc. The one-time lifetime fee ranges from PKR 15,000 to PKR 20,000 paid at registration. Vehicles exceeding 1000cc must pay annual token tax renewals.</p>
         </div>
         <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-          <h3 className="font-bold text-zinc-900 dark:text-white text-base">Is lifetime token tax available for cars above 1000cc in Pakistan?</h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">No. Lifetime token tax is exclusively for vehicles up to 1000cc. Cars 1001cc and above require annual token tax renewals.</p>
+          <h3 className="font-bold text-zinc-900 dark:text-white text-base">How much is the token tax for a 1300cc car (Corolla/Yaris) in 2026?</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">For a 1300cc private car in Punjab, an Active Tax Filer pays PKR 5,450 annually (Rs. 3,000 base excise + Rs. 500 motor vehicle tax + Rs. 200 professional tax + Rs. 1,750 FBR Section 234 advance tax). A Non-Filer pays PKR 8,950 annually due to a Rs. 5,250 withholding tax surcharge.</p>
         </div>
         <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-          <h3 className="font-bold text-zinc-900 dark:text-white text-base">How much extra tax does a Non-Filer pay on new car registration?</h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Non-Filers pay up to 3x higher advance tax under Section 231B (e.g. Rs. 75,000 vs Rs. 25,000 for 1300cc; 9%–15% vs 3%–5% for 2000cc+ cars).</p>
+          <h3 className="font-bold text-zinc-900 dark:text-white text-base">How can I check if my vehicle token tax is paid online?</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">You can verify online within seconds by opening the ePay Punjab app (or MTMIS Punjab/Sindh website), entering your vehicle registration number, and checking the &apos;Tax Paid Upto&apos; date in the computerized vehicle verification record.</p>
         </div>
         <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-          <h3 className="font-bold text-zinc-900 dark:text-white text-base">What happens if I pay vehicle token tax after the due date?</h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Excise departments apply penalties ranging from 10% up to 100% of the base token tax for overdue renewals.</p>
+          <h3 className="font-bold text-zinc-900 dark:text-white text-base">Is there a discount for paying vehicle token tax early before July 31st?</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Yes. Provincial Excise departments frequently announce a 5% to 10% prompt payment rebate for vehicle owners who pay their annual token tax between July 1st and August 31st via ePay Punjab or digital banking channels.</p>
         </div>
       </div>
     </>

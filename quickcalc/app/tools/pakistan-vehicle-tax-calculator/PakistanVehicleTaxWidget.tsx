@@ -12,6 +12,7 @@ import {
   VehicleTransactionType,
   VehicleCategory,
   VehicleTaxpayerStatus,
+  PaymentPeriod,
 } from "@/lib/calculators/pakistanVehicleTaxCalculator";
 import { generatePdfAsync } from "@/lib/utils/downloadPdf";
 import ExplainResultAccordion from "@/components/ExplainResultAccordion";
@@ -39,7 +40,7 @@ export default function PakistanVehicleTaxWidget() {
   const [modelYear, setModelYear] = useState<string>("2023");
   const [taxpayerStatus, setTaxpayerStatus] = useState<VehicleTaxpayerStatus>("filer");
   const [invoiceValue, setInvoiceValue] = useState<string>("4700000");
-  const [isLifetimePaid, setIsLifetimePaid] = useState<boolean>(false);
+  const [paymentPeriod, setPaymentPeriod] = useState<PaymentPeriod>("1_year");
 
   // UI state
   const [copied, setCopied] = useState<boolean>(false);
@@ -58,6 +59,7 @@ export default function PakistanVehicleTaxWidget() {
       const qYear = params.get("year");
       const qStatus = params.get("status") as VehicleTaxpayerStatus | null;
       const qVal = params.get("val");
+      const qPeriod = params.get("period") as PaymentPeriod | null;
 
       if (qProv && Object.keys(EXCISE_PROVINCE_NAMES).includes(qProv)) setProvince(qProv);
       if (qType && ["annual_token", "new_registration"].includes(qType)) setTransactionType(qType);
@@ -66,6 +68,7 @@ export default function PakistanVehicleTaxWidget() {
       if (qYear) setModelYear(qYear);
       if (qStatus && ["filer", "late_filer", "non_filer"].includes(qStatus)) setTaxpayerStatus(qStatus);
       if (qVal) setInvoiceValue(qVal);
+      if (qPeriod && ["1_year", "lifetime"].includes(qPeriod)) setPaymentPeriod(qPeriod);
     } catch {
       // ignore
     }
@@ -84,9 +87,9 @@ export default function PakistanVehicleTaxWidget() {
       modelYear: parsedYear,
       taxpayerStatus,
       invoiceValue: parsedVal,
-      isLifetimePaid,
+      paymentPeriod,
     }),
-    [province, transactionType, category, parsedCc, parsedYear, taxpayerStatus, parsedVal, isLifetimePaid]
+    [province, transactionType, category, parsedCc, parsedYear, taxpayerStatus, parsedVal, paymentPeriod]
   );
 
   const result: VehicleTaxBreakdown = useMemo(
@@ -108,6 +111,7 @@ export default function PakistanVehicleTaxWidget() {
     if (preset.inputs.modelYear !== undefined) setModelYear(preset.inputs.modelYear.toString());
     if (preset.inputs.taxpayerStatus) setTaxpayerStatus(preset.inputs.taxpayerStatus);
     if (preset.inputs.invoiceValue !== undefined) setInvoiceValue(preset.inputs.invoiceValue.toString());
+    if (preset.inputs.paymentPeriod) setPaymentPeriod(preset.inputs.paymentPeriod);
   };
 
   // Reset
@@ -119,20 +123,20 @@ export default function PakistanVehicleTaxWidget() {
     setModelYear("2023");
     setTaxpayerStatus("filer");
     setInvoiceValue("4700000");
-    setIsLifetimePaid(false);
+    setPaymentPeriod("1_year");
   };
 
   // Copy Breakdown
   const handleCopyBreakdown = async () => {
     const summaryText = `
 === QuickCalc: Pakistan Vehicle Tax Invoice (FY 2026-2027) ===
-Authority: ${result.provinceName} | Type: ${transactionType === "annual_token" ? "Annual Token Renewal" : "New Registration"}
-Engine Capacity: ${result.engineCc} CC (${result.ccSlabLabel}) | Model: ${modelYear}
+Authority: ${result.provinceName} | Category: ${category.toUpperCase()} | Type: ${transactionType === "annual_token" ? "Annual Token Renewal" : "New Registration"}
+Engine Capacity: ${result.engineCc} CC (${result.ccSlabLabel}) | Model: ${modelYear} | Period: ${paymentPeriod === "lifetime" ? "Lifetime Token" : "1 Year"}
 Taxpayer Status: ${taxpayerStatus.toUpperCase()} | Invoice Value: PKR ${parsedVal.toLocaleString()}
 
 -- ITEMIZED EXCISE & FBR FEES --
-• Base Excise Token Tax: PKR ${result.baseExciseTax.toLocaleString()}
-• Motor Vehicle Tax: PKR ${result.motorVehicleTax.toLocaleString()}
+• Base Excise Token Tax: PKR ${result.baseExciseTax.toLocaleString()} ${result.isLifetime ? "(Lifetime Token)" : ""}
+• Motor Vehicle Road Tax: PKR ${result.motorVehicleTax.toLocaleString()}
 • Professional Tax: PKR ${result.professionalTax.toLocaleString()}
 • ${result.fbrSectionCode}: PKR ${result.fbrAdvanceTax.toLocaleString()}
 ${transactionType === "new_registration" ? `• Registration & Smart Card/Plates: PKR ${(result.registrationFee + result.smartCardPlateFee).toLocaleString()}\n` : ""}
@@ -162,6 +166,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
     url.searchParams.set("year", parsedYear.toString());
     url.searchParams.set("status", taxpayerStatus);
     url.searchParams.set("val", parsedVal.toString());
+    url.searchParams.set("period", paymentPeriod);
 
     try {
       await navigator.clipboard.writeText(url.toString());
@@ -177,7 +182,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
     setIsPdfGenerating(true);
     try {
       const rows = [
-        ["Base Excise Token Tax", result.ccSlabLabel, `PKR ${result.baseExciseTax.toLocaleString()}`],
+        ["Base Excise Token Tax", result.isLifetime ? "Lifetime Token (<=1000cc)" : result.ccSlabLabel, `PKR ${result.baseExciseTax.toLocaleString()}`],
         ["Motor Vehicle & Professional Tax", "Provincial Excise", `PKR ${(result.motorVehicleTax + result.professionalTax).toLocaleString()}`],
         [result.fbrSectionCode, `${taxpayerStatus.toUpperCase()} Status`, `PKR ${result.fbrAdvanceTax.toLocaleString()}`],
       ];
@@ -195,6 +200,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
           { label: "Transaction Type", value: transactionType === "annual_token" ? "Annual Token Renewal" : "New Vehicle Registration" },
           { label: "Engine Capacity (CC)", value: `${result.engineCc} CC (${result.ccSlabLabel})` },
           { label: "Vehicle Model Year", value: modelYear },
+          { label: "Payment Period", value: paymentPeriod === "lifetime" ? "Lifetime Token" : "1 Year" },
           { label: "Taxpayer Status", value: taxpayerStatus.toUpperCase() },
           { label: "Invoice / Market Value", value: `PKR ${parsedVal.toLocaleString()}` },
         ],
@@ -264,11 +270,62 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               </div>
               <div>
                 <h2 className="text-base font-bold text-zinc-900 dark:text-white">
-                  1. Vehicle & Excise Jurisdiction
+                  1. Vehicle & Excise Details
                 </h2>
                 <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                  Provincial authority, engine capacity & vehicle age
+                  Provincial authority, category, engine capacity & value
                 </p>
+              </div>
+            </div>
+
+            {/* Category Selector Tabs */}
+            <div>
+              <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                Vehicle Category
+              </label>
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCategory("car");
+                    if (parsedCc < 660) setEngineCc("1329");
+                  }}
+                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                    category === "car"
+                      ? "bg-emerald-500/10 border-emerald-500 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500"
+                      : "bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400"
+                  }`}
+                >
+                  Car / SUV / Jeep
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCategory("bike");
+                    setEngineCc("125");
+                  }}
+                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                    category === "bike"
+                      ? "bg-emerald-500/10 border-emerald-500 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500"
+                      : "bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400"
+                  }`}
+                >
+                  Motorbike / Scooter
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCategory("commercial");
+                    if (parsedCc < 1500) setEngineCc("2400");
+                  }}
+                  className={`p-2 rounded-xl border text-center text-xs transition-all ${
+                    category === "commercial"
+                      ? "bg-emerald-500/10 border-emerald-500 text-emerald-900 dark:text-emerald-200 font-bold ring-1 ring-emerald-500"
+                      : "bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400"
+                  }`}
+                >
+                  Commercial
+                </button>
               </div>
             </div>
 
@@ -297,28 +354,63 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
 
               <div>
                 <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
-                  Transaction Type
+                  Calculation Type
                 </label>
                 <div className="relative">
                   <select
                     value={transactionType}
-                    aria-label="Transaction Type"
+                    aria-label="Calculation Type"
                     onChange={(e) => setTransactionType(e.target.value as VehicleTransactionType)}
                     className="w-full text-xs font-semibold bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
                   >
-                    <option value="annual_token">Annual Token Renewal</option>
-                    <option value="new_registration">New Vehicle Registration</option>
+                    <option value="annual_token">Annual Token Tax Renewal</option>
+                    <option value="new_registration">New Vehicle First Registration</option>
                   </select>
                   <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
             </div>
 
-            {/* Engine CC & Model Year */}
+            {/* Engine CC Quick Slabs */}
+            {category === "car" && (
+              <div>
+                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1.5">
+                  Engine CC Slabs (Quick Select)
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                  {[
+                    { label: "Under 1000cc", cc: "660" },
+                    { label: "1001-1300cc", cc: "1329" },
+                    { label: "1301-1500cc", cc: "1498" },
+                    { label: "1501-2000cc", cc: "1798" },
+                    { label: "Above 2000cc", cc: "2755" },
+                  ].map((slab) => (
+                    <button
+                      key={slab.label}
+                      type="button"
+                      onClick={() => setEngineCc(slab.cc)}
+                      className={`p-1.5 text-[11px] font-semibold rounded-lg border transition-all ${
+                        (slab.label === "Under 1000cc" && parsedCc <= 1000) ||
+                        (slab.label === "1001-1300cc" && parsedCc > 1000 && parsedCc <= 1300) ||
+                        (slab.label === "1301-1500cc" && parsedCc > 1300 && parsedCc <= 1500) ||
+                        (slab.label === "1501-2000cc" && parsedCc > 1500 && parsedCc <= 2000) ||
+                        (slab.label === "Above 2000cc" && parsedCc > 2000)
+                          ? "bg-emerald-500/15 border-emerald-500 text-emerald-800 dark:text-emerald-300 font-bold"
+                          : "bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400"
+                      }`}
+                    >
+                      {slab.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Exact Engine CC & Invoice Value */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-                  Engine Capacity (CC)
+                  Exact Engine Capacity (CC)
                 </label>
                 <div className="relative">
                   <input
@@ -337,41 +429,25 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
 
               <div>
                 <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
-                  Vehicle Model Year
+                  Vehicle Invoice / Price (PKR)
                 </label>
                 <div className="relative">
-                  <select
-                    value={modelYear}
-                    aria-label="Vehicle Model Year"
-                    onChange={(e) => setModelYear(e.target.value)}
-                    className="w-full text-xs font-semibold bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
-                  >
-                    {Array.from({ length: 27 }, (_, i) => 2026 - i).map((yr) => (
-                      <option key={yr} value={yr.toString()}>
-                        {yr} {yr <= 2016 ? "(10+ Yrs Rebate)" : ""}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-zinc-400">PKR</span>
+                  <input
+                    type="number"
+                    step="50000"
+                    min="100000"
+                    value={invoiceValue}
+                    onChange={(e) => setInvoiceValue(e.target.value)}
+                    className="w-full pl-12 pr-3 py-2.5 text-sm font-bold bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    placeholder="4700000"
+                  />
                 </div>
               </div>
             </div>
-
-            {/* Lifetime Paid Option for <1000cc */}
-            {parsedCc <= 1000 && (
-              <label className="flex items-center gap-2 p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={isLifetimePaid}
-                  onChange={(e) => setIsLifetimePaid(e.target.checked)}
-                  className="rounded text-emerald-600 focus:ring-emerald-500"
-                />
-                <span>Lifetime Token Tax already paid on original registration (Rs. 0 annual token)</span>
-              </label>
-            )}
           </div>
 
-          {/* Card 2: Tax Status & Invoice Value */}
+          {/* Card 2: Tax Filer Status & Vehicle Age */}
           <div className="bg-white dark:bg-zinc-900/90 rounded-2xl p-5 sm:p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <div className="flex items-center gap-2 border-b border-zinc-100 dark:border-zinc-800/80 pb-3">
               <div className="w-8 h-8 rounded-lg bg-teal-500/10 dark:bg-teal-500/20 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold">
@@ -379,10 +455,10 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               </div>
               <div>
                 <h2 className="text-base font-bold text-zinc-900 dark:text-white">
-                  2. Taxpayer Status & Vehicle Valuation
+                  2. Tax Filer Status & Vehicle Age
                 </h2>
                 <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                  FBR withholding rate & vehicle invoice value
+                  FBR Active Taxpayer status, model year & token payment term
                 </p>
               </div>
             </div>
@@ -403,7 +479,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
                   }`}
                 >
                   <div className="font-bold">Active Filer</div>
-                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Lowest Rates</span>
+                  <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Standard Rates</span>
                 </button>
 
                 <button
@@ -434,34 +510,55 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               </div>
             </div>
 
-            {/* Vehicle Invoice / Market Value */}
-            <div>
-              <div className="flex items-center justify-between mb-1">
-                <label className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">
-                  Vehicle Invoice / Market Value (PKR)
+            {/* Model Year & Payment Period */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+                  Vehicle Model Year
                 </label>
-                <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400">
-                  PKR {parsedVal.toLocaleString()}
-                </span>
+                <div className="relative">
+                  <select
+                    value={modelYear}
+                    aria-label="Vehicle Model Year"
+                    onChange={(e) => setModelYear(e.target.value)}
+                    className="w-full text-xs font-semibold bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+                  >
+                    {Array.from({ length: 27 }, (_, i) => 2026 - i).map((yr) => (
+                      <option key={yr} value={yr.toString()}>
+                        {yr} {yr <= 2016 ? "(10+ Yrs Rebate)" : ""}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
               </div>
-              <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-zinc-400">PKR</span>
-                <input
-                  type="number"
-                  step="50000"
-                  min="100000"
-                  value={invoiceValue}
-                  onChange={(e) => setInvoiceValue(e.target.value)}
-                  className="w-full pl-12 pr-4 py-2.5 text-sm font-bold bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  placeholder="4700000"
-                />
+
+              <div>
+                <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">
+                  Payment Period
+                </label>
+                <div className="relative">
+                  <select
+                    value={paymentPeriod}
+                    aria-label="Payment Period"
+                    onChange={(e) => setPaymentPeriod(e.target.value as PaymentPeriod)}
+                    className="w-full text-xs font-semibold bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 rounded-xl px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+                  >
+                    <option value="1_year">1 Year (Annual Renewal)</option>
+                    {parsedCc <= 1000 && (
+                      <option value="lifetime">Lifetime Token (≤1000cc Only)</option>
+                    )}
+                  </select>
+                  <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                </div>
               </div>
-              <span className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 block">
-                {parsedCc > 2000
-                  ? "Required for 2000cc+ luxury vehicles where token tax is calculated as % of value."
-                  : "Used for computing registration fees and luxury bracket calculations."}
-              </span>
             </div>
+
+            {parsedCc > 1000 && paymentPeriod === "lifetime" && (
+              <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-800 dark:text-amber-300">
+                Note: Lifetime token tax is statutory only for vehicles up to 1000cc. For 1001cc+ cars, annual token tax applies.
+              </div>
+            )}
           </div>
 
         </div>
@@ -472,25 +569,25 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
           {/* Primary 3-Metric Highlight Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             
-            {/* Total Payable Fee */}
+            {/* Grand Total Token Tax Payable */}
             <div className="p-4 rounded-2xl border bg-gradient-to-br from-emerald-500/15 via-emerald-500/5 to-teal-500/10 border-emerald-500/30 text-zinc-900 dark:text-zinc-100 shadow-xs sm:col-span-2">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
-                  Total Payable Fee
+                  Grand Total Token Tax Payable
                 </span>
                 <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-800 dark:text-emerald-300">
-                  FY 2026-2027
+                  {paymentPeriod === "lifetime" ? "Lifetime Token" : "FY 2026-2027"}
                 </span>
               </div>
               <div className="text-3xl sm:text-4xl font-black tracking-tight text-emerald-600 dark:text-emerald-400">
                 PKR {result.totalPayable.toLocaleString()}
               </div>
               <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-medium">
-                {transactionType === "annual_token" ? "Annual Excise Token & FBR Section 234" : "New Vehicle Registration & Section 231B"}
+                {transactionType === "annual_token" ? "All-Inclusive Annual Token & FBR Sec 234" : "New Vehicle Registration & FBR Sec 231B"}
               </div>
             </div>
 
-            {/* Base Excise Token */}
+            {/* Excise Token Base Amount */}
             <div className="p-4 rounded-2xl border bg-gradient-to-br from-blue-500/15 via-blue-500/5 to-indigo-500/10 border-blue-500/30 text-zinc-900 dark:text-zinc-100 shadow-xs">
               <span className="text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 block mb-1">
                 Base Excise Tax
@@ -499,40 +596,40 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
                 PKR {result.baseExciseTax.toLocaleString()}
               </div>
               <div className="text-[10px] text-zinc-500 dark:text-zinc-400 mt-1 font-medium">
-                {result.ccSlabLabel}
+                {result.isLifetime ? "Lifetime Token" : result.ccSlabLabel}
               </div>
             </div>
           </div>
 
-          {/* Non-Filer Penalty Alert */}
+          {/* Non-Filer Penalty Surcharge Alert */}
           {result.nonFilerPenalty > 0 ? (
             <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-zinc-900 dark:text-zinc-100 shadow-sm space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5 text-rose-700 dark:text-rose-400 font-bold text-xs uppercase tracking-wider">
                   <AlertTriangle className="w-4 h-4" />
-                  <span>Non-Filer Withholding Tax Penalty</span>
+                  <span>Non-Filer Penalty Surcharge</span>
                 </div>
                 <span className="text-xs font-black text-rose-600 dark:text-rose-400">
-                  +PKR {result.nonFilerPenalty.toLocaleString()} Extra
+                  +PKR {result.nonFilerPenalty.toLocaleString()} Extra Lost
                 </span>
               </div>
               <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                You are paying <strong>PKR {result.nonFilerPenalty.toLocaleString()}</strong> in extra punitive FBR withholding taxes because of Non-Filer status on this vehicle.
+                You are paying <strong>PKR {result.nonFilerPenalty.toLocaleString()}</strong> in extra punitive FBR withholding taxes because of Non-Filer status on this vehicle. Becoming an active filer saves this entire amount.
               </p>
             </div>
           ) : (
             <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-800 dark:text-emerald-300 flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-              <span><strong>Active Filer Benefit:</strong> You qualify for the lowest statutory withholding tax rates with zero penalty.</span>
+              <span><strong>Active Filer Benefit:</strong> You qualify for the lowest statutory withholding tax rates with zero surcharge penalty.</span>
             </div>
           )}
 
-          {/* Itemized Excise Receipt Breakdown Table */}
+          {/* Interactive Breakdown Table */}
           <div className="bg-white dark:bg-zinc-900/90 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm overflow-hidden text-xs">
             <div className="p-4 bg-zinc-50/80 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
               <h3 className="font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
                 <Layers className="w-4 h-4 text-emerald-500" />
-                <span>Excise & Taxation Fee Breakdown</span>
+                <span>Excise Fee & FBR Tax Breakdown</span>
               </h3>
               <span className="text-[11px] text-zinc-500 font-medium">{result.provinceName}</span>
             </div>
@@ -541,8 +638,8 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               {/* Base Token */}
               <div className="p-3 flex items-center justify-between text-zinc-700 dark:text-zinc-300">
                 <div>
-                  <span className="font-semibold text-zinc-900 dark:text-white">Base Motor Vehicle Token Tax</span>
-                  <span className="text-[10px] text-zinc-400 block">{result.ccSlabLabel}</span>
+                  <span className="font-semibold text-zinc-900 dark:text-white">Excise Token Fee (Base Rate)</span>
+                  <span className="text-[10px] text-zinc-400 block">{result.isLifetime ? "One-time lifetime token tax" : result.ccSlabLabel}</span>
                 </div>
                 <span className="font-mono font-bold text-zinc-900 dark:text-white">
                   PKR {result.baseExciseTax.toLocaleString()}
@@ -553,8 +650,8 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               {result.motorVehicleTax > 0 && (
                 <div className="p-3 flex items-center justify-between text-zinc-700 dark:text-zinc-300">
                   <div>
-                    <span className="font-semibold text-zinc-900 dark:text-white">Motor Vehicle / Highway Surcharge</span>
-                    <span className="text-[10px] text-zinc-400 block">Provincial road maintenance surcharge</span>
+                    <span className="font-semibold text-zinc-900 dark:text-white">Motor Vehicle / Road Infrastructure Tax</span>
+                    <span className="text-[10px] text-zinc-400 block">Provincial highway maintenance</span>
                   </div>
                   <span className="font-mono font-bold text-zinc-900 dark:text-white">
                     PKR {result.motorVehicleTax.toLocaleString()}
@@ -566,18 +663,18 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               <div className="p-3 flex items-center justify-between text-zinc-700 dark:text-zinc-300">
                 <div>
                   <span className="font-semibold text-zinc-900 dark:text-white">Professional Tax</span>
-                  <span className="text-[10px] text-zinc-400 block">Excise annual professional levy</span>
+                  <span className="text-[10px] text-zinc-400 block">Provincial annual professional levy</span>
                 </div>
                 <span className="font-mono font-bold text-zinc-900 dark:text-white">
                   PKR {result.professionalTax.toLocaleString()}
                 </span>
               </div>
 
-              {/* FBR Advance WHT */}
+              {/* FBR Income Tax Portion */}
               <div className="p-3 flex items-center justify-between text-zinc-700 dark:text-zinc-300 bg-zinc-50/50 dark:bg-zinc-900/50">
                 <div>
-                  <span className="font-semibold text-zinc-900 dark:text-white">{result.fbrSectionCode}</span>
-                  <span className="text-[10px] text-zinc-400 block">{taxpayerStatus.toUpperCase()} Status</span>
+                  <span className="font-semibold text-zinc-900 dark:text-white">FBR Income Tax Portion</span>
+                  <span className="text-[10px] text-zinc-400 block">{result.fbrSectionCode} ({taxpayerStatus.toUpperCase()})</span>
                 </div>
                 <span className="font-mono font-bold text-teal-600 dark:text-teal-400">
                   PKR {result.fbrAdvanceTax.toLocaleString()}
@@ -610,7 +707,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
 
               {/* Grand Total */}
               <div className="p-3.5 bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-between font-bold text-sm">
-                <span className="text-zinc-900 dark:text-white">Net Total Payable</span>
+                <span className="text-zinc-900 dark:text-white">Grand Total Payable</span>
                 <span className="font-mono text-base font-black text-emerald-600 dark:text-emerald-400">
                   PKR {result.totalPayable.toLocaleString()}
                 </span>
@@ -633,7 +730,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               ) : (
                 <>
                   <Copy className="w-4 h-4 text-zinc-500" />
-                  <span>Copy Tax Invoice</span>
+                  <span>Copy Tax Breakdown</span>
                 </>
               )}
             </button>
@@ -661,7 +758,7 @@ Calculated at: https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator
               ) : (
                 <>
                   <Share2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>Share Scenario</span>
+                  <span>Share Estimate Link</span>
                 </>
               )}
             </button>

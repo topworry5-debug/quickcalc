@@ -14,12 +14,12 @@ import { Sparkles, HelpCircle, ArrowRight, Car, Receipt, ShieldCheck } from "luc
 
 export const metadata: Metadata = {
   title: "Pakistan Vehicle Token Tax Calculator (2026-2027 Excise Slabs)",
-  description: "Calculate annual vehicle token tax, new car registration fees, and FBR Section 231B/234 withholding tax for Punjab, Sindh, and Islamabad Excise across 660cc to 3000cc+ cars.",
+  description: "Calculate annual vehicle token tax, lifetime token fees, and FBR Section 231B/234 withholding tax for Punjab, Sindh, and Islamabad Excise across 660cc to 3000cc+ cars.",
   alternates: {
     canonical: "/tools/pakistan-vehicle-tax-calculator",
   },
   openGraph: {
-    title: "Pakistan Vehicle Token Tax & Registration Fee Calculator (2026-2027)",
+    title: "Pakistan Vehicle Token Tax & Registration Calculator (FY 2026-2027)",
     description: "Free online vehicle token tax and registration calculator for Punjab, Sindh, and ICT Islamabad based on engine CC slabs, vehicle age, and Filer vs Non-Filer WHT rates.",
     url: "https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator",
     type: "website",
@@ -46,8 +46,8 @@ export default function PakistanVehicleTaxPage({
   searchParams?: { embed?: string };
 }) {
   const softwareSchema = generateSoftwareAppSchema({
-    name: "Pakistan Vehicle Token Tax & Registration Fee Calculator (FY 2026-2027)",
-    description: "Free online vehicle taxation utility for Pakistani car owners and buyers across Punjab, Sindh, and Islamabad Excise departments.",
+    name: "Pakistan Vehicle Token Tax & Registration Calculator (FY 2026-2027)",
+    description: "Free online vehicle taxation utility for Pakistani car and bike owners across Punjab, Sindh, KPK, and Islamabad Excise departments.",
     slug: "pakistan-vehicle-tax-calculator",
     category: "Finance",
   });
@@ -73,34 +73,34 @@ export default function PakistanVehicleTaxPage({
     mainEntity: [
       {
         "@type": "Question",
-        "name": "What is the token tax on a 1300cc car in Punjab for 2026?",
+        "name": "What is the lifetime token tax limit for cars in Punjab and Islamabad?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For a 1300cc private car in Punjab (such as a Toyota Yaris or Honda City), an Active Tax Filer pays Rs. 3,000 base excise token + Rs. 500 motor vehicle tax + Rs. 200 professional tax + Rs. 1,750 FBR Section 234 advance tax, totaling PKR 5,450 annually. A Non-Filer pays PKR 8,950 due to a Rs. 5,250 withholding tax surcharge."
+          "text": "In Punjab, Sindh, and Islamabad, lifetime token tax is statutory only for vehicles with engine capacity up to 1000cc (e.g. Suzuki Alto, Cultus, Wagon R, Daihatsu Mira). The one-time lifetime fee ranges from PKR 15,000 to PKR 20,000 paid at registration. Vehicles exceeding 1000cc must pay annual token tax renewals."
         }
       },
       {
         "@type": "Question",
-        "name": "Is lifetime token tax available for cars above 1000cc in Pakistan?",
+        "name": "How much is the token tax for a 1300cc car (Corolla/Yaris) in 2026?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Lifetime token tax is exclusively available for vehicles with engine capacity up to 1000cc (e.g. Suzuki Alto, Cultus, Wagon R). Cars with engine capacity of 1001cc and above are subject to mandatory annual token tax renewal."
+          "text": "For a 1300cc private car in Punjab, an Active Tax Filer pays PKR 5,450 annually (Rs. 3,000 base excise + Rs. 500 motor vehicle tax + Rs. 200 professional tax + Rs. 1,750 FBR Section 234 advance tax). A Non-Filer pays PKR 8,950 annually due to a Rs. 5,250 withholding tax surcharge."
         }
       },
       {
         "@type": "Question",
-        "name": "How much extra tax does a Non-Filer pay on new car registration?",
+        "name": "How can I check if my vehicle token tax is paid online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Under FBR Section 231B, Non-Filers pay up to 3x higher advance withholding tax upon registration. For example, on a 1300cc car, an Active Filer pays Rs. 25,000 while a Non-Filer pays Rs. 75,000 (Rs. 50,000 extra penalty). On 2000cc+ luxury vehicles, Non-Filers pay 9% to 15% of invoice value compared to 3% to 5% for Filers."
+          "text": "You can verify online within seconds by opening the ePay Punjab app (or MTMIS Punjab/Sindh website), entering your vehicle registration number, and checking the 'Tax Paid Upto' date in the computerized vehicle verification record."
         }
       },
       {
         "@type": "Question",
-        "name": "What happens if I pay vehicle token tax after the due date?",
+        "name": "Is there a discount for paying vehicle token tax early before July 31st?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Provincial Excise departments impose late payment surcharges ranging from 10% to 100% of the base token tax if paid after the June 30 / August 31 statutory deadlines. Paying early via ePay Punjab or online portals often provides a 5% to 10% prompt payment rebate."
+          "text": "Yes. Provincial Excise departments frequently announce a 5% to 10% prompt payment rebate for vehicle owners who pay their annual token tax between July 1st and August 31st via ePay Punjab or digital banking channels."
         }
       }
     ]
@@ -109,7 +109,7 @@ export default function PakistanVehicleTaxPage({
   const articleData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Pakistan Vehicle Token Tax & Registration Fee Calculator (2026-2027 Guide)",
+    "headline": "Pakistan Vehicle Token Tax & Registration Calculator (2026-2027 Guide)",
     "description": "Complete breakdown of motor vehicle token tax, FBR Section 231B/234 withholding tax, engine CC slabs, and non-filer penalty comparisons.",
     "url": "https://quickcalc.cloud/tools/pakistan-vehicle-tax-calculator",
     "image": "https://quickcalc.cloud/og-image.png",
@@ -160,12 +160,12 @@ export default function PakistanVehicleTaxPage({
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-4">
-            Free Pakistan Vehicle Token Tax & Registration Fee Calculator (FY 2026-2027)
+            Free Pakistan Vehicle Token Tax & Registration Calculator (FY 2026-2027)
           </h1>
 
           {/* AI-extractable direct answer summary */}
           <p className="text-sm sm:text-base font-semibold text-emerald-800 dark:text-emerald-200 bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-4 py-3 leading-relaxed mb-4 text-left">
-            This free automotive tax utility calculates exact annual token tax renewals, new vehicle registration fees, and FBR withholding tax under Section 231B/234 across Punjab, Sindh, and Islamabad Excise departments based on engine capacity (660cc to 3000cc+), vehicle age, and Active Filer vs Non-Filer status.
+            This free automotive tax utility calculates exact annual token tax renewals, lifetime token options, new vehicle registration fees, and FBR withholding tax under Section 231B/234 across Punjab, Sindh, KPK, and Islamabad Excise departments based on engine capacity (660cc to 3000cc+), vehicle age, and Active Filer vs Non-Filer status.
           </p>
 
           {/* Stand-alone direct answer paragraph */}
@@ -201,11 +201,11 @@ export default function PakistanVehicleTaxPage({
         {/* Comprehensive SEO & AEO Content (500+ Words) */}
         <article className="prose prose-zinc dark:prose-invert max-w-4xl mx-auto space-y-8 mt-12 border-t border-zinc-200 dark:border-zinc-800 pt-10">
           
-          {/* Section 1: How Vehicle Token Tax is Calculated */}
+          {/* Section 1: Understanding Vehicle Token Tax Rates */}
           <section className="space-y-4">
             <h2 className="text-2xl font-black text-zinc-950 dark:text-white flex items-center gap-2">
               <Car className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-              <span>How Vehicle Token Tax is Calculated in Punjab, Sindh & Islamabad</span>
+              <span>Understanding Vehicle Token Tax Rates in Punjab, Sindh, and Islamabad</span>
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Motor vehicle taxation in Pakistan is governed by provincial motor vehicle taxation acts and federal income tax laws. An annual token tax invoice comprises three distinct components:
@@ -219,11 +219,11 @@ export default function PakistanVehicleTaxPage({
             </ul>
           </section>
 
-          {/* Section 2: FBR Section 231B & 234 Withholding Tax */}
+          {/* Section 2: FBR Section 234 & 231B Comparison */}
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
             <h2 className="text-2xl font-black text-zinc-950 dark:text-white flex items-center gap-2">
               <Receipt className="w-6 h-6 text-teal-600 dark:text-teal-400" />
-              <span>FBR Section 231B & Section 234 Tax Slabs for Filers vs. Non-Filers</span>
+              <span>FBR Section 234 & 231B: Filer vs Non-Filer Car Tax Comparison</span>
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               The Federal Board of Revenue enforces steep withholding tax differentials to encourage formal tax filing:
@@ -243,45 +243,38 @@ export default function PakistanVehicleTaxPage({
                 <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800 text-zinc-700 dark:text-zinc-300">
                   <tr>
                     <td className="p-3 font-semibold">Under 1000 CC</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 0</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 1,000</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 10,000–20,000</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 30,000–60,000</td>
+                    <td className="p-3 text-emerald-600 font-bold">Rs. 800</td>
+                    <td className="p-3 text-rose-600 font-bold">Rs. 2,400</td>
+                    <td className="p-3 text-emerald-600 font-bold">0.5% - 1.0%</td>
+                    <td className="p-3 text-rose-600 font-bold">1.5% - 3.0%</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-semibold">1001 CC to 1300 CC</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 1,750</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 5,250</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 25,000</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 75,000</td>
+                    <td className="p-3 text-emerald-600 font-bold">Rs. 1,500–1,750</td>
+                    <td className="p-3 text-rose-600 font-bold">Rs. 4,500–5,250</td>
+                    <td className="p-3 text-emerald-600 font-bold">1.5%</td>
+                    <td className="p-3 text-rose-600 font-bold">4.5%</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-semibold">1301 CC to 1600 CC</td>
+                    <td className="p-3 font-semibold">1301 CC to 1500 CC</td>
+                    <td className="p-3 text-emerald-600 font-bold">Rs. 2,500</td>
+                    <td className="p-3 text-rose-600 font-bold">Rs. 7,500</td>
+                    <td className="p-3 text-emerald-600 font-bold">2.0%</td>
+                    <td className="p-3 text-rose-600 font-bold">6.0%</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-semibold">1501 CC to 2000 CC</td>
                     <td className="p-3 text-emerald-600 font-bold">Rs. 3,750</td>
                     <td className="p-3 text-rose-600 font-bold">Rs. 11,250</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 50,000</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 150,000</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-semibold">1601 CC to 1800 CC</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 4,500</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 13,500</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 75,000</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 225,000</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-semibold">1801 CC to 2000 CC</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 7,500</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 22,500</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 100,000</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 300,000</td>
+                    <td className="p-3 text-emerald-600 font-bold">3.0%</td>
+                    <td className="p-3 text-rose-600 font-bold">9.0%</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-semibold">Above 2000 CC</td>
-                    <td className="p-3 text-emerald-600 font-bold">Rs. 10,000–20,000</td>
-                    <td className="p-3 text-rose-600 font-bold">Rs. 30,000–60,000</td>
-                    <td className="p-3 text-emerald-600 font-bold">3% to 5% of Value</td>
-                    <td className="p-3 text-rose-600 font-bold">9% to 15% of Value</td>
+                    <td className="p-3 text-emerald-600 font-bold">Rs. 10,000</td>
+                    <td className="p-3 text-rose-600 font-bold">Rs. 30,000</td>
+                    <td className="p-3 text-emerald-600 font-bold">4.0%</td>
+                    <td className="p-3 text-rose-600 font-bold">12.0%</td>
                   </tr>
                 </tbody>
               </table>
@@ -292,7 +285,7 @@ export default function PakistanVehicleTaxPage({
           <section className="space-y-4 border-t border-zinc-200 dark:border-zinc-800 pt-8">
             <h2 className="text-2xl font-black text-zinc-950 dark:text-white flex items-center gap-2">
               <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-              <span>Step-by-Step Guide to Paying Your Vehicle Token Tax Online</span>
+              <span>How to Pay Vehicle Token Tax Online via ePay Punjab & MyPaknez</span>
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
               You no longer need to stand in line at Excise and Taxation offices. Follow these simple steps:
@@ -324,37 +317,37 @@ export default function PakistanVehicleTaxPage({
             <div className="space-y-4 not-prose">
               <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-white">
-                  What is the token tax on a 1300cc car in Punjab for 2026?
+                  What is the lifetime token tax limit for cars in Punjab and Islamabad?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  An Active Filer pays PKR 5,450 (Rs. 3,000 base + Rs. 500 MV + Rs. 200 prof tax + Rs. 1,750 FBR WHT). A Non-Filer pays PKR 8,950.
+                  In Punjab, Sindh, and Islamabad, lifetime token tax is statutory only for vehicles with engine capacity up to 1000cc (e.g. Suzuki Alto, Cultus, Wagon R, Daihatsu Mira). The one-time lifetime fee ranges from PKR 15,000 to PKR 20,000 paid at registration. Vehicles exceeding 1000cc must pay annual token tax renewals.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-white">
-                  Is lifetime token tax available for cars above 1000cc in Pakistan?
+                  How much is the token tax for a 1300cc car (Corolla/Yaris) in 2026?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  No. Lifetime token tax is exclusively for vehicles up to 1000cc. Cars 1001cc and above require annual token tax renewals.
+                  For a 1300cc private car in Punjab, an Active Tax Filer pays PKR 5,450 annually (Rs. 3,000 base excise + Rs. 500 motor vehicle tax + Rs. 200 professional tax + Rs. 1,750 FBR Section 234 advance tax). A Non-Filer pays PKR 8,950 annually due to a Rs. 5,250 withholding tax surcharge.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-white">
-                  How much extra tax does a Non-Filer pay on new car registration?
+                  How can I check if my vehicle token tax is paid online?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Non-Filers pay up to 3x higher advance tax under Section 231B (e.g. Rs. 75,000 vs Rs. 25,000 for 1300cc; 9%–15% vs 3%–5% for 2000cc+ cars).
+                  You can verify online within seconds by opening the ePay Punjab app (or MTMIS Punjab/Sindh website), entering your vehicle registration number, and checking the &quot;Tax Paid Upto&quot; date in the computerized vehicle verification record.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-2">
                 <h3 className="text-base font-bold text-zinc-900 dark:text-white">
-                  What happens if I pay vehicle token tax after the due date?
+                  Is there a discount for paying vehicle token tax early before July 31st?
                 </h3>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Excise departments apply penalties ranging from 10% up to 100% of the base token tax for overdue renewals.
+                  Yes. Provincial Excise departments frequently announce a 5% to 10% prompt payment rebate for vehicle owners who pay their annual token tax between July 1st and August 31st via ePay Punjab or digital banking channels.
                 </p>
               </div>
             </div>

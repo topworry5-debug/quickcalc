@@ -3,16 +3,18 @@
  * 
  * Official 2026-2027 Pakistan Vehicle Token Tax & Registration Engine:
  * - Punjab, Sindh, ICT Islamabad, and KPK Excise Schedules
- * - Engine CC slabs & percentage-based valuations (2000cc+ luxury slabs)
- * - FBR Advance Tax Section 234 (Annual Token Renewal)
- * - FBR Advance Tax Section 231B (New Car Registration & Transfer)
+ * - Engine CC slabs & percentage-based valuations
+ * - FBR Advance Tax Section 234 (Annual Token Renewal with exact granular brackets)
+ * - FBR Advance Tax Section 231B (New Car Purchase % of Invoice Price)
  * - Filer vs Late Filer vs Non-Filer WHT differentials
+ * - Lifetime token option for <= 1000cc vehicles
  */
 
 export type PakistanExciseProvince = "punjab" | "sindh" | "ict" | "kpk";
 export type VehicleTransactionType = "annual_token" | "new_registration";
-export type VehicleCategory = "car" | "commercial" | "bike";
+export type VehicleCategory = "car" | "bike" | "commercial";
 export type VehicleTaxpayerStatus = "filer" | "late_filer" | "non_filer";
+export type PaymentPeriod = "1_year" | "lifetime";
 
 export interface VehicleTaxInputs {
   province: PakistanExciseProvince;
@@ -21,8 +23,8 @@ export interface VehicleTaxInputs {
   engineCc: number;
   modelYear: number;
   taxpayerStatus: VehicleTaxpayerStatus;
-  invoiceValue: number; // PKR (Required for 2000cc+ and new registration)
-  isLifetimePaid?: boolean; // For <1000cc cars if already lifetime paid
+  invoiceValue: number; // PKR
+  paymentPeriod?: PaymentPeriod; // '1_year' or 'lifetime' for <= 1000cc
 }
 
 export interface VehicleTaxBreakdown {
@@ -39,6 +41,7 @@ export interface VehicleTaxBreakdown {
   nonFilerPenalty: number;
   isPercentageBased: boolean;
   provinceName: string;
+  isLifetime: boolean;
 }
 
 export interface VehiclePreset {
@@ -68,6 +71,22 @@ export const VEHICLE_PRESETS: VehiclePreset[] = [
       modelYear: 2024,
       taxpayerStatus: "filer",
       invoiceValue: 2750000,
+      paymentPeriod: "1_year",
+    },
+  },
+  {
+    id: "suzuki-cultus-1000-lifetime",
+    name: "Suzuki Cultus 1000cc (Lifetime)",
+    description: "1000cc hatchback with Lifetime Token Tax option.",
+    inputs: {
+      province: "punjab",
+      transactionType: "annual_token",
+      category: "car",
+      engineCc: 998,
+      modelYear: 2025,
+      taxpayerStatus: "filer",
+      invoiceValue: 3850000,
+      paymentPeriod: "lifetime",
     },
   },
   {
@@ -82,6 +101,7 @@ export const VEHICLE_PRESETS: VehiclePreset[] = [
       modelYear: 2023,
       taxpayerStatus: "filer",
       invoiceValue: 4700000,
+      paymentPeriod: "1_year",
     },
   },
   {
@@ -96,6 +116,7 @@ export const VEHICLE_PRESETS: VehiclePreset[] = [
       modelYear: 2023,
       taxpayerStatus: "filer",
       invoiceValue: 8600000,
+      paymentPeriod: "1_year",
     },
   },
   {
@@ -110,6 +131,7 @@ export const VEHICLE_PRESETS: VehiclePreset[] = [
       modelYear: 2026,
       taxpayerStatus: "non_filer",
       invoiceValue: 19500000,
+      paymentPeriod: "1_year",
     },
   },
 ];
@@ -121,7 +143,7 @@ export function calculatePakistanVehicleTax(inputs: VehicleTaxInputs): VehicleTa
   const invoiceValue = Math.max(100000, inputs.invoiceValue || 3000000);
   const isFiler = inputs.taxpayerStatus === "filer";
   const isLateFiler = inputs.taxpayerStatus === "late_filer";
-  const isNonFiler = inputs.taxpayerStatus === "non_filer";
+  const isLifetime = engineCc <= 1000 && inputs.paymentPeriod === "lifetime";
 
   let ccSlabLabel = "";
   let baseExciseTax = 0;
@@ -142,19 +164,41 @@ export function calculatePakistanVehicleTax(inputs: VehicleTaxInputs): VehicleTa
       fbrAdvanceTax = isFiler ? 0 : 1500;
       fbrSectionCode = "Section 231B";
     } else {
-      baseExciseTax = 0; // Lifetime paid for bikes
+      baseExciseTax = 0; // Lifetime paid on initial purchase
       fbrAdvanceTax = 0;
       fbrSectionCode = "Section 234";
     }
   } 
-  // 2. Private Motor Cars / SUVs
+  // 2. Commercial Vehicle
+  else if (inputs.category === "commercial") {
+    ccSlabLabel = `Commercial Vehicle (${engineCc} CC)`;
+    baseExciseTax = 4000;
+    motorVehicleTax = 1500;
+    professionalTax = 1000;
+    fbrAdvanceTax = isFiler ? 4000 : isLateFiler ? 8000 : 12000;
+    fbrSectionCode = "Section 234 (Commercial)";
+    if (inputs.transactionType === "new_registration") {
+      registrationFee = Math.round(invoiceValue * 0.015);
+      smartCardPlateFee = 3500;
+      fbrAdvanceTax = isFiler ? Math.round(invoiceValue * 0.02) : Math.round(invoiceValue * 0.06);
+      fbrSectionCode = "Section 231B (Commercial)";
+    }
+  }
+  // 3. Private Motor Cars / SUVs
   else {
-    // Determine CC Slab & Base Token Tax (Annual)
+    // Determine CC Slab & Base Token Tax (Annual / Lifetime)
     if (engineCc <= 1000) {
-      ccSlabLabel = "Under 1000 CC (Lifetime / Subsidized)";
-      baseExciseTax = inputs.isLifetimePaid ? 0 : 1500;
-      motorVehicleTax = 0;
-      professionalTax = 200;
+      ccSlabLabel = "Under 1000 CC";
+      if (isLifetime) {
+        // Flat Lifetime token tax in Punjab/ICT: Rs. 15,000 to Rs. 20,000
+        baseExciseTax = 18000;
+        motorVehicleTax = 0;
+        professionalTax = 200;
+      } else {
+        baseExciseTax = 1500;
+        motorVehicleTax = 0;
+        professionalTax = 200;
+      }
     } else if (engineCc <= 1300) {
       ccSlabLabel = "1001 CC to 1300 CC";
       baseExciseTax = 3000;
@@ -170,26 +214,19 @@ export function calculatePakistanVehicleTax(inputs: VehicleTaxInputs): VehicleTa
       baseExciseTax = 15000;
       motorVehicleTax = 2500;
       professionalTax = 200;
-    } else if (engineCc <= 2500) {
-      ccSlabLabel = "2001 CC to 2500 CC (Luxury Tier 1)";
-      isPercentageBased = true;
-      // 1.5% of depreciated invoice value
-      const depValue = invoiceValue * Math.max(0.5, 1 - vehicleAge * 0.08);
-      baseExciseTax = Math.round(depValue * 0.015);
-      motorVehicleTax = 3000;
-      professionalTax = 500;
     } else {
-      ccSlabLabel = "Above 2500 CC (Luxury Tier 2)";
+      ccSlabLabel = "Above 2000 CC (Luxury Tier)";
       isPercentageBased = true;
-      // 2.0% of depreciated invoice value
+      // 1.5% to 2% of depreciated invoice value
+      const rate = engineCc > 2500 ? 0.02 : 0.015;
       const depValue = invoiceValue * Math.max(0.5, 1 - vehicleAge * 0.08);
-      baseExciseTax = Math.round(depValue * 0.02);
-      motorVehicleTax = 4000;
+      baseExciseTax = Math.round(depValue * rate);
+      motorVehicleTax = engineCc > 2500 ? 4000 : 3000;
       professionalTax = 500;
     }
 
-    // Vehicle Age Rebate (Vehicles > 10 years get 15% discount on base token tax)
-    if (vehicleAge >= 10 && !isPercentageBased && baseExciseTax > 0) {
+    // Vehicle Age Rebate (Vehicles >= 10 years get 15% discount on base token tax)
+    if (vehicleAge >= 10 && !isPercentageBased && baseExciseTax > 0 && !isLifetime) {
       baseExciseTax = Math.round(baseExciseTax * 0.85);
     }
 
@@ -197,78 +234,72 @@ export function calculatePakistanVehicleTax(inputs: VehicleTaxInputs): VehicleTa
     // A. Annual Token Tax Renewal (Section 234)
     if (inputs.transactionType === "annual_token") {
       fbrSectionCode = "FBR Section 234 (Annual Token)";
-      if (engineCc <= 1000) {
-        fbrAdvanceTax = isNonFiler ? 1000 : 0;
-      } else if (engineCc <= 1300) {
+      if (engineCc < 1000) {
+        fbrAdvanceTax = isFiler ? 800 : isLateFiler ? 1600 : 2400;
+      } else if (engineCc <= 1199) {
+        fbrAdvanceTax = isFiler ? 1500 : isLateFiler ? 3000 : 4500;
+      } else if (engineCc <= 1299) {
         fbrAdvanceTax = isFiler ? 1750 : isLateFiler ? 3500 : 5250;
-      } else if (engineCc <= 1600) {
+      } else if (engineCc <= 1499) {
+        fbrAdvanceTax = isFiler ? 2500 : isLateFiler ? 5000 : 7500;
+      } else if (engineCc <= 1999) {
         fbrAdvanceTax = isFiler ? 3750 : isLateFiler ? 7500 : 11250;
-      } else if (engineCc <= 1800) {
-        fbrAdvanceTax = isFiler ? 4500 : isLateFiler ? 9000 : 13500;
-      } else if (engineCc <= 2000) {
-        fbrAdvanceTax = isFiler ? 7500 : isLateFiler ? 15000 : 22500;
-      } else if (engineCc <= 2500) {
-        fbrAdvanceTax = isFiler ? 10000 : isLateFiler ? 20000 : 30000;
-      } else if (engineCc <= 3000) {
-        fbrAdvanceTax = isFiler ? 15000 : isLateFiler ? 30000 : 45000;
       } else {
-        fbrAdvanceTax = isFiler ? 20000 : isLateFiler ? 40000 : 60000;
+        fbrAdvanceTax = isFiler ? 10000 : isLateFiler ? 20000 : 30000;
       }
     } 
-    // B. New Car Registration & Transfer (Section 231B)
+    // B. New Car Purchase / First Registration (Section 231B % of Invoice)
     else {
-      fbrSectionCode = "FBR Section 231B (New Registration / Transfer)";
-      // Registration fee: 1% to 2% of invoice
+      fbrSectionCode = "FBR Section 231B (New Registration % of Invoice)";
       registrationFee = Math.round(invoiceValue * (engineCc > 2000 ? 0.02 : 0.015));
       smartCardPlateFee = 3500;
 
+      let filerRate = 0.005;
+      let nonFilerRate = 0.015;
+
       if (engineCc <= 850) {
-        fbrAdvanceTax = isFiler ? 10000 : isLateFiler ? 20000 : 30000;
+        filerRate = 0.005;
+        nonFilerRate = 0.015;
       } else if (engineCc <= 1000) {
-        fbrAdvanceTax = isFiler ? 20000 : isLateFiler ? 40000 : 60000;
+        filerRate = 0.01;
+        nonFilerRate = 0.03;
       } else if (engineCc <= 1300) {
-        fbrAdvanceTax = isFiler ? 25000 : isLateFiler ? 50000 : 75000;
+        filerRate = 0.015;
+        nonFilerRate = 0.045;
       } else if (engineCc <= 1600) {
-        fbrAdvanceTax = isFiler ? 50000 : isLateFiler ? 100000 : 150000;
+        filerRate = 0.02;
+        nonFilerRate = 0.06;
       } else if (engineCc <= 1800) {
-        fbrAdvanceTax = isFiler ? 75000 : isLateFiler ? 150000 : 225000;
-      } else if (engineCc <= 2000) {
-        fbrAdvanceTax = isFiler ? 100000 : isLateFiler ? 200000 : 300000;
-      } else if (engineCc <= 2500) {
-        // Percentage based on invoice
-        const rate = isFiler ? 0.03 : isLateFiler ? 0.06 : 0.09;
-        fbrAdvanceTax = Math.round(invoiceValue * rate);
-      } else if (engineCc <= 3000) {
-        const rate = isFiler ? 0.04 : isLateFiler ? 0.08 : 0.12;
-        fbrAdvanceTax = Math.round(invoiceValue * rate);
+        filerRate = 0.03;
+        nonFilerRate = 0.09;
       } else {
-        const rate = isFiler ? 0.05 : isLateFiler ? 0.10 : 0.15;
-        fbrAdvanceTax = Math.round(invoiceValue * rate);
+        filerRate = 0.04;
+        nonFilerRate = 0.12;
       }
+
+      const activeRate = isFiler ? filerRate : isLateFiler ? filerRate * 2 : nonFilerRate;
+      fbrAdvanceTax = Math.round(invoiceValue * activeRate);
     }
   }
 
   // Calculate Filer benchmark for Non-Filer Penalty
   let filerFbrTax = 0;
   if (inputs.transactionType === "annual_token") {
-    if (engineCc <= 1000) filerFbrTax = 0;
-    else if (engineCc <= 1300) filerFbrTax = 1750;
-    else if (engineCc <= 1600) filerFbrTax = 3750;
-    else if (engineCc <= 1800) filerFbrTax = 4500;
-    else if (engineCc <= 2000) filerFbrTax = 7500;
-    else if (engineCc <= 2500) filerFbrTax = 10000;
-    else if (engineCc <= 3000) filerFbrTax = 15000;
-    else filerFbrTax = 20000;
+    if (engineCc < 1000) filerFbrTax = 800;
+    else if (engineCc <= 1199) filerFbrTax = 1500;
+    else if (engineCc <= 1299) filerFbrTax = 1750;
+    else if (engineCc <= 1499) filerFbrTax = 2500;
+    else if (engineCc <= 1999) filerFbrTax = 3750;
+    else filerFbrTax = 10000;
   } else {
-    if (engineCc <= 850) filerFbrTax = 10000;
-    else if (engineCc <= 1000) filerFbrTax = 20000;
-    else if (engineCc <= 1300) filerFbrTax = 25000;
-    else if (engineCc <= 1600) filerFbrTax = 50000;
-    else if (engineCc <= 1800) filerFbrTax = 75000;
-    else if (engineCc <= 2000) filerFbrTax = 100000;
-    else if (engineCc <= 2500) filerFbrTax = Math.round(invoiceValue * 0.03);
-    else if (engineCc <= 3000) filerFbrTax = Math.round(invoiceValue * 0.04);
-    else filerFbrTax = Math.round(invoiceValue * 0.05);
+    let fRate = 0.005;
+    if (engineCc <= 850) fRate = 0.005;
+    else if (engineCc <= 1000) fRate = 0.01;
+    else if (engineCc <= 1300) fRate = 0.015;
+    else if (engineCc <= 1600) fRate = 0.02;
+    else if (engineCc <= 1800) fRate = 0.03;
+    else fRate = 0.04;
+    filerFbrTax = Math.round(invoiceValue * fRate);
   }
 
   const nonFilerPenalty = Math.max(0, fbrAdvanceTax - filerFbrTax);
@@ -288,6 +319,7 @@ export function calculatePakistanVehicleTax(inputs: VehicleTaxInputs): VehicleTa
     nonFilerPenalty,
     isPercentageBased,
     provinceName: EXCISE_PROVINCE_NAMES[inputs.province] || inputs.province,
+    isLifetime,
   };
 }
 
@@ -300,7 +332,7 @@ export function getPakistanVehicleTaxExplanationSteps(
 ): string[] {
   return [
     `Vehicle Profile: ${inputs.engineCc} CC (${result.ccSlabLabel}) | Model Year: ${inputs.modelYear} | Jurisdiction: ${result.provinceName}`,
-    `Base Excise Token Tax = PKR ${result.baseExciseTax.toLocaleString()} ${result.isPercentageBased ? "(calculated as percentage of invoice/depreciated value for >2000cc luxury segment)" : ""}`,
+    `Base Excise Token Tax = PKR ${result.baseExciseTax.toLocaleString()} ${result.isLifetime ? "(One-Time Lifetime Payment for <= 1000cc)" : result.isPercentageBased ? "(percentage of vehicle value for luxury segment)" : "(Annual Provincial Token Rate)"}`,
     `Motor Vehicle & Professional Taxes = PKR ${(result.motorVehicleTax + result.professionalTax).toLocaleString()}`,
     `${result.fbrSectionCode} (${inputs.taxpayerStatus.toUpperCase()} Tax Status) = PKR ${result.fbrAdvanceTax.toLocaleString()}`,
     inputs.transactionType === "new_registration"
