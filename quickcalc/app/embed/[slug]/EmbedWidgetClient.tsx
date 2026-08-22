@@ -73,6 +73,7 @@ const PakistanElectricityCalculatorWidget = dynamic(() => import("@/app/tools/pa
 const PakistanPropertyTaxWidget = dynamic(() => import("@/app/tools/pakistan-property-tax-calculator/PakistanPropertyTaxWidget"), { loading: () => <WidgetSkeleton /> });
 const PakistanGoldWidget = dynamic(() => import("@/app/tools/pakistan-gold-calculator/PakistanGoldWidget"), { loading: () => <WidgetSkeleton /> });
 const PakistanVehicleTaxWidget = dynamic(() => import("@/app/tools/pakistan-vehicle-tax-calculator/PakistanVehicleTaxWidget"), { loading: () => <WidgetSkeleton /> });
+const PakistanFuelCostWidget = dynamic(() => import("@/app/tools/pakistan-fuel-cost-calculator/PakistanFuelCostWidget"), { loading: () => <WidgetSkeleton /> });
 
 interface EmbedWidgetClientProps {
   tool: Tool;
@@ -186,6 +187,8 @@ export default function EmbedWidgetClient({ tool, slug }: EmbedWidgetClientProps
         return <PakistanGoldWidget />;
       case "pakistan-vehicle-tax-calculator":
         return <PakistanVehicleTaxWidget />;
+      case "pakistan-fuel-cost-calculator":
+        return <PakistanFuelCostWidget />;
       default:
         return <WidgetSkeleton />;
     }

@@ -495,6 +495,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates Pakistan motor vehicle token tax, registration charges, and FBR withholding tax for Filers vs Non-Filers.",
     detailedParagraph: "Computes motor vehicle taxation across Punjab, Sindh, KPK, and ICT Islamabad under statutory excise schedules and Finance Act provisions. The engine evaluates engine capacity slabs (660cc to 3000cc+), models 1.5%–2% luxury valuation assessments for 2000cc+ vehicles, applies vehicle age rebates (10+ years), and computes FBR Advance Withholding Taxes under Section 234 (annual token) and Section 231B (new registration).",
   },
+  {
+    slug: "pakistan-fuel-cost-calculator",
+    toolName: "Pakistan Fuel Cost & Mileage Calculator",
+    category: "Finance & Math",
+    standardName: "Pakistan Automotive Energy & Powertrain Running Cost Benchmark (2026)",
+    formulaText: "Cost/km = Fuel Price / Mileage | EV Cost/km = (Grid Rate or Solar 0) / Efficiency | Payback = Price Delta / Monthly Savings",
+    summary: "Compares running costs per km, monthly fuel bills, and payback periods between Petrol, Hybrid, and Electric Vehicles.",
+    detailedParagraph: "Calculates comparative automotive operating costs across internal combustion (petrol/diesel), strong hybrid (HEV), and battery electric vehicles (EV). Incorporates official 2026 petroleum prices, NEPRA residential electricity tariffs, and zero-cost rooftop solar net metering charging profiles to determine cost per kilometer, annual fuel savings, and payback period on vehicle purchase premiums.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

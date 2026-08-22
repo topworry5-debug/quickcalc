@@ -172,6 +172,11 @@ const iconMap: Record<string, LucideIcon> = {
   "pakistan-vehicle-tax": Car,
   "token-tax": Car,
   excise: Car,
+  "fuel-cost": Fuel,
+  "pakistan-fuel-cost": Fuel,
+  mileage: Fuel,
+  "petrol-cost": Fuel,
+  "ev-cost": Zap,
 };
 
 // Also map raw emoji or legacy icon names to icons

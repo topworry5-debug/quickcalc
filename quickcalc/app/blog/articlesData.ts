@@ -14,6 +14,19 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    slug: "pakistan-petrol-vs-hybrid-vs-ev-cost-guide-2026",
+    title: "Pakistan Petrol vs Hybrid vs Electric Car Cost Master Guide (2026)",
+    description: "Complete guide to cost per kilometer (PKR/km), monthly fuel bills, rooftop solar charging economics, and EV payback timeline in Pakistan.",
+    excerpt: "Complete guide to cost per kilometer (PKR/km), monthly fuel bills, rooftop solar charging economics, and EV payback timeline in Pakistan.",
+    date: "August 22, 2026",
+    readTime: "10 min read",
+    category: "Finance & Math",
+    icon: "fuel-cost",
+    color: "from-emerald-600 to-cyan-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    featured: true,
+  },
+  {
     slug: "pakistan-vehicle-token-tax-guide-2026-2027",
     title: "Pakistan Vehicle Token Tax & Registration Slabs Master Guide (2026-2027)",
     description: "Complete guide to Punjab, Sindh, and Islamabad Excise token tax rates, FBR Section 231B/234 withholding taxes, and ePay payment steps.",

@@ -50,6 +50,7 @@ import SolarPanelPaybackPeriodAndRoiGuideArticle from "../data/solar-panel-payba
 import AmazonKDPRoyaltyAndPrintingCostGuideArticle from "../data/amazon-kdp-royalty-and-printing-cost-guide-article";
 import PakistanIncomeTaxSlabsGuide20262027Article from "../data/pakistan-income-tax-slabs-guide-2026-2027-article";
 import EtsyVsAmazonKdpProfitComparisonGuideArticle from "../data/etsy-vs-amazon-kdp-profit-comparison-guide-article";
+import PakistanPetrolVsHybridVsEvCostGuide2026Article from "../data/pakistan-petrol-vs-hybrid-vs-ev-cost-guide-2026-article";
 import PakistanVehicleTokenTaxGuide20262027Article from "../data/pakistan-vehicle-token-tax-guide-2026-2027-article";
 import PakistanGoldTolaMashaRattiGuide2026Article from "../data/pakistan-gold-tola-masha-ratti-guide-2026-article";
 import PakistanPropertyTransferTaxGuide20262027Article from "../data/pakistan-property-transfer-tax-guide-2026-2027-article";
@@ -64,6 +65,7 @@ interface BlogPostProps {
 }
 
 const articleComponents: Record<string, React.ComponentType> = {
+  "pakistan-petrol-vs-hybrid-vs-ev-cost-guide-2026": PakistanPetrolVsHybridVsEvCostGuide2026Article,
   "pakistan-vehicle-token-tax-guide-2026-2027": PakistanVehicleTokenTaxGuide20262027Article,
   "pakistan-gold-tola-masha-ratti-guide-2026": PakistanGoldTolaMashaRattiGuide2026Article,
   "pakistan-property-transfer-tax-guide-2026-2027": PakistanPropertyTransferTaxGuide20262027Article,
@@ -114,6 +116,12 @@ const articleComponents: Record<string, React.ComponentType> = {
 
 
 const articleToolMap: Record<string, { title: string; href: string; description: string; icon: string }> = {
+  "pakistan-petrol-vs-hybrid-vs-ev-cost-guide-2026": {
+    title: "Pakistan Fuel Cost & Mileage Calculator",
+    href: "/tools/pakistan-fuel-cost-calculator",
+    description: "Compare cost per km, monthly fuel bills, and payback duration between Petrol, Hybrid (HEV), and Electric Vehicles (EV).",
+    icon: "fuel-cost",
+  },
   "pakistan-vehicle-token-tax-guide-2026-2027": {
     title: "Pakistan Vehicle Token Tax Calculator",
     href: "/tools/pakistan-vehicle-tax-calculator",
@@ -543,7 +551,44 @@ export default function BlogPostPage({ params }: BlogPostProps) {
   };
 
   // Define structured JSON-LD data for the FAQPage
-  const faqJsonLd = article.slug === "pakistan-vehicle-token-tax-guide-2026-2027" ? {
+  const faqJsonLd = article.slug === "pakistan-petrol-vs-hybrid-vs-ev-cost-guide-2026" ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the cost per kilometer of an electric car in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "At a standard residential grid tariff of PKR 45 per kWh and an EV efficiency of 6.5 km/kWh, an electric vehicle costs approximately PKR 6.92 per kilometer to drive in Pakistan. If charged using home rooftop solar panels, the fuel cost drops to PKR 0.00 per kilometer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much money do you save switching from Petrol to Hybrid in Pakistan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard petrol car averaging 12 km/L at PKR 275/L costs PKR 22.92/km. A hybrid car delivering 22 km/L costs PKR 12.50/km, delivering a 45.5% reduction in fuel expenses. For a typical 1,000 km monthly commute, you save approximately PKR 10,420 every month (over PKR 125,000 annually)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate monthly fuel cost from mileage and petrol price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Divide the petrol price per liter by your car's fuel average (km/L) to get the cost per kilometer, then multiply by your monthly driving distance. Formula: Monthly Cost = (Petrol Price ÷ Mileage) × Monthly Kilometers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the average mileage of a hybrid car in Pakistani city traffic?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Modern strong hybrid vehicles (like the Toyota Prius, Yaris Cross Hybrid, Corolla Cross, and Haval H6 HEV) typically achieve 20 km/L to 26 km/L in stop-and-go Pakistani city traffic due to regenerative braking and low-speed pure electric driving."
+        }
+      }
+    ]
+  } : article.slug === "pakistan-vehicle-token-tax-guide-2026-2027" ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [

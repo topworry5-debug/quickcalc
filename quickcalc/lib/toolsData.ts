@@ -518,5 +518,15 @@ export const tools: Tool[] = [
     textColor: "text-blue-600 dark:text-blue-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Pakistan Fuel Cost & Mileage Calculator",
+    description: "Compare running cost per km, monthly fuel bills, and payback duration between Petrol, Hybrid (HEV), and Electric Vehicles (EV).",
+    icon: "fuel-cost",
+    href: "/tools/pakistan-fuel-cost-calculator",
+    color: "from-emerald-600 via-teal-600 to-cyan-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true
   }
 ];
