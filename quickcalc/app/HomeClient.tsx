@@ -9,7 +9,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import RecentlyUsedBar from "@/components/RecentlyUsedBar";
 import FavoriteButton from "@/components/FavoriteButton";
 import { usePersonalization } from "@/hooks/usePersonalization";
-import { Search, ArrowRight, X, Sparkles, Star } from "lucide-react";
+import { Search, ArrowRight, X, Sparkles, Star, MapPin } from "lucide-react";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import { useSearchParams } from "next/navigation";
 import AdSlot from "@/components/AdSlot";
 import Footer from "@/components/Footer";
 import { Tool } from "@/lib/toolsData";
+import { getLiveStateCalculators } from "@/lib/stateCalculatorsData";
 
 interface HomeClientProps {
   initialTools: Tool[];
@@ -305,6 +306,81 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
             </button>
           </div>
         )}
+
+        {/* Salary & Paycheck Calculators Section */}
+        <section className="my-12 pt-10 border-t border-surface-border">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 mb-2">
+                <MapPin size={13} />
+                <span>US State Tax Engine</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-ink tracking-tight">
+                Salary &amp; Paycheck Calculators
+              </h2>
+              <p className="text-xs sm:text-sm text-ink-muted mt-1 max-w-2xl">
+                Compare take-home pay, standard deductions, and progressive vs. flat state income tax withholding with verified 2026 data.
+              </p>
+            </div>
+
+            <Link
+              href="/paycheck-calculators"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors group shrink-0"
+            >
+              <span>See all state calculators</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {getLiveStateCalculators().map((state) => (
+              <Link
+                key={state.slug}
+                href={state.href}
+                className="group relative block bg-base-card border border-teal-500/30 hover:border-teal-500/80 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 active:scale-[0.98] transition-all duration-200"
+              >
+                <div className="flex flex-col h-full justify-between gap-4">
+                  <div>
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <div className="flex items-center gap-3 min-w-0 pr-2">
+                        <ToolIcon icon={state.slug} category="Finance" size="lg" />
+                        <h3 className="text-base sm:text-lg font-heading font-bold text-ink group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight truncate">
+                          {state.title}
+                        </h3>
+                      </div>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 shrink-0">
+                        {state.badge || "Live 2026"}
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-ink-muted leading-relaxed line-clamp-2">
+                      {state.description}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-3 border-t border-surface-border/60 text-xs font-semibold text-ink-muted group-hover:text-teal-600 dark:group-hover:text-teal-400">
+                    <span className="text-[10px] font-extrabold text-zinc-500 font-mono">
+                      {state.topRateText} {state.taxType === "flat" ? "Flat" : state.taxType === "none" ? "0% Tax" : "Graduated"}
+                    </span>
+                    <span className="inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      <span>Calculate Paycheck</span>
+                      <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-6 text-center">
+            <Link
+              href="/paycheck-calculators"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-surface-muted border border-surface-border hover:border-teal-500/40 text-ink text-xs sm:text-sm font-bold transition-all shadow-xs"
+            >
+              <span>Explore all 50 State Paycheck Calculators</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </section>
 
         {/* Factual Platform Metrics & Proof */}
         <FactualPlatformProof />

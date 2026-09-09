@@ -231,6 +231,17 @@ export const tools: Tool[] = [
     badge: "4.95% Flat"
   },
   {
+    title: "State Paycheck Calculators (All 50 States)",
+    description: "Compare take-home pay, standard deductions, and state tax withholding across all 50 US states with live 2026 data.",
+    icon: "states-hub",
+    href: "/paycheck-calculators",
+    color: "from-teal-600 to-indigo-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "50 States"
+  },
+  {
     title: "Work Hours / Timesheet Calculator",
     description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
     icon: "work-hours",

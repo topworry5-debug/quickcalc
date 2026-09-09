@@ -248,13 +248,21 @@ export default function ArkansasSalaryCalculatorPage({ searchParams }: { searchP
               </p>
             </div>
 
-            {/* Direct Answer 3: Texas Comparison */}
+            {/* Direct Answer 3: State Comparison */}
             <div className="space-y-2">
               <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100">
-                How does Arkansas take-home pay compare to Texas?
+                How does Arkansas take-home pay compare to other states?
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Because Texas has zero state income tax, a $60,000 worker in Texas keeps $50,248 annually—about $1,761 more than in Arkansas. However, Arkansas workers benefit from substantially lower median property taxes and cheaper housing, which often offsets the state tax difference.
+                Because Texas has zero state income tax, a $60,000 worker in Texas keeps $50,248 annually—about $1,761 more than in Arkansas. Compared to flat-tax Midwestern states like{" "}
+                <Link href="/tools/illinois-paycheck-calculator" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+                  Illinois (4.95%)
+                </Link>
+                , Arkansas filers take home more due to lower baseline brackets. Compare all states in our{" "}
+                <Link href="/paycheck-calculators" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+                  50-State Paycheck Directory
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -461,6 +469,18 @@ export default function ArkansasSalaryCalculatorPage({ searchParams }: { searchP
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <Link
+              href="/tools/illinois-paycheck-calculator"
+              className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-teal-500/40 hover:border-teal-500 hover:shadow-md transition-all group"
+            >
+              <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
+                Illinois Paycheck Calculator &rarr;
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
+                Calculate take-home pay under Illinois&apos;s flat 4.95% state income tax and 0% Chicago local wage tax.
+              </p>
+            </Link>
+
+            <Link
               href="/tools/oasdi-tax-calculator"
               className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:shadow-md transition-all group"
             >
@@ -497,15 +517,20 @@ export default function ArkansasSalaryCalculatorPage({ searchParams }: { searchP
             </Link>
 
             <Link
-              href="/tools/loan-calculator"
-              className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:shadow-md transition-all group"
+              href="/paycheck-calculators"
+              className="p-4 bg-teal-50/50 dark:bg-teal-950/30 rounded-xl border border-teal-500/60 hover:border-teal-500 hover:shadow-md transition-all group sm:col-span-2 lg:col-span-4 flex items-center justify-between"
             >
-              <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
-                Loan & EMI Calculator &rarr;
+              <div>
+                <div className="text-sm font-bold text-teal-700 dark:text-teal-300">
+                  Explore All 50 State Paycheck Calculators &rarr;
+                </div>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                  Compare take-home pay, standard deductions, and withholding brackets across every US state in 2026.
+                </p>
               </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
-                Calculate monthly loan installments, principal amortization, and interest costs.
-              </p>
+              <span className="text-teal-600 dark:text-teal-400 font-bold text-xs shrink-0 group-hover:translate-x-1 transition-transform">
+                View Directory &rarr;
+              </span>
             </Link>
           </div>
         </section>

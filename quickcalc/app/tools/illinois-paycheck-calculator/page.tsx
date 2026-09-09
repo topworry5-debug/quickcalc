@@ -254,7 +254,15 @@ export default function IllinoisPaycheckCalculatorPage({ searchParams }: { searc
                 How does Illinois&apos;s flat tax compare to bracket states?
               </h3>
               <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                A flat tax offers complete mathematical predictability with no bracket creep as your salary rises. Compared to progressive states like neighboring Wisconsin (up to 7.65%), high-earning Illinois employees retain a substantially larger share of their incremental income.
+                A flat tax offers complete mathematical predictability with no bracket creep as your salary rises. Compared to progressive states like neighboring Wisconsin (up to 7.65%) or{" "}
+                <Link href="/tools/arkansas-salary-calculator" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+                  Arkansas (3.7%)
+                </Link>
+                , high-earning Illinois employees retain a substantially larger share of their incremental income. Compare all states in our{" "}
+                <Link href="/paycheck-calculators" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+                  50-State Paycheck Directory
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -469,6 +477,23 @@ export default function IllinoisPaycheckCalculatorPage({ searchParams }: { searc
               <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
                 Calculate shift hours, unpaid meal breaks, and 1.5x overtime gross wages.
               </p>
+            </Link>
+
+            <Link
+              href="/paycheck-calculators"
+              className="p-4 bg-teal-50/50 dark:bg-teal-950/30 rounded-xl border border-teal-500/60 hover:border-teal-500 hover:shadow-md transition-all group sm:col-span-2 lg:col-span-4 flex items-center justify-between"
+            >
+              <div>
+                <div className="text-sm font-bold text-teal-700 dark:text-teal-300">
+                  Explore All 50 State Paycheck Calculators &rarr;
+                </div>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                  Compare take-home pay, standard deductions, and withholding brackets across every US state in 2026.
+                </p>
+              </div>
+              <span className="text-teal-600 dark:text-teal-400 font-bold text-xs shrink-0 group-hover:translate-x-1 transition-transform">
+                View Directory &rarr;
+              </span>
             </Link>
           </div>
         </section>

@@ -531,6 +531,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Computes net take-home pay for Illinois employees applying the flat 4.95% state income tax rate, personal exemptions ($2,925 Single, $5,850 MFJ), federal tax brackets, and FICA payroll withholding.",
     detailedParagraph: "Models personal income tax withholding under 35 ILCS 5/201 and Article IX, Section 3 of the Illinois Constitution, which mandates a uniform, non-graduated individual tax rate of 4.95%. Computations apply annual personal exemptions ($2,925 Single/HOH, $5,850 Married Joint), 0.0% local municipal wage tax across all Illinois jurisdictions (including Chicago), IRS 2026 federal tax brackets with standard deduction, and FICA payroll withholdings (6.2% Social Security up to $184,500 and 1.45% Medicare).",
   },
+  {
+    slug: "paycheck-calculators",
+    toolName: "US State Salary & Paycheck Calculators Hub",
+    category: "Finance & Math",
+    standardName: "50-State Statutory Tax Codes, IRS 2026 Revenue Procedures & SSA Statutory Wage Base Limits",
+    formulaText: "Net Take-Home Pay = Gross Pay - (Federal Withholding + State Income Tax + FICA Taxes)",
+    summary: "Comprehensive multi-state payroll engine comparing personal income tax withholding across all 50 US states, incorporating flat tax, progressive tier, and zero-tax statutory jurisdictions.",
+    detailedParagraph: "Provides comparative paycheck modeling across all 50 US state tax codes, classifying jurisdictions into zero-tax states (9 states), flat-rate states (14 states), and progressive bracket states (27 states). Applies standardized 2026 federal tax brackets (IRC § 1), FICA payroll withholdings under IRC §§ 3101 & 3111, statutory state standard deduction allowances, and verified municipal wage tax rules.",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {
