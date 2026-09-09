@@ -103,18 +103,23 @@ export default function Footer({ customText }: FooterProps) {
             </Link>
             <ul className="space-y-2 text-xs text-ink-muted">
               <li>
-                <Link href="/paycheck-calculators" className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
+                <Link href="/paycheck-calculators" className="hover:text-teal-600 dark:text-teal-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
                   State Paycheck Calculators (All 50)
                 </Link>
               </li>
               <li>
-                <Link href="/tools/arkansas-salary-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                <Link href="/tools/arkansas-salary-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-emerald-600 dark:text-emerald-400">
                   Arkansas Salary Calculator
                 </Link>
               </li>
               <li>
-                <Link href="/tools/illinois-paycheck-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                <Link href="/tools/illinois-paycheck-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
                   Illinois Paycheck Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/oasdi-tax-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-blue-600 dark:text-blue-400">
+                  OASDI Tax Calculator
                 </Link>
               </li>
               <li>

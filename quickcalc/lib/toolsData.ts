@@ -242,6 +242,17 @@ export const tools: Tool[] = [
     badge: "50 States"
   },
   {
+    title: "OASDI Tax Calculator",
+    description: "Calculate your exact OASDI tax and Social Security payroll deduction for 2026 with the $184,500 wage base limit.",
+    icon: "oasdi-tax",
+    href: "/tools/oasdi-tax-calculator",
+    color: "from-blue-600 to-indigo-600",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Finance",
+    popular: true,
+    badge: "2026 Cap"
+  },
+  {
     title: "Work Hours / Timesheet Calculator",
     description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
     icon: "work-hours",

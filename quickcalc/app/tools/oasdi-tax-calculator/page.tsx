@@ -433,16 +433,62 @@ export default function OASDITaxCalculatorPage({ searchParams }: { searchParams?
           </div>
         </section>
 
+        {/* STATE PAYCHECK TAX CROSS-REFERENCE */}
+        <section className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-4 my-8">
+          <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+            How OASDI Withholding Interacts with State Income Taxes
+          </h2>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            While federal OASDI withholding applies uniformly across all 50 states at 6.2% up to the statutory $184,500 wage base cap, state personal income taxes differ dramatically by jurisdiction. For example, workers in progressive bracket states like{" "}
+            <Link href="/tools/arkansas-salary-calculator" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+              Arkansas (up to 3.7%)
+            </Link>{" "}
+            or flat-tax states like{" "}
+            <Link href="/tools/illinois-paycheck-calculator" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+              Illinois (4.95% flat)
+            </Link>{" "}
+            have state withholding deducted alongside their federal OASDI and Medicare taxes. To calculate your complete net earnings after all federal and state deductions, explore our individual state tools or browse the{" "}
+            <Link href="/paycheck-calculators" className="text-teal-600 dark:text-teal-400 font-semibold underline">
+              50-State Paycheck Directory
+            </Link>
+            .
+          </p>
+        </section>
+
         {/* INTERNAL LINKS TO RELATED CALCULATORS */}
         <section className="my-10 bg-zinc-100/70 dark:bg-zinc-900/60 p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800">
           <h2 className="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-            Related Payroll & Financial Tools
+            Related Payroll &amp; Financial Tools
           </h2>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6">
-            Model your total net compensation, calculate overtime, and plan your long-term retirement savings with our free calculators:
+            Calculate your complete state take-home pay, model overtime shifts, or check your 50-state tax withholding:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/tools/arkansas-salary-calculator"
+              className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-teal-500/40 hover:border-teal-500 hover:shadow-md transition-all group"
+            >
+              <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
+                Arkansas Salary Calculator &rarr;
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
+                Calculate net earnings after Arkansas&apos;s updated 3.7% progressive state tax brackets and FICA.
+              </p>
+            </Link>
+
+            <Link
+              href="/tools/illinois-paycheck-calculator"
+              className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-teal-500/40 hover:border-teal-500 hover:shadow-md transition-all group"
+            >
+              <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
+                Illinois Paycheck Calculator &rarr;
+              </div>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
+                Calculate take-home pay under Illinois&apos;s flat 4.95% state income tax and 0% Chicago local wage tax.
+              </p>
+            </Link>
+
             <Link
               href="/tools/salary-take-home-calculator"
               className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:shadow-md transition-all group"
@@ -460,7 +506,7 @@ export default function OASDITaxCalculatorPage({ searchParams }: { searchParams?
               className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:shadow-md transition-all group"
             >
               <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
-                Work Hours & Timesheet &rarr;
+                Work Hours &amp; Timesheet &rarr;
               </div>
               <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
                 Calculate total shift hours, unpaid breaks, and 1.5x overtime gross wages.
@@ -468,27 +514,20 @@ export default function OASDITaxCalculatorPage({ searchParams }: { searchParams?
             </Link>
 
             <Link
-              href="/tools/retirement-withdrawal-simulator"
-              className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:shadow-md transition-all group"
+              href="/paycheck-calculators"
+              className="p-4 bg-teal-50/50 dark:bg-teal-950/30 rounded-xl border border-teal-500/60 hover:border-teal-500 hover:shadow-md transition-all group sm:col-span-2 lg:col-span-4 flex items-center justify-between"
             >
-              <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
-                Safe Withdrawal Simulator &rarr;
+              <div>
+                <div className="text-sm font-bold text-teal-700 dark:text-teal-300">
+                  Explore All 50 State Paycheck Calculators &rarr;
+                </div>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                  Compare take-home pay, standard deductions, and withholding brackets across every US state in 2026.
+                </p>
               </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
-                Test 30-year retirement portfolio survival rates against historical US market cycles.
-              </p>
-            </Link>
-
-            <Link
-              href="/tools/loan-calculator"
-              className="p-4 bg-white dark:bg-zinc-800/80 rounded-xl border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:shadow-md transition-all group"
-            >
-              <div className="text-sm font-bold text-zinc-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400">
-                Loan & EMI Calculator &rarr;
-              </div>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1.5">
-                Calculate monthly loan installments, principal amortization, and total interest.
-              </p>
+              <span className="text-teal-600 dark:text-teal-400 font-bold text-xs shrink-0 group-hover:translate-x-1 transition-transform">
+                View Directory &rarr;
+              </span>
             </Link>
           </div>
         </section>
