@@ -49,6 +49,7 @@ import {
   Zap,
   Building2,
   Car,
+  MapPin,
   LucideIcon,
 } from "lucide-react";
 
@@ -179,6 +180,8 @@ const iconMap: Record<string, LucideIcon> = {
   "ev-cost": Zap,
   oasdi: ShieldCheck,
   "oasdi-tax": ShieldCheck,
+  arkansas: MapPin,
+  "arkansas-salary": MapPin,
 };
 
 // Also map raw emoji or legacy icon names to icons

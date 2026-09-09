@@ -513,6 +513,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Calculates federal Old-Age, Survivors, and Disability Insurance (Social Security) payroll tax up to the annual statutory wage base cap ($184,500 for 2026).",
     detailedParagraph: "Calculates statutory Old-Age, Survivors, and Disability Insurance (OASDI) payroll withholding under Title II of the Social Security Act and Internal Revenue Code Sections 3101(a), 3111(a), and 1401(a). The algorithm applies a 6.2% withholding rate for W-2 employees (with a mandatory 6.2% employer matching contribution) and a 12.4% rate for self-employed individuals calculated after applying the standard 92.35% Schedule SE net business earnings adjustment factor. Withholding strictly terminates once cumulative annual earnings reach the verified annual contribution base limit ($184,500 in 2026; $176,100 in 2025).",
   },
+  {
+    slug: "arkansas-salary-calculator",
+    toolName: "Arkansas Salary Calculator",
+    category: "Finance & Math",
+    standardName: "Arkansas Department of Finance and Administration (DFA) Act 1 (2024 2nd Extraordinary Session) & IRC Progressive Brackets",
+    formulaText: "Net Pay = Gross - (Federal Tax + Arkansas State Tax + FICA) | AR State Tax = Graduated Schedule (0% to 3.7%)",
+    summary: "Computes net take-home pay for Arkansas workers applying the updated 3.7% state income tax rate, standard deductions, federal tax brackets, and FICA payroll withholding.",
+    detailedParagraph: "Models personal income tax withholding under Arkansas Code Annotated § 26-51-201, incorporating the 3.7% top marginal income tax rate enacted under Act 1 of the 2024 Second Extraordinary Session. Computations apply statutory standard deductions ($2,470 Single, $4,940 Married Joint), progressive state brackets, IRS 2026 federal progressive brackets, and FICA payroll taxes (6.2% Social Security up to $184,500 and 1.45% Medicare, plus 0.9% additional Medicare for high earners).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

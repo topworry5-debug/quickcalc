@@ -209,6 +209,17 @@ export const tools: Tool[] = [
     badge: "2026 Cap"
   },
   {
+    title: "Arkansas Salary Calculator",
+    description: "Calculate your exact Arkansas take-home pay after federal, FICA, and state income taxes with 2026 progressive brackets (3.7% top rate).",
+    icon: "arkansas",
+    href: "/tools/arkansas-salary-calculator",
+    color: "from-teal-600 to-emerald-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "2026 Rates"
+  },
+  {
     title: "Work Hours / Timesheet Calculator",
     description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
     icon: "work-hours",
