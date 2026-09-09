@@ -51,23 +51,36 @@ export default function StateClusterLinks({ currentStateSlug }: StateClusterLink
             );
           }
 
+          if (isLive) {
+            return (
+              <Link
+                key={state.slug}
+                href={href}
+                className="p-2 rounded-lg bg-white dark:bg-zinc-800 border border-teal-500/60 hover:border-teal-500 shadow-xs transition-all flex items-center justify-between group"
+              >
+                <span className="font-semibold text-teal-700 dark:text-teal-300 group-hover:underline">
+                  {state.name}
+                </span>
+                <span className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold font-mono">
+                  Live
+                </span>
+              </Link>
+            );
+          }
+
           return (
-            <Link
+            <div
               key={state.slug}
-              href={href}
-              className={`p-2 rounded-lg transition-all flex items-center justify-between group ${
-                isLive
-                  ? "bg-white dark:bg-zinc-800 border border-teal-500/60 hover:border-teal-500 shadow-xs"
-                  : "bg-white dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400"
-              }`}
+              title={`${state.name} Paycheck Calculator — In Development`}
+              className="p-2 rounded-lg bg-white/60 dark:bg-zinc-800/40 border border-zinc-200/70 dark:border-zinc-800/70 flex items-center justify-between opacity-65 cursor-default select-none"
             >
-              <span className={`font-medium ${isLive ? "text-teal-700 dark:text-teal-300 font-semibold" : "text-zinc-800 dark:text-zinc-200 group-hover:text-teal-600 dark:group-hover:text-teal-400"}`}>
+              <span className="text-zinc-600 dark:text-zinc-400">
                 {state.name}
               </span>
               <span className="text-[10px] text-zinc-400 font-mono">
-                {isLive ? <span className="text-teal-600 dark:text-teal-400 font-semibold">Live</span> : state.topRateText}
+                {state.topRateText}
               </span>
-            </Link>
+            </div>
           );
         })}
       </div>

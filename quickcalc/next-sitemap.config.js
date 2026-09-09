@@ -9,6 +9,7 @@ module.exports = {
     const toolSlugs = [
       "age-calculator",
       "ai-token-cost-calculator",
+      "arkansas-salary-calculator",
       "ats-resume-checker",
       "bmi-calculator",
       "budget-calculator",
@@ -26,6 +27,8 @@ module.exports = {
       "gpa-converter",
       "group-expense-splitter",
       "habit-cost-calculator",
+      "illinois-paycheck-calculator",
+      "illinois-salary-calculator",
       "inflation-calculator",
       "intermittent-fasting-calculator",
       "internet-speed-test",
@@ -33,6 +36,7 @@ module.exports = {
       "kdp-royalty-calculator",
       "loan-calculator",
       "macro-calculator",
+      "oasdi-tax-calculator",
       "pace-calculator",
       "pakistan-electricity-bill-calculator",
       "pakistan-fuel-cost-calculator",
@@ -65,6 +69,10 @@ module.exports = {
     ];
 
     const staticPages = [
+      { loc: "/paycheck-calculators", changefreq: "daily", priority: 0.9, lastmod: new Date().toISOString() },
+      { loc: "/salary-calculators", changefreq: "daily", priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: "/arkansas-salary-calculator", changefreq: "daily", priority: 0.8, lastmod: new Date().toISOString() },
+      { loc: "/illinois-paycheck-calculator", changefreq: "daily", priority: 0.8, lastmod: new Date().toISOString() },
       { loc: "/changelog", changefreq: "monthly", priority: 0.6, lastmod: new Date().toISOString() },
     ];
 
