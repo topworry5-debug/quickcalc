@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OASDI Tax Calculator (2026) — Calculate Social Security Tax</title>
+  <meta name="description" content="Calculate your exact OASDI tax and Social Security withholding for 2026. Includes paystub breakdown, self-employed rates, and the $184,500 wage base limit." />
+  <link rel="canonical" href="https://quickcalc.cloud/oasdi-tax-calculator" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="OASDI Tax Calculator (2026) — Calculate Social Security Tax" />
+  <meta property="og:description" content="Calculate your exact OASDI tax and Social Security withholding for 2026. Includes paystub breakdown, self-employed rates, and the $184,500 wage base limit." />
+  <meta property="og:url" content="https://quickcalc.cloud/oasdi-tax-calculator" />
+  <meta property="og:site_name" content="QuickCalc" />
+  <meta property="og:image" content="https://quickcalc.cloud/og-image.png" />
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OASDI Tax Calculator (2026) — Calculate Social Security Tax" />
+  <meta name="twitter:description" content="Calculate your exact OASDI tax and Social Security withholding for 2026. Includes paystub breakdown, self-employed rates, and the $184,500 wage base limit." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "OASDI Tax Calculator (2026) — Social Security Payroll Tax",
+    "description": "Instant client-side OASDI tax calculator applying the verified 2026 wage base cap ($184,500) for W-2 employees and 1099 self-employed workers.",
+    "url": "https://quickcalc.cloud/oasdi-tax-calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why does my paystub say OASDI instead of Social Security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most payroll processing providers like ADP, Paychex, and Gusto print the technical legal acronym OASDI on paystubs rather than the colloquial term Social Security. Both refer to the identical mandatory federal program created under the Federal Insurance Contributions Act (FICA)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does OASDI stand for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "OASDI stands for Old-Age, Survivors, and Disability Insurance. It represents the formal statutory name of the comprehensive federal social insurance initiative established under Title II of the 1935 Social Security Act."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OASDI tax mandatory?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, OASDI payroll withholding is compulsory for nearly all United States civilian employees and self-employed workers under federal tax law. Limited exemptions apply only to specific state and local government personnel covered by alternative qualifying pension programs, certain religious sects, and nonresident foreign students on specific exchange visas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do self-employed people pay OASDI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, self-employed freelancers, independent contractors, and business owners pay OASDI through the Self-Employment Contributions Act (SECA). Because they have no employer covering the other half, self-employed workers pay the full 12.4% rate, assessed on 92.35% of their net business profits up to the annual wage cap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when I hit the OASDI wage base limit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Once your cumulative gross earnings for the calendar year cross the annual wage base limit ($184,500 in 2026), your employer immediately ceases withholding the 6.2% OASDI tax. Your take-home paycheck will noticeably increase for the remainder of that year, resetting back to the normal 6.2% deduction on January 1."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is OASDI tax deductible on my income tax return?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "W-2 employees cannot deduct their 6.2% OASDI payroll taxes on federal Form 1040. In contrast, self-employed individuals can claim an above-the-line deduction for exactly 50% of their total self-employment tax (representing the employer-equivalent share) on Schedule 1 of Form 1040, which lowers their adjusted gross income."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "OASDI vs Medicare tax — what is the difference?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While both taxes make up FICA payroll deductions, OASDI taxes are capped at $184,500 for 2026 at a 6.2% employee rate to fund retirement, survivor, and disability pensions. Medicare tax is 1.45% for employees, has no wage cap whatsoever, and taxes every dollar of earnings to fund hospital insurance, with an extra 0.9% surtax on high earners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the OASDI tax rate for 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For the 2026 tax year, the employee OASDI tax rate remains 6.2% on covered wages up to $184,500, with an identical 6.2% paid by employers. Self-employed individuals pay the combined 12.4% rate up to the same $184,500 threshold."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does everyone pay the same OASDI rate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all covered American workers pay the flat statutory 6.2% rate regardless of tax bracket, up until they hit the annual wage base cap. Because higher earners stop paying once they exceed $184,500 in 2026, OASDI is classified as a regressive payroll tax on total income."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get OASDI tax back if I overpaid?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you worked for a single employer, excess withholding rarely happens because payroll systems automatically stop at the cap. However, if you switched employers mid-year or held multiple concurrent jobs earning over $184,500 collectively, each company withheld up to the cap. You can reclaim the excess overpaid OASDI as a refundable tax credit on Line 11 of IRS Form 1040 Schedule 3."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://quickcalc.cloud"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Finance",
+        "item": "https://quickcalc.cloud/category/finance"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "OASDI Tax Calculator",
+        "item": "https://quickcalc.cloud/oasdi-tax-calculator"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Clean, high-performance styling with dark mode support -->
+  <style>
+    :root {
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-2: #f1f5f9;
+      --surface-3: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0d9488;
+      --primary-hover: #0f766e;
+      --primary-light: #f0fdfa;
+      --primary-border: #99f6e4;
+      --emerald: #059669;
+      --border: #e2e8f0;
+      --card-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+      --radius-xl: 1rem;
+      --radius-2xl: 1.25rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #090d16;
+        --surface: #111827;
+        --surface-2: #1f2937;
+        --surface-3: #374151;
+        --text: #f9fafb;
+        --text-muted: #9ca3af;
+        --primary: #14b8a6;
+        --primary-hover: #2dd4bf;
+        --primary-light: rgba(20, 184, 166, 0.12);
+        --primary-border: rgba(20, 184, 166, 0.35);
+        --emerald: #10b981;
+        --border: #1f2937;
+        --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 1rem 4rem 1rem;
+    }
+
+    .container {
+      max-width: 54rem;
+      margin: 0 auto;
+    }
+
+    /* Header Nav */
+    .site-nav {
+      padding: 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+    }
+    .breadcrumbs {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumbs a { color: var(--text-muted); text-decoration: none; }
+    .breadcrumbs a:hover { color: var(--primary); }
+
+    /* Intro Block */
+    .intro-header {
+      text-align: center;
+      max-width: 42rem;
+      margin: 0 auto 2.5rem auto;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .intro-desc {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Calculator Widget Container */
+    .calculator-widget {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--card-shadow);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+
+    .widget-hero-bar {
+      background: linear-gradient(135deg, #0d9488 0%, #047857 100%);
+      color: #ffffff;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .widget-hero-bar h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0.25rem 0 0 0;
+    }
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-pill {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      backdrop-filter: blur(4px);
+    }
+    .cap-callout {
+      text-align: right;
+    }
+    .cap-callout-label { font-size: 0.75rem; opacity: 0.9; }
+    .cap-callout-value { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; }
+
+    .widget-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    /* Inputs Layout */
+    .inputs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Toggle Buttons */
+    .toggle-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem;
+      background: var(--surface-2);
+      padding: 0.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+    .toggle-btn {
+      border: none;
+      background: transparent;
+      padding: 0.6rem 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+    .toggle-btn.active {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Frequency Grid */
+    .frequency-group {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.35rem;
+      background: var(--surface-2);
+      padding: 0.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+    .freq-btn {
+      border: none;
+      background: transparent;
+      padding: 0.5rem 0.2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .freq-btn.active {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Input with prefix */
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-prefix {
+      position: absolute;
+      left: 1rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      pointer-events: none;
+    }
+    .text-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.25rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-family: inherit;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .text-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-light);
+    }
+
+    select.text-input {
+      padding-left: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Preset Pills */
+    .presets-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+    .preset-label { font-size: 0.6875rem; color: var(--text-muted); }
+    .preset-pill {
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      padding: 0.2rem 0.45rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .preset-pill:hover { background: var(--surface-3); }
+
+    /* Results Showcase Card */
+    .results-hero {
+      background: var(--primary-light);
+      border: 2px solid var(--primary-border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .results-main-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid var(--primary-border);
+      padding-bottom: 1.25rem;
+    }
+    .amount-label-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .status-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(5, 150, 105, 0.15);
+      color: var(--emerald);
+    }
+    .hero-amount {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1;
+    }
+    .hero-unit {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: 0.35rem;
+    }
+
+    .annual-snapshot {
+      background: var(--surface);
+      padding: 0.85rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      text-align: right;
+    }
+    .annual-snapshot-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; }
+    .annual-snapshot-value { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+    /* Explanation Box */
+    .explanation-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    /* Progress Bar */
+    .progress-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 0.65rem;
+      background: var(--surface-3);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--emerald) 100%);
+      border-radius: 9999px;
+      transition: width 0.4s ease;
+    }
+
+    /* Breakdown Grid */
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+      gap: 1rem;
+    }
+    .breakdown-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .breakdown-card-title {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .breakdown-card-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+    .breakdown-card-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Verified footer */
+    .widget-meta-footer {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    /* Explanatory Article & Direct Answers */
+    .content-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .content-section h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .content-section p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    /* AEO Standalone Callout Box */
+    .direct-answer-callout {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+    .faq-answer {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Formulas & Data Table */
+    .formula-box {
+      font-family: var(--font-mono);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 0.5rem 0 1rem 0;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+    }
+    table.data-table th, table.data-table td {
+      padding: 0.75rem 0.85rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    table.data-table th {
+      background: var(--surface-2);
+      font-weight: 700;
+      color: var(--text);
+    }
+    table.data-table tr.highlight-row {
+      background: var(--primary-light);
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Related tools */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .related-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      display: block;
+    }
+    .related-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .related-card-title {
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .related-card-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.75rem; }
+      .hero-amount { font-size: 2.25rem; }
+      .frequency-group { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navbar -->
+    <nav class="site-nav" aria-label="Site Navigation">
+      <a href="https://quickcalc.cloud" class="logo">
+        <span>QuickCalc<span style="color:var(--primary)">.cloud</span></span>
+        <span class="logo-badge">Fast & Free</span>
+      </a>
+      <div style="font-size: 0.8125rem; font-weight: 600; color: var(--text-muted);">
+        Verified 2026 Tax Engine
+      </div>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="https://quickcalc.cloud">Home</a> &rsaquo;
+      <a href="https://quickcalc.cloud/category/finance">Finance</a> &rsaquo;
+      <span>OASDI Tax Calculator</span>
+    </div>
+
+    <!-- Intro Header -->
+    <header class="intro-header">
+      <h1>OASDI Tax Calculator (2026)</h1>
+      <p class="intro-desc">
+        Noticed an unfamiliar line item labeled &ldquo;OASDI&rdquo; on your latest paystub?
+        Use this calculator to compute your exact Social Security payroll deduction, verify whether you have hit the 2026 wage base cap ($184,500), and check how much taxable cap room you have left.
+      </p>
+    </header>
+
+    <!-- CALCULATOR WIDGET (HIGH ABOVE THE FOLD) -->
+    <main class="calculator-widget" aria-label="Interactive OASDI Tax Calculator">
+      <div class="widget-hero-bar">
+        <div>
+          <div class="badge-row">
+            <span class="badge-pill">&check; Official SSA Figures</span>
+            <span class="badge-pill" id="badge-tax-year">Tax Year 2026</span>
+          </div>
+          <h2>Social Security & OASDI Withholding</h2>
+        </div>
+        <div class="cap-callout">
+          <div class="cap-callout-label">Annual Wage Cap</div>
+          <div class="cap-callout-value" id="disp-top-cap">$184,500</div>
+        </div>
+      </div>
+
+      <div class="widget-body">
+        <div class="inputs-grid">
+          <!-- Left Column: Type, Year, Frequency -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <!-- Employment Type -->
+            <div class="form-group">
+              <label class="label">Employment Type</label>
+              <div class="toggle-group" id="emp-toggle-group">
+                <button type="button" class="toggle-btn active" id="btn-employee" onclick="setEmployment('employee')">
+                  W-2 Employee (6.2%)
+                </button>
+                <button type="button" class="toggle-btn" id="btn-se" onclick="setEmployment('self_employed')">
+                  Self-Employed (12.4%)
+                </button>
+              </div>
+            </div>
+
+            <!-- Tax Year -->
+            <div class="form-group">
+              <label class="label" for="tax-year-select">Tax Year (Wage Base Limit)</label>
+              <select id="tax-year-select" class="text-input" onchange="updateCalc()">
+                <option value="2026" selected>2026 Tax Year — $184,500 Limit (Current Year)</option>
+                <option value="2025">2025 Tax Year — $176,100 Limit</option>
+                <option value="2024">2024 Tax Year — $168,600 Limit</option>
+                <option value="2023">2023 Tax Year — $160,200 Limit</option>
+                <option value="2022">2022 Tax Year — $147,000 Limit</option>
+              </select>
+            </div>
+
+            <!-- Frequency -->
+            <div class="form-group">
+              <label class="label">Paycheck Frequency</label>
+              <div class="frequency-group" id="freq-group">
+                <button type="button" class="freq-btn" onclick="setFreq('weekly')">Weekly</button>
+                <button type="button" class="freq-btn active" onclick="setFreq('biweekly')">Biweekly</button>
+                <button type="button" class="freq-btn" onclick="setFreq('semimonthly')">Semi-Mo</button>
+                <button type="button" class="freq-btn" onclick="setFreq('monthly')">Monthly</button>
+                <button type="button" class="freq-btn" onclick="setFreq('annual')">Annual</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Wage Input & Mode -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div class="form-group">
+              <div class="label">
+                <span id="wage-input-label">Annual Gross Wages</span>
+                <div style="display: flex; gap: 0.25rem;">
+                  <button type="button" id="btn-mode-annual" class="preset-pill" style="font-weight:700" onclick="setMode('annual')">Annual</button>
+                  <button type="button" id="btn-mode-check" class="preset-pill" onclick="setMode('per_paycheck')">Per Check</button>
+                </div>
+              </div>
+              <div class="input-wrapper">
+                <span class="input-prefix">$</span>
+                <input
+                  type="number"
+                  id="wage-input"
+                  class="text-input"
+                  value="75000"
+                  step="500"
+                  min="0"
+                  oninput="updateCalc()"
+                />
+              </div>
+
+              <!-- Quick Presets -->
+              <div class="presets-row">
+                <span class="preset-label">Presets:</span>
+                <button type="button" class="preset-pill" onclick="setPreset(45000)">$45k</button>
+                <button type="button" class="preset-pill" onclick="setPreset(75000)">$75k</button>
+                <button type="button" class="preset-pill" onclick="setPreset(120000)">$120k</button>
+                <button type="button" class="preset-pill" onclick="setPreset(184500)">$184.5k (Cap)</button>
+                <button type="button" class="preset-pill" onclick="setPreset(250000)">$250k</button>
+              </div>
+            </div>
+
+            <!-- Mid-Year Crossover YTD -->
+            <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem;">
+              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; font-weight: 700; cursor: pointer;">
+                <input type="checkbox" id="ytd-toggle" onchange="toggleYtd()" />
+                <span>Calculate mid-year check (with prior YTD earnings)</span>
+              </label>
+
+              <div id="ytd-container" style="display: none; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border);">
+                <div class="label" style="margin-bottom: 0.25rem;">Prior YTD Earnings (Before This Check):</div>
+                <div class="input-wrapper">
+                  <span class="input-prefix">$</span>
+                  <input
+                    type="number"
+                    id="prior-ytd-input"
+                    class="text-input"
+                    placeholder="e.g. 170000"
+                    step="1000"
+                    min="0"
+                    oninput="updateCalc()"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO RESULTS SHOWCASE -->
+        <div class="results-hero">
+          <div class="results-main-row">
+            <div>
+              <div class="amount-label-row">
+                <span class="label" style="color:var(--primary); margin:0;" id="hero-title-label">Your OASDI Withholding</span>
+                <span class="status-badge" id="hero-status-pill">Active Withholding (6.2%)</span>
+              </div>
+              <div style="display:flex; align-items:baseline;">
+                <div class="hero-amount" id="disp-period-tax">$178.85</div>
+                <span class="hero-unit" id="disp-freq-unit">/ paycheck</span>
+              </div>
+            </div>
+
+            <div class="annual-snapshot">
+              <div class="annual-snapshot-label">Estimated Annual OASDI</div>
+              <div class="annual-snapshot-value" id="disp-annual-tax">$4,650.00</div>
+              <div style="font-size: 0.6875rem; color: var(--text-muted);" id="disp-annual-max">
+                Max 2026 Cap: $11,439.00
+              </div>
+            </div>
+          </div>
+
+          <!-- Plain language explanation banner -->
+          <div class="explanation-box" id="disp-explanation">
+            Your employer withholds 6.2% ($178.85) from your $2,884.62 biweekly paycheck for OASDI Social Security tax, matched by another 6.2% from your employer. Your total estimated OASDI tax for 2026 is $4,650.00.
+          </div>
+
+          <!-- Cap Progress Bar -->
+          <div class="progress-section">
+            <div class="progress-labels">
+              <span id="disp-progress-title">Annual Cap Progress (40.7%)</span>
+              <span id="disp-remaining-room">$109,500 room left under cap</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="disp-progress-fill" style="width: 40.7%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DETAILED BREAKDOWN GRID -->
+        <div class="breakdown-grid">
+          <div class="breakdown-card">
+            <div class="breakdown-card-title" id="card-emp-title">Your Share (6.2%)</div>
+            <div class="breakdown-card-value" id="card-period-oasdi">$178.85</div>
+            <div class="breakdown-card-sub" id="card-annual-oasdi">Annual: $4,650.00</div>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-card-title" id="card-employer-title">Employer Match (6.2%)</div>
+            <div class="breakdown-card-value" id="card-period-match">$178.85</div>
+            <div class="breakdown-card-sub">Paid by employer</div>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-card-title">Medicare Tax (1.45%)</div>
+            <div class="breakdown-card-value" id="card-period-medicare">$41.83</div>
+            <div class="breakdown-card-sub" style="color:var(--emerald)">Uncapped (no limit)</div>
+          </div>
+
+          <div class="breakdown-card">
+            <div class="breakdown-card-title">Total FICA Period</div>
+            <div class="breakdown-card-value" id="card-period-fica">$220.68</div>
+            <div class="breakdown-card-sub" id="card-annual-fica">Annual: $5,737.50</div>
+          </div>
+        </div>
+
+        <!-- Verified timestamp -->
+        <div class="widget-meta-footer">
+          <div>
+            &bull; Updated for Tax Year 2026 | Social Security Contribution Base: <strong id="disp-footer-cap">$184,500</strong>
+          </div>
+          <div>
+            100% Client-Side Private &bull; No Data Transmitted
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- DIRECT-ANSWER BLOCK (AEO / GEO SECTION) -->
+    <section class="content-section" aria-label="Direct Answer Overview">
+      <h2 style="margin-bottom: 0.5rem;">What is OASDI Tax?</h2>
+      
+      <!-- Standalone 44-word quotable direct answer -->
+      <div class="direct-answer-callout">
+        OASDI tax is the mandatory federal payroll deduction that funds the United States Social Security program. Formally known as Old-Age, Survivors, and Disability Insurance, the tax finances monthly retirement pensions, survivor support for bereaved dependents, and disability benefits for qualifying American workers.
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        <div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">What is the OASDI tax rate?</h3>
+          <p style="font-size: 0.875rem; margin: 0;">
+            The employee OASDI tax rate is 6.2% of gross wages, matched by a mandatory 6.2% contribution from the employer for a 12.4% total. Self-employed individuals pay the full 12.4% rate through self-employment tax on 92.35% of net business profits, deducting half the amount on their income tax return.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">What is the OASDI wage base limit for 2026?</h3>
+          <p style="font-size: 0.875rem; margin: 0;">
+            For the 2026 tax year, the OASDI wage base limit is $184,500. This statutory cap, set by the Social Security Administration based on the national average wage index, means earnings above $184,500 are exempt from Social Security withholding. The maximum annual OASDI tax for any employee in 2026 is $11,439.
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">Is OASDI the same as Social Security tax?</h3>
+          <p style="font-size: 0.875rem; margin: 0;">
+            Yes, OASDI tax and Social Security tax are identical. &ldquo;OASDI&rdquo; is the official statutory acronym used by payroll software and the Internal Revenue Service, whereas &ldquo;Social Security&rdquo; is the popular name. When the abbreviation appears on a paystub or Form W-2, it denotes standard Social Security withholding.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW THIS IS CALCULATED SECTION -->
+    <section class="content-section" aria-label="Mathematical Methodology">
+      <h2>How OASDI Tax is Calculated: Plain Math & Formulas</h2>
+      <p>
+        Unlike federal income taxes, which use progressive marginal brackets, OASDI is a flat tax with a hard statutory ceiling. The computation formula is:
+      </p>
+
+      <div class="formula-box">
+        W-2 Employee OASDI = min(Gross Wages, $184,500 Cap) &times; 6.2%
+      </div>
+      <div class="formula-box">
+        Self-Employed OASDI = min(Net SE Earnings &times; 0.9235, $184,500 Cap) &times; 12.4%
+      </div>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin: 1.5rem 0 0.5rem 0;">Real-World Examples for 2026</h3>
+      <p>
+        <strong>Example 1: Salary Under Cap ($75,000 / year):</strong> Paid biweekly over 26 checks, your gross per check is $2,884.62. Your deduction is $2,884.62 &times; 6.2% = $178.85 per paycheck. Over the full year, you pay exactly $4,650.00.
+      </p>
+      <p>
+        <strong>Example 2: High Earner Over Cap ($240,000 / year):</strong> Paid monthly at $20,000/month, you hit the $184,500 cap in October (Month 10). In October, only $4,500 of your check is taxed ($279.00). In November and December, your OASDI deduction is $0.00, capping your total tax at exactly $11,439.00.
+      </p>
+
+      <!-- Wage Base Cap Table -->
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin: 1.75rem 0 0.5rem 0;">Historical Wage Base Caps & Maximum Taxes</h3>
+      <div style="overflow-x: auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Wage Base Cap</th>
+              <th>Employee Rate</th>
+              <th>Max Employee Tax</th>
+              <th>Max Self-Employed Tax</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>2026 (Current)</strong></td>
+              <td><strong>$184,500</strong></td>
+              <td><strong>6.2%</strong></td>
+              <td><strong>$11,439.00</strong></td>
+              <td><strong>$21,127.84</strong></td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>$176,100</td>
+              <td>6.2%</td>
+              <td>$10,918.20</td>
+              <td>$20,165.92</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td>$168,600</td>
+              <td>6.2%</td>
+              <td>$10,453.20</td>
+              <td>$19,307.21</td>
+            </tr>
+            <tr>
+              <td>2023</td>
+              <td>$160,200</td>
+              <td>6.2%</td>
+              <td>$9,932.40</td>
+              <td>$18,345.26</td>
+            </tr>
+            <tr>
+              <td>2022</td>
+              <td>$147,000</td>
+              <td>6.2%</td>
+              <td>$9,114.00</td>
+              <td>$16,833.40</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
+    <section class="content-section" aria-label="Frequently Asked Questions">
+      <h2>Frequently Asked Questions About OASDI Tax</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Why does my paystub say OASDI instead of Social Security?</h3>
+        <p class="faq-answer">
+          Most payroll processing providers like ADP, Paychex, and Gusto print the technical legal acronym OASDI on paystubs rather than the colloquial term Social Security. Both refer to the identical mandatory federal program created under the Federal Insurance Contributions Act (FICA).
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What does OASDI stand for?</h3>
+        <p class="faq-answer">
+          OASDI stands for Old-Age, Survivors, and Disability Insurance. It represents the formal statutory name of the comprehensive federal social insurance initiative established under Title II of the 1935 Social Security Act.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is OASDI tax mandatory?</h3>
+        <p class="faq-answer">
+          Yes, OASDI payroll withholding is compulsory for nearly all United States civilian employees and self-employed workers under federal tax law. Limited exemptions apply only to specific state and local government personnel covered by alternative qualifying pension programs, certain religious sects, and nonresident foreign students on specific exchange visas.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Do self-employed people pay OASDI?</h3>
+        <p class="faq-answer">
+          Yes, self-employed freelancers, independent contractors, and business owners pay OASDI through the Self-Employment Contributions Act (SECA). Because they have no employer covering the other half, self-employed workers pay the full 12.4% rate, assessed on 92.35% of their net business profits up to the annual wage cap.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What happens when I hit the OASDI wage base limit?</h3>
+        <p class="faq-answer">
+          Once your cumulative gross earnings for the calendar year cross the annual wage base limit ($184,500 in 2026), your employer immediately ceases withholding the 6.2% OASDI tax. Your take-home paycheck will noticeably increase for the remainder of that year, resetting back to the normal 6.2% deduction on January 1.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is OASDI tax deductible on my income tax return?</h3>
+        <p class="faq-answer">
+          W-2 employees cannot deduct their 6.2% OASDI payroll taxes on federal Form 1040. In contrast, self-employed individuals can claim an above-the-line deduction for exactly 50% of their total self-employment tax (representing the employer-equivalent share) on Schedule 1 of Form 1040, which lowers their adjusted gross income.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">OASDI vs Medicare tax — what is the difference?</h3>
+        <p class="faq-answer">
+          While both taxes make up FICA payroll deductions, OASDI taxes are capped at $184,500 for 2026 at a 6.2% employee rate to fund retirement, survivor, and disability pensions. Medicare tax is 1.45% for employees, has no wage cap whatsoever, and taxes every dollar of earnings to fund hospital insurance, with an extra 0.9% surtax on high earners.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is the OASDI tax rate for 2026?</h3>
+        <p class="faq-answer">
+          For the 2026 tax year, the employee OASDI tax rate remains 6.2% on covered wages up to $184,500, with an identical 6.2% paid by employers. Self-employed individuals pay the combined 12.4% rate up to the same $184,500 threshold.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Does everyone pay the same OASDI rate?</h3>
+        <p class="faq-answer">
+          Yes, all covered American workers pay the flat statutory 6.2% rate regardless of tax bracket, up until they hit the annual wage base cap. Because higher earners stop paying once they exceed $184,500 in 2026, OASDI is classified as a regressive payroll tax on total income.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can I get OASDI tax back if I overpaid?</h3>
+        <p class="faq-answer">
+          If you worked for a single employer, excess withholding rarely happens because payroll systems automatically stop at the cap. However, if you switched employers mid-year or held multiple concurrent jobs earning over $184,500 collectively, each company withheld up to the cap. You can reclaim the excess overpaid OASDI as a refundable tax credit on Line 11 of IRS Form 1040 Schedule 3.
+        </p>
+      </div>
+    </section>
+
+    <!-- RELATED CALCULATORS -->
+    <section class="content-section" aria-label="Related Calculators">
+      <h2>Related Payroll & Financial Calculators</h2>
+      <p>Plan your total take-home pay and retirement milestones with our specialized tools:</p>
+      <div class="related-grid">
+        <a href="https://quickcalc.cloud/tools/salary-take-home-calculator" class="related-card">
+          <div class="related-card-title">Salary Take-Home Calculator &rarr;</div>
+          <div class="related-card-desc">Calculate net pay after federal income, state, and FICA payroll deductions.</div>
+        </a>
+        <a href="https://quickcalc.cloud/tools/work-hours-calculator" class="related-card">
+          <div class="related-card-title">Work Hours & Timesheet &rarr;</div>
+          <div class="related-card-desc">Calculate shift hours, unpaid meal breaks, and 1.5x overtime gross wages.</div>
+        </a>
+        <a href="https://quickcalc.cloud/tools/retirement-withdrawal-simulator" class="related-card">
+          <div class="related-card-title">Safe Withdrawal Simulator &rarr;</div>
+          <div class="related-card-desc">Backtest 30-year retirement portfolio survival across 96 years of market data.</div>
+        </a>
+        <a href="https://quickcalc.cloud/tools/loan-calculator" class="related-card">
+          <div class="related-card-title">Loan & EMI Calculator &rarr;</div>
+          <div class="related-card-desc">Calculate monthly installments, interest schedules, and payoff timelines.</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2026 QuickCalc.cloud &bull; Verified Federal Payroll & Tax Reference</p>
+    </footer>
+  </div>
+
+  <!-- Vanilla Client-Side Calculation Engine -->
+  <script>
+    /**
+     * MAINTENANCE-CRITICAL CONSTANT:
+     * Official Contribution & Benefit Base (Wage Base Limit).
+     * Source: Social Security Administration (SSA).
+     * Update annually when the SSA announces the following year's cap in mid-October.
+     */
+    const OASDI_CAPS = {
+      2026: 184500, // Official 2026 wage base cap ($184,500)
+      2025: 176100,
+      2024: 168600,
+      2023: 160200,
+      2022: 147000
+    };
+
+    const FREQ_FACTORS = {
+      weekly: 52,
+      biweekly: 26,
+      semimonthly: 24,
+      monthly: 12,
+      annual: 1
+    };
+
+    let state = {
+      employment: 'employee',
+      taxYear: 2026,
+      frequency: 'biweekly',
+      mode: 'annual',
+      grossWage: 75000,
+      hasYtd: false,
+      priorYtd: 0
+    };
+
+    function setEmployment(type) {
+      state.employment = type;
+      document.getElementById('btn-employee').classList.toggle('active', type === 'employee');
+      document.getElementById('btn-se').classList.toggle('active', type === 'self_employed');
+      updateCalc();
+    }
+
+    function setFreq(freq) {
+      state.frequency = freq;
+      const btns = document.querySelectorAll('#freq-group button');
+      const keys = ['weekly', 'biweekly', 'semimonthly', 'monthly', 'annual'];
+      btns.forEach((btn, idx) => {
+        btn.classList.toggle('active', keys[idx] === freq);
+      });
+      updateCalc();
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      document.getElementById('btn-mode-annual').classList.toggle('active', mode === 'annual');
+      document.getElementById('btn-mode-check').classList.toggle('active', mode === 'per_paycheck');
+      document.getElementById('wage-input-label').textContent = mode === 'annual' ? 'Annual Gross Wages' : 'Per-Paycheck Gross Wages';
+      updateCalc();
+    }
+
+    function setPreset(val) {
+      state.grossWage = val;
+      document.getElementById('wage-input').value = val;
+      if (state.mode !== 'annual') setMode('annual');
+      updateCalc();
+    }
+
+    function toggleYtd() {
+      state.hasYtd = document.getElementById('ytd-toggle').checked;
+      document.getElementById('ytd-container').style.display = state.hasYtd ? 'block' : 'none';
+      updateCalc();
+    }
+
+    function fmt(val, dec = 2) {
+      return '$' + Number(val || 0).toLocaleString('en-US', {
+        minimumFractionDigits: dec,
+        maximumFractionDigits: dec
+      });
+    }
+
+    function updateCalc() {
+      const yearSelect = document.getElementById('tax-year-select');
+      state.taxYear = Number(yearSelect.value);
+      state.grossWage = Math.max(0, Number(document.getElementById('wage-input').value) || 0);
+      state.priorYtd = state.hasYtd ? Math.max(0, Number(document.getElementById('prior-ytd-input').value) || 0) : 0;
+
+      const cap = OASDI_CAPS[state.taxYear] || 184500;
+      const periods = FREQ_FACTORS[state.frequency] || 26;
+      const isEmp = state.employment === 'employee';
+      const oasdiRate = isEmp ? 0.062 : 0.124;
+      const seFactor = isEmp ? 1.0 : 0.9235;
+      const medicareRate = isEmp ? 0.0145 : 0.029;
+
+      let checkGross = 0;
+      let annualGross = 0;
+      if (state.mode === 'annual') {
+        annualGross = state.grossWage;
+        checkGross = periods > 0 ? annualGross / periods : annualGross;
+      } else {
+        checkGross = state.grossWage;
+        annualGross = checkGross * periods;
+      }
+
+      // Mid-year crossover logic
+      let periodTaxableOasdi = 0;
+      let periodExemptOasdi = 0;
+      let alreadyOverCap = state.hasYtd && state.priorYtd >= cap;
+      let capExceededThisCheck = false;
+
+      if (state.hasYtd) {
+        if (alreadyOverCap) {
+          periodTaxableOasdi = 0;
+          periodExemptOasdi = checkGross;
+        } else {
+          const roomBefore = Math.max(0, cap - state.priorYtd);
+          periodTaxableOasdi = Math.min(checkGross, roomBefore);
+          periodExemptOasdi = Math.max(0, checkGross - periodTaxableOasdi);
+          if (periodExemptOasdi > 0) capExceededThisCheck = true;
+        }
+      } else {
+        if (annualGross <= cap) {
+          periodTaxableOasdi = checkGross;
+        } else {
+          if (state.frequency === 'annual') {
+            periodTaxableOasdi = cap;
+            periodExemptOasdi = annualGross - cap;
+            capExceededThisCheck = true;
+          } else {
+            periodTaxableOasdi = checkGross;
+          }
+        }
+      }
+
+      const periodOasdiTax = (periodTaxableOasdi * seFactor) * oasdiRate;
+      const periodEmployerMatch = isEmp ? periodTaxableOasdi * 0.062 : periodOasdiTax / 2;
+      const periodMedicareTax = (checkGross * seFactor) * medicareRate;
+      const periodTotalFica = periodOasdiTax + periodMedicareTax;
+
+      const annualTaxableOasdi = Math.min(annualGross, cap);
+      const annualOasdiTax = (annualTaxableOasdi * seFactor) * oasdiRate;
+      const annualMedicareTax = (annualGross * seFactor) * medicareRate;
+      const annualTotalFica = annualOasdiTax + annualMedicareTax;
+
+      const effectiveCumulative = state.hasYtd ? (state.priorYtd + checkGross) : annualGross;
+      const remainingRoom = Math.max(0, cap - effectiveCumulative);
+      const percentReached = Math.min(100, (effectiveCumulative / cap) * 100);
+
+      // Update UI elements
+      document.getElementById('disp-top-cap').textContent = fmt(cap, 0);
+      document.getElementById('disp-footer-cap').textContent = fmt(cap, 0);
+      document.getElementById('badge-tax-year').textContent = 'Tax Year ' + state.taxYear;
+      document.getElementById('disp-period-tax').textContent = fmt(periodOasdiTax);
+      document.getElementById('disp-freq-unit').textContent = state.frequency === 'annual' ? '/ year' : '/ paycheck';
+      document.getElementById('disp-annual-tax').textContent = fmt(annualOasdiTax);
+      document.getElementById('disp-annual-max').textContent = 'Statutory Cap: ' + fmt((isEmp ? 0.062 : 0.124 * 0.9235) * cap);
+
+      // Card breakdowns
+      document.getElementById('card-emp-title').textContent = isEmp ? 'Your Share (6.2%)' : 'Self-Employed (12.4%)';
+      document.getElementById('card-period-oasdi').textContent = fmt(periodOasdiTax);
+      document.getElementById('card-annual-oasdi').textContent = 'Annual: ' + fmt(annualOasdiTax);
+      document.getElementById('card-employer-title').textContent = isEmp ? 'Employer Match (6.2%)' : '1040 Deduction (50%)';
+      document.getElementById('card-period-match').textContent = fmt(periodEmployerMatch);
+      document.getElementById('card-period-medicare').textContent = fmt(periodMedicareTax);
+      document.getElementById('card-period-fica').textContent = fmt(periodTotalFica);
+      document.getElementById('card-annual-fica').textContent = 'Annual: ' + fmt(annualTotalFica);
+
+      // Progress bar
+      document.getElementById('disp-progress-title').textContent = 'Annual Cap Progress (' + percentReached.toFixed(1) + '%)';
+      document.getElementById('disp-remaining-room').textContent = remainingRoom > 0
+        ? fmt(remainingRoom, 0) + ' room left under ' + fmt(cap, 0) + ' cap'
+        : '100% of ' + fmt(cap, 0) + ' Cap Reached';
+      document.getElementById('disp-progress-fill').style.width = percentReached + '%';
+
+      // Status pill & explanation sentence
+      const statusPill = document.getElementById('hero-status-pill');
+      let explanation = '';
+      if (alreadyOverCap) {
+        statusPill.textContent = 'Cap Reached ($0 Tax)';
+        statusPill.style.color = '#b45309';
+        statusPill.style.background = 'rgba(245, 158, 11, 0.15)';
+        explanation = `Because your prior year-to-date earnings (${fmt(state.priorYtd)}) have already exceeded the ${state.taxYear} Social Security wage cap (${fmt(cap, 0)}), you owe $0.00 in OASDI tax on this paycheck. No further Social Security tax will be withheld for the rest of this calendar year.`;
+      } else if (capExceededThisCheck) {
+        statusPill.textContent = 'Cap Crossed This Check';
+        statusPill.style.color = '#0d9488';
+        statusPill.style.background = 'rgba(13, 148, 136, 0.15)';
+        explanation = `This paycheck puts you over the ${state.taxYear} cap! Only the first ${fmt(periodTaxableOasdi)} of your ${fmt(checkGross)} check is taxed at ${isEmp ? '6.2%' : '12.4%'} (${fmt(periodOasdiTax)} owed). The remaining ${fmt(periodExemptOasdi)} is exempt, and every subsequent paycheck this year will have $0.00 OASDI tax deducted.`;
+      } else {
+        statusPill.textContent = 'Active Withholding (' + (isEmp ? '6.2%' : '12.4%') + ')';
+        statusPill.style.color = 'var(--emerald)';
+        statusPill.style.background = 'rgba(5, 150, 105, 0.15)';
+        if (!isEmp) {
+          explanation = `As a self-employed individual, you pay the 12.4% OASDI rate on 92.35% of your net earnings (${fmt(checkGross * 0.9235)} subject income). Your OASDI tax is ${fmt(periodOasdiTax)} for this period, with an estimated annual total of ${fmt(annualOasdiTax)}.`;
+        } else if (annualGross > cap) {
+          explanation = `Your annual salary (${fmt(annualGross, 0)}) surpasses the ${state.taxYear} wage cap (${fmt(cap, 0)}). Your employer withholds 6.2% (${fmt(periodOasdiTax)} per check) until you reach ${fmt(cap, 0)} in cumulative earnings, capping your total annual OASDI tax at ${fmt(annualOasdiTax)}.`;
+        } else {
+          explanation = `Your employer withholds 6.2% (${fmt(periodOasdiTax)}) from your ${fmt(checkGross)} paycheck for OASDI Social Security tax, matched by another 6.2% from your employer. Your total estimated OASDI tax for ${state.taxYear} is ${fmt(annualOasdiTax)}. You have ${fmt(remainingRoom, 0)} in wage base room remaining before reaching the annual limit.`;
+        }
+      }
+      document.getElementById('disp-explanation').textContent = explanation;
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', updateCalc);
+    updateCalc();
+  </script>
+</body>
+</html>

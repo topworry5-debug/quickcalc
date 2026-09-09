@@ -198,6 +198,17 @@ export const tools: Tool[] = [
     popular: true
   },
   {
+    title: "OASDI Tax Calculator",
+    description: "Calculate your exact Social Security OASDI payroll tax, remaining wage base room, and 2026 cap crossover ($184,500) for employees and self-employed.",
+    icon: "oasdi",
+    href: "/tools/oasdi-tax-calculator",
+    color: "from-teal-600 to-emerald-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "2026 Cap"
+  },
+  {
     title: "Work Hours / Timesheet Calculator",
     description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
     icon: "work-hours",

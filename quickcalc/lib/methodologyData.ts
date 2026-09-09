@@ -504,6 +504,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Compares running costs per km, monthly fuel bills, and payback periods between Petrol, Hybrid, and Electric Vehicles.",
     detailedParagraph: "Calculates comparative automotive operating costs across internal combustion (petrol/diesel), strong hybrid (HEV), and battery electric vehicles (EV). Incorporates official 2026 petroleum prices, NEPRA residential electricity tariffs, and zero-cost rooftop solar net metering charging profiles to determine cost per kilometer, annual fuel savings, and payback period on vehicle purchase premiums.",
   },
+  {
+    slug: "oasdi-tax-calculator",
+    toolName: "OASDI Tax Calculator",
+    category: "Finance & Math",
+    standardName: "Social Security Administration (SSA) Contribution & Benefit Base (IRC § 3101(a), § 1401(a))",
+    formulaText: "Employee OASDI = MIN(Gross Wages, Cap) × 6.2% | Self-Employed OASDI = MIN(Net SE Earnings × 0.9235, Cap) × 12.4%",
+    summary: "Calculates federal Old-Age, Survivors, and Disability Insurance (Social Security) payroll tax up to the annual statutory wage base cap ($184,500 for 2026).",
+    detailedParagraph: "Calculates statutory Old-Age, Survivors, and Disability Insurance (OASDI) payroll withholding under Title II of the Social Security Act and Internal Revenue Code Sections 3101(a), 3111(a), and 1401(a). The algorithm applies a 6.2% withholding rate for W-2 employees (with a mandatory 6.2% employer matching contribution) and a 12.4% rate for self-employed individuals calculated after applying the standard 92.35% Schedule SE net business earnings adjustment factor. Withholding strictly terminates once cumulative annual earnings reach the verified annual contribution base limit ($184,500 in 2026; $176,100 in 2025).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {
