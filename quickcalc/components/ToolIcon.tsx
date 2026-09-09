@@ -182,6 +182,9 @@ const iconMap: Record<string, LucideIcon> = {
   "oasdi-tax": ShieldCheck,
   arkansas: MapPin,
   "arkansas-salary": MapPin,
+  illinois: MapPin,
+  "illinois-paycheck": MapPin,
+  "illinois-salary": MapPin,
 };
 
 // Also map raw emoji or legacy icon names to icons

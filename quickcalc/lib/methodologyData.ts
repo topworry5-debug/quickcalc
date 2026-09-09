@@ -522,6 +522,15 @@ export const methodologyData: ToolMethodology[] = [
     summary: "Computes net take-home pay for Arkansas workers applying the updated 3.7% state income tax rate, standard deductions, federal tax brackets, and FICA payroll withholding.",
     detailedParagraph: "Models personal income tax withholding under Arkansas Code Annotated § 26-51-201, incorporating the 3.7% top marginal income tax rate enacted under Act 1 of the 2024 Second Extraordinary Session. Computations apply statutory standard deductions ($2,470 Single, $4,940 Married Joint), progressive state brackets, IRS 2026 federal progressive brackets, and FICA payroll taxes (6.2% Social Security up to $184,500 and 1.45% Medicare, plus 0.9% additional Medicare for high earners).",
   },
+  {
+    slug: "illinois-paycheck-calculator",
+    toolName: "Illinois Paycheck Calculator",
+    category: "Finance & Math",
+    standardName: "Illinois Department of Revenue (IDOR) 35 ILCS 5/201 & Illinois Constitution Article IX Section 3",
+    formulaText: "Net Pay = Gross - (Federal Tax + Illinois State Tax + FICA) | IL State Tax = (Gross - Personal Exemption) × 4.95%",
+    summary: "Computes net take-home pay for Illinois employees applying the flat 4.95% state income tax rate, personal exemptions ($2,925 Single, $5,850 MFJ), federal tax brackets, and FICA payroll withholding.",
+    detailedParagraph: "Models personal income tax withholding under 35 ILCS 5/201 and Article IX, Section 3 of the Illinois Constitution, which mandates a uniform, non-graduated individual tax rate of 4.95%. Computations apply annual personal exemptions ($2,925 Single/HOH, $5,850 Married Joint), 0.0% local municipal wage tax across all Illinois jurisdictions (including Chicago), IRS 2026 federal tax brackets with standard deduction, and FICA payroll withholdings (6.2% Social Security up to $184,500 and 1.45% Medicare).",
+  },
 ];
 
 export function getToolMethodology(slug: string): ToolMethodology | undefined {

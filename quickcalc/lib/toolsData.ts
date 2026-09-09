@@ -220,6 +220,17 @@ export const tools: Tool[] = [
     badge: "2026 Rates"
   },
   {
+    title: "Illinois Paycheck Calculator",
+    description: "Calculate your Illinois take-home pay after federal, FICA, and state flat income tax (4.95%) with hourly, salary, and personal exemption settings.",
+    icon: "illinois",
+    href: "/tools/illinois-paycheck-calculator",
+    color: "from-teal-600 to-cyan-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "4.95% Flat"
+  },
+  {
     title: "Work Hours / Timesheet Calculator",
     description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
     icon: "work-hours",
