@@ -7,6 +7,7 @@ import TrustDifferentiationBar from "@/components/TrustDifferentiationBar";
 import FactualPlatformProof from "@/components/FactualPlatformProof";
 import ScrollReveal from "@/components/ScrollReveal";
 import RecentlyUsedBar from "@/components/RecentlyUsedBar";
+import FeaturedCalculators from "@/components/FeaturedCalculators";
 import FavoriteButton from "@/components/FavoriteButton";
 import { usePersonalization } from "@/hooks/usePersonalization";
 import { Search, ArrowRight, X, Sparkles, Star, MapPin } from "lucide-react";
@@ -208,6 +209,9 @@ export default function HomeClient({ initialTools }: HomeClientProps) {
 
         {/* Lightweight Personalization Recently Used Row */}
         <RecentlyUsedBar />
+
+        {/* Dedicated Featured Financial & Retirement Calculators Section */}
+        <FeaturedCalculators />
 
         {/* Category Filter Pills */}
         <div className="mb-8 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">

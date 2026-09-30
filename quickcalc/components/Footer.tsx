@@ -103,6 +103,21 @@ export default function Footer({ customText }: FooterProps) {
             </Link>
             <ul className="space-y-2 text-xs text-ink-muted">
               <li>
+                <Link href="/calculators/credit-card-payoff-calculator" className="hover:text-rose-600 dark:text-rose-400 transition-colors font-medium text-rose-600 dark:text-rose-400">
+                  Credit Card Payoff Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/how-long-will-my-money-last" className="hover:text-teal-600 dark:text-teal-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
+                  Savings Runway (How Long Will My Money Last)
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculators/ramsey-investment-calculator" className="hover:text-emerald-600 dark:text-emerald-400 transition-colors font-medium text-emerald-600 dark:text-emerald-400">
+                  Dave Ramsey Investment Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/paycheck-calculators" className="hover:text-teal-600 dark:text-teal-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
                   State Paycheck Calculators (All 50)
                 </Link>

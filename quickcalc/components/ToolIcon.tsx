@@ -50,6 +50,7 @@ import {
   Building2,
   Car,
   MapPin,
+  CreditCard,
   LucideIcon,
 } from "lucide-react";
 
@@ -139,6 +140,10 @@ const iconMap: Record<string, LucideIcon> = {
   clock: Clock,
   "qr-code": QrCode,
   "scan-line": QrCode,
+  "credit-card": CreditCard,
+  "credit-card-payoff": CreditCard,
+  ramsey: TrendingUp,
+  "ramsey-investment": TrendingUp,
   "retirement-withdrawal": TrendingUp,
   gauge: Gauge,
   "speed-test": Gauge,

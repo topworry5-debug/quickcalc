@@ -282,6 +282,28 @@ export const tools: Tool[] = [
     badge: "Runway Tool"
   },
   {
+    title: "Credit Card Payoff Calculator",
+    description: "Simulate your exact debt-free date, calculate total compound interest costs, and see how extra payments shave years off your credit card balances.",
+    icon: "credit-card",
+    href: "/calculators/credit-card-payoff-calculator",
+    color: "from-rose-500 to-pink-600",
+    textColor: "text-rose-600 dark:text-rose-400",
+    category: "Finance",
+    popular: true,
+    badge: "Payoff Tool"
+  },
+  {
+    title: "Dave Ramsey Investment Calculator",
+    description: "Project your compound retirement growth and nest egg using Dave Ramsey's 15% rule and recommended 4-fund portfolio distribution.",
+    icon: "ramsey",
+    href: "/calculators/ramsey-investment-calculator",
+    color: "from-emerald-500 to-teal-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true,
+    badge: "Baby Step 4"
+  },
+  {
     title: "Color Palette Generator",
     description: "Extract up to 8 beautiful dominant colors from any image. Analyze WCAG contrast compliance and export custom CSS/Tailwind configurations.",
     icon: "color-palette",
