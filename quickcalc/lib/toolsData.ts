@@ -232,9 +232,9 @@ export const tools: Tool[] = [
   },
   {
     title: "State Paycheck Calculators (All 50 States)",
-    description: "Compare take-home pay, standard deductions, and state tax withholding across all 50 US states with live 2026 data.",
+    description: "Calculate take-home pay, standard deductions, and state tax withholdings across all 50 US states with live 2026 data.",
     icon: "states-hub",
-    href: "/paycheck-calculators",
+    href: "/calculators/paycheck-calculator",
     color: "from-teal-600 to-indigo-600",
     textColor: "text-teal-600 dark:text-teal-400",
     category: "Finance",

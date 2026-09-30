@@ -12,9 +12,10 @@ export default function EmbedWidget({ url, title }: EmbedWidgetProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Extract slug from URL (e.g. /tools/bmi-calculator -> bmi-calculator)
-  const slug = url.split("/tools/")[1] || "bmi-calculator";
-  const embedUrl = `https://quickcalc.cloud/embed/${slug}`;
+  // Extract embed URL (supports both /tools/ and /calculators/ routes)
+  const embedUrl = url.includes("/calculators/")
+    ? `${url}${url.includes("?") ? "&" : "?"}embed=true`
+    : `https://quickcalc.cloud/embed/${url.split("/tools/")[1] || "bmi-calculator"}`;
 
   const iframeCode = `<iframe src="${embedUrl}" width="100%" height="520" frameborder="0" style="border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;" allowfullscreen></iframe>
 <div style="font-family:sans-serif; font-size:12px; color:#64748b; text-align:right; margin-top:4px;">
@@ -110,7 +111,7 @@ export default function EmbedWidget({ url, title }: EmbedWidgetProps) {
 
             <div className="rounded-xl overflow-hidden border border-surface-border bg-base-card p-2 shadow-md">
               <iframe
-                src={`/embed/${slug}`}
+                src={embedUrl}
                 title={`QuickCalc ${title} Embed Preview`}
                 className="w-full h-[520px] rounded-lg border-0 bg-transparent"
                 loading="lazy"

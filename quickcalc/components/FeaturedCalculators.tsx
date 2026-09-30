@@ -6,12 +6,27 @@ import {
   TrendingUp,
   PiggyBank,
   CreditCard,
+  Building2,
   ArrowRight,
   Sparkles,
 } from "lucide-react";
 
 export default function FeaturedCalculators() {
   const featured = [
+    {
+      id: "featured-paycheck",
+      title: "US State Paycheck Calculators Hub",
+      badge: "50 States + 2026 Tax",
+      badgeColor: "bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20",
+      description:
+        "Calculate take-home salary or hourly wages across all 50 US states with 2026 federal brackets, state taxes (0% to progressive), and FICA.",
+      icon: Building2,
+      iconColor: "text-blue-600 dark:text-blue-400 bg-blue-500/10 border-blue-500/30",
+      href: "/calculators/paycheck-calculator",
+      actionText: "Compare States",
+      hoverBorder: "hover:border-blue-500/50",
+      actionColor: "text-blue-600 dark:text-blue-400",
+    },
     {
       id: "featured-ramsey",
       title: "Dave Ramsey Investment Calculator",
@@ -76,7 +91,7 @@ export default function FeaturedCalculators() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {featured.map((item) => {
           const IconComp = item.icon;
           return (
