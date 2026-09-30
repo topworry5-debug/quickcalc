@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import {
   TrendingUp,
+  TrendingDown,
   PiggyBank,
   CreditCard,
   Building2,
@@ -13,6 +14,34 @@ import {
 
 export default function FeaturedCalculators() {
   const featured = [
+    {
+      id: "featured-debt-snowball",
+      title: "Debt Snowball vs. Avalanche Calculator",
+      badge: "Snowball vs Avalanche",
+      badgeColor: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/20",
+      description:
+        "Compare Dave Ramsey's Debt Snowball with the Debt Avalanche method. Calculate payoff dates, total interest saved, and build a custom multi-debt plan.",
+      icon: TrendingDown,
+      iconColor: "text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 border-indigo-500/30",
+      href: "/calculators/debt-snowball-vs-avalanche-calculator",
+      actionText: "Compare Strategies",
+      hoverBorder: "hover:border-indigo-500/50",
+      actionColor: "text-indigo-600 dark:text-indigo-400",
+    },
+    {
+      id: "featured-credit-card",
+      title: "Credit Card Payoff Calculator",
+      badge: "Debt Free",
+      badgeColor: "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20",
+      description:
+        "Find your exact debt-free date, calculate compound interest charges, and see how extra monthly payments slash years off card debt.",
+      icon: CreditCard,
+      iconColor: "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/30",
+      href: "/calculators/credit-card-payoff-calculator",
+      actionText: "Calculate Payoff",
+      hoverBorder: "hover:border-rose-500/50",
+      actionColor: "text-rose-600 dark:text-rose-400",
+    },
     {
       id: "featured-paycheck",
       title: "US State Paycheck Calculators Hub",
@@ -55,20 +84,6 @@ export default function FeaturedCalculators() {
       hoverBorder: "hover:border-teal-500/50",
       actionColor: "text-teal-600 dark:text-teal-400",
     },
-    {
-      id: "featured-credit-card",
-      title: "Credit Card Payoff Calculator",
-      badge: "Debt Free",
-      badgeColor: "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20",
-      description:
-        "Find your exact debt-free date, calculate compound interest charges, and see how extra monthly payments slash years off card debt.",
-      icon: CreditCard,
-      iconColor: "text-rose-600 dark:text-rose-400 bg-rose-500/10 border-rose-500/30",
-      href: "/calculators/credit-card-payoff-calculator",
-      actionText: "Calculate Payoff",
-      hoverBorder: "hover:border-rose-500/50",
-      actionColor: "text-rose-600 dark:text-rose-400",
-    },
   ];
 
   return (
@@ -86,12 +101,12 @@ export default function FeaturedCalculators() {
             Featured Financial &amp; Retirement Calculators
           </h2>
           <p className="text-xs sm:text-sm text-ink-muted mt-1 max-w-2xl">
-            Explore our most popular interactive planning engines for wealth building, retirement runway, and debt freedom.
+            Explore our most popular interactive planning engines for wealth building, debt elimination, and retirement runway.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         {featured.map((item) => {
           const IconComp = item.icon;
           return (

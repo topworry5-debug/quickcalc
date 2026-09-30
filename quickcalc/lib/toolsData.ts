@@ -188,6 +188,17 @@ export const tools: Tool[] = [
     popular: true
   },
   {
+    title: "Debt Snowball vs. Avalanche Calculator",
+    description: "Compare Dave Ramsey's Debt Snowball with the Debt Avalanche method. Calculate payoff dates, total interest saved, and build a custom multi-debt plan.",
+    icon: "debt-snowball",
+    href: "/calculators/debt-snowball-vs-avalanche-calculator",
+    color: "from-indigo-600 to-teal-600",
+    textColor: "text-indigo-600 dark:text-indigo-400",
+    category: "Finance",
+    popular: true,
+    badge: "Snowball vs Avalanche"
+  },
+  {
     title: "Loan / EMI Calculator",
     description: "Calculate monthly installments, interest payments, and view a comprehensive year-by-year amortization schedule.",
     icon: "loan",
@@ -241,17 +252,7 @@ export const tools: Tool[] = [
     popular: true,
     badge: "50 States"
   },
-  {
-    title: "OASDI Tax Calculator",
-    description: "Calculate your exact OASDI tax and Social Security payroll deduction for 2026 with the $184,500 wage base limit.",
-    icon: "oasdi-tax",
-    href: "/tools/oasdi-tax-calculator",
-    color: "from-blue-600 to-indigo-600",
-    textColor: "text-blue-600 dark:text-blue-400",
-    category: "Finance",
-    popular: true,
-    badge: "2026 Cap"
-  },
+
   {
     title: "Work Hours / Timesheet Calculator",
     description: "Calculate daily shift hours, break deductions, overnight work, and weekly gross pay with 1.5x overtime rules.",
