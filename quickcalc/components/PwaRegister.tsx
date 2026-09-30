@@ -5,6 +5,29 @@ import { useEffect } from "react";
 export default function PwaRegister() {
   useEffect(() => {
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      const isLocalhost =
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1" ||
+        window.location.hostname === "::1" ||
+        process.env.NODE_ENV !== "production";
+
+      // On localhost/dev, always unregister SW to avoid caching stale webpack chunks
+      if (isLocalhost) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (const registration of registrations) {
+            registration.unregister();
+          }
+        });
+        if ("caches" in window) {
+          caches.keys().then((keys) => {
+            for (const key of keys) {
+              caches.delete(key);
+            }
+          });
+        }
+        return;
+      }
+
       const registerSw = () => {
         navigator.serviceWorker
           .register("/sw.js")

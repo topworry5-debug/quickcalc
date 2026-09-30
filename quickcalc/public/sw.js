@@ -45,6 +45,11 @@ self.addEventListener("fetch", (event) => {
   // Skip cross-origin or extension requests
   if (url.origin !== self.location.origin) return;
 
+  // CRITICAL: Never intercept /_next/ dynamic chunks, build assets, or API requests
+  if (url.pathname.startsWith("/_next/") || url.pathname.startsWith("/api/")) {
+    return;
+  }
+
   // Skip sitemaps and robots.txt so SEO crawlers always hit network
   if (url.pathname.endsWith(".xml") || url.pathname === "/robots.txt" || url.pathname === "/ads.txt") {
     return;
@@ -64,8 +69,11 @@ self.addEventListener("fetch", (event) => {
           return networkResponse;
         })
         .catch(() => {
-          // If network fails (offline), return cached response or fallback to app shell
-          return cachedResponse || caches.match("/");
+          // If network fails (offline), return cached response or fallback to app shell ONLY for navigation requests
+          if (request.mode === "navigate") {
+            return cachedResponse || caches.match("/");
+          }
+          return cachedResponse;
         });
 
       return cachedResponse || fetchPromise;
