@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ShareButtons from "@/components/ShareButtons";
 import EmbedWidget from "@/components/EmbedWidget";
 import RelatedTools from "@/components/RelatedTools";
-import MoneyRunwayWidget from "./MoneyRunwayWidget";
 import {
   TrendingUp,
   ShieldCheck,
@@ -15,6 +15,27 @@ import {
   BookOpen,
   HelpCircle,
 } from "lucide-react";
+
+// Client-only dynamic import to ensure zero hydration mismatches and reliable client controls
+const MoneyRunwayWidget = dynamic(() => import("./MoneyRunwayWidget"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 sm:p-8 shadow-xl animate-pulse space-y-6">
+      <div className="h-6 bg-zinc-200 dark:bg-zinc-800 rounded-lg w-1/4" />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="lg:col-span-5 space-y-4">
+          <div className="h-20 bg-zinc-100 dark:bg-zinc-850 rounded-2xl" />
+          <div className="h-20 bg-zinc-100 dark:bg-zinc-850 rounded-2xl" />
+          <div className="h-20 bg-zinc-100 dark:bg-zinc-850 rounded-2xl" />
+        </div>
+        <div className="lg:col-span-7 space-y-4">
+          <div className="h-32 bg-zinc-100 dark:bg-zinc-850 rounded-2xl" />
+          <div className="h-48 bg-zinc-100 dark:bg-zinc-850 rounded-2xl" />
+        </div>
+      </div>
+    </div>
+  ),
+});
 
 export const metadata: Metadata = {
   title: "How Long Will My Money Last Calculator | QuickCalc",
@@ -146,7 +167,15 @@ export default function HowLongWillMyMoneyLastPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
         />
         <main className="max-w-4xl mx-auto w-full">
-          <MoneyRunwayWidget />
+          <Suspense
+            fallback={
+              <div className="p-8 text-center text-zinc-500 animate-pulse">
+                Loading financial runway calculator...
+              </div>
+            }
+          >
+            <MoneyRunwayWidget />
+          </Suspense>
         </main>
       </div>
     );

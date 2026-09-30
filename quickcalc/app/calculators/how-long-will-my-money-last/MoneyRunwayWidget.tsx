@@ -99,32 +99,49 @@ export default function MoneyRunwayWidget() {
 
   // Handle CSV export
   const handleDownloadCSV = () => {
-    if (!result.yearlySchedule || result.yearlySchedule.length === 0) return;
-    const csvContent = generateScheduleCSV(result.yearlySchedule);
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", `money-runway-schedule-${savings}-savings.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      if (typeof window === "undefined" || typeof document === "undefined") return;
+      if (!result.yearlySchedule || result.yearlySchedule.length === 0) return;
+      const csvContent = generateScheduleCSV(result.yearlySchedule);
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", `money-runway-schedule-${savings}-savings.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error("Failed to download CSV:", e);
+    }
   };
 
   // Copy shareable summary
-  const handleCopySummary = () => {
-    const text = `💰 Savings & Retirement Runway Summary (QuickCalc):
+  const handleCopySummary = async () => {
+    try {
+      const currentUrl =
+        typeof window !== "undefined"
+          ? window.location.href
+          : "https://quickcalc.cloud/calculators/how-long-will-my-money-last";
+
+      const text = `💰 Savings & Retirement Runway Summary (QuickCalc):
 • Initial Savings: ${formatCurrency(savings)}
 • Monthly Spend: ${formatCurrency(spend)}/mo
 • Expected Return: ${returnRate}% | Inflation: ${adjustInflation ? `${inflationRate}%` : "Off"}
 • Starting Withdrawal Rate: ${result.initialWithdrawalRate.toFixed(1)}% (${result.swrStatusLabel})
 👉 Result: ${result.totalYearsAndMonths}
 ${result.depletionAgeText}
-Calculate yours: ${typeof window !== "undefined" ? window.location.href : "https://quickcalc.cloud/calculators/how-long-will-my-money-last"}`;
+Calculate yours: ${currentUrl}`;
 
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+      if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+      }
+    } catch (e) {
+      console.error("Failed to copy summary:", e);
+    }
   };
 
   // Reset to defaults
@@ -138,7 +155,7 @@ Calculate yours: ${typeof window !== "undefined" ? window.location.href : "https
   };
 
   // SVG Chart Dimensions & Calculations
-  const chartPoints = result.chartData;
+  const chartPoints = useMemo(() => result.chartData || [], [result.chartData]);
   const svgWidth = 700;
   const svgHeight = 280;
   const padLeft = 65;
@@ -185,23 +202,27 @@ Calculate yours: ${typeof window !== "undefined" ? window.location.href : "https
   // Handle Chart Pointer Movement for Tooltips
   const handleChartMouseMove = (e: React.MouseEvent<SVGSVGElement> | React.TouchEvent<SVGSVGElement>) => {
     if (!chartSvgRef.current || pointCoordinates.length === 0) return;
-    const rect = chartSvgRef.current.getBoundingClientRect();
-    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
-    const relativeX = ((clientX - rect.left) / rect.width) * svgWidth;
+    try {
+      const rect = chartSvgRef.current.getBoundingClientRect();
+      if (!rect || rect.width <= 0) return;
+      const clientX =
+        "touches" in e && e.touches.length > 0 ? e.touches[0].clientX : "clientX" in e ? e.clientX : 0;
+      const relativeX = ((clientX - rect.left) / rect.width) * svgWidth;
 
-    // Find nearest point
-    let closestIndex = 0;
-    let minDistance = Infinity;
+      let closestIndex = 0;
+      let minDistance = Infinity;
 
-    pointCoordinates.forEach((coord, idx) => {
-      const dist = Math.abs(coord.x - relativeX);
-      if (dist < minDistance) {
-        minDistance = dist;
-        closestIndex = idx;
-      }
-    });
+      pointCoordinates.forEach((coord, idx) => {
+        if (!coord) return;
+        const dist = Math.abs(coord.x - relativeX);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestIndex = idx;
+        }
+      });
 
-    setHoveredPointIndex(closestIndex);
+      setHoveredPointIndex(closestIndex);
+    } catch {}
   };
 
   const handleChartMouseLeave = () => {
@@ -209,7 +230,11 @@ Calculate yours: ${typeof window !== "undefined" ? window.location.href : "https
   };
 
   const activePoint =
-    hoveredPointIndex !== null && chartPoints[hoveredPointIndex]
+    hoveredPointIndex !== null &&
+    chartPoints &&
+    chartPoints[hoveredPointIndex] &&
+    pointCoordinates &&
+    pointCoordinates[hoveredPointIndex]
       ? {
           data: chartPoints[hoveredPointIndex],
           coord: pointCoordinates[hoveredPointIndex],
@@ -705,16 +730,17 @@ Calculate yours: ${typeof window !== "undefined" ? window.location.href : "https
 
                   {/* X-axis year ticks */}
                   {chartPoints
-                    .filter((_, idx) => {
+                    .map((pt, idx) => ({ pt, idx }))
+                    .filter(({ idx }) => {
                       if (chartPoints.length <= 15) return true;
                       if (chartPoints.length <= 30) return idx % 5 === 0 || idx === chartPoints.length - 1;
                       return idx % 10 === 0 || idx === chartPoints.length - 1;
                     })
-                    .map((pt) => {
-                      const coord = pointCoordinates[pt.year];
+                    .map(({ pt, idx }) => {
+                      const coord = pointCoordinates[idx];
                       if (!coord) return null;
                       return (
-                        <g key={pt.year}>
+                        <g key={`${pt.year}-${idx}`}>
                           <line
                             x1={coord.x}
                             y1={padTop + plotHeight}
