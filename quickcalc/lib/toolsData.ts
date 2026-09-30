@@ -271,6 +271,17 @@ export const tools: Tool[] = [
     category: "Finance"
   },
   {
+    title: "How Long Will My Money Last? (Runway Calculator)",
+    description: "Calculate how many years your savings and retirement nest egg will last with live compounding yield, customizable inflation, and visual runway charts.",
+    icon: "retirement",
+    href: "/calculators/how-long-will-my-money-last",
+    color: "from-emerald-600 to-teal-700",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true,
+    badge: "Runway Tool"
+  },
+  {
     title: "Color Palette Generator",
     description: "Extract up to 8 beautiful dominant colors from any image. Analyze WCAG contrast compliance and export custom CSS/Tailwind configurations.",
     icon: "color-palette",

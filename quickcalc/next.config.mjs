@@ -81,6 +81,15 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/tools/how-long-will-my-money-last",
+        destination: "/calculators/how-long-will-my-money-last",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
