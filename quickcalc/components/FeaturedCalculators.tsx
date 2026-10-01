@@ -8,6 +8,7 @@ import {
   PiggyBank,
   CreditCard,
   Building2,
+  Banknote,
   ArrowRight,
   Sparkles,
 } from "lucide-react";
@@ -57,6 +58,20 @@ export default function FeaturedCalculators() {
       actionColor: "text-blue-600 dark:text-blue-400",
     },
     {
+      id: "featured-hourly-salary",
+      title: "Hourly to Salary Converter",
+      badge: "Wage Engine",
+      badgeColor: "bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/20",
+      description:
+        "Convert hourly wage to annual salary, monthly, bi-weekly, and weekly pay with overtime (1.5x), unpaid vacation, and bonus adjustments.",
+      icon: Banknote,
+      iconColor: "text-cyan-600 dark:text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+      href: "/calculators/hourly-to-salary-calculator",
+      actionText: "Convert Wage",
+      hoverBorder: "hover:border-cyan-500/50",
+      actionColor: "text-cyan-600 dark:text-cyan-400",
+    },
+    {
       id: "featured-ramsey",
       title: "Dave Ramsey Investment Calculator",
       badge: "Baby Step 4",
@@ -101,12 +116,12 @@ export default function FeaturedCalculators() {
             Featured Financial &amp; Retirement Calculators
           </h2>
           <p className="text-xs sm:text-sm text-ink-muted mt-1 max-w-2xl">
-            Explore our most popular interactive planning engines for wealth building, debt elimination, and retirement runway.
+            Explore our most popular interactive planning engines for wealth building, debt elimination, take-home wages, and retirement runway.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {featured.map((item) => {
           const IconComp = item.icon;
           return (

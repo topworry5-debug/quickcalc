@@ -194,6 +194,11 @@ const iconMap: Record<string, LucideIcon> = {
   "paycheck-calculators": MapPin,
   "debt-snowball": TrendingDown,
   "debt-avalanche": TrendingDown,
+  "debt-snowball-vs-avalanche": TrendingDown,
+  "hourly-to-salary": Banknote,
+  "hourly-salary": Banknote,
+  "retirement-runway": PiggyBank,
+  "paycheck-calculator": Building2,
 };
 
 // Also map raw emoji or legacy icon names to icons

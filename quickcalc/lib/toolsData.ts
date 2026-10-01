@@ -617,5 +617,71 @@ export const tools: Tool[] = [
     textColor: "text-emerald-600 dark:text-emerald-400",
     category: "Finance",
     popular: true
+  },
+  {
+    title: "Dave Ramsey Investment Calculator",
+    description: "Calculate compound retirement growth using Dave Ramsey's 15% rule and recommended 4-fund mutual fund portfolio distribution.",
+    icon: "ramsey-investment",
+    href: "/calculators/ramsey-investment-calculator",
+    color: "from-emerald-600 via-teal-600 to-green-500",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true,
+    badge: "15% Rule"
+  },
+  {
+    title: "Savings Runway & Retirement Calculator",
+    description: "Simulate how long your retirement nest egg will last with compounding yield, annual inflation adjustments, and SWR risk gauges.",
+    icon: "retirement-runway",
+    href: "/calculators/how-long-will-my-money-last",
+    color: "from-teal-600 via-cyan-600 to-emerald-500",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "Safe SWR"
+  },
+  {
+    title: "Credit Card Payoff Calculator",
+    description: "Find your debt-free date, calculate compound interest charges, and see how extra monthly payments eliminate card balances years sooner.",
+    icon: "credit-card",
+    href: "/calculators/credit-card-payoff-calculator",
+    color: "from-rose-500 via-pink-600 to-amber-500",
+    textColor: "text-rose-600 dark:text-rose-400",
+    category: "Finance",
+    popular: true,
+    badge: "Debt Free"
+  },
+  {
+    title: "US State Paycheck Calculators Hub",
+    description: "Calculate take-home salary or hourly wages across all 50 US states with 2026 federal brackets, state taxes, and FICA deductions.",
+    icon: "paycheck-calculator",
+    href: "/calculators/paycheck-calculator",
+    color: "from-blue-600 via-cyan-600 to-teal-500",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Finance",
+    popular: true,
+    badge: "50 States"
+  },
+  {
+    title: "Hourly to Salary Converter",
+    description: "Convert hourly pay into equivalent annual salary, monthly, bi-weekly, and weekly pay with overtime (1.5x) and unpaid time off.",
+    icon: "hourly-to-salary",
+    href: "/calculators/hourly-to-salary-calculator",
+    color: "from-cyan-600 via-teal-600 to-blue-500",
+    textColor: "text-cyan-600 dark:text-cyan-400",
+    category: "Finance",
+    popular: true,
+    badge: "Wage Engine"
+  },
+  {
+    title: "Debt Snowball vs. Avalanche Calculator",
+    description: "Compare Dave Ramsey's Debt Snowball with Debt Avalanche. Calculate payoff dates, total interest saved, and build a custom multi-debt plan.",
+    icon: "debt-snowball-vs-avalanche",
+    href: "/calculators/debt-snowball-vs-avalanche-calculator",
+    color: "from-indigo-600 via-purple-600 to-pink-500",
+    textColor: "text-indigo-600 dark:text-indigo-400",
+    category: "Finance",
+    popular: true,
+    badge: "Snowball vs Avalanche"
   }
 ];
