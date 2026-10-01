@@ -727,5 +727,16 @@ export const tools: Tool[] = [
     category: "Finance",
     popular: true,
     badge: "Tax-Free"
+  },
+  {
+    title: "Rent vs. Buy Calculator",
+    description: "Compare the true costs and net worth outcomes of renting versus buying a home, including mortgage rates, opportunity costs, and break-even timelines.",
+    icon: "rent-vs-buy",
+    href: "/calculators/rent-vs-buy-calculator",
+    color: "from-teal-600 via-emerald-600 to-indigo-600",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "Rent vs Buy"
   }
 ];

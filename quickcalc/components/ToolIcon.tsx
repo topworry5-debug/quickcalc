@@ -213,6 +213,8 @@ const iconMap: Record<string, LucideIcon> = {
   "car-loan": Car,
   "roth-ira": PiggyBank,
   "roth-ira-calculator": PiggyBank,
+  "rent-vs-buy": Scale,
+  "rent-buy": Scale,
 };
 
 // Also map raw emoji or legacy icon names to icons
