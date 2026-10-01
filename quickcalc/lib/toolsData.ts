@@ -694,5 +694,16 @@ export const tools: Tool[] = [
     category: "Finance",
     popular: true,
     badge: "FDIC Yield"
+  },
+  {
+    title: "15-Year vs. 30-Year Mortgage Calculator",
+    description: "Compare 15-year and 30-year fixed mortgages side-by-side. Calculate exact monthly payments, lifetime interest savings, and investing opportunity costs.",
+    icon: "mortgage-15-vs-30",
+    href: "/calculators/mortgage-15-vs-30-year-calculator",
+    color: "from-blue-600 via-teal-600 to-emerald-500",
+    textColor: "text-blue-600 dark:text-blue-400",
+    category: "Finance",
+    popular: true,
+    badge: "15 vs 30 Yr"
   }
 ];

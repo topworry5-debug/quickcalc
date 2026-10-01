@@ -51,6 +51,7 @@ import {
   Car,
   MapPin,
   CreditCard,
+  Home,
   LucideIcon,
 } from "lucide-react";
 
@@ -202,6 +203,10 @@ const iconMap: Record<string, LucideIcon> = {
   cd: Landmark,
   "cd-calculator": Landmark,
   "certificate-deposit": Landmark,
+  mortgage: Home,
+  "mortgage-15-vs-30": Home,
+  "mortgage-calculator": Home,
+  "mortgage-comparison": Home,
 };
 
 // Also map raw emoji or legacy icon names to icons

@@ -138,6 +138,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/calculators/mortgage-15-vs-30-year-calculator" className="hover:text-blue-600 dark:text-blue-400 transition-colors font-medium text-blue-600 dark:text-blue-400">
+                  15-Year vs. 30-Year Mortgage Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/arkansas-salary-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-emerald-600 dark:text-emerald-400">
                   Arkansas Salary Calculator
                 </Link>
