@@ -683,5 +683,16 @@ export const tools: Tool[] = [
     category: "Finance",
     popular: true,
     badge: "Snowball vs Avalanche"
+  },
+  {
+    title: "CD Calculator (Certificate of Deposit)",
+    description: "Calculate CD maturity value, compound APY growth (daily/monthly), estimated tax deductions, and early exit penalty costs.",
+    icon: "cd-calculator",
+    href: "/calculators/cd-calculator",
+    color: "from-teal-600 via-emerald-600 to-cyan-500",
+    textColor: "text-teal-600 dark:text-teal-400",
+    category: "Finance",
+    popular: true,
+    badge: "FDIC Yield"
   }
 ];

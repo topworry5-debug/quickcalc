@@ -133,6 +133,11 @@ export default function Footer({ customText }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/calculators/cd-calculator" className="hover:text-teal-600 dark:text-teal-400 transition-colors font-medium text-teal-600 dark:text-teal-400">
+                  CD Calculator (Certificate of Deposit)
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/arkansas-salary-calculator" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors font-medium text-emerald-600 dark:text-emerald-400">
                   Arkansas Salary Calculator
                 </Link>
