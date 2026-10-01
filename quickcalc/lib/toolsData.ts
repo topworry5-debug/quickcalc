@@ -705,5 +705,16 @@ export const tools: Tool[] = [
     category: "Finance",
     popular: true,
     badge: "15 vs 30 Yr"
+  },
+  {
+    title: "Auto Loan Refinance & Payoff Calculator",
+    description: "Compare your current car loan against new refinance rates, calculate monthly savings, break-even period, and see the impact of extra monthly payoff payments.",
+    icon: "auto-refinance",
+    href: "/calculators/auto-loan-refinance-calculator",
+    color: "from-emerald-600 via-teal-600 to-cyan-500",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true,
+    badge: "Refinance"
   }
 ];

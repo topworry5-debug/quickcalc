@@ -207,6 +207,10 @@ const iconMap: Record<string, LucideIcon> = {
   "mortgage-15-vs-30": Home,
   "mortgage-calculator": Home,
   "mortgage-comparison": Home,
+  "auto-loan": Car,
+  "auto-refinance": Car,
+  "auto-loan-refinance": Car,
+  "car-loan": Car,
 };
 
 // Also map raw emoji or legacy icon names to icons
