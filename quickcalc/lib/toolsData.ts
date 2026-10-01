@@ -716,5 +716,16 @@ export const tools: Tool[] = [
     category: "Finance",
     popular: true,
     badge: "Refinance"
+  },
+  {
+    title: "Roth IRA Growth Calculator",
+    description: "Project your tax-free retirement growth, compare against taxable accounts, track annual IRS contribution limits, and calculate compounding wealth.",
+    icon: "roth-ira",
+    href: "/calculators/roth-ira-calculator",
+    color: "from-emerald-500 via-teal-600 to-cyan-600",
+    textColor: "text-emerald-600 dark:text-emerald-400",
+    category: "Finance",
+    popular: true,
+    badge: "Tax-Free"
   }
 ];
